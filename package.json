@@ -1,0 +1,24 @@
+{
+  "name": "huodai-knowledge-base",
+  "version": "1.0.0",
+  "description": "货代专业知识库 - 国际物流学习导航平台 (get.huodaiagent.com)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "货代",
+    "国际物流",
+    "海运",
+    "空运",
+    "快递",
+    "FBA",
+    "知识库"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {}
+}
+

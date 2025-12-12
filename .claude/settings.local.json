@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node:*)",
+      "WebFetch(domain:www.w3ccoo.com)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(powershell:*)",
+      "Bash(mkdir:*)"
+    ],
+    "deny": []
+  }
+}

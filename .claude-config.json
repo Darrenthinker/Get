@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "memory": {
+      "command": "npx",
+      "args": [
+        "@doobidoo/mcp-memory-service"
+      ],
+      "env": {
+        "MEMORY_DB_PATH": "./project-memory.db",
+        "MEMORY_SCOPE": "project"
+      }
+    }
+  }
+}
