@@ -31,7 +31,8 @@
                     <path d="m21 21-4.35-4.35"></path>
                 </svg>
                 <input type="text" id="searchInput" placeholder="搜索知识..." autocomplete="off">
-                <kbd class="search-kbd">Ctrl K</kbd>
+                <!-- 内联搜索结果 -->
+                <div class="search-dropdown" id="searchDropdown"></div>
             </div>
         </div>
         <div class="header-right">
@@ -51,7 +52,6 @@
                     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                 </svg>
             </button>
-            <a href="https://get.huodaiagent.com" class="nav-link" target="_blank">get.huodaiagent.com</a>
         </div>
     </header>
 
@@ -59,6 +59,24 @@
         <!-- 左侧边栏 -->
         <aside class="sidebar" id="sidebar">
             <nav class="sidebar-nav">
+                <!-- 国家城市 - 按大洲分类 -->
+                <div class="nav-group">
+                    <div class="nav-group-title" data-group="countries">
+                        <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                        <span>国家城市</span>
+                    </div>
+                    <div class="nav-group-items" data-group="countries">
+                        <a href="#" class="nav-link" data-continent="asia">亚洲</a>
+                        <a href="#" class="nav-link" data-continent="europe">欧洲</a>
+                        <a href="#" class="nav-link" data-continent="north-america">北美洲</a>
+                        <a href="#" class="nav-link" data-continent="south-america">南美洲</a>
+                        <a href="#" class="nav-link" data-continent="africa">非洲</a>
+                        <a href="#" class="nav-link" data-continent="oceania">大洋洲</a>
+                    </div>
+                </div>
+
                 <!-- 专业知识 -->
                 <div class="nav-group">
                     <div class="nav-group-title" data-group="professional">
@@ -381,6 +399,7 @@
 
             <!-- 文章内容区域 -->
             <article class="article-content" id="articleContent" style="display: none;">
+                <div class="global-description" id="globalDescription" style="display: none;"></div>
                 <div class="article-header">
                     <nav class="breadcrumb" id="breadcrumb"></nav>
                     <h1 id="articleTitle"></h1>
@@ -401,20 +420,6 @@
         </main>
     </div>
 
-    <!-- 搜索弹窗 -->
-    <div class="search-modal" id="searchModal">
-        <div class="search-modal-content">
-            <div class="search-modal-header">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <path d="m21 21-4.35-4.35"></path>
-                </svg>
-                <input type="text" id="modalSearchInput" placeholder="搜索知识..." autofocus>
-                <kbd>Esc</kbd>
-            </div>
-            <div class="search-modal-results" id="modalSearchResults"></div>
-        </div>
-    </div>
 
     <script src="script.js"></script>
 </body>
