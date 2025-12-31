@@ -2079,11 +2079,11 @@ function generateCountryTabs(country) {
     const provinceCount = country.provinces?.length || 0;
     const customsPolicyCount = country.customsPolicies?.length || 0;
     
-    // 标签页导航 - 简洁下划线风格
+    // 标签页导航 - 简洁下划线风格（顺序：机场 航司 港口 船司 省份城市 清关政策）
     html += '<div class="country-tabs-horizontal">';
     if (airportCount > 0) html += `<button class="country-tab active" onclick="switchCountryTab(event, 'airports')">机场 <span class="tab-count">${airportCount}</span></button>`;
-    if (portCount > 0) html += `<button class="country-tab" onclick="switchCountryTab(event, 'ports')">港口 <span class="tab-count">${portCount}</span></button>`;
     if (airlineCount > 0) html += `<button class="country-tab" onclick="switchCountryTab(event, 'airlines')">航司 <span class="tab-count">${airlineCount}</span></button>`;
+    if (portCount > 0) html += `<button class="country-tab" onclick="switchCountryTab(event, 'ports')">港口 <span class="tab-count">${portCount}</span></button>`;
     if (shippingLineCount > 0) html += `<button class="country-tab" onclick="switchCountryTab(event, 'shipping')">船司 <span class="tab-count">${shippingLineCount}</span></button>`;
     if (provinceCount > 0) html += `<button class="country-tab" onclick="switchCountryTab(event, 'provinces')">省份城市 <span class="tab-count">${provinceCount}</span></button>`;
     if (customsPolicyCount > 0) html += `<button class="country-tab" onclick="switchCountryTab(event, 'customs')">清关政策 <span class="tab-count">${customsPolicyCount}</span></button>`;
@@ -2130,6 +2130,25 @@ function generateCountryTabs(country) {
         html += '</div></div>';
     }
     
+    // 航司面板
+    if (airlineCount > 0) {
+        html += '<div class="tab-panel" id="tab-airlines">';
+        html += `<div class="tab-header">
+            <h3>${country.name} · 已显示 ${airlineCount} 家航空公司</h3>
+        </div>`;
+        html += '<div class="data-list">';
+        country.airlines.forEach(a => {
+            html += `<div class="data-row">
+                <span class="data-code">${a.code}</span>
+                <span class="data-dot" style="background:#34d399"></span>
+                <span class="data-name-cn">${a.name}</span>
+                <span class="data-name-en">${a.nameEn}</span>
+                <span class="data-meta">${country.name} CN</span>
+            </div>`;
+        });
+        html += '</div></div>';
+    }
+    
     // 港口面板
     if (portCount > 0) {
         html += '<div class="tab-panel" id="tab-ports">';
@@ -2163,25 +2182,6 @@ function generateCountryTabs(country) {
                 </div>`;
             });
         }
-        html += '</div></div>';
-    }
-    
-    // 航司面板
-    if (airlineCount > 0) {
-        html += '<div class="tab-panel" id="tab-airlines">';
-        html += `<div class="tab-header">
-            <h3>${country.name} · 已显示 ${airlineCount} 家航空公司</h3>
-        </div>`;
-        html += '<div class="data-list">';
-        country.airlines.forEach(a => {
-            html += `<div class="data-row">
-                <span class="data-code">${a.code}</span>
-                <span class="data-dot" style="background:#34d399"></span>
-                <span class="data-name-cn">${a.name}</span>
-                <span class="data-name-en">${a.nameEn}</span>
-                <span class="data-meta">${country.name} CN</span>
-            </div>`;
-        });
         html += '</div></div>';
     }
     
