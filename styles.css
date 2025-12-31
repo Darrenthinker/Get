@@ -1259,23 +1259,17 @@ button {
     line-height: 1.7;
 }
 
-/* 横向标签导航 - 简洁下划线风格 */
+/* 横向标签导航 - 简洁下划线风格，均匀分布 */
 .country-tabs-horizontal {
     display: flex;
     gap: 0;
     border-bottom: 1px solid var(--c-border);
     margin-bottom: 0;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-}
-
-.country-tabs-horizontal::-webkit-scrollbar {
-    display: none;
 }
 
 .country-tab {
-    flex-shrink: 0;
-    padding: 16px 28px;
+    flex: 1;
+    padding: 18px 16px;
     border: none;
     background: transparent;
     color: var(--c-text-lighter);
@@ -1285,6 +1279,7 @@ button {
     transition: all 0.2s ease;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
     position: relative;
 }
@@ -1295,13 +1290,17 @@ button {
     bottom: -1px;
     left: 0;
     right: 0;
-    height: 2px;
+    height: 3px;
     background: transparent;
     transition: background 0.2s ease;
 }
 
 .country-tab:hover {
-    color: var(--c-text);
+    color: #1a73e8;
+}
+
+.country-tab:hover::after {
+    background: rgba(26, 115, 232, 0.3);
 }
 
 .country-tab.active {
@@ -1317,6 +1316,10 @@ button {
     font-size: 14px;
     font-weight: 400;
     color: var(--c-text-mute);
+}
+
+.country-tab:hover .tab-count {
+    color: #1a73e8;
 }
 
 .country-tab.active .tab-count {
