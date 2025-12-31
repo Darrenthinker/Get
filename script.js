@@ -33,116 +33,7 @@ const knowledgeBase = {
                     }
                 },
                 countries: {
-                    "china": { 
-                        name: "中国", 
-                        content: `<p>中国是全球最大的贸易国，拥有世界最繁忙的港口群。</p>`,
-                        keywords: ["上海港", "宁波港", "深圳港", "中国港口"],
-                        airports: {
-                            international: [
-                                { code: "PVG", name: "上海浦东国际机场", city: "上海", enName: "Shanghai Pudong International Airport" },
-                                { code: "PEK", name: "北京首都国际机场", city: "北京", enName: "Beijing Capital International Airport" },
-                                { code: "CAN", name: "广州白云国际机场", city: "广州", enName: "Guangzhou Baiyun International Airport" },
-                                { code: "SZX", name: "深圳宝安国际机场", city: "深圳", enName: "Shenzhen Bao'an International Airport" },
-                                { code: "CTU", name: "成都天府国际机场", city: "成都", enName: "Chengdu Tianfu International Airport" },
-                                { code: "KMG", name: "昆明长水国际机场", city: "昆明", enName: "Kunming Changshui International Airport" },
-                                { code: "XIY", name: "西安咸阳国际机场", city: "西安", enName: "Xi'an Xianyang International Airport" },
-                                { code: "URC", name: "乌鲁木齐地窝堡国际机场", city: "乌鲁木齐", enName: "Urumqi Diwopu International Airport" },
-                                { code: "HGH", name: "杭州萧山国际机场", city: "杭州", enName: "Hangzhou Xiaoshan International Airport" },
-                                { code: "NKG", name: "南京禄口国际机场", city: "南京", enName: "Nanjing Lukou International Airport" },
-                                { code: "XMN", name: "厦门高崎国际机场", city: "厦门", enName: "Xiamen Gaoqi International Airport" },
-                                { code: "TSN", name: "天津滨海国际机场", city: "天津", enName: "Tianjin Binhai International Airport" }
-                            ],
-                            domestic: [
-                                { code: "SHA", name: "上海虹桥机场", city: "上海", enName: "Shanghai Hongqiao Airport" },
-                                { code: "PKX", name: "北京大兴国际机场", city: "北京", enName: "Beijing Daxing International Airport" },
-                                { code: "WUH", name: "武汉天河机场", city: "武汉", enName: "Wuhan Tianhe Airport" },
-                                { code: "CKG", name: "重庆江北国际机场", city: "重庆", enName: "Chongqing Jiangbei International Airport" },
-                                { code: "SHE", name: "沈阳桃仙国际机场", city: "沈阳", enName: "Shenyang Taoxian International Airport" },
-                                { code: "DLC", name: "大连周水子国际机场", city: "大连", enName: "Dalian Zhoushuizi International Airport" },
-                                { code: "CSX", name: "长沙黄花国际机场", city: "长沙", enName: "Changsha Huanghua International Airport" },
-                                { code: "NGB", name: "宁波栎社国际机场", city: "宁波", enName: "Ningbo Lishe International Airport" }
-                            ]
-                        },
-                        ports: {
-                            international: [
-                                { code: "CNSHA", name: "上海港", city: "上海", enName: "Shanghai Port", description: "全球最大集装箱港，年吞吐量超4700万TEU" },
-                                { code: "CNNGB", name: "宁波舟山港", city: "宁波", enName: "Ningbo-Zhoushan Port", description: "货物吞吐量全球第一" },
-                                { code: "CNSZN", name: "深圳港", city: "深圳", enName: "Shenzhen Port", description: "华南最大港口，盐田港区全球知名" },
-                                { code: "CNCAN", name: "广州港", city: "广州", enName: "Guangzhou Port", description: "珠三角核心枢纽" },
-                                { code: "CNQIN", name: "青岛港", city: "青岛", enName: "Qingdao Port", description: "北方重要港口" },
-                                { code: "CNTXG", name: "天津港", city: "天津", enName: "Tianjin Port", description: "京津冀门户" },
-                                { code: "CNXMN", name: "厦门港", city: "厦门", enName: "Xiamen Port", description: "对台贸易重要港口" },
-                                { code: "CNDLC", name: "大连港", city: "大连", enName: "Dalian Port", description: "东北最大港口" },
-                                { code: "CNLYG", name: "连云港", city: "连云港", enName: "Lianyungang Port", description: "新亚欧大陆桥东桥头堡" },
-                                { code: "CNYTG", name: "烟台港", city: "烟台", enName: "Yantai Port", description: "环渤海重要港口" }
-                            ],
-                            domestic: [
-                                { code: "CNZHO", name: "舟山港", city: "舟山", enName: "Zhoushan Port", description: "重要渔业和油品港口" },
-                                { code: "CNFOS", name: "佛山港", city: "佛山", enName: "Foshan Port", description: "内河港口" },
-                                { code: "CNZHU", name: "珠海港", city: "珠海", enName: "Zhuhai Port", description: "珠江西岸重要港口" },
-                                { code: "CNQHD", name: "秦皇岛港", city: "秦皇岛", enName: "Qinhuangdao Port", description: "煤炭运输大港" }
-                            ]
-                        },
-                        provinces: [
-                            { name: "北京", cities: ["北京"] },
-                            { name: "上海", cities: ["上海"] },
-                            { name: "天津", cities: ["天津"] },
-                            { name: "重庆", cities: ["重庆"] },
-                            { name: "广东", cities: ["广州", "深圳", "珠海", "佛山", "东莞", "中山", "惠州", "江门", "肇庆", "汕头", "湛江", "茂名", "梅州", "汕尾", "河源", "阳江", "清远", "潮州", "揭阳", "云浮"] },
-                            { name: "江苏", cities: ["南京", "苏州", "无锡", "常州", "镇江", "扬州", "泰州", "南通", "盐城", "淮安", "宿迁", "连云港", "徐州"] },
-                            { name: "浙江", cities: ["杭州", "宁波", "温州", "嘉兴", "湖州", "绍兴", "金华", "衢州", "舟山", "台州", "丽水"] },
-                            { name: "山东", cities: ["济南", "青岛", "淄博", "枣庄", "东营", "烟台", "潍坊", "济宁", "泰安", "威海", "日照", "临沂", "德州", "聊城", "滨州", "菏泽"] },
-                            { name: "福建", cities: ["福州", "厦门", "莆田", "三明", "泉州", "漳州", "南平", "龙岩", "宁德"] },
-                            { name: "四川", cities: ["成都", "自贡", "攀枝花", "泸州", "德阳", "绵阳", "广元", "遂宁", "内江", "乐山", "南充", "眉山", "宜宾", "广安", "达州", "雅安", "巴中", "资阳"] },
-                            { name: "湖北", cities: ["武汉", "黄石", "十堰", "宜昌", "襄阳", "鄂州", "荆门", "孝感", "荆州", "黄冈", "咸宁", "随州"] },
-                            { name: "湖南", cities: ["长沙", "株洲", "湘潭", "衡阳", "邵阳", "岳阳", "常德", "张家界", "益阳", "郴州", "永州", "怀化", "娄底"] },
-                            { name: "河南", cities: ["郑州", "开封", "洛阳", "平顶山", "安阳", "鹤壁", "新乡", "焦作", "濮阳", "许昌", "漯河", "三门峡", "南阳", "商丘", "信阳", "周口", "驻马店"] },
-                            { name: "河北", cities: ["石家庄", "唐山", "秦皇岛", "邯郸", "邢台", "保定", "张家口", "承德", "沧州", "廊坊", "衡水"] },
-                            { name: "安徽", cities: ["合肥", "芜湖", "蚌埠", "淮南", "马鞍山", "淮北", "铜陵", "安庆", "黄山", "滁州", "阜阳", "宿州", "六安", "亳州", "池州", "宣城"] },
-                            { name: "辽宁", cities: ["沈阳", "大连", "鞍山", "抚顺", "本溪", "丹东", "锦州", "营口", "阜新", "辽阳", "盘锦", "铁岭", "朝阳", "葫芦岛"] },
-                            { name: "江西", cities: ["南昌", "景德镇", "萍乡", "九江", "新余", "鹰潭", "赣州", "吉安", "宜春", "抚州", "上饶"] },
-                            { name: "陕西", cities: ["西安", "铜川", "宝鸡", "咸阳", "渭南", "延安", "汉中", "榆林", "安康", "商洛"] },
-                            { name: "云南", cities: ["昆明", "曲靖", "玉溪", "保山", "昭通", "丽江", "普洱", "临沧"] },
-                            { name: "广西", cities: ["南宁", "柳州", "桂林", "梧州", "北海", "防城港", "钦州", "贵港", "玉林", "百色", "贺州", "河池", "来宾", "崇左"] },
-                            { name: "黑龙江", cities: ["哈尔滨", "齐齐哈尔", "鸡西", "鹤岗", "双鸭山", "大庆", "伊春", "佳木斯", "七台河", "牡丹江", "黑河", "绥化"] },
-                            { name: "吉林", cities: ["长春", "吉林", "四平", "辽源", "通化", "白山", "松原", "白城"] },
-                            { name: "山西", cities: ["太原", "大同", "阳泉", "长治", "晋城", "朔州", "晋中", "运城", "忻州", "临汾", "吕梁"] },
-                            { name: "内蒙古", cities: ["呼和浩特", "包头", "乌海", "赤峰", "通辽", "鄂尔多斯", "呼伦贝尔", "巴彦淖尔", "乌兰察布"] },
-                            { name: "新疆", cities: ["乌鲁木齐", "克拉玛依", "吐鲁番", "哈密"] },
-                            { name: "贵州", cities: ["贵阳", "六盘水", "遵义", "安顺", "毕节", "铜仁"] },
-                            { name: "海南", cities: ["海口", "三亚", "三沙", "儋州"] },
-                            { name: "甘肃", cities: ["兰州", "嘉峪关", "金昌", "白银", "天水", "武威", "张掖", "平凉", "酒泉", "庆阳", "定西", "陇南"] },
-                            { name: "宁夏", cities: ["银川", "石嘴山", "吴忠", "固原", "中卫"] },
-                            { name: "青海", cities: ["西宁", "海东"] },
-                            { name: "西藏", cities: ["拉萨", "日喀则", "昌都", "林芝", "山南", "那曲", "阿里"] }
-                        ],
-                        customsPolicies: [
-                            { 
-                                title: "一般贸易进口", 
-                                content: "适用于正常贸易方式进口的货物，需缴纳关税、增值税等。进口商需具备进出口经营权，需向海关提交报关单、合同、发票、装箱单等单证。" 
-                            },
-                            { 
-                                title: "跨境电商进口", 
-                                content: "通过跨境电商综合试验区进口的商品，享受单次交易限值5000元、年度交易限值26000元的税收优惠。税收按70%征收，适用于个人自用商品。" 
-                            },
-                            { 
-                                title: "保税仓储政策", 
-                                content: "货物可存放于保税区或保税仓库，暂缓缴纳关税。适合大批量进口后分批内销的企业。主要保税区包括上海外高桥、深圳前海、天津东疆等。" 
-                            },
-                            { 
-                                title: "AEO企业认证", 
-                                content: "经海关认证的经营者可享受快速通关、降低查验率等便利。分为高级认证和一般认证两个等级，与全球40多个国家实现互认。" 
-                            },
-                            { 
-                                title: "进口许可管理", 
-                                content: "部分商品需要取得进口许可证，如机电产品、农产品配额等。危险品进口需要办理危险化学品经营许可证。食品进口需要取得食品经营许可证和检验检疫证书。" 
-                            },
-                            { 
-                                title: "原产地证书", 
-                                content: "根据不同自贸协定，可享受相应关税减免。中国已签署RCEP、中韩、中澳等多个自贸协定。申请原产地证书可通过贸促会或海关办理。" 
-                            }
-                        ]
-                    },
+                    "china": { name: "中国", content: `<p>中国是全球最大的贸易国，拥有世界最繁忙的港口群。</p><h2>主要港口</h2><ul><li><strong>上海港</strong>：全球最大集装箱港，年吞吐量超4700万TEU</li><li><strong>宁波舟山港</strong>：货物吞吐量全球第一</li><li><strong>深圳港</strong>：华南最大港口，盐田港区全球知名</li><li><strong>广州港</strong>：珠三角核心枢纽</li><li><strong>青岛港</strong>：北方重要港口</li><li><strong>天津港</strong>：京津冀门户</li><li><strong>厦门港</strong>：对台贸易重要港口</li><li><strong>大连港</strong>：东北最大港口</li></ul>`, keywords: ["上海港", "宁波港", "深圳港", "中国港口"] },
                     "japan": { name: "日本", content: `<p>日本是亚洲发达经济体，港口设施先进。</p><h2>主要港口</h2><ul><li><strong>东京港</strong>：首都港口</li><li><strong>横滨港</strong>：关东最大港</li><li><strong>名古屋港</strong>：汽车出口重镇</li><li><strong>大阪港</strong>：关西枢纽</li><li><strong>神户港</strong>：历史名港</li><li><strong>博多港</strong>：九州门户</li></ul>`, keywords: ["东京港", "横滨港", "日本港口"] },
                     "korea": { name: "韩国", content: `<p>韩国是重要的制造业和航运国家。</p><h2>主要港口</h2><ul><li><strong>釜山港</strong>：全球第六大集装箱港</li><li><strong>仁川港</strong>：首都圈门户</li><li><strong>光阳港</strong>：现代化深水港</li></ul>`, keywords: ["釜山港", "韩国港口"] },
                     "taiwan": { name: "中国台湾", content: `<p>台湾是重要的电子产品制造和贸易中心。</p><h2>主要港口</h2><ul><li><strong>高雄港</strong>：台湾最大港口</li><li><strong>基隆港</strong>：北部主要港口</li><li><strong>台中港</strong>：中部工业港</li></ul>`, keywords: ["高雄港", "台湾港口"] },
@@ -1923,24 +1814,12 @@ function showCountryDetail(continentKey, countryKey) {
     document.getElementById('globalDescription').style.display = 'none';
     
     // 增加浏览量
-    const viewCountKey = `${country.name}概览`;
+    const viewCountKey = `${country.name}港口概览`;
     const viewCount = incrementViewCount(viewCountKey);
     
-    // 隐藏标题（面包屑已有国家名称）
-    document.getElementById('articleTitle').style.display = 'none';
-    
-    // 生成结构化内容
-    let contentHTML = '';
-    
-    // 如果有结构化数据，使用新模板
-    if (country.airports || country.ports || country.provinces) {
-        contentHTML = generateCountryDetailHTML(country);
-    } else {
-        // 否则使用旧的内容格式
-        contentHTML = country.content || '<p>暂无详细信息</p>';
-    }
-    
-    document.getElementById('articleBody').innerHTML = contentHTML;
+    // 填充内容
+    document.getElementById('articleTitle').textContent = country.name;
+    document.getElementById('articleBody').innerHTML = country.content;
     
     // 面包屑
     document.getElementById('breadcrumb').innerHTML = `
@@ -1951,12 +1830,13 @@ function showCountryDetail(continentKey, countryKey) {
         <span>${country.name}</span>
     `;
     
-    // 不显示关键词标签
-    document.getElementById('articleTags').innerHTML = '';
-    document.getElementById('articleTags').style.display = 'none';
+    // 标签
+    document.getElementById('articleTags').innerHTML = country.keywords.map(k => 
+        `<span class="article-tag">${k}</span>`
+    ).join('');
     
-    // 元信息 - 只显示浏览量数字，不显示"次阅读"
-    document.getElementById('articleMeta').innerHTML = `👁️ ${viewCount}`;
+    // 元信息
+    document.getElementById('articleMeta').innerHTML = `👁️ ${viewCount} 次阅读`;
     
     // 显示页脚
     document.querySelector('.article-footer').style.display = '';
@@ -1964,200 +1844,6 @@ function showCountryDetail(continentKey, countryKey) {
     
     // 滚动到顶部
     window.scrollTo(0, 0);
-}
-
-// ===== 生成国家详情HTML（Apple风格 + 标签导航） =====
-function generateCountryDetailHTML(country) {
-    let html = '';
-    
-    // 简介
-    if (country.content) {
-        html += `<div class="country-detail-intro">${country.content}</div>`;
-    }
-    
-    // 计算各项数量
-    const airportsCount = country.airports ? 
-        (country.airports.international?.length || 0) + (country.airports.domestic?.length || 0) : 0;
-    const portsCount = country.ports ? 
-        (country.ports.international?.length || 0) + (country.ports.domestic?.length || 0) : 0;
-    const provincesCount = country.provinces?.length || 0;
-    const customsCount = country.customsPolicies?.length || 0;
-    
-    // 确定哪些标签存在
-    const hasAirports = country.airports && airportsCount > 0;
-    const hasPorts = country.ports && portsCount > 0;
-    const hasProvinces = country.provinces && provincesCount > 0;
-    const hasCustoms = country.customsPolicies && customsCount > 0;
-    
-    // 确定默认激活的标签
-    let firstTab = '';
-    if (hasAirports) firstTab = 'airports';
-    else if (hasPorts) firstTab = 'ports';
-    else if (hasProvinces) firstTab = 'provinces';
-    else if (hasCustoms) firstTab = 'customs';
-    
-    // 标签导航 - 无图标，均匀分布
-    html += `<div class="country-tabs">`;
-    if (hasAirports) {
-        html += `<button class="country-tab${firstTab === 'airports' ? ' active' : ''}" onclick="switchTab('airports', this)">
-            <span class="tab-text">机场</span>
-            <span class="country-tab-count">${airportsCount}</span>
-        </button>`;
-    }
-    if (hasPorts) {
-        html += `<button class="country-tab${firstTab === 'ports' ? ' active' : ''}" onclick="switchTab('ports', this)">
-            <span class="tab-text">港口</span>
-            <span class="country-tab-count">${portsCount}</span>
-        </button>`;
-    }
-    if (hasProvinces) {
-        html += `<button class="country-tab${firstTab === 'provinces' ? ' active' : ''}" onclick="switchTab('provinces', this)">
-            <span class="tab-text">省份城市</span>
-            <span class="country-tab-count">${provincesCount}</span>
-        </button>`;
-    }
-    if (hasCustoms) {
-        html += `<button class="country-tab${firstTab === 'customs' ? ' active' : ''}" onclick="switchTab('customs', this)">
-            <span class="tab-text">清关政策</span>
-            <span class="country-tab-count">${customsCount}</span>
-        </button>`;
-    }
-    html += `</div>`;
-    
-    // 机场内容
-    if (country.airports) {
-        html += `<div id="tab-airports" class="tab-content${firstTab === 'airports' ? ' active' : ''}">`;
-        
-        if (country.airports.international && country.airports.international.length > 0) {
-            html += `<div class="subsection">
-                <h3 class="subsection-title">国际机场 (${country.airports.international.length})</h3>
-                <div class="items-grid">`;
-            country.airports.international.forEach(airport => {
-                html += `<div class="item-card">
-                    <div class="item-code">${airport.code}</div>
-                    <div class="item-name">${airport.name}</div>
-                    <div class="item-city">${airport.city}</div>
-                    <div class="item-en-name">${airport.enName}</div>
-                </div>`;
-            });
-            html += `</div></div>`;
-        }
-        
-        if (country.airports.domestic && country.airports.domestic.length > 0) {
-            html += `<div class="subsection">
-                <h3 class="subsection-title">国内机场 (${country.airports.domestic.length})</h3>
-                <div class="items-grid">`;
-            country.airports.domestic.forEach(airport => {
-                html += `<div class="item-card">
-                    <div class="item-code">${airport.code}</div>
-                    <div class="item-name">${airport.name}</div>
-                    <div class="item-city">${airport.city}</div>
-                    <div class="item-en-name">${airport.enName}</div>
-                </div>`;
-            });
-            html += `</div></div>`;
-        }
-        
-        html += `</div>`;
-    }
-    
-    // 港口内容
-    if (country.ports) {
-        html += `<div id="tab-ports" class="tab-content${firstTab === 'ports' ? ' active' : ''}">`;
-        
-        if (country.ports.international && country.ports.international.length > 0) {
-            html += `<div class="subsection">
-                <h3 class="subsection-title">国际港口 (${country.ports.international.length})</h3>
-                <div class="items-grid">`;
-            country.ports.international.forEach(port => {
-                html += `<div class="item-card">
-                    <div class="item-code">${port.code}</div>
-                    <div class="item-name">${port.name}</div>
-                    <div class="item-city">${port.city}</div>
-                    <div class="item-en-name">${port.enName}</div>
-                    ${port.description ? `<div class="item-desc">${port.description}</div>` : ''}
-                </div>`;
-            });
-            html += `</div></div>`;
-        }
-        
-        if (country.ports.domestic && country.ports.domestic.length > 0) {
-            html += `<div class="subsection">
-                <h3 class="subsection-title">国内港口 (${country.ports.domestic.length})</h3>
-                <div class="items-grid">`;
-            country.ports.domestic.forEach(port => {
-                html += `<div class="item-card">
-                    <div class="item-code">${port.code}</div>
-                    <div class="item-name">${port.name}</div>
-                    <div class="item-city">${port.city}</div>
-                    <div class="item-en-name">${port.enName}</div>
-                    ${port.description ? `<div class="item-desc">${port.description}</div>` : ''}
-                </div>`;
-            });
-            html += `</div></div>`;
-        }
-        
-        html += `</div>`;
-    }
-    
-    // 省份城市内容
-    if (country.provinces && country.provinces.length > 0) {
-        html += `<div id="tab-provinces" class="tab-content${firstTab === 'provinces' ? ' active' : ''}">
-            <div class="provinces-grid">`;
-        
-        country.provinces.forEach(province => {
-            html += `<div class="province-card">
-                <div class="province-name">${province.name}</div>
-                <div class="cities-list">`;
-            province.cities.forEach(city => {
-                html += `<span class="city-tag">${city}</span>`;
-            });
-            html += `</div></div>`;
-        });
-        
-        html += `</div></div>`;
-    }
-    
-    // 清关政策内容
-    if (country.customsPolicies && country.customsPolicies.length > 0) {
-        html += `<div id="tab-customs" class="tab-content${firstTab === 'customs' ? ' active' : ''}">
-            <div class="customs-grid">`;
-        
-        country.customsPolicies.forEach(policy => {
-            html += `<div class="customs-card">
-                <div class="customs-title">${policy.title}</div>
-                <div class="customs-content">${policy.content}</div>
-            </div>`;
-        });
-        
-        html += `</div></div>`;
-    }
-    
-    return html;
-}
-
-// ===== 标签切换函数 =====
-function switchTab(tabName, buttonElement) {
-    // 隐藏所有标签内容
-    document.querySelectorAll('.tab-content').forEach(content => {
-        content.classList.remove('active');
-    });
-    
-    // 移除所有标签按钮的active状态
-    document.querySelectorAll('.country-tab').forEach(tab => {
-        tab.classList.remove('active');
-    });
-    
-    // 显示选中的标签内容
-    const targetContent = document.getElementById('tab-' + tabName);
-    if (targetContent) {
-        targetContent.classList.add('active');
-    }
-    
-    // 激活当前标签按钮
-    if (buttonElement) {
-        buttonElement.classList.add('active');
-    }
 }
 
 // ===== 显示文章 =====
@@ -2179,7 +1865,6 @@ function showArticle(title) {
     document.getElementById('globalDescription').style.display = 'none';
     
     // 填充内容
-    document.getElementById('articleTitle').style.display = '';
     document.getElementById('articleTitle').textContent = article.data.title;
     document.getElementById('articleBody').innerHTML = article.data.content;
     
@@ -2192,7 +1877,6 @@ function showArticle(title) {
     `;
     
     // 标签
-    document.getElementById('articleTags').style.display = '';
     document.getElementById('articleTags').innerHTML = article.data.keywords.map(k => 
         `<span class="article-tag">${k}</span>`
     ).join('');
