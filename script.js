@@ -1854,6 +1854,7 @@ function showContinentCountries(continentKey) {
     }
     
     // 填充内容
+    document.getElementById('articleTitle').style.display = '';
     document.getElementById('articleTitle').textContent = continent.name;
     
     // 添加大洲介绍
@@ -1909,8 +1910,8 @@ function showCountryDetail(continentKey, countryKey) {
     // 浏览量key
     const viewCountKey = `${country.name}`;
     
-    // 填充标题
-    document.getElementById('articleTitle').textContent = country.name;
+    // 隐藏标题（标签页里已有国家名）
+    document.getElementById('articleTitle').style.display = 'none';
     
     // 判断是否有新的数据结构（带标签页）
     if (country.airports || country.ports) {
@@ -1961,6 +1962,7 @@ function showArticle(title) {
     document.getElementById('globalDescription').style.display = 'none';
     
     // 填充内容
+    document.getElementById('articleTitle').style.display = '';
     document.getElementById('articleTitle').textContent = article.data.title;
     document.getElementById('articleBody').innerHTML = article.data.content;
     

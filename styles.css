@@ -1263,78 +1263,109 @@ button {
 .country-tabs-horizontal {
     display: flex;
     gap: 0;
-    border-bottom: 1px solid var(--c-border);
-    margin-bottom: 0;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    margin-bottom: 32px;
+    background: transparent;
+}
+
+[data-theme="dark"] .country-tabs-horizontal {
+    border-bottom-color: rgba(255,255,255,0.1);
 }
 
 .country-tab {
     flex: 1;
-    padding: 20px 16px;
+    padding: 24px 16px;
     border: none;
     background: transparent;
-    color: var(--c-text-lighter);
-    font-size: 15px;
-    font-weight: 500;
+    color: #86868b;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
     cursor: pointer;
-    transition: color 0.2s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: inline-flex;
     align-items: flex-start;
     justify-content: center;
-    gap: 4px;
+    gap: 3px;
     position: relative;
+}
+
+.country-tab:hover {
+    color: #1d1d1f;
+}
+
+[data-theme="dark"] .country-tab {
+    color: #86868b;
+}
+
+[data-theme="dark"] .country-tab:hover {
+    color: #f5f5f7;
 }
 
 .country-tab::after {
     content: '';
     position: absolute;
-    bottom: -1px;
+    bottom: 0;
     left: 50%;
     width: 0;
-    height: 3px;
-    background: #1a73e8;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 2px;
+    background: linear-gradient(90deg, #0071e3, #42a5f5);
+    border-radius: 2px;
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
     transform: translateX(-50%);
-}
-
-.country-tab:hover {
-    color: #1a73e8;
+    opacity: 0;
 }
 
 .country-tab:hover::after {
-    width: 60%;
+    width: 50%;
+    opacity: 0.5;
 }
 
 .country-tab.active {
-    color: #1a73e8;
+    color: #0071e3;
     font-weight: 600;
+}
+
+[data-theme="dark"] .country-tab.active {
+    color: #2997ff;
 }
 
 .country-tab.active::after {
     width: 100%;
-    left: 0;
-    transform: translateX(0);
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 1;
 }
 
 /* 数字上标样式 */
 .tab-count {
-    font-size: 14px;
-    font-weight: 700;
-    color: #1d1d1f;
+    font-size: 12px;
+    font-weight: 600;
+    color: #86868b;
     position: relative;
-    top: -6px;
-    margin-left: 2px;
+    top: -8px;
+    margin-left: 1px;
+    transition: all 0.3s ease;
 }
 
 [data-theme="dark"] .tab-count {
-    color: #f5f5f7;
+    color: #86868b;
 }
 
 .country-tab:hover .tab-count {
-    color: #1a73e8;
+    color: #1d1d1f;
+}
+
+[data-theme="dark"] .country-tab:hover .tab-count {
+    color: #f5f5f7;
 }
 
 .country-tab.active .tab-count {
-    color: #1a73e8;
+    color: #0071e3;
+}
+
+[data-theme="dark"] .country-tab.active .tab-count {
+    color: #2997ff;
 }
 
 /* 标签页内容 */
@@ -1346,12 +1377,23 @@ button {
 .tab-panel {
     display: none;
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(16px);
 }
 
 .tab-panel.active {
     display: block;
-    animation: tabSlideIn 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation: tabSlideIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes tabSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes tabSlideIn {
@@ -1432,14 +1474,23 @@ button {
     display: flex;
     align-items: center;
     gap: 16px;
-    padding: 16px 20px;
-    background: var(--c-bg);
-    border-bottom: 1px solid var(--c-border-light);
-    transition: all 0.15s ease;
+    padding: 18px 24px;
+    background: transparent;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-theme="dark"] .data-row {
+    border-bottom-color: rgba(255,255,255,0.08);
 }
 
 .data-row:hover {
-    background: var(--c-bg-soft);
+    background: rgba(0,113,227,0.04);
+    padding-left: 28px;
+}
+
+[data-theme="dark"] .data-row:hover {
+    background: rgba(41,151,255,0.08);
 }
 
 .data-code {
