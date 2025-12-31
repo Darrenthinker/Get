@@ -1449,17 +1449,42 @@ const searchDropdown = document.getElementById('searchDropdown');
 // ===== 当前状态 =====
 let currentArticle = null;
 
-// ===== 浏览量管理 =====
-function getViewCount(articleTitle) {
-    const views = JSON.parse(localStorage.getItem('articleViews') || '{}');
-    return views[articleTitle] || 0;
+// ===== 浏览量管理 - 使用CountAPI实现真实全局计数 =====
+const NAMESPACE = 'huodai-knowledge-base';
+
+// 生成安全的key（只保留字母数字和连字符）
+function sanitizeKey(title) {
+    return encodeURIComponent(title).replace(/%/g, '-').substring(0, 64);
 }
 
-function incrementViewCount(articleTitle) {
-    const views = JSON.parse(localStorage.getItem('articleViews') || '{}');
-    views[articleTitle] = (views[articleTitle] || 0) + 1;
-    localStorage.setItem('articleViews', JSON.stringify(views));
-    return views[articleTitle];
+// 增加浏览量并获取当前值（真实API调用）
+async function incrementViewCount(articleTitle) {
+    const key = sanitizeKey(articleTitle);
+    try {
+        const response = await fetch(`https://api.countapi.xyz/hit/${NAMESPACE}/${key}`);
+        const data = await response.json();
+        return data.value || 1;
+    } catch (error) {
+        console.warn('CountAPI error:', error);
+        // 降级到本地存储
+        const views = JSON.parse(localStorage.getItem('articleViews') || '{}');
+        views[articleTitle] = (views[articleTitle] || 0) + 1;
+        localStorage.setItem('articleViews', JSON.stringify(views));
+        return views[articleTitle];
+    }
+}
+
+// 更新显示浏览量
+async function updateViewCountDisplay(articleTitle) {
+    const metaEl = document.getElementById('articleMeta');
+    metaEl.innerHTML = `👁️ ...`;
+    
+    try {
+        const count = await incrementViewCount(articleTitle);
+        metaEl.innerHTML = `👁️ ${count}`;
+    } catch (error) {
+        metaEl.innerHTML = `👁️ 1`;
+    }
 }
 
 // ===== 初始化 =====
@@ -1813,9 +1838,8 @@ function showCountryDetail(continentKey, countryKey) {
     // 隐藏全局说明
     document.getElementById('globalDescription').style.display = 'none';
     
-    // 增加浏览量
-    const viewCountKey = `${country.name}港口概览`;
-    const viewCount = incrementViewCount(viewCountKey);
+    // 浏览量key
+    const viewCountKey = `${country.name}`;
     
     // 填充内容
     document.getElementById('articleTitle').textContent = country.name;
@@ -1830,13 +1854,11 @@ function showCountryDetail(continentKey, countryKey) {
         <span>${country.name}</span>
     `;
     
-    // 标签
-    document.getElementById('articleTags').innerHTML = country.keywords.map(k => 
-        `<span class="article-tag">${k}</span>`
-    ).join('');
+    // 隐藏标签
+    document.getElementById('articleTags').innerHTML = '';
     
-    // 元信息
-    document.getElementById('articleMeta').innerHTML = `👁️ ${viewCount}`;
+    // 元信息 - 使用真实计数API
+    updateViewCountDisplay(viewCountKey);
     
     // 显示页脚
     document.querySelector('.article-footer').style.display = '';
@@ -1852,9 +1874,6 @@ function showArticle(title) {
     if (!article) return;
     
     currentArticle = article;
-    
-    // 增加浏览量
-    const viewCount = incrementViewCount(title);
     
     // 隐藏首页，显示文章
     homeContent.style.display = 'none';
@@ -1876,13 +1895,11 @@ function showArticle(title) {
         ${article.subcategoryTitle ? `<span class="separator">/</span><span>${article.subcategoryTitle}</span>` : ''}
     `;
     
-    // 标签
-    document.getElementById('articleTags').innerHTML = article.data.keywords.map(k => 
-        `<span class="article-tag">${k}</span>`
-    ).join('');
+    // 隐藏标签
+    document.getElementById('articleTags').innerHTML = '';
     
-    // 元信息 - 使用真实浏览量
-    document.getElementById('articleMeta').innerHTML = `👁️ ${viewCount}`;
+    // 元信息 - 使用真实计数API
+    updateViewCountDisplay(title);
     
     // 显示页脚
     document.querySelector('.article-footer').style.display = '';
