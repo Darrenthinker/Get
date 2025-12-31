@@ -1255,17 +1255,16 @@ button {
 .country-intro {
     font-size: 17px;
     color: var(--c-text-light);
-    margin-bottom: 32px;
+    margin-bottom: 24px;
     line-height: 1.7;
 }
 
-/* 横向标签导航 - 参考 mid.huodaiagent.com 风格 */
+/* 横向标签导航 - 简洁下划线风格 */
 .country-tabs-horizontal {
     display: flex;
-    gap: 8px;
-    padding: 16px 0;
+    gap: 0;
     border-bottom: 1px solid var(--c-border);
-    margin-bottom: 24px;
+    margin-bottom: 0;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
 }
@@ -1276,47 +1275,52 @@ button {
 
 .country-tab {
     flex-shrink: 0;
-    padding: 12px 24px;
+    padding: 16px 28px;
     border: none;
-    background: var(--c-bg-soft);
-    color: var(--c-text-light);
+    background: transparent;
+    color: var(--c-text-lighter);
     font-size: 15px;
     font-weight: 500;
-    border-radius: 8px;
     cursor: pointer;
     transition: all 0.2s ease;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
+    position: relative;
+}
+
+.country-tab::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: transparent;
+    transition: background 0.2s ease;
 }
 
 .country-tab:hover {
-    background: var(--c-bg-mute);
     color: var(--c-text);
 }
 
 .country-tab.active {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
-}
-
-.tab-count {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 22px;
-    height: 22px;
-    padding: 0 6px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 11px;
-    font-size: 12px;
+    color: #1a73e8;
     font-weight: 600;
 }
 
-.country-tab:not(.active) .tab-count {
-    background: var(--c-bg-mute);
+.country-tab.active::after {
+    background: #1a73e8;
+}
+
+.tab-count {
+    font-size: 14px;
+    font-weight: 400;
     color: var(--c-text-mute);
+}
+
+.country-tab.active .tab-count {
+    color: #1a73e8;
 }
 
 /* 标签页内容 */
@@ -1333,90 +1337,126 @@ button {
     display: block;
 }
 
+/* 蓝色标题栏 */
 .tab-header {
-    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #1a73e8 0%, #1557b0 100%);
+    color: white;
+    padding: 14px 20px;
+    border-radius: 8px;
+    margin-bottom: 0;
 }
 
 .tab-header h3 {
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--c-text);
+    font-size: 15px;
+    font-weight: 500;
+    color: white;
     margin: 0;
+}
+
+.tab-header-filters {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.tab-filter {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.tab-filter .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.tab-filter .dot.green {
+    background: #34d399;
+}
+
+.tab-filter .dot.orange {
+    background: #fbbf24;
 }
 
 /* 数据区块 */
 .data-section {
-    margin-bottom: 32px;
+    margin-bottom: 0;
 }
 
 .data-section h4 {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--c-text-light);
-    margin-bottom: 16px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--c-border-light);
+    display: none;
 }
 
 .data-list {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 0;
 }
 
 .data-row {
     display: flex;
     align-items: center;
     gap: 16px;
-    padding: 14px 18px;
-    background: var(--c-bg-soft);
-    border-radius: 10px;
-    transition: all 0.2s ease;
+    padding: 16px 20px;
+    background: var(--c-bg);
+    border-bottom: 1px solid var(--c-border-light);
+    transition: all 0.15s ease;
 }
 
 .data-row:hover {
-    background: var(--c-bg-mute);
-    transform: translateX(4px);
+    background: var(--c-bg-soft);
 }
 
 .data-code {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 60px;
-    padding: 6px 12px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    font-size: 13px;
+    min-width: 50px;
+    color: #1a73e8;
+    font-size: 14px;
     font-weight: 600;
     font-family: 'SF Mono', 'Fira Code', Consolas, monospace;
-    border-radius: 6px;
 }
 
-.data-name {
+.data-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #34d399;
+    flex-shrink: 0;
+}
+
+.data-name-cn {
     font-size: 15px;
     font-weight: 500;
     color: var(--c-text);
-    flex: 1;
+    min-width: 100px;
 }
 
 .data-name-en {
+    font-size: 14px;
+    color: var(--c-text-lighter);
+    flex: 1;
+}
+
+.data-meta {
     font-size: 13px;
     color: var(--c-text-mute);
+    text-align: right;
 }
 
 .data-city {
     font-size: 14px;
     color: var(--c-text-lighter);
-    padding: 4px 12px;
-    background: var(--c-bg-mute);
-    border-radius: 4px;
 }
 
 .data-desc {
     font-size: 14px;
     color: var(--c-text-lighter);
-    flex: 2;
+    flex: 1;
 }
 
 /* 省份城市网格 */

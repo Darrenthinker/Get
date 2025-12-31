@@ -2069,11 +2069,6 @@ function expandGroup(group) {
 function generateCountryTabs(country) {
     let html = '';
     
-    // 国家简介
-    if (country.intro) {
-        html += `<p class="country-intro">${country.intro}</p>`;
-    }
-    
     // 统计各类数据数量
     const airportCount = (country.airports?.international?.length || 0) + (country.airports?.domestic?.length || 0);
     const portCount = (country.ports?.international?.length || 0) + (country.ports?.domestic?.length || 0);
@@ -2082,7 +2077,7 @@ function generateCountryTabs(country) {
     const provinceCount = country.provinces?.length || 0;
     const customsPolicyCount = country.customsPolicies?.length || 0;
     
-    // 标签页导航
+    // 标签页导航 - 简洁下划线风格
     html += '<div class="country-tabs-horizontal">';
     if (airportCount > 0) html += `<button class="country-tab active" onclick="switchCountryTab(event, 'airports')">机场 <span class="tab-count">${airportCount}</span></button>`;
     if (portCount > 0) html += `<button class="country-tab" onclick="switchCountryTab(event, 'ports')">港口 <span class="tab-count">${portCount}</span></button>`;
@@ -2097,53 +2092,93 @@ function generateCountryTabs(country) {
     
     // 机场面板
     if (airportCount > 0) {
+        const intlCount = country.airports.international?.length || 0;
+        const domCount = country.airports.domestic?.length || 0;
         html += '<div class="tab-panel active" id="tab-airports">';
-        html += '<div class="tab-header"><h3>机场信息</h3></div>';
-        if (country.airports.international?.length > 0) {
-            html += '<div class="data-section"><h4>国际机场</h4><div class="data-list">';
+        html += `<div class="tab-header">
+            <h3>${country.name} · 已显示 ${airportCount} 个机场</h3>
+            <div class="tab-header-filters">
+                <span class="tab-filter"><span class="dot green"></span>国际机场</span>
+                <span class="tab-filter"><span class="dot orange"></span>国内机场</span>
+            </div>
+        </div>`;
+        html += '<div class="data-list">';
+        if (country.airports.international) {
             country.airports.international.forEach(a => {
-                html += `<div class="data-row"><span class="data-code">${a.code}</span><span class="data-name">${a.name}</span><span class="data-city">${a.city}</span></div>`;
+                html += `<div class="data-row">
+                    <span class="data-code">${a.code}</span>
+                    <span class="data-dot" style="background:#34d399"></span>
+                    <span class="data-name-cn">${a.name.replace('国际机场','').replace('机场','')}</span>
+                    <span class="data-name-en">${a.name}</span>
+                    <span class="data-meta">${country.name} CN · 亚洲</span>
+                </div>`;
             });
-            html += '</div></div>';
         }
-        if (country.airports.domestic?.length > 0) {
-            html += '<div class="data-section"><h4>国内枢纽机场</h4><div class="data-list">';
+        if (country.airports.domestic) {
             country.airports.domestic.forEach(a => {
-                html += `<div class="data-row"><span class="data-code">${a.code}</span><span class="data-name">${a.name}</span><span class="data-city">${a.city}</span></div>`;
+                html += `<div class="data-row">
+                    <span class="data-code">${a.code}</span>
+                    <span class="data-dot" style="background:#fbbf24"></span>
+                    <span class="data-name-cn">${a.name.replace('国际机场','').replace('机场','')}</span>
+                    <span class="data-name-en">${a.name}</span>
+                    <span class="data-meta">${country.name} CN · 亚洲</span>
+                </div>`;
             });
-            html += '</div></div>';
         }
-        html += '</div>';
+        html += '</div></div>';
     }
     
     // 港口面板
     if (portCount > 0) {
         html += '<div class="tab-panel" id="tab-ports">';
-        html += '<div class="tab-header"><h3>港口信息</h3></div>';
-        if (country.ports.international?.length > 0) {
-            html += '<div class="data-section"><h4>主要港口</h4><div class="data-list">';
+        html += `<div class="tab-header">
+            <h3>${country.name} · 已显示 ${portCount} 个港口</h3>
+            <div class="tab-header-filters">
+                <span class="tab-filter"><span class="dot green"></span>主要港口</span>
+                <span class="tab-filter"><span class="dot orange"></span>其他港口</span>
+            </div>
+        </div>`;
+        html += '<div class="data-list">';
+        if (country.ports.international) {
             country.ports.international.forEach(p => {
-                html += `<div class="data-row"><span class="data-code">${p.code}</span><span class="data-name">${p.name}</span><span class="data-desc">${p.desc || ''}</span></div>`;
+                html += `<div class="data-row">
+                    <span class="data-code">${p.code}</span>
+                    <span class="data-dot" style="background:#34d399"></span>
+                    <span class="data-name-cn">${p.name}</span>
+                    <span class="data-name-en">${p.desc || ''}</span>
+                    <span class="data-meta">${country.name} CN</span>
+                </div>`;
             });
-            html += '</div></div>';
         }
-        if (country.ports.domestic?.length > 0) {
-            html += '<div class="data-section"><h4>其他港口</h4><div class="data-list">';
+        if (country.ports.domestic) {
             country.ports.domestic.forEach(p => {
-                html += `<div class="data-row"><span class="data-code">${p.code}</span><span class="data-name">${p.name}</span><span class="data-desc">${p.desc || ''}</span></div>`;
+                html += `<div class="data-row">
+                    <span class="data-code">${p.code}</span>
+                    <span class="data-dot" style="background:#fbbf24"></span>
+                    <span class="data-name-cn">${p.name}</span>
+                    <span class="data-name-en">${p.desc || ''}</span>
+                    <span class="data-meta">${country.name} CN</span>
+                </div>`;
             });
-            html += '</div></div>';
         }
-        html += '</div>';
+        html += '</div></div>';
     }
     
     // 航司面板
     if (airlineCount > 0) {
         html += '<div class="tab-panel" id="tab-airlines">';
-        html += '<div class="tab-header"><h3>航空公司</h3></div>';
+        html += `<div class="tab-header">
+            <h3>${country.name} · 已显示 ${airlineCount} 家航空公司</h3>
+        </div>`;
         html += '<div class="data-list">';
         country.airlines.forEach(a => {
-            html += `<div class="data-row"><span class="data-code">${a.code}</span><span class="data-name">${a.name}</span><span class="data-name-en">${a.nameEn}</span></div>`;
+            html += `<div class="data-row">
+                <span class="data-code">${a.code}</span>
+                <span class="data-dot" style="background:#34d399"></span>
+                <span class="data-name-cn">${a.name}</span>
+                <span class="data-name-en">${a.nameEn}</span>
+                <span class="data-meta">${country.name} CN</span>
+            </div>`;
         });
         html += '</div></div>';
     }
@@ -2151,18 +2186,29 @@ function generateCountryTabs(country) {
     // 船司面板
     if (shippingLineCount > 0) {
         html += '<div class="tab-panel" id="tab-shipping">';
-        html += '<div class="tab-header"><h3>船运公司</h3></div>';
+        html += `<div class="tab-header">
+            <h3>${country.name} · 已显示 ${shippingLineCount} 家船运公司</h3>
+        </div>`;
         html += '<div class="data-list">';
         country.shippingLines.forEach(s => {
-            html += `<div class="data-row"><span class="data-code">${s.code}</span><span class="data-name">${s.name}</span><span class="data-desc">${s.desc || ''}</span></div>`;
+            html += `<div class="data-row">
+                <span class="data-code">${s.code}</span>
+                <span class="data-dot" style="background:#34d399"></span>
+                <span class="data-name-cn">${s.name}</span>
+                <span class="data-name-en">${s.nameEn} - ${s.desc || ''}</span>
+                <span class="data-meta">${country.name} CN</span>
+            </div>`;
         });
         html += '</div></div>';
     }
     
     // 省份城市面板
     if (provinceCount > 0) {
+        const totalCities = country.provinces.reduce((sum, p) => sum + p.cities.length, 0);
         html += '<div class="tab-panel" id="tab-provinces">';
-        html += '<div class="tab-header"><h3>省份城市</h3></div>';
+        html += `<div class="tab-header">
+            <h3>${country.name} · ${provinceCount} 个省份 · ${totalCities} 个城市</h3>
+        </div>`;
         html += '<div class="provinces-grid">';
         country.provinces.forEach(p => {
             html += `<div class="province-card"><h4>${p.name}</h4><div class="city-tags">${p.cities.map(c => `<span class="city-tag">${c}</span>`).join('')}</div></div>`;
@@ -2173,7 +2219,9 @@ function generateCountryTabs(country) {
     // 清关政策面板
     if (customsPolicyCount > 0) {
         html += '<div class="tab-panel" id="tab-customs">';
-        html += '<div class="tab-header"><h3>清关政策</h3></div>';
+        html += `<div class="tab-header">
+            <h3>${country.name} · ${customsPolicyCount} 项清关政策</h3>
+        </div>`;
         html += '<div class="policy-list">';
         country.customsPolicies.forEach(p => {
             html += `<div class="policy-card"><h4>${p.title}</h4><p>${p.content}</p></div>`;
