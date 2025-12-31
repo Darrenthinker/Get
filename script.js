@@ -1449,19 +1449,6 @@ const searchDropdown = document.getElementById('searchDropdown');
 // ===== 当前状态 =====
 let currentArticle = null;
 
-// ===== 浏览量管理 =====
-function getViewCount(articleTitle) {
-    const views = JSON.parse(localStorage.getItem('articleViews') || '{}');
-    return views[articleTitle] || 0;
-}
-
-function incrementViewCount(articleTitle) {
-    const views = JSON.parse(localStorage.getItem('articleViews') || '{}');
-    views[articleTitle] = (views[articleTitle] || 0) + 1;
-    localStorage.setItem('articleViews', JSON.stringify(views));
-    return views[articleTitle];
-}
-
 // ===== 初始化 =====
 document.addEventListener('DOMContentLoaded', function() {
     initTheme();
@@ -1813,10 +1800,6 @@ function showCountryDetail(continentKey, countryKey) {
     // 隐藏全局说明
     document.getElementById('globalDescription').style.display = 'none';
     
-    // 增加浏览量
-    const viewCountKey = `${country.name}港口概览`;
-    const viewCount = incrementViewCount(viewCountKey);
-    
     // 填充内容
     document.getElementById('articleTitle').textContent = country.name;
     document.getElementById('articleBody').innerHTML = country.content;
@@ -1835,8 +1818,8 @@ function showCountryDetail(continentKey, countryKey) {
         `<span class="article-tag">${k}</span>`
     ).join('');
     
-    // 元信息
-    document.getElementById('articleMeta').innerHTML = `👁️ ${viewCount} 次阅读`;
+    // 隐藏元信息
+    document.getElementById('articleMeta').innerHTML = '';
     
     // 显示页脚
     document.querySelector('.article-footer').style.display = '';
@@ -1852,9 +1835,6 @@ function showArticle(title) {
     if (!article) return;
     
     currentArticle = article;
-    
-    // 增加浏览量
-    const viewCount = incrementViewCount(title);
     
     // 隐藏首页，显示文章
     homeContent.style.display = 'none';
@@ -1881,8 +1861,8 @@ function showArticle(title) {
         `<span class="article-tag">${k}</span>`
     ).join('');
     
-    // 元信息 - 使用真实浏览量
-    document.getElementById('articleMeta').innerHTML = `👁️ ${viewCount} 次阅读`;
+    // 隐藏元信息
+    document.getElementById('articleMeta').innerHTML = '';
     
     // 显示页脚
     document.querySelector('.article-footer').style.display = '';
