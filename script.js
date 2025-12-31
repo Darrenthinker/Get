@@ -33,7 +33,75 @@ const knowledgeBase = {
                     }
                 },
                 countries: {
-                    "china": { name: "中国", content: `<p>中国是全球最大的贸易国，拥有世界最繁忙的港口群。</p><h2>主要港口</h2><ul><li><strong>上海港</strong>：全球最大集装箱港，年吞吐量超4700万TEU</li><li><strong>宁波舟山港</strong>：货物吞吐量全球第一</li><li><strong>深圳港</strong>：华南最大港口，盐田港区全球知名</li><li><strong>广州港</strong>：珠三角核心枢纽</li><li><strong>青岛港</strong>：北方重要港口</li><li><strong>天津港</strong>：京津冀门户</li><li><strong>厦门港</strong>：对台贸易重要港口</li><li><strong>大连港</strong>：东北最大港口</li></ul>`, keywords: ["上海港", "宁波港", "深圳港", "中国港口"] },
+                    "china": { 
+                        name: "中国", 
+                        intro: "中国是全球最大的贸易国，拥有世界最繁忙的港口群和发达的物流网络。",
+                        // 机场数据
+                        airports: {
+                            international: [
+                                { code: "PVG", name: "上海浦东国际机场", city: "上海" },
+                                { code: "PEK", name: "北京首都国际机场", city: "北京" },
+                                { code: "PKX", name: "北京大兴国际机场", city: "北京" },
+                                { code: "CAN", name: "广州白云国际机场", city: "广州" },
+                                { code: "SZX", name: "深圳宝安国际机场", city: "深圳" },
+                                { code: "CTU", name: "成都天府国际机场", city: "成都" },
+                                { code: "SHA", name: "上海虹桥国际机场", city: "上海" },
+                                { code: "HGH", name: "杭州萧山国际机场", city: "杭州" }
+                            ],
+                            domestic: [
+                                { code: "XIY", name: "西安咸阳国际机场", city: "西安" },
+                                { code: "CKG", name: "重庆江北国际机场", city: "重庆" },
+                                { code: "NKG", name: "南京禄口国际机场", city: "南京" },
+                                { code: "WUH", name: "武汉天河国际机场", city: "武汉" }
+                            ]
+                        },
+                        // 港口数据
+                        ports: {
+                            international: [
+                                { code: "CNSHA", name: "上海港", city: "上海", desc: "全球最大集装箱港，年吞吐量超4700万TEU" },
+                                { code: "CNNGB", name: "宁波舟山港", city: "宁波", desc: "货物吞吐量全球第一" },
+                                { code: "CNSZX", name: "深圳港", city: "深圳", desc: "华南最大港口，盐田港区全球知名" },
+                                { code: "CNCAN", name: "广州港", city: "广州", desc: "珠三角核心枢纽" },
+                                { code: "CNTAO", name: "青岛港", city: "青岛", desc: "北方重要港口" },
+                                { code: "CNTSN", name: "天津港", city: "天津", desc: "京津冀门户" }
+                            ],
+                            domestic: [
+                                { code: "CNXMN", name: "厦门港", city: "厦门", desc: "对台贸易重要港口" },
+                                { code: "CNDLC", name: "大连港", city: "大连", desc: "东北最大港口" }
+                            ]
+                        },
+                        // 航司数据
+                        airlines: [
+                            { code: "CZ", name: "中国南方航空", nameEn: "China Southern Airlines" },
+                            { code: "MU", name: "中国东方航空", nameEn: "China Eastern Airlines" },
+                            { code: "CA", name: "中国国际航空", nameEn: "Air China" },
+                            { code: "HU", name: "海南航空", nameEn: "Hainan Airlines" },
+                            { code: "3U", name: "四川航空", nameEn: "Sichuan Airlines" },
+                            { code: "ZH", name: "深圳航空", nameEn: "Shenzhen Airlines" }
+                        ],
+                        // 船司数据
+                        shippingLines: [
+                            { code: "COSCO", name: "中远海运", nameEn: "COSCO Shipping", desc: "全球第四大集装箱航运公司" },
+                            { code: "OOCL", name: "东方海外", nameEn: "OOCL", desc: "香港知名航运公司" },
+                            { code: "SITC", name: "山东海丰", nameEn: "SITC", desc: "亚洲区域航运领导者" }
+                        ],
+                        // 省份城市
+                        provinces: [
+                            { name: "广东省", cities: ["广州", "深圳", "东莞", "佛山", "珠海"] },
+                            { name: "浙江省", cities: ["杭州", "宁波", "温州", "义乌"] },
+                            { name: "江苏省", cities: ["南京", "苏州", "无锡", "常州"] },
+                            { name: "上海市", cities: ["上海"] },
+                            { name: "北京市", cities: ["北京"] },
+                            { name: "福建省", cities: ["福州", "厦门", "泉州"] }
+                        ],
+                        // 清关政策
+                        customsPolicies: [
+                            { title: "一般贸易进口", content: "需提供报关单、发票、装箱单、合同、提单等文件。根据商品HS编码征收关税和增值税。" },
+                            { title: "跨境电商进口", content: "单次交易限值5000元，年度限值26000元。税率优惠：关税0%，增值税和消费税70%征收。" },
+                            { title: "保税区政策", content: "货物可在保税区内存储、加工，出区时再办理清关。适合需要分批进口的企业。" }
+                        ],
+                        keywords: ["上海港", "宁波港", "深圳港", "中国港口"]
+                    },
                     "japan": { name: "日本", content: `<p>日本是亚洲发达经济体，港口设施先进。</p><h2>主要港口</h2><ul><li><strong>东京港</strong>：首都港口</li><li><strong>横滨港</strong>：关东最大港</li><li><strong>名古屋港</strong>：汽车出口重镇</li><li><strong>大阪港</strong>：关西枢纽</li><li><strong>神户港</strong>：历史名港</li><li><strong>博多港</strong>：九州门户</li></ul>`, keywords: ["东京港", "横滨港", "日本港口"] },
                     "korea": { name: "韩国", content: `<p>韩国是重要的制造业和航运国家。</p><h2>主要港口</h2><ul><li><strong>釜山港</strong>：全球第六大集装箱港</li><li><strong>仁川港</strong>：首都圈门户</li><li><strong>光阳港</strong>：现代化深水港</li></ul>`, keywords: ["釜山港", "韩国港口"] },
                     "taiwan": { name: "中国台湾", content: `<p>台湾是重要的电子产品制造和贸易中心。</p><h2>主要港口</h2><ul><li><strong>高雄港</strong>：台湾最大港口</li><li><strong>基隆港</strong>：北部主要港口</li><li><strong>台中港</strong>：中部工业港</li></ul>`, keywords: ["高雄港", "台湾港口"] },
@@ -1841,9 +1909,17 @@ function showCountryDetail(continentKey, countryKey) {
     // 浏览量key
     const viewCountKey = `${country.name}`;
     
-    // 填充内容
+    // 填充标题
     document.getElementById('articleTitle').textContent = country.name;
-    document.getElementById('articleBody').innerHTML = country.content;
+    
+    // 判断是否有新的数据结构（带标签页）
+    if (country.airports || country.ports) {
+        // 新版：标签页布局
+        document.getElementById('articleBody').innerHTML = generateCountryTabs(country);
+    } else {
+        // 旧版：简单内容
+        document.getElementById('articleBody').innerHTML = country.content || '';
+    }
     
     // 面包屑
     document.getElementById('breadcrumb').innerHTML = `
@@ -1854,8 +1930,9 @@ function showCountryDetail(continentKey, countryKey) {
         <span>${country.name}</span>
     `;
     
-    // 隐藏标签
+    // 隐藏标签和底部
     document.getElementById('articleTags').innerHTML = '';
+    document.querySelector('.article-footer').style.display = 'none';
     
     // 元信息 - 使用真实计数API
     updateViewCountDisplay(viewCountKey);
@@ -1986,6 +2063,137 @@ function expandGroup(group) {
         // 滚动到对应位置
         groupTitle.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+}
+
+// ===== 国家详情标签页 =====
+function generateCountryTabs(country) {
+    let html = '';
+    
+    // 国家简介
+    if (country.intro) {
+        html += `<p class="country-intro">${country.intro}</p>`;
+    }
+    
+    // 统计各类数据数量
+    const airportCount = (country.airports?.international?.length || 0) + (country.airports?.domestic?.length || 0);
+    const portCount = (country.ports?.international?.length || 0) + (country.ports?.domestic?.length || 0);
+    const airlineCount = country.airlines?.length || 0;
+    const shippingLineCount = country.shippingLines?.length || 0;
+    const provinceCount = country.provinces?.length || 0;
+    const customsPolicyCount = country.customsPolicies?.length || 0;
+    
+    // 标签页导航
+    html += '<div class="country-tabs-horizontal">';
+    if (airportCount > 0) html += `<button class="country-tab active" onclick="switchCountryTab(event, 'airports')">机场 <span class="tab-count">${airportCount}</span></button>`;
+    if (portCount > 0) html += `<button class="country-tab" onclick="switchCountryTab(event, 'ports')">港口 <span class="tab-count">${portCount}</span></button>`;
+    if (airlineCount > 0) html += `<button class="country-tab" onclick="switchCountryTab(event, 'airlines')">航司 <span class="tab-count">${airlineCount}</span></button>`;
+    if (shippingLineCount > 0) html += `<button class="country-tab" onclick="switchCountryTab(event, 'shipping')">船司 <span class="tab-count">${shippingLineCount}</span></button>`;
+    if (provinceCount > 0) html += `<button class="country-tab" onclick="switchCountryTab(event, 'provinces')">省份城市 <span class="tab-count">${provinceCount}</span></button>`;
+    if (customsPolicyCount > 0) html += `<button class="country-tab" onclick="switchCountryTab(event, 'customs')">清关政策 <span class="tab-count">${customsPolicyCount}</span></button>`;
+    html += '</div>';
+    
+    // 标签页内容
+    html += '<div class="country-tabs-content">';
+    
+    // 机场面板
+    if (airportCount > 0) {
+        html += '<div class="tab-panel active" id="tab-airports">';
+        html += '<div class="tab-header"><h3>机场信息</h3></div>';
+        if (country.airports.international?.length > 0) {
+            html += '<div class="data-section"><h4>国际机场</h4><div class="data-list">';
+            country.airports.international.forEach(a => {
+                html += `<div class="data-row"><span class="data-code">${a.code}</span><span class="data-name">${a.name}</span><span class="data-city">${a.city}</span></div>`;
+            });
+            html += '</div></div>';
+        }
+        if (country.airports.domestic?.length > 0) {
+            html += '<div class="data-section"><h4>国内枢纽机场</h4><div class="data-list">';
+            country.airports.domestic.forEach(a => {
+                html += `<div class="data-row"><span class="data-code">${a.code}</span><span class="data-name">${a.name}</span><span class="data-city">${a.city}</span></div>`;
+            });
+            html += '</div></div>';
+        }
+        html += '</div>';
+    }
+    
+    // 港口面板
+    if (portCount > 0) {
+        html += '<div class="tab-panel" id="tab-ports">';
+        html += '<div class="tab-header"><h3>港口信息</h3></div>';
+        if (country.ports.international?.length > 0) {
+            html += '<div class="data-section"><h4>主要港口</h4><div class="data-list">';
+            country.ports.international.forEach(p => {
+                html += `<div class="data-row"><span class="data-code">${p.code}</span><span class="data-name">${p.name}</span><span class="data-desc">${p.desc || ''}</span></div>`;
+            });
+            html += '</div></div>';
+        }
+        if (country.ports.domestic?.length > 0) {
+            html += '<div class="data-section"><h4>其他港口</h4><div class="data-list">';
+            country.ports.domestic.forEach(p => {
+                html += `<div class="data-row"><span class="data-code">${p.code}</span><span class="data-name">${p.name}</span><span class="data-desc">${p.desc || ''}</span></div>`;
+            });
+            html += '</div></div>';
+        }
+        html += '</div>';
+    }
+    
+    // 航司面板
+    if (airlineCount > 0) {
+        html += '<div class="tab-panel" id="tab-airlines">';
+        html += '<div class="tab-header"><h3>航空公司</h3></div>';
+        html += '<div class="data-list">';
+        country.airlines.forEach(a => {
+            html += `<div class="data-row"><span class="data-code">${a.code}</span><span class="data-name">${a.name}</span><span class="data-name-en">${a.nameEn}</span></div>`;
+        });
+        html += '</div></div>';
+    }
+    
+    // 船司面板
+    if (shippingLineCount > 0) {
+        html += '<div class="tab-panel" id="tab-shipping">';
+        html += '<div class="tab-header"><h3>船运公司</h3></div>';
+        html += '<div class="data-list">';
+        country.shippingLines.forEach(s => {
+            html += `<div class="data-row"><span class="data-code">${s.code}</span><span class="data-name">${s.name}</span><span class="data-desc">${s.desc || ''}</span></div>`;
+        });
+        html += '</div></div>';
+    }
+    
+    // 省份城市面板
+    if (provinceCount > 0) {
+        html += '<div class="tab-panel" id="tab-provinces">';
+        html += '<div class="tab-header"><h3>省份城市</h3></div>';
+        html += '<div class="provinces-grid">';
+        country.provinces.forEach(p => {
+            html += `<div class="province-card"><h4>${p.name}</h4><div class="city-tags">${p.cities.map(c => `<span class="city-tag">${c}</span>`).join('')}</div></div>`;
+        });
+        html += '</div></div>';
+    }
+    
+    // 清关政策面板
+    if (customsPolicyCount > 0) {
+        html += '<div class="tab-panel" id="tab-customs">';
+        html += '<div class="tab-header"><h3>清关政策</h3></div>';
+        html += '<div class="policy-list">';
+        country.customsPolicies.forEach(p => {
+            html += `<div class="policy-card"><h4>${p.title}</h4><p>${p.content}</p></div>`;
+        });
+        html += '</div></div>';
+    }
+    
+    html += '</div>';
+    return html;
+}
+
+// ===== 标签页切换 =====
+function switchCountryTab(event, tabName) {
+    // 移除所有active
+    document.querySelectorAll('.country-tab').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
+    
+    // 添加active到当前
+    event.target.classList.add('active');
+    document.getElementById('tab-' + tabName).classList.add('active');
 }
 
 console.log('🚀 货代知识库已加载完成！');

@@ -1251,4 +1251,273 @@ button {
     }
 }
 
+/* ===== 国家详情标签页 ===== */
+.country-intro {
+    font-size: 17px;
+    color: var(--c-text-light);
+    margin-bottom: 32px;
+    line-height: 1.7;
+}
 
+/* 横向标签导航 - 参考 mid.huodaiagent.com 风格 */
+.country-tabs-horizontal {
+    display: flex;
+    gap: 8px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--c-border);
+    margin-bottom: 24px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.country-tabs-horizontal::-webkit-scrollbar {
+    display: none;
+}
+
+.country-tab {
+    flex-shrink: 0;
+    padding: 12px 24px;
+    border: none;
+    background: var(--c-bg-soft);
+    color: var(--c-text-light);
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.country-tab:hover {
+    background: var(--c-bg-mute);
+    color: var(--c-text);
+}
+
+.country-tab.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.tab-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 22px;
+    height: 22px;
+    padding: 0 6px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 11px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.country-tab:not(.active) .tab-count {
+    background: var(--c-bg-mute);
+    color: var(--c-text-mute);
+}
+
+/* 标签页内容 */
+.country-tabs-content {
+    min-height: 300px;
+}
+
+.tab-panel {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+.tab-header {
+    margin-bottom: 24px;
+}
+
+.tab-header h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--c-text);
+    margin: 0;
+}
+
+/* 数据区块 */
+.data-section {
+    margin-bottom: 32px;
+}
+
+.data-section h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--c-text-light);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--c-border-light);
+}
+
+.data-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.data-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 18px;
+    background: var(--c-bg-soft);
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+.data-row:hover {
+    background: var(--c-bg-mute);
+    transform: translateX(4px);
+}
+
+.data-code {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    padding: 6px 12px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'SF Mono', 'Fira Code', Consolas, monospace;
+    border-radius: 6px;
+}
+
+.data-name {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--c-text);
+    flex: 1;
+}
+
+.data-name-en {
+    font-size: 13px;
+    color: var(--c-text-mute);
+}
+
+.data-city {
+    font-size: 14px;
+    color: var(--c-text-lighter);
+    padding: 4px 12px;
+    background: var(--c-bg-mute);
+    border-radius: 4px;
+}
+
+.data-desc {
+    font-size: 14px;
+    color: var(--c-text-lighter);
+    flex: 2;
+}
+
+/* 省份城市网格 */
+.provinces-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.province-card {
+    background: var(--c-bg-soft);
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.2s ease;
+}
+
+.province-card:hover {
+    box-shadow: var(--shadow-2);
+    transform: translateY(-2px);
+}
+
+.province-card h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--c-text);
+    margin-bottom: 12px;
+}
+
+.city-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.city-tag {
+    padding: 6px 14px;
+    background: var(--c-bg);
+    border: 1px solid var(--c-border);
+    border-radius: 6px;
+    font-size: 14px;
+    color: var(--c-text-light);
+    transition: all 0.2s ease;
+}
+
+.city-tag:hover {
+    border-color: var(--c-brand);
+    color: var(--c-brand);
+}
+
+/* 清关政策卡片 */
+.policy-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.policy-card {
+    background: var(--c-bg-soft);
+    border-left: 4px solid #667eea;
+    border-radius: 0 12px 12px 0;
+    padding: 20px 24px;
+}
+
+.policy-card h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--c-text);
+    margin-bottom: 10px;
+}
+
+.policy-card p {
+    font-size: 15px;
+    color: var(--c-text-light);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+    .country-tabs-horizontal {
+        padding: 12px 0;
+        gap: 6px;
+    }
+    
+    .country-tab {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+    
+    .data-row {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    
+    .data-desc {
+        width: 100%;
+        flex: none;
+        margin-top: 4px;
+    }
+    
+    .provinces-grid {
+        grid-template-columns: 1fr;
+    }
+}
