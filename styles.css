@@ -1317,12 +1317,16 @@ button {
 
 /* 数字上标样式 */
 .tab-count {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--c-text-mute);
+    font-size: 14px;
+    font-weight: 700;
+    color: #1d1d1f;
     position: relative;
-    top: -4px;
-    margin-left: 3px;
+    top: -6px;
+    margin-left: 2px;
+}
+
+[data-theme="dark"] .tab-count {
+    color: #f5f5f7;
 }
 
 .country-tab:hover .tab-count {
