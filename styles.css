@@ -1269,18 +1269,18 @@ button {
 
 .country-tab {
     flex: 1;
-    padding: 18px 16px;
+    padding: 20px 16px;
     border: none;
     background: transparent;
     color: var(--c-text-lighter);
     font-size: 15px;
     font-weight: 500;
     cursor: pointer;
-    transition: all 0.2s ease;
-    display: flex;
-    align-items: center;
+    transition: color 0.2s ease;
+    display: inline-flex;
+    align-items: flex-start;
     justify-content: center;
-    gap: 10px;
+    gap: 4px;
     position: relative;
 }
 
@@ -1288,11 +1288,12 @@ button {
     content: '';
     position: absolute;
     bottom: -1px;
-    left: 0;
-    right: 0;
+    left: 50%;
+    width: 0;
     height: 3px;
-    background: transparent;
-    transition: background 0.2s ease;
+    background: #1a73e8;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(-50%);
 }
 
 .country-tab:hover {
@@ -1300,7 +1301,7 @@ button {
 }
 
 .country-tab:hover::after {
-    background: rgba(26, 115, 232, 0.3);
+    width: 60%;
 }
 
 .country-tab.active {
@@ -1309,35 +1310,61 @@ button {
 }
 
 .country-tab.active::after {
-    background: #1a73e8;
+    width: 100%;
+    left: 0;
+    transform: translateX(0);
 }
 
+/* 数字上标样式 */
 .tab-count {
-    font-size: 14px;
-    font-weight: 400;
+    font-size: 11px;
+    font-weight: 500;
     color: var(--c-text-mute);
+    position: relative;
+    top: -2px;
+    margin-left: 2px;
+    padding: 2px 6px;
+    background: var(--c-bg-mute);
+    border-radius: 10px;
+    line-height: 1;
 }
 
 .country-tab:hover .tab-count {
     color: #1a73e8;
+    background: rgba(26, 115, 232, 0.1);
 }
 
 .country-tab.active .tab-count {
     color: #1a73e8;
+    background: rgba(26, 115, 232, 0.15);
 }
 
 /* 标签页内容 */
 .country-tabs-content {
     min-height: 300px;
+    position: relative;
 }
 
 .tab-panel {
     display: none;
-    animation: fadeIn 0.3s ease;
+    opacity: 0;
+    transform: translateY(10px);
 }
 
 .tab-panel.active {
     display: block;
+    animation: tabSlideIn 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes tabSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* 蓝色标题栏 */
