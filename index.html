@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>货代知识库 - 国际物流专业导航平台</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,6 +22,35 @@
                 </svg>
             </button>
             <a href="#" class="logo" onclick="showHome()">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- 地球外圈 -->
+                        <circle cx="20" cy="20" r="18" stroke="url(#logoGradient)" stroke-width="2" fill="none"/>
+                        <!-- 经纬线 -->
+                        <ellipse cx="20" cy="20" rx="18" ry="8" stroke="url(#logoGradient)" stroke-width="1.2" fill="none" opacity="0.6"/>
+                        <ellipse cx="20" cy="20" rx="8" ry="18" stroke="url(#logoGradient)" stroke-width="1.2" fill="none" opacity="0.6"/>
+                        <!-- 中心水平线 -->
+                        <line x1="2" y1="20" x2="38" y2="20" stroke="url(#logoGradient)" stroke-width="1.2" opacity="0.4"/>
+                        <!-- 飞机 -->
+                        <g transform="translate(24, 8) rotate(45)">
+                            <path d="M0 4L8 0L6 4L8 8L0 4Z" fill="url(#logoGradient)"/>
+                            <path d="M2 4L0 2V6L2 4Z" fill="url(#logoGradient)"/>
+                        </g>
+                        <!-- 航线轨迹 -->
+                        <path d="M8 28 Q20 14 32 12" stroke="url(#logoGradient)" stroke-width="1.5" stroke-dasharray="2 2" fill="none" opacity="0.7"/>
+                        <!-- 书本底部 -->
+                        <path d="M10 32 L20 28 L30 32 L20 36 Z" fill="url(#logoGradient)" opacity="0.9"/>
+                        <line x1="20" y1="28" x2="20" y2="36" stroke="white" stroke-width="1"/>
+                        <!-- 渐变定义 -->
+                        <defs>
+                            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#0071e3"/>
+                                <stop offset="50%" style="stop-color:#34c759"/>
+                                <stop offset="100%" style="stop-color:#00b4d8"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
                 <span class="logo-text">货代知识库</span>
             </a>
         </div>
@@ -86,181 +116,17 @@
                         <span>专业知识</span>
                     </div>
                     <div class="nav-group-items" data-group="professional">
-                        <!-- 1. 国际空运 -->
-                        <div class="nav-subgroup">
-                            <div class="nav-subgroup-title" data-subgroup="air-freight">
-                                <svg class="chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="9 18 15 12 9 6"></polyline>
-                                </svg>
-                                <span>国际空运</span>
-                            </div>
-                            <div class="nav-subgroup-items" data-subgroup="air-freight">
-                                <a href="#" class="nav-link" data-article="国际空运基础知识">空运基础</a>
-                                <a href="#" class="nav-link" data-article="主要航空公司对比">航空公司</a>
-                                <a href="#" class="nav-link" data-article="空运计费重量详解">价格体系</a>
-                                <a href="#" class="nav-link" data-article="空运出口操作流程">操作流程</a>
-                                <a href="#" class="nav-link" data-article="危险品分类及包装">危险品运输</a>
-                            </div>
-                        </div>
-                        <!-- 2. 国际快递 -->
-                        <div class="nav-subgroup">
-                            <div class="nav-subgroup-title" data-subgroup="express">
-                                <svg class="chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="9 18 15 12 9 6"></polyline>
-                                </svg>
-                                <span>国际快递</span>
-                            </div>
-                            <div class="nav-subgroup-items" data-subgroup="express">
-                                <a href="#" class="nav-link" data-article="四大快递公司详解">快递公司对比</a>
-                                <a href="#" class="nav-link" data-article="快递计费规则">计费方式</a>
-                                <a href="#" class="nav-link" data-article="快递禁运物品清单">限制物品</a>
-                                <a href="#" class="nav-link" data-article="快递跟踪系统使用">跟踪查询</a>
-                                <a href="#" class="nav-link" data-article="快递清关流程">清关指南</a>
-                            </div>
-                        </div>
-                        <!-- 3. FBA头程 -->
-                        <div class="nav-subgroup">
-                            <div class="nav-subgroup-title" data-subgroup="fba">
-                                <svg class="chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="9 18 15 12 9 6"></polyline>
-                                </svg>
-                                <span>FBA头程</span>
-                            </div>
-                            <div class="nav-subgroup-items" data-subgroup="fba">
-                                <a href="#" class="nav-link" data-article="什么是FBA服务">FBA入门</a>
-                                <a href="#" class="nav-link" data-article="FBA头程运输方式对比">发货方式</a>
-                                <a href="#" class="nav-link" data-article="FBA标签制作指南">标签要求</a>
-                                <a href="#" class="nav-link" data-article="FBA包装要求详解">包装标准</a>
-                                <a href="#" class="nav-link" data-article="FBA费用详细解析">费用分析</a>
-                            </div>
-                        </div>
-                        <!-- 4. 海运物流 -->
-                        <div class="nav-subgroup">
-                            <div class="nav-subgroup-title" data-subgroup="sea-freight">
-                                <svg class="chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="9 18 15 12 9 6"></polyline>
-                                </svg>
-                                <span>海运物流</span>
-                            </div>
-                            <div class="nav-subgroup-items" data-subgroup="sea-freight">
-                                <a href="#" class="nav-link" data-article="海运概述与发展历史">海运基础知识</a>
-                                <a href="#" class="nav-link" data-article="海运订舱流程详解">订舱操作</a>
-                                <a href="#" class="nav-link" data-article="海运提单详解">单证处理</a>
-                                <a href="#" class="nav-link" data-article="海运费用构成">费用计算</a>
-                                <a href="#" class="nav-link" data-article="海运保险种类">货运保险</a>
-                            </div>
-                        </div>
-                        <!-- 国际专线 -->
-                        <div class="nav-subgroup">
-                            <div class="nav-subgroup-title" data-subgroup="dedicated-line">
-                                <svg class="chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="9 18 15 12 9 6"></polyline>
-                                </svg>
-                                <span>国际专线</span>
-                            </div>
-                            <div class="nav-subgroup-items" data-subgroup="dedicated-line">
-                                <a href="#" class="nav-link" data-article="欧洲专线特点">欧洲专线</a>
-                                <a href="#" class="nav-link" data-article="美国专线详解">美国专线</a>
-                                <a href="#" class="nav-link" data-article="东南亚专线市场">东南亚专线</a>
-                                <a href="#" class="nav-link" data-article="中东专线介绍">中东专线</a>
-                                <a href="#" class="nav-link" data-article="如何选择合适的专线">专线选择</a>
-                            </div>
-                        </div>
-                        <!-- 国际小包 -->
-                        <div class="nav-subgroup">
-                            <div class="nav-subgroup-title" data-subgroup="small-package">
-                                <svg class="chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="9 18 15 12 9 6"></polyline>
-                                </svg>
-                                <span>国际小包</span>
-                            </div>
-                            <div class="nav-subgroup-items" data-subgroup="small-package">
-                                <a href="#" class="nav-link" data-article="中国邮政小包服务">邮政小包</a>
-                                <a href="#" class="nav-link" data-article="商业小包与邮政小包区别">商业小包</a>
-                                <a href="#" class="nav-link" data-article="小包发货限制">发货规则</a>
-                                <a href="#" class="nav-link" data-article="小包清关特点">清关流程</a>
-                                <a href="#" class="nav-link" data-article="小包成本控制策略">成本优化</a>
-                            </div>
-                        </div>
-                        <!-- 铁路运输 -->
-                        <div class="nav-subgroup">
-                            <div class="nav-subgroup-title" data-subgroup="railway">
-                                <svg class="chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="9 18 15 12 9 6"></polyline>
-                                </svg>
-                                <span>铁路运输</span>
-                            </div>
-                            <div class="nav-subgroup-items" data-subgroup="railway">
-                                <a href="#" class="nav-link" data-article="中欧班列发展历程">中欧班列</a>
-                                <a href="#" class="nav-link" data-article="中欧班列主要通道">运输路线</a>
-                                <a href="#" class="nav-link" data-article="铁路运输优势">优势分析</a>
-                                <a href="#" class="nav-link" data-article="中欧班列运输流程">操作流程</a>
-                                <a href="#" class="nav-link" data-article="铁路运输单证">单证要求</a>
-                            </div>
-                        </div>
-                        <!-- 卡航运输 -->
-                        <div class="nav-subgroup">
-                            <div class="nav-subgroup-title" data-subgroup="truck">
-                                <svg class="chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="9 18 15 12 9 6"></polyline>
-                                </svg>
-                                <span>卡航运输</span>
-                            </div>
-                            <div class="nav-subgroup-items" data-subgroup="truck">
-                                <a href="#" class="nav-link" data-article="跨境公路运输概述">跨境陆运</a>
-                                <a href="#" class="nav-link" data-article="跨境陆运所需证件">运输单证</a>
-                                <a href="#" class="nav-link" data-article="跨境运输法规">法规要求</a>
-                                <a href="#" class="nav-link" data-article="主要跨境陆运路线">主要路线</a>
-                                <a href="#" class="nav-link" data-article="陆运成本分析">成本构成</a>
-                            </div>
-                        </div>
-                        <!-- 报关报检 -->
-                        <div class="nav-subgroup">
-                            <div class="nav-subgroup-title" data-subgroup="customs">
-                                <svg class="chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="9 18 15 12 9 6"></polyline>
-                                </svg>
-                                <span>报关报检</span>
-                            </div>
-                            <div class="nav-subgroup-items" data-subgroup="customs">
-                                <a href="#" class="nav-link" data-article="出口报关流程">出口报关流程</a>
-                                <a href="#" class="nav-link" data-article="出口退税政策">出口退税政策</a>
-                                <a href="#" class="nav-link" data-article="进口报关注意事项">进口报关注意事项</a>
-                                <a href="#" class="nav-link" data-article="出入境检验检疫">检验检疫</a>
-                            </div>
-                        </div>
-                        <!-- 仓储管理 -->
-                        <div class="nav-subgroup">
-                            <div class="nav-subgroup-title" data-subgroup="warehouse">
-                                <svg class="chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="9 18 15 12 9 6"></polyline>
-                                </svg>
-                                <span>仓储管理</span>
-                            </div>
-                            <div class="nav-subgroup-items" data-subgroup="warehouse">
-                                <a href="#" class="nav-link" data-article="海外仓优势分析">海外仓优势分析</a>
-                                <a href="#" class="nav-link" data-article="主要海外仓服务商">海外仓服务商</a>
-                                <a href="#" class="nav-link" data-article="保税仓库类型">保税仓库</a>
-                                <a href="#" class="nav-link" data-article="WMS系统功能">WMS系统</a>
-                            </div>
-                        </div>
-                        <!-- 实用工具 -->
-                        <div class="nav-subgroup">
-                            <div class="nav-subgroup-title" data-subgroup="tools">
-                                <svg class="chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="9 18 15 12 9 6"></polyline>
-                                </svg>
-                                <span>实用工具</span>
-                            </div>
-                            <div class="nav-subgroup-items" data-subgroup="tools">
-                                <a href="#" class="nav-link" data-tool="volume-calculator">体积重量计算器</a>
-                                <a href="#" class="nav-link" data-tool="freight-calculator">运费计算器</a>
-                                <a href="#" class="nav-link" data-tool="currency-converter">汇率转换器</a>
-                                <a href="#" class="nav-link" data-tool="tracking">货物跟踪</a>
-                                <a href="#" class="nav-link" data-tool="incoterms">贸易术语查询</a>
-                                <a href="#" class="nav-link" data-tool="ports">港口信息查询</a>
-                            </div>
-                        </div>
+                        <a href="#" class="nav-link nav-category-link" data-category="air-freight">国际空运</a>
+                        <a href="#" class="nav-link nav-category-link" data-category="express">国际快递</a>
+                        <a href="#" class="nav-link nav-category-link" data-category="sea-freight">国际海运</a>
+                        <a href="#" class="nav-link nav-category-link" data-category="fba">FBA头程</a>
+                        <a href="#" class="nav-link nav-category-link" data-category="dedicated-line">国际专线</a>
+                        <a href="#" class="nav-link nav-category-link" data-category="small-package">国际小包</a>
+                        <a href="#" class="nav-link nav-category-link" data-category="railway">国际铁路</a>
+                        <a href="#" class="nav-link nav-category-link" data-category="truck">国际卡航</a>
+                        <a href="#" class="nav-link nav-category-link" data-category="customs">报关报检</a>
+                        <a href="#" class="nav-link nav-category-link" data-category="warehouse">仓储管理</a>
+                        <a href="#" class="nav-link nav-category-link" data-category="tools">实用工具</a>
                     </div>
                 </div>
 
@@ -273,43 +139,9 @@
                         <span>货代销售</span>
                     </div>
                     <div class="nav-group-items" data-group="sales">
-                        <div class="nav-subgroup">
-                            <div class="nav-subgroup-title" data-subgroup="customer-dev">
-                                <svg class="chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="9 18 15 12 9 6"></polyline>
-                                </svg>
-                                <span>客户开发</span>
-                            </div>
-                            <div class="nav-subgroup-items" data-subgroup="customer-dev">
-                                <a href="#" class="nav-link" data-article="货代客户开发技巧">客户开发技巧</a>
-                                <a href="#" class="nav-link" data-article="电话销售话术">电话销售话术</a>
-                                <a href="#" class="nav-link" data-article="邮件营销策略">邮件营销策略</a>
-                            </div>
-                        </div>
-                        <div class="nav-subgroup">
-                            <div class="nav-subgroup-title" data-subgroup="quotation">
-                                <svg class="chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="9 18 15 12 9 6"></polyline>
-                                </svg>
-                                <span>报价技巧</span>
-                            </div>
-                            <div class="nav-subgroup-items" data-subgroup="quotation">
-                                <a href="#" class="nav-link" data-article="如何制作专业报价单">专业报价单制作</a>
-                                <a href="#" class="nav-link" data-article="价格谈判技巧">价格谈判技巧</a>
-                            </div>
-                        </div>
-                        <div class="nav-subgroup">
-                            <div class="nav-subgroup-title" data-subgroup="relationship">
-                                <svg class="chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="9 18 15 12 9 6"></polyline>
-                                </svg>
-                                <span>客户关系</span>
-                            </div>
-                            <div class="nav-subgroup-items" data-subgroup="relationship">
-                                <a href="#" class="nav-link" data-article="客户维护策略">客户维护策略</a>
-                                <a href="#" class="nav-link" data-article="处理客户投诉">投诉处理</a>
-                            </div>
-                        </div>
+                        <a href="#" class="nav-link nav-category-link" data-category="customer-dev">客户开发</a>
+                        <a href="#" class="nav-link nav-category-link" data-category="quotation">报价技巧</a>
+                        <a href="#" class="nav-link nav-category-link" data-category="relationship">客户关系</a>
                     </div>
                 </div>
 
@@ -322,31 +154,8 @@
                         <span>货代英语</span>
                     </div>
                     <div class="nav-group-items" data-group="english">
-                        <div class="nav-subgroup">
-                            <div class="nav-subgroup-title" data-subgroup="vocabulary">
-                                <svg class="chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="9 18 15 12 9 6"></polyline>
-                                </svg>
-                                <span>专业词汇</span>
-                            </div>
-                            <div class="nav-subgroup-items" data-subgroup="vocabulary">
-                                <a href="#" class="nav-link" data-article="货代常用英语词汇">常用英语词汇</a>
-                                <a href="#" class="nav-link" data-article="航运专业术语">航运专业术语</a>
-                                <a href="#" class="nav-link" data-article="单证英语术语">单证英语术语</a>
-                            </div>
-                        </div>
-                        <div class="nav-subgroup">
-                            <div class="nav-subgroup-title" data-subgroup="communication">
-                                <svg class="chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="9 18 15 12 9 6"></polyline>
-                                </svg>
-                                <span>商务沟通</span>
-                            </div>
-                            <div class="nav-subgroup-items" data-subgroup="communication">
-                                <a href="#" class="nav-link" data-article="邮件写作模板">邮件写作模板</a>
-                                <a href="#" class="nav-link" data-article="电话沟通技巧">电话沟通技巧</a>
-                            </div>
-                        </div>
+                        <a href="#" class="nav-link nav-category-link" data-category="vocabulary">专业词汇</a>
+                        <a href="#" class="nav-link nav-category-link" data-category="communication">商务沟通</a>
                     </div>
                 </div>
 

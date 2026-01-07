@@ -491,7 +491,7 @@ const knowledgeBase = {
         title: "专业知识",
         subcategories: {
             "sea-freight": {
-                title: "海运物流",
+                title: "国际海运",
                 articles: [
                     {
                         title: "海运概述与发展历史",
@@ -1012,7 +1012,7 @@ const knowledgeBase = {
                 ]
     },
     "railway": {
-        title: "铁路运输",
+        title: "国际铁路",
                 articles: [
                     {
                         title: "中欧班列发展历程",
@@ -1091,7 +1091,7 @@ const knowledgeBase = {
                 ]
     },
     "truck": {
-        title: "卡航运输",
+        title: "国际卡航",
                 articles: [
                     {
                         title: "跨境公路运输概述",
@@ -1597,8 +1597,40 @@ function initNavigation() {
             const subgroup = title.getAttribute('data-subgroup');
             const items = document.querySelector(`.nav-subgroup-items[data-subgroup="${subgroup}"]`);
             
-            title.classList.toggle('expanded');
-            items.classList.toggle('expanded');
+            // 如果有目录大纲数据，显示目录页面，不展开子项
+            if (categoryOutlineData[subgroup]) {
+                showCategoryOutline(subgroup);
+                
+                // 更新侧边栏活跃状态
+                document.querySelectorAll('.sidebar-nav .nav-link').forEach(l => l.classList.remove('active'));
+                document.querySelectorAll('.nav-subgroup-title').forEach(t => t.classList.remove('active'));
+                title.classList.add('active');
+                
+                // 收起子项（右侧已有详细目录，左侧不需要重复显示）
+                title.classList.remove('expanded');
+                items.classList.remove('expanded');
+            } else {
+                // 没有目录大纲的分类，正常展开/收起
+                title.classList.toggle('expanded');
+                items.classList.toggle('expanded');
+            }
+        });
+    });
+
+    // 分类目录链接点击（如FBA头程）
+    document.querySelectorAll('.nav-category-link[data-category]').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const categoryKey = link.getAttribute('data-category');
+            
+            if (categoryOutlineData[categoryKey]) {
+                showCategoryOutline(categoryKey);
+                
+                // 更新活跃状态
+                document.querySelectorAll('.sidebar-nav .nav-link').forEach(l => l.classList.remove('active'));
+                document.querySelectorAll('.nav-subgroup-title').forEach(t => t.classList.remove('active'));
+                link.classList.add('active');
+            }
         });
     });
 
@@ -1946,6 +1978,725 @@ function showCountryDetail(continentKey, countryKey) {
     window.scrollTo(0, 0);
 }
 
+// ===== 分类目录大纲数据 =====
+const categoryOutlineData = {
+    // ===== 专业知识 =====
+    "air-freight": {
+        title: "国际空运",
+        sections: [
+            {
+                title: "空运基础",
+                items: [
+                    { name: "国际空运基础知识", article: "国际空运基础知识" },
+                    { name: "空运运输流程", article: "国际空运基础知识" },
+                    { name: "空运单证介绍", article: "国际空运基础知识" },
+                    { name: "空运货物包装要求", article: "国际空运基础知识" }
+                ]
+            },
+            {
+                title: "航空公司",
+                items: [
+                    { name: "主要航空公司对比", article: "主要航空公司对比" },
+                    { name: "航线网络分析", article: "主要航空公司对比" },
+                    { name: "航司服务特点", article: "主要航空公司对比" },
+                    { name: "航司选择指南", article: "主要航空公司对比" }
+                ]
+            },
+            {
+                title: "价格体系",
+                items: [
+                    { name: "空运计费重量详解", article: "空运计费重量详解" },
+                    { name: "燃油附加费", article: "空运计费重量详解" },
+                    { name: "空运报价技巧", article: "空运计费重量详解" },
+                    { name: "成本优化策略", article: "空运计费重量详解" }
+                ]
+            },
+            {
+                title: "操作流程",
+                items: [
+                    { name: "空运出口操作流程", article: "空运出口操作流程" },
+                    { name: "订舱与配载", article: "空运出口操作流程" },
+                    { name: "机场操作规范", article: "空运出口操作流程" },
+                    { name: "航班跟踪查询", article: "空运出口操作流程" }
+                ]
+            },
+            {
+                title: "危险品运输",
+                items: [
+                    { name: "危险品分类及包装", article: "危险品分类及包装" },
+                    { name: "危险品申报流程", article: "危险品分类及包装" },
+                    { name: "危险品运输限制", article: "危险品分类及包装" },
+                    { name: "锂电池运输规范", article: "危险品分类及包装" }
+                ]
+            }
+        ]
+    },
+    "express": {
+        title: "国际快递",
+        sections: [
+            {
+                title: "快递公司",
+                items: [
+                    { name: "四大快递公司详解", article: "四大快递公司详解" },
+                    { name: "DHL服务介绍", article: "四大快递公司详解" },
+                    { name: "FedEx服务介绍", article: "四大快递公司详解" },
+                    { name: "UPS服务介绍", article: "四大快递公司详解" },
+                    { name: "TNT服务介绍", article: "四大快递公司详解" }
+                ]
+            },
+            {
+                title: "计费方式",
+                items: [
+                    { name: "快递计费规则", article: "快递计费规则" },
+                    { name: "体积重量计算", article: "快递计费规则" },
+                    { name: "附加费说明", article: "快递计费规则" },
+                    { name: "价格对比分析", article: "快递计费规则" }
+                ]
+            },
+            {
+                title: "限制物品",
+                items: [
+                    { name: "快递禁运物品清单", article: "快递禁运物品清单" },
+                    { name: "敏感货物处理", article: "快递禁运物品清单" },
+                    { name: "各国限制物品", article: "快递禁运物品清单" },
+                    { name: "包装要求规范", article: "快递禁运物品清单" }
+                ]
+            },
+            {
+                title: "跟踪查询",
+                items: [
+                    { name: "快递跟踪系统使用", article: "快递跟踪系统使用" },
+                    { name: "异常状态处理", article: "快递跟踪系统使用" },
+                    { name: "签收确认流程", article: "快递跟踪系统使用" },
+                    { name: "丢件索赔流程", article: "快递跟踪系统使用" }
+                ]
+            },
+            {
+                title: "清关指南",
+                items: [
+                    { name: "快递清关流程", article: "快递清关流程" },
+                    { name: "清关资料准备", article: "快递清关流程" },
+                    { name: "关税计算方式", article: "快递清关流程" },
+                    { name: "清关延误处理", article: "快递清关流程" }
+                ]
+            }
+        ]
+    },
+    "fba": {
+        title: "FBA头程",
+        sections: [
+            {
+                title: "FBA入门",
+                items: [
+                    { name: "什么是FBA服务", article: "什么是FBA服务" },
+                    { name: "FBA服务优势分析", article: "什么是FBA服务" },
+                    { name: "FBA与自发货对比", article: "什么是FBA服务" },
+                    { name: "FBA适用卖家类型", article: "什么是FBA服务" },
+                    { name: "FBA入仓流程", article: "什么是FBA服务" },
+                    { name: "新卖家FBA指南", article: "什么是FBA服务" }
+                ]
+            },
+            {
+                title: "发货方式",
+                items: [
+                    { name: "海运头程详解", article: "FBA头程运输方式对比" },
+                    { name: "空运头程详解", article: "FBA头程运输方式对比" },
+                    { name: "快递头程详解", article: "FBA头程运输方式对比" },
+                    { name: "铁路头程介绍", article: "FBA头程运输方式对比" },
+                    { name: "运输方式对比", article: "FBA头程运输方式对比" },
+                    { name: "头程时效分析", article: "FBA头程运输方式对比" },
+                    { name: "头程成本计算", article: "FBA头程运输方式对比" },
+                    { name: "旺季发货策略", article: "FBA头程运输方式对比" }
+                ]
+            },
+            {
+                title: "标签要求",
+                items: [
+                    { name: "FNSKU标签说明", article: "FBA标签制作指南" },
+                    { name: "商品条码要求", article: "FBA标签制作指南" },
+                    { name: "外箱标签规范", article: "FBA标签制作指南" },
+                    { name: "标签尺寸标准", article: "FBA标签制作指南" },
+                    { name: "标签打印指南", article: "FBA标签制作指南" },
+                    { name: "混装箱标签", article: "FBA标签制作指南" }
+                ]
+            },
+            {
+                title: "包装标准",
+                items: [
+                    { name: "纸箱尺寸要求", article: "FBA包装要求详解" },
+                    { name: "重量限制规定", article: "FBA包装要求详解" },
+                    { name: "包装材料选择", article: "FBA包装要求详解" },
+                    { name: "禁止包装类型", article: "FBA包装要求详解" },
+                    { name: "易碎品包装", article: "FBA包装要求详解" },
+                    { name: "液体商品包装", article: "FBA包装要求详解" }
+                ]
+            },
+            {
+                title: "费用分析",
+                items: [
+                    { name: "FBA配送费", article: "FBA费用详细解析" },
+                    { name: "仓储费计算", article: "FBA费用详细解析" },
+                    { name: "长期仓储费", article: "FBA费用详细解析" },
+                    { name: "移除费用", article: "FBA费用详细解析" },
+                    { name: "退货处理费", article: "FBA费用详细解析" },
+                    { name: "费用优化策略", article: "FBA费用详细解析" },
+                    { name: "各站点费用对比", article: "FBA费用详细解析" },
+                    { name: "隐藏费用避坑", article: "FBA费用详细解析" }
+                ]
+            }
+        ]
+    },
+    "sea-freight": {
+        title: "国际海运",
+        sections: [
+            {
+                title: "海运基础",
+                items: [
+                    { name: "海运概述与发展历史", article: "海运概述与发展历史" },
+                    { name: "集装箱类型介绍", article: "海运概述与发展历史" },
+                    { name: "船舶类型分类", article: "海运概述与发展历史" },
+                    { name: "主要航线分布", article: "海运概述与发展历史" }
+                ]
+            },
+            {
+                title: "订舱操作",
+                items: [
+                    { name: "海运订舱流程详解", article: "海运订舱流程详解" },
+                    { name: "舱位预订技巧", article: "海运订舱流程详解" },
+                    { name: "拼箱与整箱区别", article: "海运订舱流程详解" },
+                    { name: "船期查询方法", article: "海运订舱流程详解" }
+                ]
+            },
+            {
+                title: "单证处理",
+                items: [
+                    { name: "海运提单详解", article: "海运提单详解" },
+                    { name: "提单类型区分", article: "海运提单详解" },
+                    { name: "电放提单操作", article: "海运提单详解" },
+                    { name: "单证制作要点", article: "海运提单详解" }
+                ]
+            },
+            {
+                title: "费用计算",
+                items: [
+                    { name: "海运费用构成", article: "海运费用构成" },
+                    { name: "运费计算方式", article: "海运费用构成" },
+                    { name: "港杂费明细", article: "海运费用构成" },
+                    { name: "报价单制作", article: "海运费用构成" }
+                ]
+            },
+            {
+                title: "货运保险",
+                items: [
+                    { name: "海运保险种类", article: "海运保险种类" },
+                    { name: "保险费率计算", article: "海运保险种类" },
+                    { name: "理赔流程说明", article: "海运保险种类" },
+                    { name: "常见索赔案例", article: "海运保险种类" }
+                ]
+            }
+        ]
+    },
+    "dedicated-line": {
+        title: "国际专线",
+        sections: [
+            {
+                title: "欧洲专线",
+                items: [
+                    { name: "欧洲专线特点", article: "欧洲专线特点" },
+                    { name: "英国专线详解", article: "欧洲专线特点" },
+                    { name: "德国专线详解", article: "欧洲专线特点" },
+                    { name: "法国专线详解", article: "欧洲专线特点" }
+                ]
+            },
+            {
+                title: "美国专线",
+                items: [
+                    { name: "美国专线详解", article: "美国专线详解" },
+                    { name: "美西线路分析", article: "美国专线详解" },
+                    { name: "美东线路分析", article: "美国专线详解" },
+                    { name: "美国清关要点", article: "美国专线详解" }
+                ]
+            },
+            {
+                title: "东南亚专线",
+                items: [
+                    { name: "东南亚专线市场", article: "东南亚专线市场" },
+                    { name: "泰国专线介绍", article: "东南亚专线市场" },
+                    { name: "越南专线介绍", article: "东南亚专线市场" },
+                    { name: "马来西亚专线", article: "东南亚专线市场" }
+                ]
+            },
+            {
+                title: "中东专线",
+                items: [
+                    { name: "中东专线介绍", article: "中东专线介绍" },
+                    { name: "阿联酋专线", article: "中东专线介绍" },
+                    { name: "沙特专线详解", article: "中东专线介绍" },
+                    { name: "中东清关政策", article: "中东专线介绍" }
+                ]
+            },
+            {
+                title: "专线选择",
+                items: [
+                    { name: "如何选择合适的专线", article: "如何选择合适的专线" },
+                    { name: "专线服务商对比", article: "如何选择合适的专线" },
+                    { name: "时效与成本平衡", article: "如何选择合适的专线" },
+                    { name: "专线常见问题", article: "如何选择合适的专线" }
+                ]
+            }
+        ]
+    },
+    "small-package": {
+        title: "国际小包",
+        sections: [
+            {
+                title: "邮政小包",
+                items: [
+                    { name: "中国邮政小包服务", article: "中国邮政小包服务" },
+                    { name: "邮政小包特点", article: "中国邮政小包服务" },
+                    { name: "适用产品类型", article: "中国邮政小包服务" },
+                    { name: "时效与追踪", article: "中国邮政小包服务" }
+                ]
+            },
+            {
+                title: "商业小包",
+                items: [
+                    { name: "商业小包与邮政小包区别", article: "商业小包与邮政小包区别" },
+                    { name: "商业小包服务商", article: "商业小包与邮政小包区别" },
+                    { name: "价格对比分析", article: "商业小包与邮政小包区别" },
+                    { name: "服务选择建议", article: "商业小包与邮政小包区别" }
+                ]
+            },
+            {
+                title: "发货规则",
+                items: [
+                    { name: "小包发货限制", article: "小包发货限制" },
+                    { name: "重量尺寸限制", article: "小包发货限制" },
+                    { name: "禁运物品清单", article: "小包发货限制" },
+                    { name: "包装要求说明", article: "小包发货限制" }
+                ]
+            },
+            {
+                title: "清关流程",
+                items: [
+                    { name: "小包清关特点", article: "小包清关特点" },
+                    { name: "各国关税政策", article: "小包清关特点" },
+                    { name: "清关延误处理", article: "小包清关特点" },
+                    { name: "退件处理流程", article: "小包清关特点" }
+                ]
+            },
+            {
+                title: "成本优化",
+                items: [
+                    { name: "小包成本控制策略", article: "小包成本控制策略" },
+                    { name: "批量发货优惠", article: "小包成本控制策略" },
+                    { name: "渠道选择技巧", article: "小包成本控制策略" },
+                    { name: "成本核算方法", article: "小包成本控制策略" }
+                ]
+            }
+        ]
+    },
+    "railway": {
+        title: "国际铁路",
+        sections: [
+            {
+                title: "中欧班列",
+                items: [
+                    { name: "中欧班列发展历程", article: "中欧班列发展历程" },
+                    { name: "班列线路介绍", article: "中欧班列发展历程" },
+                    { name: "班列运营模式", article: "中欧班列发展历程" },
+                    { name: "发展趋势分析", article: "中欧班列发展历程" }
+                ]
+            },
+            {
+                title: "运输路线",
+                items: [
+                    { name: "中欧班列主要通道", article: "中欧班列主要通道" },
+                    { name: "西部通道详解", article: "中欧班列主要通道" },
+                    { name: "中部通道详解", article: "中欧班列主要通道" },
+                    { name: "东部通道详解", article: "中欧班列主要通道" }
+                ]
+            },
+            {
+                title: "优势分析",
+                items: [
+                    { name: "铁路运输优势", article: "铁路运输优势" },
+                    { name: "与海运空运对比", article: "铁路运输优势" },
+                    { name: "适用货物类型", article: "铁路运输优势" },
+                    { name: "季节性因素", article: "铁路运输优势" }
+                ]
+            },
+            {
+                title: "操作流程",
+                items: [
+                    { name: "中欧班列运输流程", article: "中欧班列运输流程" },
+                    { name: "订舱与装箱", article: "中欧班列运输流程" },
+                    { name: "口岸换装操作", article: "中欧班列运输流程" },
+                    { name: "到站提货流程", article: "中欧班列运输流程" }
+                ]
+            },
+            {
+                title: "单证要求",
+                items: [
+                    { name: "铁路运输单证", article: "铁路运输单证" },
+                    { name: "铁路运单介绍", article: "铁路运输单证" },
+                    { name: "报关单证准备", article: "铁路运输单证" },
+                    { name: "单证常见问题", article: "铁路运输单证" }
+                ]
+            }
+        ]
+    },
+    "truck": {
+        title: "国际卡航",
+        sections: [
+            {
+                title: "跨境陆运",
+                items: [
+                    { name: "跨境公路运输概述", article: "跨境公路运输概述" },
+                    { name: "卡航运输特点", article: "跨境公路运输概述" },
+                    { name: "适用场景分析", article: "跨境公路运输概述" },
+                    { name: "优劣势对比", article: "跨境公路运输概述" }
+                ]
+            },
+            {
+                title: "运输单证",
+                items: [
+                    { name: "跨境陆运所需证件", article: "跨境陆运所需证件" },
+                    { name: "CMR运单介绍", article: "跨境陆运所需证件" },
+                    { name: "ATA单证册", article: "跨境陆运所需证件" },
+                    { name: "司机证件要求", article: "跨境陆运所需证件" }
+                ]
+            },
+            {
+                title: "法规要求",
+                items: [
+                    { name: "跨境运输法规", article: "跨境运输法规" },
+                    { name: "各国通行规定", article: "跨境运输法规" },
+                    { name: "车辆标准要求", article: "跨境运输法规" },
+                    { name: "环保法规遵守", article: "跨境运输法规" }
+                ]
+            },
+            {
+                title: "主要路线",
+                items: [
+                    { name: "主要跨境陆运路线", article: "主要跨境陆运路线" },
+                    { name: "中亚线路详解", article: "主要跨境陆运路线" },
+                    { name: "东南亚线路", article: "主要跨境陆运路线" },
+                    { name: "口岸信息汇总", article: "主要跨境陆运路线" }
+                ]
+            },
+            {
+                title: "成本构成",
+                items: [
+                    { name: "陆运成本分析", article: "陆运成本分析" },
+                    { name: "运费计算方式", article: "陆运成本分析" },
+                    { name: "附加费用说明", article: "陆运成本分析" },
+                    { name: "成本优化建议", article: "陆运成本分析" }
+                ]
+            }
+        ]
+    },
+    "customs": {
+        title: "报关报检",
+        sections: [
+            {
+                title: "出口报关",
+                items: [
+                    { name: "出口报关流程", article: "出口报关流程" },
+                    { name: "报关资料准备", article: "出口报关流程" },
+                    { name: "报关单填写", article: "出口报关流程" },
+                    { name: "海关查验应对", article: "出口报关流程" }
+                ]
+            },
+            {
+                title: "出口退税",
+                items: [
+                    { name: "出口退税政策", article: "出口退税政策" },
+                    { name: "退税流程详解", article: "出口退税政策" },
+                    { name: "退税资料准备", article: "出口退税政策" },
+                    { name: "退税常见问题", article: "出口退税政策" }
+                ]
+            },
+            {
+                title: "进口报关",
+                items: [
+                    { name: "进口报关注意事项", article: "进口报关注意事项" },
+                    { name: "进口关税计算", article: "进口报关注意事项" },
+                    { name: "进口许可证办理", article: "进口报关注意事项" },
+                    { name: "清关时效提升", article: "进口报关注意事项" }
+                ]
+            },
+            {
+                title: "检验检疫",
+                items: [
+                    { name: "出入境检验检疫", article: "出入境检验检疫" },
+                    { name: "商检流程说明", article: "出入境检验检疫" },
+                    { name: "检疫证书办理", article: "出入境检验检疫" },
+                    { name: "法检商品清单", article: "出入境检验检疫" }
+                ]
+            }
+        ]
+    },
+    "warehouse": {
+        title: "仓储管理",
+        sections: [
+            {
+                title: "海外仓",
+                items: [
+                    { name: "海外仓优势分析", article: "海外仓优势分析" },
+                    { name: "海外仓运营模式", article: "海外仓优势分析" },
+                    { name: "入仓与出仓流程", article: "海外仓优势分析" },
+                    { name: "费用结构说明", article: "海外仓优势分析" }
+                ]
+            },
+            {
+                title: "服务商选择",
+                items: [
+                    { name: "主要海外仓服务商", article: "主要海外仓服务商" },
+                    { name: "服务商对比分析", article: "主要海外仓服务商" },
+                    { name: "选择考虑因素", article: "主要海外仓服务商" },
+                    { name: "合作注意事项", article: "主要海外仓服务商" }
+                ]
+            },
+            {
+                title: "保税仓库",
+                items: [
+                    { name: "保税仓库类型", article: "保税仓库类型" },
+                    { name: "保税政策解读", article: "保税仓库类型" },
+                    { name: "保税仓运营", article: "保税仓库类型" },
+                    { name: "适用业务场景", article: "保税仓库类型" }
+                ]
+            },
+            {
+                title: "WMS系统",
+                items: [
+                    { name: "WMS系统功能", article: "WMS系统功能" },
+                    { name: "系统选型指南", article: "WMS系统功能" },
+                    { name: "库存管理方法", article: "WMS系统功能" },
+                    { name: "效率提升技巧", article: "WMS系统功能" }
+                ]
+            }
+        ]
+    },
+    "tools": {
+        title: "实用工具",
+        sections: [
+            {
+                title: "计算工具",
+                items: [
+                    { name: "体积重量计算器", tool: "volume-calculator" },
+                    { name: "运费计算器", tool: "freight-calculator" },
+                    { name: "汇率转换器", tool: "currency-converter" }
+                ]
+            },
+            {
+                title: "查询工具",
+                items: [
+                    { name: "货物跟踪", tool: "tracking" },
+                    { name: "贸易术语查询", tool: "incoterms" },
+                    { name: "港口信息查询", tool: "ports" }
+                ]
+            }
+        ]
+    },
+    // ===== 货代销售 =====
+    "customer-dev": {
+        title: "客户开发",
+        sections: [
+            {
+                title: "开发技巧",
+                items: [
+                    { name: "货代客户开发技巧", article: "货代客户开发技巧" },
+                    { name: "目标客户定位", article: "货代客户开发技巧" },
+                    { name: "客户信息收集", article: "货代客户开发技巧" },
+                    { name: "首次接触话术", article: "货代客户开发技巧" }
+                ]
+            },
+            {
+                title: "电话销售",
+                items: [
+                    { name: "电话销售话术", article: "电话销售话术" },
+                    { name: "开场白设计", article: "电话销售话术" },
+                    { name: "需求挖掘技巧", article: "电话销售话术" },
+                    { name: "异议处理方法", article: "电话销售话术" }
+                ]
+            },
+            {
+                title: "邮件营销",
+                items: [
+                    { name: "邮件营销策略", article: "邮件营销策略" },
+                    { name: "邮件标题技巧", article: "邮件营销策略" },
+                    { name: "内容编写要点", article: "邮件营销策略" },
+                    { name: "跟进邮件模板", article: "邮件营销策略" }
+                ]
+            }
+        ]
+    },
+    "quotation": {
+        title: "报价技巧",
+        sections: [
+            {
+                title: "报价单制作",
+                items: [
+                    { name: "如何制作专业报价单", article: "如何制作专业报价单" },
+                    { name: "报价单格式规范", article: "如何制作专业报价单" },
+                    { name: "费用项目说明", article: "如何制作专业报价单" },
+                    { name: "报价单模板", article: "如何制作专业报价单" }
+                ]
+            },
+            {
+                title: "价格谈判",
+                items: [
+                    { name: "价格谈判技巧", article: "价格谈判技巧" },
+                    { name: "议价策略分析", article: "价格谈判技巧" },
+                    { name: "底线设定方法", article: "价格谈判技巧" },
+                    { name: "成交促进技巧", article: "价格谈判技巧" }
+                ]
+            }
+        ]
+    },
+    "relationship": {
+        title: "客户关系",
+        sections: [
+            {
+                title: "客户维护",
+                items: [
+                    { name: "客户维护策略", article: "客户维护策略" },
+                    { name: "定期回访计划", article: "客户维护策略" },
+                    { name: "客户分级管理", article: "客户维护策略" },
+                    { name: "增值服务提供", article: "客户维护策略" }
+                ]
+            },
+            {
+                title: "投诉处理",
+                items: [
+                    { name: "处理客户投诉", article: "处理客户投诉" },
+                    { name: "投诉响应流程", article: "处理客户投诉" },
+                    { name: "问题解决方案", article: "处理客户投诉" },
+                    { name: "客户满意度提升", article: "处理客户投诉" }
+                ]
+            }
+        ]
+    },
+    // ===== 货代英语 =====
+    "vocabulary": {
+        title: "专业词汇",
+        sections: [
+            {
+                title: "常用词汇",
+                items: [
+                    { name: "货代常用英语词汇", article: "货代常用英语词汇" },
+                    { name: "运输方式词汇", article: "货代常用英语词汇" },
+                    { name: "费用相关词汇", article: "货代常用英语词汇" },
+                    { name: "操作流程词汇", article: "货代常用英语词汇" }
+                ]
+            },
+            {
+                title: "航运术语",
+                items: [
+                    { name: "航运专业术语", article: "航运专业术语" },
+                    { name: "船舶术语", article: "航运专业术语" },
+                    { name: "港口术语", article: "航运专业术语" },
+                    { name: "集装箱术语", article: "航运专业术语" }
+                ]
+            },
+            {
+                title: "单证英语",
+                items: [
+                    { name: "单证英语术语", article: "单证英语术语" },
+                    { name: "提单术语", article: "单证英语术语" },
+                    { name: "发票术语", article: "单证英语术语" },
+                    { name: "报关术语", article: "单证英语术语" }
+                ]
+            }
+        ]
+    },
+    "communication": {
+        title: "商务沟通",
+        sections: [
+            {
+                title: "邮件写作",
+                items: [
+                    { name: "邮件写作模板", article: "邮件写作模板" },
+                    { name: "询价邮件模板", article: "邮件写作模板" },
+                    { name: "报价邮件模板", article: "邮件写作模板" },
+                    { name: "跟进邮件模板", article: "邮件写作模板" }
+                ]
+            },
+            {
+                title: "电话沟通",
+                items: [
+                    { name: "电话沟通技巧", article: "电话沟通技巧" },
+                    { name: "常用对话句型", article: "电话沟通技巧" },
+                    { name: "问题处理表达", article: "电话沟通技巧" },
+                    { name: "商务礼仪用语", article: "电话沟通技巧" }
+                ]
+            }
+        ]
+    }
+};
+
+// ===== 显示分类目录大纲 =====
+function showCategoryOutline(categoryKey) {
+    const data = categoryOutlineData[categoryKey];
+    if (!data) return;
+    
+    // 隐藏首页，显示文章区域
+    homeContent.style.display = 'none';
+    searchResults.style.display = 'none';
+    articleContent.style.display = 'block';
+    
+    // 隐藏标题和页脚等
+    document.getElementById('articleTitle').style.display = 'none';
+    document.getElementById('articleTags').innerHTML = '';
+    document.getElementById('articleMeta').style.display = 'none';
+    document.querySelector('.article-footer').style.display = 'none';
+    document.getElementById('articleNav').innerHTML = '';
+    
+    // 构建目录HTML
+    let html = '<div class="category-outline">';
+    
+    data.sections.forEach(section => {
+        html += `
+            <div class="outline-section">
+                <div class="outline-section-header">
+                    <h2 class="outline-section-title">${section.title}</h2>
+                </div>
+                <div class="outline-items">
+        `;
+        
+        section.items.forEach(item => {
+            if (item.tool) {
+                html += `<a class="outline-item" onclick="showTool('${item.tool}')">${item.name}</a>`;
+            } else {
+                html += `<a class="outline-item" onclick="showArticle('${item.article}')">${item.name}</a>`;
+            }
+        });
+        
+        html += `
+                </div>
+            </div>
+        `;
+    });
+    
+    html += '</div>';
+    
+    // 填充面包屑
+    document.getElementById('breadcrumb').innerHTML = `
+        <a href="#" onclick="showHome()">首页</a>
+        <span class="separator">/</span>
+        <span>专业知识</span>
+        <span class="separator">/</span>
+        <span>${data.title.replace('知识大纲', '')}</span>
+    `;
+    
+    // 填充内容
+    document.getElementById('articleBody').innerHTML = html;
+    
+    // 滚动到顶部
+    window.scrollTo(0, 0);
+}
+
 // ===== 显示文章 =====
 function showArticle(title) {
     const article = findArticle(title);
@@ -1966,13 +2717,29 @@ function showArticle(title) {
     document.getElementById('articleTitle').textContent = article.data.title;
     document.getElementById('articleBody').innerHTML = article.data.content;
     
-    // 面包屑
-    document.getElementById('breadcrumb').innerHTML = `
+    // 面包屑 - 支持点击返回上级
+    let breadcrumbHtml = `
         <a href="#" onclick="showHome()">首页</a>
         <span class="separator">/</span>
         <span>${article.categoryTitle}</span>
-        ${article.subcategoryTitle ? `<span class="separator">/</span><span>${article.subcategoryTitle}</span>` : ''}
     `;
+    
+    if (article.subcategoryTitle) {
+        // 检查是否有目录大纲，如果有则可以点击返回
+        if (categoryOutlineData[article.subcategoryKey]) {
+            breadcrumbHtml += `
+                <span class="separator">/</span>
+                <a href="#" onclick="showCategoryOutline('${article.subcategoryKey}')">${article.subcategoryTitle}</a>
+            `;
+        } else {
+            breadcrumbHtml += `
+                <span class="separator">/</span>
+                <span>${article.subcategoryTitle}</span>
+            `;
+        }
+    }
+    
+    document.getElementById('breadcrumb').innerHTML = breadcrumbHtml;
     
     // 隐藏标签
     document.getElementById('articleTags').innerHTML = '';
@@ -1999,7 +2766,9 @@ function findArticle(title) {
                 if (article) {
                     return {
                         data: article,
+                        categoryKey: catKey,
                         categoryTitle: category.title,
+                        subcategoryKey: subKey,
                         subcategoryTitle: subcategory.title
                     };
                 }
@@ -2009,7 +2778,9 @@ function findArticle(title) {
             if (article) {
                 return {
                     data: article,
+                    categoryKey: catKey,
                     categoryTitle: category.title,
+                    subcategoryKey: null,
                     subcategoryTitle: null
                 };
             }
