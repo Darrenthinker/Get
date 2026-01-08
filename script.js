@@ -972,6 +972,207 @@ const knowledgeBase = {
                         </div>`,
                         keywords: ["CBP", "Port Code", "美国海关", "AMS", "ISF", "清关", "Schedule D"],
                         readCount: 1520
+                    },
+                    {
+                        title: "美国海关清关流程",
+                        content: `
+                        <div class="article-content-wrapper">
+                            <h2>美国海关清关流程详解</h2>
+                            <p>美国海关清关是货物进入美国市场的必经环节，了解整个流程对于跨境电商和国际贸易从业者至关重要。</p>
+                            
+                            <h3>一、清关前准备</h3>
+                            <ul>
+                                <li><strong>进口商注册</strong>：需要在CBP注册，获取进口商识别号（Importer Number）</li>
+                                <li><strong>海关保证金（Bond）</strong>：必须购买海关保证金，分为单次Bond和年度Bond</li>
+                                <li><strong>报关行选择</strong>：建议选择有执照的报关行（Licensed Customs Broker）</li>
+                                <li><strong>货物分类</strong>：确定正确的HTS编码（海关税则号）</li>
+                            </ul>
+                            
+                            <h3>二、清关流程步骤</h3>
+                            <div class="step-list">
+                                <div class="step-item">
+                                    <span class="step-num">1</span>
+                                    <div class="step-content">
+                                        <strong>货物到达通知</strong>
+                                        <p>货物到达美国港口后，船公司或航空公司会发送到货通知</p>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <span class="step-num">2</span>
+                                    <div class="step-content">
+                                        <strong>入境申报（Entry Filing）</strong>
+                                        <p>必须在货物到达后15天内完成入境申报，提交Entry Summary（CBP Form 7501）</p>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <span class="step-num">3</span>
+                                    <div class="step-content">
+                                        <strong>单证审核</strong>
+                                        <p>CBP审核商业发票、装箱单、提单、原产地证明等文件</p>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <span class="step-num">4</span>
+                                    <div class="step-content">
+                                        <strong>关税评估与支付</strong>
+                                        <p>根据商品分类和价值计算关税，进口商需在规定时间内支付</p>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <span class="step-num">5</span>
+                                    <div class="step-content">
+                                        <strong>货物放行</strong>
+                                        <p>完成所有手续后，CBP签发放行通知，货物可以提取</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h3>三、常见清关延误原因</h3>
+                            <ul>
+                                <li>文件不完整或信息不一致</li>
+                                <li>HTS编码错误</li>
+                                <li>货值申报有疑问</li>
+                                <li>被抽中查验</li>
+                                <li>涉及反倾销/反补贴产品</li>
+                            </ul>
+                            
+                            <h3>四、清关时效</h3>
+                            <table class="info-table">
+                                <tr><th>情况</th><th>预计时效</th></tr>
+                                <tr><td>正常清关</td><td>1-3个工作日</td></tr>
+                                <tr><td>文件补充</td><td>3-7个工作日</td></tr>
+                                <tr><td>海关查验</td><td>5-14个工作日</td></tr>
+                                <tr><td>其他机构介入</td><td>视情况而定</td></tr>
+                            </table>
+                        </div>`,
+                        keywords: ["美国清关", "CBP", "入境申报", "关税", "报关行", "海关保证金"],
+                        readCount: 2350
+                    },
+                    {
+                        title: "CBP申报要求",
+                        content: `
+                        <div class="article-content-wrapper">
+                            <h2>CBP申报要求详解</h2>
+                            <p>美国海关和边境保护局（CBP）对进口货物有严格的申报要求，准确申报是合规进口的基础。</p>
+                            
+                            <h3>一、基本申报信息</h3>
+                            <ul>
+                                <li><strong>进口商信息</strong>：名称、地址、联系方式、进口商编号</li>
+                                <li><strong>货物描述</strong>：详细的商品名称、规格、用途</li>
+                                <li><strong>HTS编码</strong>：10位数的海关税则号</li>
+                                <li><strong>原产国</strong>：货物的制造国或生产国</li>
+                                <li><strong>货值申报</strong>：CIF或FOB价值</li>
+                                <li><strong>数量与单位</strong>：件数、重量、体积等</li>
+                            </ul>
+                            
+                            <h3>二、必备单证</h3>
+                            <table class="info-table">
+                                <tr><th>单证名称</th><th>说明</th><th>要求</th></tr>
+                                <tr><td>商业发票</td><td>Commercial Invoice</td><td>必须</td></tr>
+                                <tr><td>装箱单</td><td>Packing List</td><td>必须</td></tr>
+                                <tr><td>提单</td><td>Bill of Lading / Airway Bill</td><td>必须</td></tr>
+                                <tr><td>原产地证明</td><td>Certificate of Origin</td><td>视情况</td></tr>
+                                <tr><td>入境概要</td><td>Entry Summary (CBP Form 7501)</td><td>必须</td></tr>
+                                <tr><td>到货通知</td><td>Arrival Notice</td><td>必须</td></tr>
+                            </table>
+                            
+                            <h3>三、特殊商品额外要求</h3>
+                            <div class="info-box warning">
+                                <p><strong>以下商品需要额外许可或认证：</strong></p>
+                                <ul>
+                                    <li><strong>食品</strong>：FDA注册、Prior Notice</li>
+                                    <li><strong>电子产品</strong>：FCC认证</li>
+                                    <li><strong>儿童产品</strong>：CPSC认证、CPC证书</li>
+                                    <li><strong>医疗器械</strong>：FDA 510(k)批准</li>
+                                    <li><strong>化妆品</strong>：FDA注册</li>
+                                    <li><strong>纺织品</strong>：纤维成分标签</li>
+                                </ul>
+                            </div>
+                            
+                            <h3>四、申报时限</h3>
+                            <ul>
+                                <li><strong>入境申报</strong>：货物到达后15天内</li>
+                                <li><strong>关税支付</strong>：入境申报后10天内</li>
+                                <li><strong>ISF申报</strong>：装船前24小时（海运）</li>
+                            </ul>
+                            
+                            <h3>五、违规处罚</h3>
+                            <ul>
+                                <li>虚假申报：最高可达货值4倍的罚款</li>
+                                <li>延迟申报：每天$5,000罚款</li>
+                                <li>ISF违规：$5,000起罚</li>
+                                <li>严重违规可能导致货物没收</li>
+                            </ul>
+                        </div>`,
+                        keywords: ["CBP申报", "进口单证", "HTS编码", "商业发票", "原产地", "FDA"],
+                        readCount: 1890
+                    },
+                    {
+                        title: "ISF申报指南",
+                        content: `
+                        <div class="article-content-wrapper">
+                            <h2>ISF申报指南（10+2规则）</h2>
+                            <p>ISF（Importer Security Filing）又称"10+2规则"，是美国海关要求的进口安全申报，适用于所有海运进口货物。</p>
+                            
+                            <h3>一、什么是ISF？</h3>
+                            <p>ISF是美国国土安全部要求进口商在货物装船前向CBP申报的安全信息，目的是提高供应链安全性，防止恐怖主义和走私活动。</p>
+                            
+                            <h3>二、申报时限</h3>
+                            <div class="highlight-box">
+                                <p><strong>关键时限：</strong>必须在货物在外国港口装载到前往美国的船只之前<strong>至少24小时</strong>提交ISF申报。</p>
+                            </div>
+                            
+                            <h3>三、进口商需申报的10项信息</h3>
+                            <ol class="numbered-list">
+                                <li><strong>卖方名称和地址</strong> - Seller Name and Address</li>
+                                <li><strong>买方名称和地址</strong> - Buyer Name and Address</li>
+                                <li><strong>进口商记录号</strong> - Importer of Record Number</li>
+                                <li><strong>收货人号码</strong> - Consignee Number</li>
+                                <li><strong>制造商名称和地址</strong> - Manufacturer Name and Address</li>
+                                <li><strong>原产国</strong> - Country of Origin</li>
+                                <li><strong>商品HTS编码（前6位）</strong> - Commodity HTS Number</li>
+                                <li><strong>集装箱装箱地址</strong> - Container Stuffing Location</li>
+                                <li><strong>拼箱商名称和地址</strong> - Consolidator Name and Address</li>
+                                <li><strong>提单号</strong> - Master Bill of Lading Number</li>
+                            </ol>
+                            
+                            <h3>四、承运人需申报的2项信息</h3>
+                            <ol class="numbered-list">
+                                <li><strong>船舶装载计划</strong> - Vessel Stow Plan</li>
+                                <li><strong>集装箱状态信息</strong> - Container Status Messages</li>
+                            </ol>
+                            
+                            <h3>五、ISF申报注意事项</h3>
+                            <ul>
+                                <li>ISF必须由进口商或其代理（如报关行）提交</li>
+                                <li>一个提单可能需要多个ISF（多个进口商时）</li>
+                                <li>ISF信息可以在装船前更新，但最晚不能迟于装船后24小时</li>
+                                <li>空运、陆运货物不需要ISF申报</li>
+                            </ul>
+                            
+                            <h3>六、违规处罚</h3>
+                            <table class="info-table">
+                                <tr><th>违规类型</th><th>处罚金额</th></tr>
+                                <tr><td>未申报ISF</td><td>$5,000起</td></tr>
+                                <tr><td>延迟申报</td><td>$5,000起</td></tr>
+                                <tr><td>信息不准确</td><td>$5,000起</td></tr>
+                                <tr><td>严重/重复违规</td><td>最高$10,000/次</td></tr>
+                            </table>
+                            
+                            <h3>七、常见问题</h3>
+                            <div class="faq-section">
+                                <div class="faq-item">
+                                    <strong>Q: ISF和AMS有什么区别？</strong>
+                                    <p>A: ISF是进口商安全申报，AMS是自动舱单系统。两者都需要，但申报主体和内容不同。</p>
+                                </div>
+                                <div class="faq-item">
+                                    <strong>Q: ISF可以修改吗？</strong>
+                                    <p>A: 可以，但必须在到港前完成修改，且修改次数过多可能引起海关关注。</p>
+                                </div>
+                            </div>
+                        </div>`,
+                        keywords: ["ISF", "10+2规则", "进口安全申报", "海运", "AMS", "CBP"],
+                        readCount: 2180
                     }
                 ]
     },
@@ -2259,9 +2460,9 @@ const categoryOutlineData = {
                 title: "美国海关",
                 items: [
                     { name: "US CBP Port Codes", article: "US CBP Port Codes" },
-                    { name: "美国海关清关流程", article: "US CBP Port Codes" },
-                    { name: "CBP申报要求", article: "US CBP Port Codes" },
-                    { name: "ISF申报指南", article: "US CBP Port Codes" }
+                    { name: "美国海关清关流程", article: "美国海关清关流程" },
+                    { name: "CBP申报要求", article: "CBP申报要求" },
+                    { name: "ISF申报指南", article: "ISF申报指南" }
                 ]
             }
         ]
@@ -2757,7 +2958,7 @@ const categoryOutlineData = {
 };
 
 // ===== 显示分类目录大纲 =====
-function showCategoryOutline(categoryKey) {
+function showCategoryOutline(categoryKey, scrollToSection = null) {
     const data = categoryOutlineData[categoryKey];
     if (!data) return;
     
@@ -2776,9 +2977,9 @@ function showCategoryOutline(categoryKey) {
     // 构建目录HTML
     let html = '<div class="category-outline">';
     
-    data.sections.forEach(section => {
+    data.sections.forEach((section, index) => {
         html += `
-            <div class="outline-section">
+            <div class="outline-section" id="outline-section-${index}">
                 <div class="outline-section-header">
                     <h2 class="outline-section-title">${section.title}</h2>
                 </div>
@@ -2813,8 +3014,25 @@ function showCategoryOutline(categoryKey) {
     // 填充内容
     document.getElementById('articleBody').innerHTML = html;
     
-    // 滚动到顶部
-    window.scrollTo(0, 0);
+    // 滚动到指定 section 或顶部
+    if (scrollToSection !== null) {
+        setTimeout(() => {
+            const sectionEl = document.getElementById(`outline-section-${scrollToSection}`);
+            if (sectionEl) {
+                sectionEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // 添加高亮效果
+                sectionEl.classList.add('section-highlight');
+                setTimeout(() => sectionEl.classList.remove('section-highlight'), 2000);
+            }
+        }, 100);
+    } else {
+        window.scrollTo(0, 0);
+    }
+}
+
+// 显示分类大纲并滚动到指定 section
+function showCategoryOutlineSection(categoryKey, sectionIndex) {
+    showCategoryOutline(categoryKey, sectionIndex);
 }
 
 // ===== 显示文章 =====
@@ -2851,6 +3069,14 @@ function showArticle(title) {
                 <span class="separator">/</span>
                 <a href="#" onclick="showCategoryOutline('${article.subcategoryKey}')">${article.subcategoryTitle}</a>
             `;
+            
+            // 如果有 section，添加 section 链接
+            if (article.sectionTitle) {
+                breadcrumbHtml += `
+                    <span class="separator">/</span>
+                    <a href="#" onclick="showCategoryOutlineSection('${article.subcategoryKey}', ${article.sectionIndex})">${article.sectionTitle}</a>
+                `;
+            }
         } else {
             breadcrumbHtml += `
                 <span class="separator">/</span>
@@ -2884,12 +3110,16 @@ function findArticle(title) {
             for (const [subKey, subcategory] of Object.entries(category.subcategories)) {
                 const article = subcategory.articles.find(a => a.title === title);
                 if (article) {
+                    // 查找文章所属的 section
+                    const sectionInfo = findArticleSection(subKey, title);
                     return {
                         data: article,
                         categoryKey: catKey,
                         categoryTitle: category.title,
                         subcategoryKey: subKey,
-                        subcategoryTitle: subcategory.title
+                        subcategoryTitle: subcategory.title,
+                        sectionTitle: sectionInfo ? sectionInfo.sectionTitle : null,
+                        sectionIndex: sectionInfo ? sectionInfo.sectionIndex : null
                     };
                 }
             }
@@ -2901,9 +3131,29 @@ function findArticle(title) {
                     categoryKey: catKey,
                     categoryTitle: category.title,
                     subcategoryKey: null,
-                    subcategoryTitle: null
+                    subcategoryTitle: null,
+                    sectionTitle: null,
+                    sectionIndex: null
                 };
             }
+        }
+    }
+    return null;
+}
+
+// 查找文章所属的 section
+function findArticleSection(subcategoryKey, articleTitle) {
+    const outlineData = categoryOutlineData[subcategoryKey];
+    if (!outlineData || !outlineData.sections) return null;
+    
+    for (let i = 0; i < outlineData.sections.length; i++) {
+        const section = outlineData.sections[i];
+        const found = section.items.find(item => item.article === articleTitle || item.name === articleTitle);
+        if (found) {
+            return {
+                sectionTitle: section.title,
+                sectionIndex: i
+            };
         }
     }
     return null;
