@@ -861,6 +861,117 @@ const knowledgeBase = {
                         </ul>`,
                         keywords: ["FBA费用", "履约费", "仓储费", "长期仓储", "移除费"],
                         readCount: 4120
+                    },
+                    {
+                        title: "US CBP Port Codes",
+                        content: `
+                        <div class="port-codes-page">
+                            <div class="port-intro-bilingual">
+                                <div class="intro-title">
+                                    <h2>US Customs Port Codes</h2>
+                                    <h3>美国海关港口代码</h3>
+                                </div>
+                                <div class="intro-content">
+                                    <p class="text-en"><strong>US Customs Ports</strong> are the operational facilities used by the Department of Homeland Security to regulate goods being imported into or exported from the United States. Customs ports of entry are often located near airports, seaports, and land border crossings. Customs ports are created by the Deputy Assistant Secretary by authority from the Secretary of treasury. That office is given authority to establish, arrange, consolidate, and discontinue Customs ports of entry to fit the needs of the US Customs Service. The following is a list of Customs Ports of Entry and Service ports.</p>
+                                    <p class="text-cn">美国海关港口是国土安全部用于监管进出口美国商品的运营设施。海关入境港通常位于机场、海港和陆地边境口岸附近。海关港口由副助理部长根据财政部长的授权创建。该办公室被赋予权力，以建立、安排、合并和终止海关入境港口，以满足美国海关服务的需求。以下是入境港口和服务港口的列表。</p>
+                                </div>
+                                <div class="intro-note">
+                                    <p class="text-en">Facilities with the ability to transmit <strong>AMS (Automated Manifest System)</strong> information directly to US Customs must have a Customs assigned <strong>FIRMS</strong> code.</p>
+                                    <p class="text-cn">能够直接向美国海关传输 <strong>AMS（自动舱单系统）</strong>信息的设施必须拥有海关分配的 <strong>FIRMS</strong> 代码。</p>
+                                </div>
+                            </div>
+                            
+                            <div class="port-search-box">
+                                <div class="search-row">
+                                    <div class="search-field">
+                                        <label>Port Name</label>
+                                        <input type="text" id="searchPortName" placeholder="e.g. Los Angeles" oninput="filterPortCodes()">
+                                    </div>
+                                    <div class="search-field">
+                                        <label>State</label>
+                                        <select id="searchState" onchange="filterPortCodes()">
+                                            <option value="">All States</option>
+                                            <option value="AK">Alaska (AK)</option>
+                                            <option value="AL">Alabama (AL)</option>
+                                            <option value="AZ">Arizona (AZ)</option>
+                                            <option value="CA">California (CA)</option>
+                                            <option value="CO">Colorado (CO)</option>
+                                            <option value="CT">Connecticut (CT)</option>
+                                            <option value="DE">Delaware (DE)</option>
+                                            <option value="FL">Florida (FL)</option>
+                                            <option value="GA">Georgia (GA)</option>
+                                            <option value="HI">Hawaii (HI)</option>
+                                            <option value="IL">Illinois (IL)</option>
+                                            <option value="IN">Indiana (IN)</option>
+                                            <option value="KY">Kentucky (KY)</option>
+                                            <option value="LA">Louisiana (LA)</option>
+                                            <option value="MA">Massachusetts (MA)</option>
+                                            <option value="MD">Maryland (MD)</option>
+                                            <option value="ME">Maine (ME)</option>
+                                            <option value="MI">Michigan (MI)</option>
+                                            <option value="MN">Minnesota (MN)</option>
+                                            <option value="MO">Missouri (MO)</option>
+                                            <option value="MT">Montana (MT)</option>
+                                            <option value="NC">North Carolina (NC)</option>
+                                            <option value="ND">North Dakota (ND)</option>
+                                            <option value="NH">New Hampshire (NH)</option>
+                                            <option value="NJ">New Jersey (NJ)</option>
+                                            <option value="NM">New Mexico (NM)</option>
+                                            <option value="NY">New York (NY)</option>
+                                            <option value="OH">Ohio (OH)</option>
+                                            <option value="OR">Oregon (OR)</option>
+                                            <option value="PA">Pennsylvania (PA)</option>
+                                            <option value="PR">Puerto Rico (PR)</option>
+                                            <option value="RI">Rhode Island (RI)</option>
+                                            <option value="SC">South Carolina (SC)</option>
+                                            <option value="TN">Tennessee (TN)</option>
+                                            <option value="TX">Texas (TX)</option>
+                                            <option value="VA">Virginia (VA)</option>
+                                            <option value="VT">Vermont (VT)</option>
+                                            <option value="WA">Washington (WA)</option>
+                                            <option value="WI">Wisconsin (WI)</option>
+                                            <option value="VI">Virgin Islands (VI)</option>
+                                            <option value="GU">Guam (GU)</option>
+                                            <option value="MP">N. Mariana Islands (MP)</option>
+                                            <option value="NV">Nevada (NV)</option>
+                                            <option value="UT">Utah (UT)</option>
+                                            <option value="NE">Nebraska (NE)</option>
+                                            <option value="MS">Mississippi (MS)</option>
+                                        </select>
+                                    </div>
+                                    <div class="search-field">
+                                        <label>Port Code</label>
+                                        <input type="text" id="searchPortCode" placeholder="e.g. 2704" oninput="filterPortCodes()">
+                                    </div>
+                                    <div class="search-field search-btn-field">
+                                        <button onclick="resetPortSearch()" class="reset-btn">Reset</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="port-stats">
+                                <span id="portCount">Showing 150 ports</span>
+                            </div>
+
+                            <div class="port-table-wrapper">
+                                <table class="port-codes-table" id="portCodesTable">
+                                    <thead>
+                                        <tr>
+                                            <th onclick="sortPortTable(0)">#</th>
+                                            <th onclick="sortPortTable(1)">Port Name ↕</th>
+                                            <th onclick="sortPortTable(2)">State ↕</th>
+                                            <th onclick="sortPortTable(3)">Port Code ↕</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="portTableBody">
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div id="portPagination" class="port-pagination"></div>
+                        </div>`,
+                        keywords: ["CBP", "Port Code", "美国海关", "AMS", "ISF", "清关", "Schedule D"],
+                        readCount: 1520
                     }
                 ]
     },
@@ -2143,6 +2254,15 @@ const categoryOutlineData = {
                     { name: "各站点费用对比", article: "FBA费用详细解析" },
                     { name: "隐藏费用避坑", article: "FBA费用详细解析" }
                 ]
+            },
+            {
+                title: "美国海关",
+                items: [
+                    { name: "US CBP Port Codes", article: "US CBP Port Codes" },
+                    { name: "美国海关清关流程", article: "US CBP Port Codes" },
+                    { name: "CBP申报要求", article: "US CBP Port Codes" },
+                    { name: "ISF申报指南", article: "US CBP Port Codes" }
+                ]
             }
         ]
     },
@@ -3016,5 +3136,748 @@ function switchCountryTab(event, tabName) {
     event.target.classList.add('active');
     document.getElementById('tab-' + tabName).classList.add('active');
 }
+
+// ===== US CBP Port Codes 数据和功能 =====
+// 数据来源: CBP Schedule D - U.S. CBP Port Codes (December 2020)
+const usPortCodes = [
+    // === 1. Northeast Region ===
+    {name: "Portland", state: "ME", code: "0101"},
+    {name: "Bangor", state: "ME", code: "0102"},
+    {name: "Eastport", state: "ME", code: "0103"},
+    {name: "Jackman", state: "ME", code: "0104"},
+    {name: "Vanceboro", state: "ME", code: "0105"},
+    {name: "Houlton", state: "ME", code: "0106"},
+    {name: "Fort Fairfield", state: "ME", code: "0107"},
+    {name: "Van Buren", state: "ME", code: "0108"},
+    {name: "Madawaska", state: "ME", code: "0109"},
+    {name: "Fort Kent", state: "ME", code: "0110"},
+    {name: "Bath", state: "ME", code: "0111"},
+    {name: "Bar Harbor", state: "ME", code: "0112"},
+    {name: "Manchester", state: "NH", code: "0114"},
+    {name: "Calais", state: "ME", code: "0115"},
+    {name: "Limestone", state: "ME", code: "0118"},
+    {name: "Rockland", state: "ME", code: "0121"},
+    {name: "Jonesport", state: "ME", code: "0122"},
+    {name: "Bridgewater", state: "ME", code: "0127"},
+    {name: "Portsmouth", state: "NH", code: "0131"},
+    {name: "Searsport", state: "ME", code: "0152"},
+    {name: "Manchester User Fee Airport", state: "NH", code: "0182"},
+    {name: "St. Albans", state: "VT", code: "0201"},
+    {name: "Richford", state: "VT", code: "0203"},
+    {name: "Beecher Falls", state: "VT", code: "0206"},
+    {name: "Burlington", state: "VT", code: "0207"},
+    {name: "Derby Line", state: "VT", code: "0209"},
+    {name: "Newport", state: "VT", code: "0210"},
+    {name: "Norton", state: "VT", code: "0211"},
+    {name: "Highgate Springs/Alburg", state: "VT", code: "0212"},
+    {name: "Swanton", state: "VT", code: "0214"},
+    {name: "Boston", state: "MA", code: "0401"},
+    {name: "Springfield", state: "MA", code: "0402"},
+    {name: "Worcester", state: "MA", code: "0403"},
+    {name: "Gloucester", state: "MA", code: "0404"},
+    {name: "New Bedford", state: "MA", code: "0405"},
+    {name: "Plymouth", state: "MA", code: "0406"},
+    {name: "Fall River", state: "MA", code: "0407"},
+    {name: "Beverly", state: "MA", code: "0408"},
+    {name: "Bridgeport", state: "CT", code: "0410"},
+    {name: "Hartford", state: "CT", code: "0411"},
+    {name: "New Haven", state: "CT", code: "0412"},
+    {name: "New London", state: "CT", code: "0413"},
+    {name: "Lawrence", state: "MA", code: "0416"},
+    {name: "Logan Airport, East Boston", state: "MA", code: "0417"},
+    {name: "Hanscom Field User Fee Airport", state: "MA", code: "0481"},
+    {name: "Newport", state: "RI", code: "0501"},
+    {name: "Providence", state: "RI", code: "0502"},
+    {name: "Mellville", state: "RI", code: "0503"},
+    {name: "Ogdensburg", state: "NY", code: "0701"},
+    {name: "Massena", state: "NY", code: "0704"},
+    {name: "Cape Vincent", state: "NY", code: "0706"},
+    {name: "Alexandria Bay", state: "NY", code: "0708"},
+    {name: "Burke", state: "NY", code: "0709"},
+    {name: "Champlain-Rouses Point", state: "NY", code: "0712"},
+    {name: "Clayton", state: "NY", code: "0714"},
+    {name: "Trout River", state: "NY", code: "0715"},
+    {name: "Plattsburgh International Airport", state: "NY", code: "0781"},
+    {name: "Buffalo-Niagara Falls", state: "NY", code: "0901"},
+    {name: "Rochester", state: "NY", code: "0903"},
+    {name: "Oswego", state: "NY", code: "0904"},
+    {name: "Sodus Point", state: "NY", code: "0905"},
+    {name: "Syracuse", state: "NY", code: "0906"},
+    {name: "Binghamton Regional Airport", state: "NY", code: "0981"},
+    {name: "Griffiss International User Fee Airport", state: "NY", code: "0982"},
+    {name: "Ithaca Tompkins Intl Airport", state: "NY", code: "0983"},
+    {name: "Philadelphia", state: "PA", code: "1101"},
+    {name: "Chester", state: "PA", code: "1102"},
+    {name: "Wilmington", state: "DE", code: "1103"},
+    {name: "Pittsburgh", state: "PA", code: "1104"},
+    {name: "Wilkes-Barre/Scranton", state: "PA", code: "1106"},
+    {name: "Philadelphia International Airport", state: "PA", code: "1108"},
+    {name: "Harrisburg", state: "PA", code: "1109"},
+    {name: "Cherry Hill", state: "NJ", code: "1110"},
+    {name: "Allentown", state: "PA", code: "1119"},
+    {name: "Atlantic City User Fee Airport", state: "NJ", code: "1182"},
+    {name: "Trenton/Mercer County User Fee Airport", state: "NJ", code: "1183"},
+    {name: "UPS Philadelphia Hub", state: "PA", code: "1195"},
+    {name: "Annapolis", state: "MD", code: "1301"},
+    {name: "Cambridge", state: "MD", code: "1302"},
+    {name: "Baltimore", state: "MD", code: "1303"},
+    {name: "Crisfield", state: "MD", code: "1304"},
+    {name: "Baltimore-Washington International Airport", state: "MD", code: "1305"},
+    {name: "Dover", state: "DE", code: "1307"},
+    // === 2. New York Region ===
+    {name: "New York", state: "NY", code: "1001"},
+    {name: "Albany", state: "NY", code: "1002"},
+    {name: "Long Island", state: "NY", code: "1005"},
+    {name: "Fishkill", state: "NY", code: "1006"},
+    {name: "Napanoch", state: "NY", code: "1007"},
+    {name: "New York/Newark Area", state: "NJ", code: "4601"},
+    {name: "Perth Amboy", state: "NJ", code: "4602"},
+    {name: "ECCF UPS Newark", state: "NJ", code: "4670"},
+    {name: "ECCF FedEx Corp Newark", state: "NJ", code: "4671"},
+    {name: "Morristown Airport", state: "NJ", code: "4681"},
+    {name: "Stewart International Airport UFF", state: "NY", code: "4682"},
+    {name: "John F. Kennedy Airport", state: "NY", code: "4701"},
+    {name: "ECCF NYACC JFK Airport", state: "NY", code: "4771"},
+    {name: "ECCF DHL Airways JFK Airport", state: "NY", code: "4772"},
+    {name: "ECCF Micom JFK", state: "NY", code: "4773"},
+    {name: "ECCF IBC JFK", state: "NY", code: "4774"},
+    {name: "ECCF FedEx Corp JFK Airport", state: "NY", code: "4778"},
+    // === 3. North Central Region ===
+    {name: "Raymond", state: "MT", code: "3301"},
+    {name: "Eastport", state: "ID", code: "3302"},
+    {name: "Salt Lake City", state: "UT", code: "3303"},
+    {name: "Great Falls", state: "MT", code: "3304"},
+    {name: "Butte", state: "MT", code: "3305"},
+    {name: "Turner", state: "MT", code: "3306"},
+    {name: "Denver", state: "CO", code: "3307"},
+    {name: "Porthill", state: "ID", code: "3308"},
+    {name: "Scobey", state: "MT", code: "3309"},
+    {name: "Sweetgrass", state: "MT", code: "3310"},
+    {name: "Piegan", state: "MT", code: "3316"},
+    {name: "Opheim", state: "MT", code: "3317"},
+    {name: "Roosville", state: "MT", code: "3318"},
+    {name: "Morgan", state: "MT", code: "3319"},
+    {name: "Whitlash", state: "MT", code: "3321"},
+    {name: "Del Bonita", state: "MT", code: "3322"},
+    {name: "Wildhorse", state: "MT", code: "3323"},
+    {name: "Kalispell Airport", state: "MT", code: "3324"},
+    {name: "Willow Creek", state: "MT", code: "3325"},
+    {name: "Billings", state: "MT", code: "3326"},
+    {name: "Helena", state: "MT", code: "3348"},
+    {name: "Missoula User Fee Airport", state: "MT", code: "3381"},
+    {name: "Jeffco User Fee Airport", state: "CO", code: "3383"},
+    {name: "Centennial Airport", state: "CO", code: "3384"},
+    {name: "Eagle County Regional Airport", state: "CO", code: "3385"},
+    {name: "Bozeman Yellowstone User Fee Airport", state: "MT", code: "3386"},
+    {name: "Pembina", state: "ND", code: "3401"},
+    {name: "Portal", state: "ND", code: "3403"},
+    {name: "Neche", state: "ND", code: "3404"},
+    {name: "St. John", state: "ND", code: "3405"},
+    {name: "Northgate", state: "ND", code: "3406"},
+    {name: "Walhalla", state: "ND", code: "3407"},
+    {name: "Hannah", state: "ND", code: "3408"},
+    {name: "Sarles", state: "ND", code: "3409"},
+    {name: "Ambrose", state: "ND", code: "3410"},
+    {name: "Fargo International Airport", state: "ND", code: "3411"},
+    {name: "Fargo, Grand Forks", state: "ND", code: "3412"},
+    {name: "Antler", state: "ND", code: "3413"},
+    {name: "Sherwood", state: "ND", code: "3414"},
+    {name: "Hansboro", state: "ND", code: "3415"},
+    {name: "Maida", state: "ND", code: "3416"},
+    {name: "Fortuna", state: "ND", code: "3417"},
+    {name: "Westhope", state: "ND", code: "3419"},
+    {name: "Noonan", state: "ND", code: "3420"},
+    {name: "Carbury", state: "ND", code: "3421"},
+    {name: "Dunseith", state: "ND", code: "3422"},
+    {name: "Warroad", state: "MN", code: "3423"},
+    {name: "Baudette", state: "MN", code: "3424"},
+    {name: "Pinecreek", state: "MN", code: "3425"},
+    {name: "Roseau", state: "MN", code: "3426"},
+    {name: "Grand Forks Airport", state: "ND", code: "3427"},
+    {name: "Crane Lake", state: "MN", code: "3429"},
+    {name: "Lancaster", state: "MN", code: "3430"},
+    {name: "Minot", state: "ND", code: "3431"},
+    {name: "Grand Forks", state: "ND", code: "3432"},
+    {name: "Williston Airport", state: "ND", code: "3433"},
+    {name: "Minot Airport", state: "ND", code: "3434"},
+    {name: "Minneapolis-St. Paul", state: "MN", code: "3501"},
+    {name: "Sioux Falls", state: "SD", code: "3502"},
+    {name: "Rapid City", state: "SD", code: "3503"},
+    {name: "Cedar Rapids", state: "IA", code: "3505"},
+    {name: "Grand Island", state: "NE", code: "3507"},
+    {name: "North Platte", state: "NE", code: "3508"},
+    {name: "Duluth", state: "WI", code: "3510"},
+    {name: "Ashland", state: "WI", code: "3511"},
+    {name: "Omaha", state: "NE", code: "3512"},
+    {name: "Des Moines", state: "IA", code: "3513"},
+    {name: "Rochester User Fee Airport", state: "MN", code: "3581"},
+    {name: "International Falls", state: "MN", code: "3604"},
+    {name: "Grand Portage", state: "MN", code: "3613"},
+    {name: "Milwaukee", state: "WI", code: "3701"},
+    {name: "Marinette", state: "WI", code: "3702"},
+    {name: "Green Bay", state: "WI", code: "3703"},
+    {name: "Manitowoc", state: "WI", code: "3706"},
+    {name: "Sheboygan", state: "WI", code: "3707"},
+    {name: "Racine", state: "WI", code: "3708"},
+    {name: "Appleton International Airport", state: "WI", code: "3781"},
+    {name: "Detroit", state: "MI", code: "3801"},
+    {name: "Port Huron", state: "MI", code: "3802"},
+    {name: "Sault Ste Marie", state: "MI", code: "3803"},
+    {name: "Saginaw/Bay City", state: "MI", code: "3804"},
+    {name: "Battle Creek", state: "MI", code: "3805"},
+    {name: "Grand Rapids", state: "MI", code: "3806"},
+    {name: "Detroit Metropolitan Airport", state: "MI", code: "3807"},
+    {name: "Escanaba", state: "MI", code: "3808"},
+    {name: "Marquette", state: "MI", code: "3809"},
+    {name: "Algonac", state: "MI", code: "3814"},
+    {name: "Muskegon", state: "MI", code: "3815"},
+    {name: "Grand Haven", state: "MI", code: "3816"},
+    {name: "Rogers City", state: "MI", code: "3818"},
+    {name: "Detour City", state: "MI", code: "3819"},
+    {name: "South Haven", state: "MI", code: "3822"},
+    {name: "Presque Island", state: "MI", code: "3842"},
+    {name: "Alpena", state: "MI", code: "3843"},
+    {name: "Oakland County International Airport", state: "MI", code: "3881"},
+    {name: "Willow Run Airport", state: "MI", code: "3882"},
+    {name: "Chicago (O'Hare International Airport)", state: "IL", code: "3901"},
+    {name: "Peoria", state: "IL", code: "3902"},
+    {name: "Gary Chicago Intl Airport", state: "IN", code: "3905"},
+    {name: "Davenport-Rock Island", state: "IL", code: "3908"},
+    {name: "Rockford Airport", state: "IL", code: "3909"},
+    {name: "Midway International Airport", state: "IL", code: "3910"},
+    {name: "Springfield", state: "IL", code: "3911"},
+    {name: "ECCF FedEx Chicago", state: "IL", code: "3971"},
+    {name: "ECCF IBC Chicago", state: "IL", code: "3972"},
+    {name: "Pal-Waukee Mncpl Airport", state: "IL", code: "3983"},
+    {name: "Dupage Airport Authority", state: "IL", code: "3984"},
+    {name: "UFA UI Willard Airport", state: "IL", code: "3987"},
+    {name: "DHL Chicago Hub", state: "IL", code: "3991"},
+    {name: "Cleveland", state: "OH", code: "4101"},
+    {name: "Cincinnati", state: "OH", code: "4102"},
+    {name: "Columbus", state: "OH", code: "4103"},
+    {name: "Dayton", state: "OH", code: "4104"},
+    {name: "Toledo", state: "OH", code: "4105"},
+    {name: "Erie", state: "PA", code: "4106"},
+    {name: "Northern Kentucky", state: "KY", code: "4107"},
+    {name: "Indianapolis", state: "IN", code: "4110"},
+    {name: "Louisville", state: "KY", code: "4115"},
+    {name: "Owensboro-Evansville", state: "IN", code: "4116"},
+    {name: "Ashtabula/Conneaut", state: "OH", code: "4122"},
+    {name: "London", state: "KY", code: "4130"},
+    {name: "Bowling Green", state: "KY", code: "4131"},
+    {name: "Fort Wayne Airport UFA", state: "IN", code: "4183"},
+    {name: "Blue Grass Airport UFA", state: "KY", code: "4184"},
+    {name: "UPS Louisville Hub", state: "KY", code: "4196"},
+    {name: "DHL Cincinnati Hub", state: "OH", code: "4197"},
+    {name: "Fedex Corp Indianapolis Hub", state: "IN", code: "4198"},
+    {name: "Kansas City", state: "MO", code: "4501"},
+    {name: "St. Joseph", state: "MO", code: "4502"},
+    {name: "St. Louis", state: "MO", code: "4503"},
+    {name: "Wichita", state: "KS", code: "4504"},
+    {name: "Springfield", state: "MO", code: "4505"},
+    {name: "Kansas City Smart Port", state: "KS", code: "4507"},
+    {name: "MidAmerica Airport", state: "IL", code: "4581"},
+    // === 4. Southeast Region ===
+    {name: "Norfolk", state: "VA", code: "1401"},
+    {name: "Richmond-Petersburg", state: "VA", code: "1404"},
+    {name: "Harrisonburg", state: "VA", code: "1405"},
+    {name: "Charleston", state: "WV", code: "1409"},
+    {name: "Front Royal", state: "VA", code: "1410"},
+    {name: "Wilmington", state: "NC", code: "1501"},
+    {name: "Winston-Salem", state: "NC", code: "1502"},
+    {name: "Durham", state: "NC", code: "1503"},
+    {name: "Beaufort-Morehead City", state: "NC", code: "1511"},
+    {name: "Charlotte", state: "NC", code: "1512"},
+    {name: "Charlotte-Monroe User Fee Airport", state: "NC", code: "1581"},
+    {name: "Charleston", state: "SC", code: "1601"},
+    {name: "Georgetown", state: "SC", code: "1602"},
+    {name: "Greenville-Spartanburg", state: "SC", code: "1603"},
+    {name: "Columbia", state: "SC", code: "1604"},
+    {name: "Greer", state: "SC", code: "1608"},
+    {name: "Myrtle Beach International Airport", state: "SC", code: "1681"},
+    {name: "Brunswick", state: "GA", code: "1701"},
+    {name: "Savannah", state: "GA", code: "1703"},
+    {name: "Atlanta", state: "GA", code: "1704"},
+    {name: "Albany", state: "GA", code: "1705"},
+    {name: "Dalton", state: "GA", code: "1706"},
+    {name: "Hartsfield Airport", state: "GA", code: "1709"},
+    {name: "Cobb County International Airport", state: "GA", code: "1781"},
+    {name: "Tampa", state: "FL", code: "1801"},
+    {name: "Jacksonville", state: "FL", code: "1803"},
+    {name: "Tallahassee", state: "FL", code: "1804"},
+    {name: "Fernandina Beach", state: "FL", code: "1805"},
+    {name: "Boca Grande", state: "FL", code: "1807"},
+    {name: "Orlando", state: "FL", code: "1808"},
+    {name: "Orlando-Sanford Airport", state: "FL", code: "1809"},
+    {name: "Sarasota/Bradenton, Manatee", state: "FL", code: "1811"},
+    {name: "St. Petersburg", state: "FL", code: "1814"},
+    {name: "Port Canaveral", state: "FL", code: "1816"},
+    {name: "Panama City", state: "FL", code: "1818"},
+    {name: "Pensacola", state: "FL", code: "1819"},
+    {name: "Port St. Joe", state: "FL", code: "1820"},
+    {name: "Port Manatee", state: "FL", code: "1821"},
+    {name: "Fort Myers", state: "FL", code: "1822"},
+    {name: "Naples Municipal Airport", state: "FL", code: "1880"},
+    {name: "Lakeland Linder Airport", state: "FL", code: "1881"},
+    {name: "Sarasota-Bradenton Airport", state: "FL", code: "1883"},
+    {name: "Daytona Beach International Airport", state: "FL", code: "1884"},
+    {name: "Melbourne Regional Airport", state: "FL", code: "1885"},
+    {name: "Leesburg Regional Airport", state: "FL", code: "1887"},
+    {name: "Orlando Executive Airport", state: "FL", code: "1888"},
+    {name: "St. Augustine Airport", state: "FL", code: "1889"},
+    {name: "Aguadilla", state: "PR", code: "4901"},
+    {name: "Fajardo", state: "PR", code: "4904"},
+    {name: "Mayaguez", state: "PR", code: "4907"},
+    {name: "Ponce", state: "PR", code: "4908"},
+    {name: "San Juan", state: "PR", code: "4909"},
+    {name: "San Juan International Airport", state: "PR", code: "4913"},
+    {name: "Charlotte Amalie, St. Thomas", state: "VI", code: "5101"},
+    {name: "Cruz Bay, St. John", state: "VI", code: "5102"},
+    {name: "Christiansted, St. Croix", state: "VI", code: "5104"},
+    {name: "Frederiksted, St. Croix", state: "VI", code: "5105"},
+    {name: "Miami", state: "FL", code: "5201"},
+    {name: "Key West", state: "FL", code: "5202"},
+    {name: "Port Everglades", state: "FL", code: "5203"},
+    {name: "West Palm Beach", state: "FL", code: "5204"},
+    {name: "Fort Pierce", state: "FL", code: "5205"},
+    {name: "Miami International Airport", state: "FL", code: "5206"},
+    {name: "Fort Lauderdale International Airport", state: "FL", code: "5210"},
+    {name: "Key Largo", state: "FL", code: "5211"},
+    {name: "Pembroke Pines", state: "FL", code: "5212"},
+    {name: "Marathon International Airport", state: "FL", code: "5281"},
+    {name: "Boca Raton Airport", state: "FL", code: "5282"},
+    {name: "Witham Field GAF", state: "FL", code: "5283"},
+    {name: "UPS Miami Hub", state: "FL", code: "5295"},
+    {name: "DHL Miami Hub", state: "FL", code: "5296"},
+    {name: "FedEx Corp Miami Hub", state: "FL", code: "5297"},
+    {name: "IBC Miami Hub", state: "FL", code: "5298"},
+    {name: "Washington, District of Columbia", state: "DC", code: "5401"},
+    {name: "Reagan National (DCA)", state: "VA", code: "5402"},
+    // === 5. South Central Region ===
+    {name: "Mobile", state: "AL", code: "1901"},
+    {name: "Gulfport", state: "MS", code: "1902"},
+    {name: "Pascagoula", state: "MS", code: "1903"},
+    {name: "Birmingham", state: "AL", code: "1904"},
+    {name: "Apalachicola", state: "FL", code: "1905"},
+    {name: "Carrabelle", state: "FL", code: "1906"},
+    {name: "Huntsville", state: "AL", code: "1910"},
+    {name: "Morgan City", state: "LA", code: "2001"},
+    {name: "New Orleans", state: "LA", code: "2002"},
+    {name: "Little Rock", state: "AR", code: "2003"},
+    {name: "Baton Rouge", state: "LA", code: "2004"},
+    {name: "Memphis", state: "TN", code: "2006"},
+    {name: "Nashville", state: "TN", code: "2007"},
+    {name: "Chattanooga", state: "TN", code: "2008"},
+    {name: "Gramercy", state: "LA", code: "2010"},
+    {name: "Greenville", state: "MS", code: "2011"},
+    {name: "Vicksburg (Jackson Municipal Airport)", state: "MS", code: "2015"},
+    {name: "Knoxville", state: "TN", code: "2016"},
+    {name: "Lake Charles", state: "LA", code: "2017"},
+    {name: "Shreveport-Bossier City", state: "LA", code: "2018"},
+    {name: "Houma", state: "LA", code: "2021"},
+    {name: "Lafayette", state: "LA", code: "2023"},
+    {name: "Ft. Smith", state: "AR", code: "2024"},
+    {name: "Fayetteville", state: "AR", code: "2025"},
+    {name: "Texarkana", state: "AR", code: "2026"},
+    {name: "Tri-Cities Airport", state: "TN", code: "2027"},
+    {name: "Jackson Airport", state: "MS", code: "2081"},
+    {name: "Rogers Municipal Airport", state: "AR", code: "2084"},
+    {name: "Fedex Corp Memphis Hub", state: "TN", code: "2095"},
+    // === 6. Southwest Region ===
+    {name: "Port Arthur", state: "TX", code: "2101"},
+    {name: "Sabine", state: "TX", code: "2102"},
+    {name: "Orange", state: "TX", code: "2103"},
+    {name: "Beaumont", state: "TX", code: "2104"},
+    {name: "Brownsville", state: "TX", code: "2301"},
+    {name: "Del Rio", state: "TX", code: "2302"},
+    {name: "Eagle Pass", state: "TX", code: "2303"},
+    {name: "Laredo", state: "TX", code: "2304"},
+    {name: "Hidalgo", state: "TX", code: "2305"},
+    {name: "Rio Grande City", state: "TX", code: "2307"},
+    {name: "Progreso", state: "TX", code: "2309"},
+    {name: "Roma", state: "TX", code: "2310"},
+    {name: "Harlingen", state: "TX", code: "2330"},
+    {name: "Valley International User Fee Airport", state: "TX", code: "2383"},
+    {name: "Area Port of Ysleta", state: "TX", code: "2401"},
+    {name: "El Paso", state: "TX", code: "2402"},
+    {name: "Presidio", state: "TX", code: "2403"},
+    {name: "Tornillo", state: "TX", code: "2404"},
+    {name: "Columbus", state: "NM", code: "2406"},
+    {name: "Albuquerque", state: "NM", code: "2407"},
+    {name: "Santa Teresa", state: "NM", code: "2408"},
+    {name: "Fort Hancock", state: "TX", code: "2409"},
+    {name: "Boquillas", state: "TX", code: "2410"},
+    {name: "Deming", state: "NM", code: "2420"},
+    {name: "Las Cruces", state: "NM", code: "2421"},
+    {name: "Alamogordo", state: "NM", code: "2422"},
+    {name: "Carlsbad", state: "NM", code: "2423"},
+    {name: "Alpine", state: "TX", code: "2424"},
+    {name: "Midland", state: "TX", code: "2425"},
+    {name: "Van Horn", state: "TX", code: "2426"},
+    {name: "Marfa", state: "TX", code: "2427"},
+    {name: "Santa Teresa Airport", state: "NM", code: "2481"},
+    {name: "Roswell Industrial Airport", state: "NM", code: "2482"},
+    {name: "Douglas", state: "AZ", code: "2601"},
+    {name: "Lukeville", state: "AZ", code: "2602"},
+    {name: "Naco", state: "AZ", code: "2603"},
+    {name: "Nogales", state: "AZ", code: "2604"},
+    {name: "Phoenix", state: "AZ", code: "2605"},
+    {name: "Sasabe", state: "AZ", code: "2606"},
+    {name: "Sells", state: "AZ", code: "2607"},
+    {name: "San Luis", state: "AZ", code: "2608"},
+    {name: "Tucson", state: "AZ", code: "2609"},
+    {name: "Sierra Vista", state: "AZ", code: "2610"},
+    {name: "Yuma", state: "AZ", code: "2611"},
+    {name: "Flagstaff", state: "AZ", code: "2620"},
+    {name: "Kingman", state: "AZ", code: "2621"},
+    {name: "Scottsdale User Fee Airport", state: "AZ", code: "2681"},
+    {name: "Phoenix-Mesa Gateway Airport", state: "AZ", code: "2682"},
+    {name: "Houston", state: "TX", code: "5301"},
+    {name: "Texas City", state: "TX", code: "5306"},
+    {name: "Houston George Bush Intercontinental Airport", state: "TX", code: "5309"},
+    {name: "Galveston", state: "TX", code: "5310"},
+    {name: "Freeport", state: "TX", code: "5311"},
+    {name: "Corpus Christi", state: "TX", code: "5312"},
+    {name: "Port Lavaca", state: "TX", code: "5313"},
+    {name: "Hobby International Airport", state: "TX", code: "5314"},
+    {name: "Ellington Field", state: "TX", code: "5315"},
+    {name: "Sugar Land Regional UFA", state: "TX", code: "5381"},
+    {name: "Conroe-North", state: "TX", code: "5382"},
+    {name: "Dallas/Ft. Worth Airport", state: "TX", code: "5501"},
+    {name: "Amarillo", state: "TX", code: "5502"},
+    {name: "Lubbock", state: "TX", code: "5503"},
+    {name: "Oklahoma City", state: "OK", code: "5504"},
+    {name: "Tulsa", state: "OK", code: "5505"},
+    {name: "Austin", state: "TX", code: "5506"},
+    {name: "San Antonio", state: "TX", code: "5507"},
+    {name: "Abilene", state: "TX", code: "5520"},
+    {name: "San Angelo", state: "TX", code: "5521"},
+    {name: "Midland International UFA", state: "TX", code: "5582"},
+    {name: "Fort Worth Alliance UFA", state: "TX", code: "5583"},
+    {name: "Addison Airport UFA", state: "TX", code: "5584"},
+    {name: "Collin County Regional UFA", state: "TX", code: "5585"},
+    {name: "Ardmore Municipal Airport", state: "OK", code: "5586"},
+    {name: "Kelly Field Annex", state: "TX", code: "5587"},
+    {name: "Dallas Love Field UFA", state: "TX", code: "5588"},
+    {name: "Meacham International Airport", state: "TX", code: "5589"},
+    // === 7. Pacific Region ===
+    {name: "San Diego", state: "CA", code: "2501"},
+    {name: "Andrade", state: "CA", code: "2502"},
+    {name: "Calexico", state: "CA", code: "2503"},
+    {name: "San Ysidro", state: "CA", code: "2504"},
+    {name: "Tecate", state: "CA", code: "2505"},
+    {name: "Otay Mesa", state: "CA", code: "2506"},
+    {name: "Calexico-East", state: "CA", code: "2507"},
+    {name: "Oceanside", state: "CA", code: "2520"},
+    {name: "El Centro", state: "CA", code: "2521"},
+    {name: "Otay-Cross Border User Fee Airport", state: "CA", code: "2582"},
+    {name: "Los Angeles", state: "CA", code: "2704"},
+    {name: "Santa Ana/Orange", state: "CA", code: "2705"},
+    {name: "Bakersfield", state: "CA", code: "2706"},
+    {name: "Port San Luis Harbor", state: "CA", code: "2707"},
+    {name: "Long Beach", state: "CA", code: "2709"},
+    {name: "Ventura", state: "CA", code: "2712"},
+    {name: "Port Hueneme", state: "CA", code: "2713"},
+    {name: "San Bernardino", state: "CA", code: "2714"},
+    {name: "Capitan", state: "CA", code: "2715"},
+    {name: "Morro Bay", state: "CA", code: "2719"},
+    {name: "Los Angeles International Airport", state: "CA", code: "2720"},
+    {name: "Ontario International Airport", state: "CA", code: "2721"},
+    {name: "Las Vegas", state: "NV", code: "2722"},
+    {name: "ECCF FedEx Corp Los Angeles", state: "CA", code: "2775"},
+    {name: "ECCF IBC Los Angeles", state: "CA", code: "2776"},
+    {name: "ECCF Micom Inglewood", state: "CA", code: "2777"},
+    {name: "Southern California Logistics Airport UFA", state: "CA", code: "2783"},
+    {name: "Meadows Field Airport", state: "CA", code: "2786"},
+    {name: "DHL Los Angeles Hub", state: "CA", code: "2791"},
+    {name: "UPS Ontario CA Hub", state: "CA", code: "2795"},
+    {name: "San Francisco International Airport", state: "CA", code: "2801"},
+    {name: "Eureka", state: "CA", code: "2802"},
+    {name: "Fresno", state: "CA", code: "2803"},
+    {name: "Monterey", state: "CA", code: "2805"},
+    {name: "San Francisco", state: "CA", code: "2809"},
+    {name: "Stockton", state: "CA", code: "2810"},
+    {name: "Oakland", state: "CA", code: "2811"},
+    {name: "Richmond", state: "CA", code: "2812"},
+    {name: "Crockett", state: "CA", code: "2815"},
+    {name: "Redding", state: "CA", code: "2817"},
+    {name: "San Francisco IAP", state: "CA", code: "2818"},
+    {name: "Ogden", state: "UT", code: "2819"},
+    {name: "Martinez", state: "CA", code: "2820"},
+    {name: "Redwood City", state: "CA", code: "2821"},
+    {name: "Provo", state: "UT", code: "2822"},
+    {name: "St. George", state: "UT", code: "2823"},
+    {name: "Selby", state: "CA", code: "2827"},
+    {name: "San Joaquin River", state: "CA", code: "2828"},
+    {name: "San Pablo Bay", state: "CA", code: "2829"},
+    {name: "Carquinez Strait", state: "CA", code: "2830"},
+    {name: "Suisin Bay", state: "CA", code: "2831"},
+    {name: "Reno", state: "NV", code: "2833"},
+    {name: "San Jose International Airport", state: "CA", code: "2834"},
+    {name: "Sacramento International Airport", state: "CA", code: "2835"},
+    {name: "FedEx Corp Oakland Hub", state: "CA", code: "2895"},
+    {name: "Astoria", state: "OR", code: "2901"},
+    {name: "Newport", state: "OR", code: "2902"},
+    {name: "Coos Bay", state: "OR", code: "2903"},
+    {name: "Portland", state: "OR", code: "2904"},
+    {name: "Longview", state: "WA", code: "2905"},
+    {name: "Boise", state: "ID", code: "2907"},
+    {name: "Vancouver", state: "WA", code: "2908"},
+    {name: "Kalama", state: "WA", code: "2909"},
+    {name: "Portland International Airport", state: "OR", code: "2910"},
+    {name: "Twin Falls", state: "ID", code: "2911"},
+    {name: "Idaho Falls", state: "ID", code: "2912"},
+    {name: "Pueblo", state: "CO", code: "2913"},
+    {name: "Durango", state: "CO", code: "2914"},
+    {name: "Alamosa", state: "CO", code: "2915"},
+    {name: "Grand Junction", state: "CO", code: "2916"},
+    {name: "Glenwood Springs", state: "CO", code: "2917"},
+    {name: "Craig", state: "CO", code: "2918"},
+    {name: "Brush", state: "CO", code: "2919"},
+    {name: "Cheyenne", state: "WY", code: "2920"},
+    {name: "Casper", state: "WY", code: "2921"},
+    {name: "Hillsboro Airport", state: "OR", code: "2983"},
+    {name: "Seattle", state: "WA", code: "3001"},
+    {name: "Tacoma", state: "WA", code: "3002"},
+    {name: "Aberdeen", state: "WA", code: "3003"},
+    {name: "Blaine", state: "WA", code: "3004"},
+    {name: "Bellingham", state: "WA", code: "3005"},
+    {name: "Everett", state: "WA", code: "3006"},
+    {name: "Port Angeles", state: "WA", code: "3007"},
+    {name: "Port Townsend", state: "WA", code: "3008"},
+    {name: "Sumas", state: "WA", code: "3009"},
+    {name: "Anacortes", state: "WA", code: "3010"},
+    {name: "Nighthawk", state: "WA", code: "3011"},
+    {name: "Danville", state: "WA", code: "3012"},
+    {name: "Ferry", state: "WA", code: "3013"},
+    {name: "Friday Harbor", state: "WA", code: "3014"},
+    {name: "Boundary", state: "WA", code: "3015"},
+    {name: "Laurier", state: "WA", code: "3016"},
+    {name: "Point Roberts", state: "WA", code: "3017"},
+    {name: "Kenmore Air Harbor", state: "WA", code: "3018"},
+    {name: "Oroville", state: "WA", code: "3019"},
+    {name: "Frontier", state: "WA", code: "3020"},
+    {name: "Spokane", state: "WA", code: "3022"},
+    {name: "Lynden", state: "WA", code: "3023"},
+    {name: "Wenatchee", state: "WA", code: "3024"},
+    {name: "Metaline Falls", state: "WA", code: "3025"},
+    {name: "Olympia", state: "WA", code: "3026"},
+    {name: "Yakima", state: "WA", code: "3028"},
+    {name: "Seattle-Tacoma International Airport", state: "WA", code: "3029"},
+    {name: "Pasco", state: "WA", code: "3030"},
+    {name: "ECCF UPS Seattle", state: "WA", code: "3071"},
+    {name: "ECCF Avion Brokers Seatac", state: "WA", code: "3072"},
+    {name: "ECCF DHL Worldwide Seatac", state: "WA", code: "3073"},
+    {name: "ECCF Airborne Express Seatac", state: "WA", code: "3074"},
+    {name: "Grant County Airport", state: "WA", code: "3082"},
+    {name: "UPS Seatac Hub", state: "WA", code: "3095"},
+    {name: "Juneau", state: "AK", code: "3101"},
+    {name: "Ketchikan", state: "AK", code: "3102"},
+    {name: "Skagway", state: "AK", code: "3103"},
+    {name: "Alcan", state: "AK", code: "3104"},
+    {name: "Wrangell", state: "AK", code: "3105"},
+    {name: "Dalton Cache", state: "AK", code: "3106"},
+    {name: "Fairbanks", state: "AK", code: "3111"},
+    {name: "Sitka", state: "AK", code: "3115"},
+    {name: "Pelican", state: "AK", code: "3124"},
+    {name: "Anchorage", state: "AK", code: "3126"},
+    {name: "Saint Paul Airport", state: "AK", code: "3181"},
+    {name: "FedEx Corp Anchorage Hub", state: "AK", code: "3195"},
+    {name: "UPS Anchorage Hub", state: "AK", code: "3196"},
+    {name: "Honolulu", state: "HI", code: "3201"},
+    {name: "Hilo", state: "HI", code: "3202"},
+    {name: "Kahului", state: "HI", code: "3203"},
+    {name: "Nawiliwili-Port Allen", state: "HI", code: "3204"},
+    {name: "Honolulu International Airport", state: "HI", code: "3205"},
+    {name: "Kona", state: "HI", code: "3206"},
+    {name: "Guam", state: "GU", code: "3210"},
+    {name: "Saipan", state: "GU", code: "3211"},
+    {name: "Tinian", state: "GU", code: "3212"},
+    {name: "Rota", state: "GU", code: "3213"},
+    {name: "ECCF FedEx Corp Honolulu", state: "HI", code: "3279"}
+];
+
+// 分页相关变量
+let currentPage = 1;
+const itemsPerPage = 80;
+let filteredData = [...usPortCodes];
+
+// 渲染Port表格（带分页）
+function renderPortTable(data, page = 1) {
+    const tbody = document.getElementById('portTableBody');
+    if (!tbody) return;
+    
+    // 保存筛选后的数据
+    filteredData = data;
+    currentPage = page;
+    
+    // 计算分页
+    const totalPages = Math.ceil(data.length / itemsPerPage);
+    const startIndex = (page - 1) * itemsPerPage;
+    const endIndex = Math.min(startIndex + itemsPerPage, data.length);
+    const pageData = data.slice(startIndex, endIndex);
+    
+    // 渲染表格
+    let html = '';
+    pageData.forEach((port, index) => {
+        html += `<tr>
+            <td>${startIndex + index + 1}</td>
+            <td>${port.name}</td>
+            <td>${port.state}</td>
+            <td>${port.code}</td>
+        </tr>`;
+    });
+    tbody.innerHTML = html;
+    
+    // 更新统计信息
+    const countEl = document.getElementById('portCount');
+    if (countEl) {
+        countEl.textContent = `Showing ${startIndex + 1}-${endIndex} of ${data.length} ports`;
+    }
+    
+    // 渲染分页控件
+    renderPagination(totalPages, page);
+}
+
+// 渲染分页控件
+function renderPagination(totalPages, currentPage) {
+    const paginationEl = document.getElementById('portPagination');
+    if (!paginationEl) return;
+    
+    if (totalPages <= 1) {
+        paginationEl.innerHTML = '';
+        return;
+    }
+    
+    let html = '<div class="pagination">';
+    
+    // 上一页
+    html += `<button class="page-btn ${currentPage === 1 ? 'disabled' : ''}" 
+             onclick="goToPage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>
+             ← Prev
+             </button>`;
+    
+    // 页码
+    const maxVisiblePages = 5;
+    let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+    let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+    
+    if (endPage - startPage + 1 < maxVisiblePages) {
+        startPage = Math.max(1, endPage - maxVisiblePages + 1);
+    }
+    
+    if (startPage > 1) {
+        html += `<button class="page-btn" onclick="goToPage(1)">1</button>`;
+        if (startPage > 2) {
+            html += `<span class="page-dots">...</span>`;
+        }
+    }
+    
+    for (let i = startPage; i <= endPage; i++) {
+        html += `<button class="page-btn ${i === currentPage ? 'active' : ''}" 
+                 onclick="goToPage(${i})">${i}</button>`;
+    }
+    
+    if (endPage < totalPages) {
+        if (endPage < totalPages - 1) {
+            html += `<span class="page-dots">...</span>`;
+        }
+        html += `<button class="page-btn" onclick="goToPage(${totalPages})">${totalPages}</button>`;
+    }
+    
+    // 下一页
+    html += `<button class="page-btn ${currentPage === totalPages ? 'disabled' : ''}" 
+             onclick="goToPage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}>
+             Next →
+             </button>`;
+    
+    html += '</div>';
+    paginationEl.innerHTML = html;
+}
+
+// 跳转到指定页
+function goToPage(page) {
+    const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+    if (page < 1 || page > totalPages) return;
+    renderPortTable(filteredData, page);
+    
+    // 滚动到表格顶部
+    const tableWrapper = document.querySelector('.port-table-wrapper');
+    if (tableWrapper) {
+        tableWrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+}
+
+// 搜索过滤
+function filterPortCodes() {
+    const nameFilter = document.getElementById('searchPortName')?.value.toLowerCase() || '';
+    const stateFilter = document.getElementById('searchState')?.value || '';
+    const codeFilter = document.getElementById('searchPortCode')?.value || '';
+    
+    const filtered = usPortCodes.filter(port => {
+        const matchName = port.name.toLowerCase().includes(nameFilter);
+        const matchState = !stateFilter || port.state === stateFilter;
+        const matchCode = !codeFilter || port.code.includes(codeFilter);
+        return matchName && matchState && matchCode;
+    });
+    
+    renderPortTable(filtered, 1); // 搜索时重置到第一页
+}
+
+// 重置搜索
+function resetPortSearch() {
+    const nameInput = document.getElementById('searchPortName');
+    const stateSelect = document.getElementById('searchState');
+    const codeInput = document.getElementById('searchPortCode');
+    
+    if (nameInput) nameInput.value = '';
+    if (stateSelect) stateSelect.value = '';
+    if (codeInput) codeInput.value = '';
+    
+    renderPortTable(usPortCodes, 1);
+}
+
+// 表格排序
+let sortDirection = {};
+function sortPortTable(columnIndex) {
+    const key = ['index', 'name', 'state', 'code'][columnIndex];
+    sortDirection[key] = !sortDirection[key];
+    
+    const sorted = [...filteredData].sort((a, b) => {
+        let valA, valB;
+        if (key === 'index') return 0;
+        if (key === 'name') { valA = a.name; valB = b.name; }
+        if (key === 'state') { valA = a.state; valB = b.state; }
+        if (key === 'code') { valA = a.code; valB = b.code; }
+        
+        if (sortDirection[key]) {
+            return valA > valB ? 1 : -1;
+        } else {
+            return valA < valB ? 1 : -1;
+        }
+    });
+    
+    renderPortTable(sorted, 1);
+}
+
+// 页面加载后初始化Port表格
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(() => {
+        if (document.getElementById('portTableBody')) {
+            renderPortTable(usPortCodes, 1);
+        }
+    }, 100);
+});
+
+// 监听文章显示事件，初始化Port表格
+const originalShowArticle = window.showArticle;
+window.showArticle = function(title) {
+    originalShowArticle(title);
+    if (title === 'US CBP Port Codes') {
+        setTimeout(() => {
+            renderPortTable(usPortCodes, 1);
+        }, 100);
+    }
+};
 
 console.log('🚀 货代知识库已加载完成！');

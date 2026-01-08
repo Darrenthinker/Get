@@ -1,0 +1,1670 @@
+CBPAutomated Manifest Interface Requirements
+Appendix E -Schedule D – U.S. CBP Port Codes
+December 2020
+Pub #0875
+041
+9 -
+ACE M1 Import Manifest Electronic Data Interchange
+Appendix E
+Schedule D
+Classification of U.S. Customs and Border Protection Districts and Ports for U.S. Foreign Trade Statistics. This Appendix provides a complete listing of Valid Port Codes.
+Table of Changes
+Date of Change
+Brief Description of Change
+December, 2020
+--various port name changes, marked in red, for naming consistency purposes. --Port codes were added: • 0983 – Ithaca Tompkins Intl Air, Ithaca, NY • 3983 – Pal-Waukee Mncpl Airport, Wheeling, IL • 3987 – UFA UI Willard Airport, Savoy, IL • 4952 – St. Thomas VI Border Patrol --Port codes were deactivated: • 2781 – Palm Springs User Fee Airport, Palm Springs, CA • 2782 – San Bernadino International Airport, San Bernadino, CA • 2787 – John Wayne User Fee Airport, Santa Ana, CA • 2788 – Van Nuys User Fee Airport, Van Nuys, CA • 3707 – Sheboygan, WI • 5274 – ECCF Fedex Miami, FL (use port code 5297)
+December 2020 Appendix E E-1
+ACE M1 Import Manifest Electronic Data Interchange
+Port Codes
+Code
+Port
+1 Northeast Region
+0101
+Portland, Maine
+0102
+Bangor, Maine
+0103
+Eastport, Maine
+0104
+Jackman, Maine
+0105
+Vanceboro, Maine
+0106
+Houlton, Maine
+0107
+Fort Fairfield, Maine
+0108
+Van Buren, Maine
+0109
+Madawaska, Maine
+0110
+Fort Kent, Maine
+0111
+Bath, Maine
+0112
+Bar Harbor, Maine
+0114
+Manchester, New Hampshire
+0115
+Calais, Maine
+0118
+Limestone, Maine
+0121
+Rockland, Maine
+0122
+Jonesport, Maine
+0127
+Bridgewater, Maine
+0131
+Portsmouth, New Hampshire
+0150
+Border Patrol Sector, Hodgdon, Maine
+0151
+Houlton Border Patrol, Houlton, Maine
+0152
+Searsport, Maine
+0153
+Jackman Border Patrol, Jackman, Maine
+0154
+Rangeley Border Patrol, Rangeley, Maine
+0155
+Van Buren Border Patrol, Van Buren, Maine
+0156
+Fort Fairfield Border Patrol, Fort Fairfield, Maine
+0157
+Calais Border Patrol, Calais, Maine
+0182
+Manchester User Fee Airport, New Hampshire
+0201
+St. Albans, Vermont
+0203
+Richford, Vermont
+December 2020 Appendix E E-2
+ACE M1 Import Manifest Electronic Data Interchange
+Port Codes
+Code
+Port
+0206
+Beecher Falls, Vermont
+0207
+Burlington, Vermont
+0209
+Derby Line, Vermont
+0210
+Newport, Vermont
+0211
+Norton, Vermont
+0212
+Highgate Springs/Alburg, Vermont
+0214
+Swanton, Vermont
+0221
+Northeast Region, Boston, Massachusetts
+0250
+Border Patrol Sector, Swanton, Vermont
+0251
+Swanton Border Patrol, Swanton, Vermont
+0252
+Richford Border Patrol, Richford, Vermont
+0253
+Newport Vermont Border Patrol, Newport, Vermont
+0254
+Beecher Falls Border Patrol, Beecher Falls, Vermont
+0255
+Champlain Border Patrol, Champlain, New York
+0256
+Ogdensburg Border Patrol, Ogdensburg, New York
+0257
+Massena Border Patrol, Massena, New York
+0258
+Burke New York Border Patrol, Burke, New York
+0401
+Boston, Massachusetts
+0402
+Springfield, Massachusetts
+0403
+Worcester, Massachusetts
+0404
+Gloucester, Massachusetts
+0405
+New Bedford, Massachusetts
+0406
+Plymouth, Massachusetts
+0407
+Fall River, Massachusetts
+0408
+Beverly, Massachusetts
+0410
+Bridgeport, Connecticut
+0411
+Hartford, Connecticut
+0412
+New Haven, Connecticut
+0413
+New London, Connecticut
+0416
+Lawrence, Massachusetts
+0417
+Logan Airport, East Boston, Massachusetts
+0481
+Hanscom Field User Fee Airport, Bedford, Massachusetts
+0501
+Newport, Rhode Island
+0502
+Providence, Rhode Island
+0503
+Mellville, Rhode Island
+0701
+Ogdensburg, New York
+0704
+Massena, New York
+0706
+Cape Vincent, New York
+0708
+Alexandria Bay, New York
+0709
+Burke, New York
+0712
+Champlain-Rouses Point, New York
+0714
+Clayton, New York
+0715
+Trout River, New York
+0781
+Plattsburgh International Airport, Plattsburgh, New York
+0799
+Champlain-Cartage Cont, Champlain, New York
+December 2020 Appendix E E-3
+ACE M1 Import Manifest Electronic Data Interchange
+Port Codes
+Code
+Port
+0901
+Buffalo-Niagara Falls, New York
+0903
+Rochester, New York
+0904
+Oswego, New York
+0905
+Sodus Point, New York
+0906
+Syracuse, New York
+0921
+Northeast Region, Boston Massachusetts
+0950
+Border Patrol Sector, Tonawanda, New York
+0951
+Buffalo Border Patrol, Tonawanda, New York
+0952
+Niagara Falls Border Patrol Station, Niagara Falls, New York
+0953
+Watertown Border Patrol, Wellesley Island, New York
+0954
+Fulton New York Border Patrol, Fulton, New York
+0981
+Binghamton Regional Airport, Binghamton, New York
+0982
+Griffiss International User Fee Airport, Rome, New York
+0983
+Ithaca Tompkins Intl Air, Ithaca, New York
+1101
+Philadelphia, Pennsylvania
+1102
+Chester, Pennsylvania
+1103
+Wilmington, Delaware
+1104
+Pittsburgh, Pennsylvania
+1106
+Wilkes-Barre/Scranton, Pennsylvania
+1108
+Philadelphia International Airport, Philadelphia, Pennsylvania
+1109
+Harrisburg, Pennsylvania
+1110
+Cherry Hill, New Jersey
+1119
+Allentown, Pennsylvania
+1182
+Atlantic City User Fee Airport, New Jersey
+1183
+Trenton/Mercer County User Fee Airport, New Jersey
+1195
+UPS Philadelphia Hub, Philadelphia, Pennsylvania
+1301
+Annapolis, Maryland
+1302
+Cambridge, Maryland
+1303
+Baltimore, Maryland
+1304
+Crisfield, Maryland
+1305
+Baltimore-Washington International Airport, Baltimore, Maryland
+1307
+Dover, Delaware
+7100
+Northeast Region, Boston, Massachusetts
+7121
+Montreal Quebec Canada, Montreal, Canada
+7122
+Toronto Ontario Canada, Toronto, Canada
+2 New York Region
+1001
+New York, New York
+1002
+Albany, New York
+1005
+Long Island, New York
+1006
+Fishkill, New York
+1007
+Napanoch, New York
+4601
+New York/Newark Area, Newark, New Jersey
+4602
+Perth Amboy, New Jersey
+4670
+ECCF UPS Newark, Newark, New Jersey
+4671
+ECCF FedEx Corp Newark, Newark, New Jersey
+4681
+Morristown Airport, Morristown, New Jersey
+4682
+Stewart International Airport UFF, New Windsor, New York
+December 2020 Appendix E E-4
+ACE M1 Import Manifest Electronic Data Interchange
+Port Codes
+Code
+Port
+4701
+John F. Kennedy Airport, Jamaica, New York
+4771
+ECCF NYACC JFK Airport, Jamaica, New York
+4772
+ECCF DHL Airways JFK Airport, Jamaica, New York
+4773
+ECCF Micom JFK, Jamaica, New York
+4774
+ECCF IBC JFK, Jamaica, New York
+4778
+ECCF FedEx Corp JFK Airport, Jamaica, New York
+3 North Central Region
+3301
+Raymond, Montana
+3302
+Eastport, Idaho
+3303
+Salt Lake City, Utah
+3304
+Great Falls, Montana
+3305
+Butte, Montana
+3306
+Turner, Montana
+3307
+Denver, Colorado
+3308
+Porthill, Idaho
+3309
+Scobey, Montana
+3310
+Sweetgrass, Montana
+3316
+Piegan, Montana
+3317
+Opheim, Montana
+3318
+Roosville, Montana
+3319
+Morgan, Montana
+3321
+Whitlash, Montana
+3322
+Del Bonita, Montana
+3323
+Wildhorse, Montana
+3324
+Kalispell Airport, Montana
+3325
+Willow Creek, Montana
+3326
+Billings, Montana
+3327
+Vancouver, BC, Canada
+3328
+Calgary, Alberta, Canada
+3329
+Edmonton, Alberta, Canada
+3348
+Helena, Montana
+3350
+Border Patrol Sector HQ, Havre, Montana
+3351
+Havre Montana Border Patrol, Havre, Montana
+3352
+Malta Montana Border Patrol, Malta, Montana
+3353
+Billings Border Patrol, Billings Montana
+3354
+Twin Falls Border Patrol, Twin Falls, Idaho
+3355
+Shelby Montana Border Patrol, Shelby, Montana
+3356
+Sweetgrass Montana Border Patrol, Sweetgrass, Montana
+3357
+St. Mary Montana Border Patrol, Babb, Montana
+3358
+Plentywood Montana Border Patrol, Plentywood, Montana
+3359
+Scobey Montana Border Patrol, Scobey, Montana
+3381
+Missoula User Fee Airport, Missoula, Montana
+3383
+Jeffco User Fee Airport, Broofield, Colorado
+3384
+Centennial Airport, Englewood, Colorado
+3385
+Eagle County Regional Airport, Gypsum, Colorado
+3386
+Bozeman Yellowstone User Fee Airport, Belgrade, Montana
+December 2020 Appendix E E-5
+ACE M1 Import Manifest Electronic Data Interchange
+Port Codes
+Code
+Port
+3401
+Pembina, North Dakota
+3403
+Portal, North Dakota
+3404
+Neche, North Dakota
+3405
+St. John, North Dakota
+3406
+Northgate, North Dakota
+3407
+Walhalla, North Dakota
+3408
+Hannah, North Dakota
+3409
+Sarles, North Dakota
+3410
+Ambrose, North Dakota
+3411
+Fargo International Airport, North Dakota
+3412
+Fargo, Grand Forks, North Dakota
+3413
+Antler, North Dakota
+3414
+Sherwood, North Dakota
+3415
+Hansboro, North Dakota
+3416
+Maida, North Dakota
+3417
+Fortuna, North Dakota
+3419
+Westhope, North Dakota
+3420
+Noonan, North Dakota
+3421
+Carbury, North Dakota
+3422
+Dunseith, North Dakota
+3423
+Warroad, Minnesota
+3424
+Baudette, Minnesota
+3425
+Pinecreek, Minnesota
+3426
+Roseau, Minnesota
+3427
+Grand Forks Airport, Grand Forks, North Dakota
+3428
+Winnipeg International Airport, Winnipeg, Canada
+3429
+Crane Lake, Minnesota
+3430
+Lancaster, Minnesota
+3431
+Minot, North Dakota
+3432
+Grand Forks, North Dakota
+3433
+Williston Airport, Williston, North Dakota
+3434
+Minot Airport, Minot, North Dakota
+3450
+Border Patrol Sector HQ, Grand Forks, North Dakota
+3451
+Grand Forks Border Patrol, Grand Forks, North Dakota
+3452
+Portal North Dakota Border Patrol, Portal, North Dakota
+3453
+Bottineau Border Patrol, Bottineau, North Dakota
+3454
+Pembina (Noyes) Border Patrol, Hallock, Minnesota
+3455
+International Falls Border Patrol, International Falls, Minnesota
+3456
+Warroad Border Patrol, Warroad, Minnesota
+3457
+Duluth Border Patrol, Duluth, Minnesota
+3458
+Grand Marais Border Patrol, Grand Marais, Minnesota
+3499
+Pembina Cartage Control, Pembina, North Dakota
+3501
+Minneapolis-St. Paul, Minnesota
+3502
+Sioux Falls, South Dakota
+3503
+Rapid City, South Dakota
+3505
+Cedar Rapids, Iowa
+December 2020 Appendix E E-6
+ACE M1 Import Manifest Electronic Data Interchange
+Port Codes
+Code
+Port
+3507
+Grand Island, Nebraska
+3508
+North Platte, Nebraska
+3510
+Duluth, Wisconsin
+3511
+Ashland, Wisconsin
+3512
+Omaha, Nebraska
+3513
+Des Moines, Iowa
+3581
+Rochester, Minnesota User Fee Airport
+3604
+International Falls, Minnesota
+3613
+Grand Portage, Minnesota
+3701
+Milwaukee, Wisconsin
+3702
+Marinette, Wisconsin
+3703
+Green Bay, Wisconsin
+3706
+Manitowoc, Wisconsin
+3707
+Sheboygan, Wisconsin
+3708
+Racine, Wisconsin
+3781
+Appleton International Airport, Appleton, Wisconsin
+3801
+Detroit, Michigan
+3802
+Port Huron, Michigan
+3803
+Sault Ste Marie, Michigan
+3804
+Saginaw/Bay City, Michigan
+3805
+Battle Creek, Michigan
+3806
+Grand Rapids, Michigan
+3807
+Detroit Metropolitan Airport, Michigan
+3808
+Escanaba, Michigan
+3809
+Marquette, Michigan
+3814
+Algonac, Michigan
+3815
+Muskegon, Michigan
+3816
+Grand Haven, Michigan
+3818
+Rogers City, Michigan
+3819
+Detour City, Michigan
+3822
+South Haven, Michigan
+3842
+Presque Island, Michigan
+3843
+Alpena, Michigan
+3850
+Border Patrol Sector HQ, Selfridge Angb, Michigan
+3851
+Detroit Border Patrol, Detroit, Michigan
+3852
+Sault Ste Marie Border Patrol, Sault Ste Marie, Michigan
+3853
+Trenton Border Patrol, Trenton, Michigan
+3854
+Port Huron Border Patrol, Marysville, Michigan
+3855
+Grand Rapids Border Patrol, Holland, Michigan
+3881
+Oakland County International Airport, Pontiac, Michigan
+3882
+Willow Run Airport, Ypsilanti, Michigan
+3901
+Chicago, Illinois, including O’Hare International Airport
+3902
+Peoria, Illinois
+3905
+Gary Chicago Intl Arprt, Indiana
+3908
+Davenport, Iowa -Rock Island, Milan, Illinois
+3909
+Rockford Airport, Rockford, Illinois
+3910
+Midway International Airport, Chicago, Illinois
+3911
+Springfield, Illinois
+December 2020 Appendix E E-7
+ACE M1 Import Manifest Electronic Data Interchange
+Port Codes
+Code
+Port
+3971
+ECCF FedEx Chicago, Rosemont, Illinois
+3972
+ECCF IBC Chicago, Chicago, Illinois
+3983
+Pal-Waukee Mncpl Airport, Wheeling, IL
+3984
+Dupage Airport Authority, West Chicago, Illinois
+3987
+UFA UI Willard Airport, Savoy, Illinois
+3991
+DHL Chicago Hub, Chicago, Illinois
+4101
+Cleveland, Ohio
+4102
+Cincinnati, Ohio
+4103
+Columbus, Ohio
+4104
+Dayton, Ohio
+4105
+Toledo, Ohio
+4106
+Erie, Pennsylvania
+4107
+Northern Kentucky, Fort Mitchell, KY
+4110
+Indianapolis, Indiana
+4115
+Louisville, Kentucky
+4116
+Owensboro-Evansville, Indiana
+4122
+Ashtabula/Conneaut, Ohio
+4130
+London, Kentucky
+4131
+Bowling Green, Kentucky
+4183
+Fort Wayne Airport UFA, Fort Wayne, Indiana
+4184
+Blue Grass Airport UFA, Lexington, Kentucky
+4196
+UPS Louisville Hub, Louisville, Kentucky
+4197
+DHL Cincinnati Hub, Cincinnati, Ohio
+4198
+Fedex Corp Indianapolis Hub, Indianapolis, Indiana
+4501
+Kansas City, Missouri
+4502
+St. Joseph, Missouri
+4503
+St. Louis, Missouri
+4504
+Wichita, Kansas
+4505
+Springfield, Missouri
+4507
+Kansas City Smart Port, Kansas City, Kansas
+4581
+MidAmerica Airport, Mascoutah, Illinois
+7900
+CBP North Central Region, Chicago, Illinois
+7922
+CBP Vancouver Preclearance, Washington, DC
+7923
+CBP Calgary Preclearance, Washington, DC
+7924
+CBP Edmonton Preclearance, Washington, DC
+7925
+CBP Montreal Preclearance, Washington, DC
+7926
+CBP Toronto Preclearance, Washington, DC
+7928
+CBP Winnipeg Preclearance, Washington, DC
+7929
+CBP Ottawa Preclearance, Washington, DC
+7930
+CBP Victoria Preclearance, Washington, DC
+7931
+CBP Halifax Nova Scotia Preclearance, Washington, DC
+December 2020 Appendix E E-8
+ACE M1 Import Manifest Electronic Data Interchange
+Port Codes
+Code
+Port
+4 Southeast Region
+1401
+Norfolk, Virginia
+1404
+Richmond-Petersburg, Virginia
+1405
+Harrisonburg, Virginia
+1409
+Charleston, West Virginia
+1410
+Front Royal, Virginia
+1411
+Fraudulent Document Lab, McLean, Virginia
+1501
+Wilmington, North Carolina
+1502
+Winston-Salem, North Carolina
+1503
+Durham, North Carolina
+1511
+Beaufort-Morehead City, North Carolina
+1512
+Charlotte, North Carolina
+1581
+Charlotte-Monroe User Fee Airport, Monroe, North Carolina
+1601
+Charleston, South Carolina
+1602
+Georgetown, South Carolina
+1603
+Greenville-Spartanburg, South Carolina
+1604
+Columbia, South Carolina
+1608
+Greer, South Carolina
+1681
+Myrtle Beach International Airport, Myrtle Beach, South Carolina
+1701
+Brunswick, Georgia
+1703
+Savannah, Georgia
+1704
+Atlanta, Georgia
+1705
+Albany, Georgia
+1706
+Dalton, Georgia
+1709
+Hartsfield Airport, Atlanta, Georgia
+1755
+Port for Tracking, Savannah, Georgia
+1758
+Olympics Security, Atlanta, Georgia
+1759
+Atlanta-Olympics, Atlanta, Georgia
+1781
+Cobb County International Airport, Kenshaw, Georgia
+1801
+Tampa, Florida
+1803
+Jacksonville, Florida
+1804
+Tallahassee, Florida
+1805
+Fernandina Beach, Florida
+1807
+Boca Grande, Florida
+1808
+Orlando, Florida
+1809
+Orlando-Sanford Airport, Sanford, Florida
+1811
+Sarasota/Bradenton, Manatee, Florida
+1814
+St. Petersburg, Florida
+1816
+Port Canaveral, Florida
+1818
+Panama City, Florida
+1819
+Pensacola, Florida
+1820
+Port St. Joe, Florida
+1821
+Port Manatee, Florida
+1822
+Fort Myers, Florida
+1851
+Tampa Border Patrol, Tampa, Florida
+1852
+Jacksonville Border Patrol, Jacksonville, Florida
+1853
+Orlando Border Patrol, Orlando, Florida
+December 2020 Appendix E E-9
+ACE M1 Import Manifest Electronic Data Interchange
+Port Codes
+Code
+Port
+1880
+Naples Municipal Airport, Naples, Florida
+1881
+Lakeland Linder Airport, Lakeland, Florida
+1883
+Sarasota-Bradenton Airport, Sarasota, Florida
+1884
+Daytona Beach International Airport, Daytona Beach, Florida
+1885
+Melbourne Regional Airport, Melbourne, Florida
+1887
+Leesburg Regional Airport, Leesburg, Florida
+1888
+Orlando Executive Airport, Orlando, Florida
+1889
+St. Augustine Airport (User Fee Airport), St Augustine, Florida
+4901
+Aguadilla, Puerto Rico
+4904
+Fajardo, Puerto Rico
+4907
+Mayaguez, Puerto Rico
+4908
+Ponce, Puerto Rico
+4909
+San Juan, Puerto Rico
+4913
+San Juan International Airport, Old San Juan, Puerto Rico
+4950
+Border Patrol Sector HQ, Aguadilla, Puerto Rico
+4951
+Ramey Puerto Rico Border Patrol, Aguadilla, Puerto Rico
+4952
+St Thomas VI Border Patrol, St. Thomas, Virgin Islands
+5101
+Charlotte Amalie, St. Thomas, Virgin Islands
+5102
+Cruz Bay, St. John, Virgin Islands
+5104
+Christiansted, St. Croix, Virgin Islands
+5105
+Frederiksted, St. Croix, Virgin Islands
+5201
+Miami, Florida
+5202
+Key West, Florida
+5203
+Port Everglades, Florida
+5204
+West Palm Beach, Florida
+5205
+Fort Pierce, Florida
+5206
+Miami International Airport, Miami, Florida
+5210
+Fort Lauderdale International Airport, Fort Lauderdale, Florida
+5211
+Key Largo, Florida
+5212
+Pembroke Pines, Florida
+5250
+Border Patrol Sector HQ, Pembroke Pines, Florida
+5251
+Miami Border Patrol, Pembroke Pines, Florida
+5252
+West Palm Beach Border Patrol, West Palm Beach, Florida
+5253
+Marathon Border Patrol, Marathon, Florida
+5255
+Miami Alternate, Miami, Florida
+5274
+Fedex Corp Miami ECCF, Miami, Florida (Port 5297 is used)
+5281
+Marathon International Airport, Marathon, Florida
+5282
+Boca Raton Airport, Boca Raton, Florida
+5283
+Witham Field GAF, Stuart, Florida
+5295
+UPS Miami Hub, Miami, Florida
+5296
+DHL Miami Hub, Miami, Florida
+5297
+FedEx Corp Miami Hub, Miami, Florida
+5298
+IBC Miami Hub, Miami, Florida
+5401
+Washington, District of Columbia
+5402
+Reagan National (DCA), Arlington, Virginia
+December 2020 Appendix E E-10
+ACE M1 Import Manifest Electronic Data Interchange
+Port Codes
+Code
+Port
+7400
+Southeast Region, Miami, Florida
+7401
+CBP St. Thomas Preclearance, St. Thomas, US Virgin Islands
+7404
+CBP St. Croix Preclearance, St. Croix, US Virgin Islands
+7421
+CBP Bermuda Preclearance, Washington, DC
+7422
+CBP Freeport Preclearance, Washington, DC
+7423
+CBP, Nassau Preclearance, Washington, DC
+7424
+CBP, Aruba Preclearance, Washington, DC
+7425
+CBP, Punta Cana International Preclearance, Washington, DC
+7541
+Dublin, IE Preclearance, Washington, DC
+7542
+Shannon IE Preclearance, Washington, DC
+7543
+CBP Abu Dhabi Preclearance, Washington, DC
+December 2020 Appendix E E-11
+ACE M1 Import Manifest Electronic Data Interchange
+5 South Central Region
+Port Codes
+Code
+Port
+1901
+Mobile, Alabama
+1902
+Gulfport, Mississippi
+1903
+Pascagoula, Mississippi
+1904
+Birmingham, Alabama
+1905
+Apalachicola, Florida
+1906
+Carrabelle, Florida
+1910
+Huntsville, Alabama
+1951
+Gulfport Border Patrol, Gulfport, Mississippi
+1952
+Mobile Border Patrol, Mobile, Alabama
+2001
+Morgan City, Louisiana
+2002
+New Orleans, Louisiana
+2003
+Little Rock, Arkansas
+2004
+Baton Rouge, Louisiana
+2006
+Memphis, Tennessee
+2007
+Nashville, Tennessee
+2008
+Chattanooga, Tennessee
+2010
+Gramercy, Louisiana
+2011
+Greenville, Mississippi
+2015
+Vicksburg, Mississippi (Include Jackson Municipal Airport)
+2016
+Knoxville, Tennessee
+2017
+Lake Charles, Louisiana
+2018
+Shreveport-Bossier City, Louisiana
+2021
+Houma, Louisiana
+2023
+Lafayette, Louisiana
+2024
+Ft. Smith, Arkansas
+2025
+Fayetteville, Arkansas
+2026
+Texarkana, Arkansas
+2027
+Tri-Cities Airport, Blountville, Tennessee
+2050
+Border Patrol Sector HQ, New Orleans, Louisiana
+2051
+Lake Charles Border Patrol, Lake Charles, Louisiana
+2052
+Baton Rouge Border Patrol, Baton Rouge, Louisiana
+2053
+New Orleans Border Patrol, New Orleans, Louisiana
+2054
+Little Rock Border Patrol, Little Rock, Arkansas
+2081
+Jackson Airport, Jackson, Mississippi
+2084
+Rogers Municipal Airport, Rogers, Arkansas
+2095
+Fedex Corp Memphis Hub, Memphis, Tennessee
+7500
+South Central Region, New Orleans, Louisiana
+December 2020 Appendix E E-12
+ACE M1 Import Manifest Electronic Data Interchange
+Port Codes
+Code
+Port
+6 Southwest Region
+2101
+Port Arthur, Texas
+2102
+Sabine, Texas
+2103
+Orange, Texas
+2104
+Beaumont, Texas
+2150
+Border Patrol Sector HQ, Yuma, Arizona
+2151
+Blythe California Border Patrol, Blythe, California
+2152
+Yuma Arizona Border Patrol, Yuma, Arizona
+2153
+Wellton Arizona Border Patrol, Wellton, Arizona
+2250
+Border Patrol Sector HQ, Laredo, Texas
+2251
+Laredo Del Mar Border Patrol, Laredo, Texas
+2252
+Cotulla Texas Border Patrol, Cotulla, Texas
+2253
+Hebbronville Texas Border Patrol, Hebbronville, Texas
+2254
+Laredo South Border Patrol, Laredo, Texas
+2255
+Dallas Border Patrol, Euless, Texas
+2256
+Freer Texas Border Patrol, Freer, Texas
+2257
+San Antonio Border Patrol, San Antonio, Texas
+2258
+Zapata Texas Border Patrol, Zapata, Texas
+2259
+Laredo West Station, Laredo, Texas
+2301
+Brownsville, Texas
+2302
+Del Rio, Texas
+2303
+Eagle Pass, Texas
+2304
+Laredo, Texas
+2305
+Hidalgo, Texas
+2307
+Rio Grande City, Texas
+2309
+Progreso, Texas
+2310
+Roma, Texas
+2330
+Harlingen, Texas
+2350
+Border Patrol Sector HQ, Del Rio, Texas
+2351
+Comstock Border Patrol, Comstock, Texas
+2352
+Carrizo Springs Border Patrol, Carrizo Springs, Texas
+2353
+Del Rio Border Patrol, Del Rio, Texas
+2354
+Eagle Pass Border Patrol, Eagle Pass, Texas
+2355
+Brackettville Border Patrol, Brackettville, Texas
+2356
+Uvalde Texas Border Patrol, Uvalde, Texas
+2357
+Rocksprings Border Patrol, Rocksprings, Texas
+2358
+Llano Texas Border Patrol, Llano, Texas
+2359
+San Angelo Border Patrol, San Angelo, Texas
+2360
+Abilene Texas Border Patrol, Abilene, Texas
+2361
+Border Patrol Sector HQ, McAllen, Texas
+2362
+Mercedes Border Patrol, Weslaco, Texas
+2363
+Falfurrias Border Patrol, Falfurrias, Texas
+2364
+Rio Grande City Border Patrol, Rio Grande City, Texas
+2365
+McAllen Border Patrol, McAllen, Texas
+2366
+Brownsville Border Patrol, Brownsville, Texas
+2367
+Harlingen Border Patrol, Harlingen, Texas
+2368
+Kingsville Border Patrol, Kingsville, Texas
+2369
+Fort Brown Border Patrol, Brownsville, Texas
+December 2020 Appendix E E-13
+ACE M1 Import Manifest Electronic Data Interchange
+Port Codes
+Code
+Port
+2370
+Corpus Christie Border Patrol, Corpus Christie, Texas
+2377
+Harlingen # Valley International, Harlingen, Texas
+2383
+Valley International User Fee Airport, Harlingen, Texas
+2393
+Brownsville-Cartage Control, Brownsville, Texas
+2396
+San Antonio-Cartage Control, San Antonio, Texas
+2397
+Roma-Cartage Control, Roma, Texas
+2398
+Hidalgo Cartage Control, Pharr, Texas
+2401
+Area Port of Ysleta, Texas
+2402
+El Paso, Texas
+2403
+Presidio, Texas
+2404
+Tornillo, Texas
+2406
+Columbus, New Mexico
+2407
+Albuquerque, New Mexico
+2408
+Santa Teresa, New Mexico
+2409
+Fort Hancock, Texas
+2410
+Boquillas, Texas
+2420
+Deming, New Mexico
+2421
+Las Cruces, New Mexico
+2422
+Alamogordo, New Mexico
+2423
+Carlsbad, New Mexico
+2424
+Alpine, Texas
+2425
+Midland, Texas
+2426
+Van Horn, Texas
+2427
+Marfa, Texas
+2450
+Border Patrol Sector HQ, El Paso, Texas
+2451
+Lordsburg New Mexico Border Patrol, Lordsburg, New Mexico
+2452
+Truth or Cons Border Patrol, Truth or Cons, New Mexico
+2453
+Las Cruces Border Patrol, Las Cruces, New Mexico
+2454
+El Paso Border Patrol, El Paso, Texas
+2455
+Fabens Texas Border Patrol, Fabens, Texas
+2456
+Alamogordo Border Patrol, Alamogordo, New Mexico
+2457
+Fort Hancock Texas Border Patrol, Fort Hancock, Texas
+2458
+Carlsbad New Mexico Border Patrol, Carlsbad, New Mexico
+2459
+Deming New Mexico Border Patrol, Deming, New Mexico
+2460
+Silver City New Mexico Border Patrol, Silver City, New Mexico
+2461
+Ysleta Border Patrol, El Paso, Texas
+2462
+Albuquerque Border Patrol, Albuquerque, New Mexico
+2463
+Santa Teresa Border Patrol, Santa Teresa, New Mexico
+2481
+Santa Teresa Airport, Santa Teresa, New Mexico
+2482
+Roswell Industrial Airport, Roswell, New Mexico
+2499
+El Paso Cartage Control, El Paso, Texas
+December 2020 Appendix E E-14
+ACE M1 Import Manifest Electronic Data Interchange
+Port Codes
+Code
+Port
+2601
+Douglas, Arizona
+2602
+Lukeville, Arizona
+2603
+Naco, Arizona
+2604
+Nogales, Arizona
+2605
+Phoenix, Arizona
+2606
+Sasabe, Arizona
+2607
+Sells, Arizona
+2608
+San Luis, Arizona
+2609
+Tucson, Arizona
+2610
+Sierra Vista, Arizona
+2611
+Yuma, Arizona
+2620
+Flagstaff, Arizona
+2621
+Kingman, Arizona
+2650
+Border Patrol Sector HQ, Tucson, Arizona
+2651
+Casa Grande Arizona Border Patrol, Casa Grande, Arizona
+2652
+Tucson Arizona Border Patrol, Tucson, Arizona
+2653
+Nogales Arizona Border Patrol, Nogales, Arizona
+2654
+Willcox Arizona Border Patrol, Willcox, Arizona
+2655
+Douglas Arizona Border Patrol, Douglas, Arizona
+2656
+Ajo Arizona Border Patrol, Why, Arizona
+2657
+Naco Border Patrol, Bisbee, Arizona
+2658
+Sonoita Arizona Border Patrol, Sonoita, Arizona
+2681
+Scottsdale User Fee Airport, Scottsdale, Arizona
+2682
+Phoenix-Mesa Gateway Airport, Mesa, Arizona
+5301
+Houston, Texas
+5306
+Texas City, Texas
+5309
+Houston George Bush Intercontinental Airport, Houston, Texas
+5310
+Galveston, Texas
+5311
+Freeport, Texas
+5312
+Corpus Christi, Texas
+5313
+Port Lavaca, Texas
+5314
+Hobby International Airport, Houston, Texas
+5315
+Ellington Field, Houston, Texas
+5381
+Sugar Land Regional UFA, Sugar Land, Texas
+5382
+Conroe-North, Conroe, Texas
+5501
+Dallas/Ft. Worth Airport, Texas
+5502
+Amarillo, Texas
+5503
+Lubbock, Texas
+5504
+Oklahoma City, Oklahoma
+5505
+Tulsa, Oklahoma
+5506
+Austin, Texas
+5507
+San Antonio, Texas
+5520
+Abilene, Texas
+5521
+San Angelo, Texas
+December 2020 Appendix E E-15
+ACE M1 Import Manifest Electronic Data Interchange
+Port Codes
+Code
+Port
+5550
+Border Patrol Sector HQ, Marfa, Texas
+5551
+Lubbock Border Patrol, Lubbock, Texas
+5552
+Amarillo Border Patrol, Amarillo, Texas
+5553
+Presidio Texas Border Patrol, Presidio, Texas
+5554
+Marfa Texas Border Patrol, Marfa, Texas
+5555
+Pecos Texas Border Patrol, Pecos, Texas
+5556
+Fort Stockton Border Patrol, Fort Stockton, Texas
+5557
+Sanderson Texas Border Patrol, Sanderson, Texas
+5558
+Alpine Texas Border Patrol, Alpine, Texas
+5559
+Big Bend Border Patrol, Big Bend, Texas
+5560
+Sierra Blanca Border Patrol, Sierra Blanca, Texas
+5561
+Van Horn Texas Border Patrol, Van Horn, Texas
+5562
+Midland Texas Border Patrol, Midland, Texas
+5582
+Midland International UFA, Midland, Texas
+5583
+Fort Worth Alliance UFA, Fort Worth, Texas
+5584
+Addison Airport UFA, Addison, Texas
+5585
+Collin County Regional UFA, McKinney, Texas
+5586
+Ardmore Municipal Airport, Ardmore, Oklahoma
+5587
+Kelly Field Annex, San Antonio, Texas
+5588
+Dallas Love Field UFA, Dallas, Texas
+5589
+Meacham International Airport, Fort Worth, Texas
+7600
+Southwest Region, Houston, Texas
+December 2020 Appendix E E-16
+ACE M1 Import Manifest Electronic Data Interchange
+Port Codes
+7 Pacific Region
+Code
+Port
+2501
+San Diego, California
+2502
+Andrade, California
+2503
+Calexico, California
+2504
+San Ysidro, California
+2505
+Tecate, California
+2506
+Otay Mesa, California
+2507
+Calexico-East, California
+2520
+Oceanside, California
+2521
+El Centro, Oceanside, California
+2550
+Border Patrol Sector HQ, El Centro, California
+2551
+Indio California Border Patrol, Indio, California
+2552
+El Centro California Border Patrol, El Centro, California
+2553
+Riverside California Border Patrol, Riverside, California
+2554
+Calexico California Border Patrol, Calexico, California
+2582
+Otay-Cross Border User Fee Airport, San Diego, California
+2704
+Los Angeles, California
+2705
+Santa Ana/Orange, Santa Ana, California
+2706
+Bakersfield, California
+2707
+Port San Luis Harbor, Avila Beach, California
+2709
+Long Beach, California
+2712
+Ventura, California
+2713
+Port Hueneme, California
+2714
+San Bernardino, California
+2715
+Capitan, California
+2719
+Morro Bay, California
+2720
+Los Angeles International Airport, Los Angeles, California
+2721
+Ontario International Airport, Ontario, California
+2722
+Las Vegas, NV
+2755
+Los Angeles Alternate, Los Angeles, California
+2775
+ECCF FedEx Corp Los Angeles, Los Angeles, California
+2776
+ECCF International Bonded Couriers (IBC) Los Angeles, Los Angeles, California
+2777
+ECCF Micom Inglewood, Ingelwood, California
+2781
+Palm Springs User Fee, Palm Springs, California
+2782
+San Bernardino International Airport, San Bernardino, California
+2783
+Southern California Logistics Airport UFA, Victorville, California
+2786
+Meadows Field Airport, Bakersfield, California
+2787
+John Wayne User Fee Airport, Santa Ana, California
+2788
+Van Nuys User Fee Airport, Van Nuys, California
+2791
+DHL Los Angeles Hub, Los Angeles, California
+2795
+UPS Ontario CA Hub, Ontario, California
+2801
+San Francisco International Airport, San Francisco, California
+2802
+Eureka, California
+2803
+Fresno, California
+2805
+Monterey, California
+2809
+San Francisco, California
+December 2020 Appendix E E-17
+ACE M1 Import Manifest Electronic Data Interchange
+Port Codes
+Code
+Port
+2810
+Stockton, California
+2811
+Oakland, California
+2812
+Richmond, California
+2815
+Crockett, California
+2817
+Redding, California
+2818
+San Francisco IAP, San Francisco, California
+2819
+Ogden, Utah
+2820
+Martinez, California
+2821
+Redwood City, California
+2822
+Provo, Utah
+2823
+St. George, Utah
+2827
+Selby, California
+2828
+San Joaquin River, California
+2829
+San Pablo Bay, California
+2830
+Carquinez Strait, California
+2831
+Suisin Bay, California
+2833
+Reno, Nevada
+2834
+San Jose International Airport, California
+2835
+Sacramento International Airport, Sacramento, California
+2850
+Border Patrol Sector HQ, Dublin, California
+2851
+Sacramento Border Patrol, Sacramento, California
+2852
+Stockton California Border Patrol, Stockton, California
+2853
+Fresno California Border Patrol, Fresno, California
+2854
+Bakersfield California Border Patrol, Bakersfield, California
+2855
+San Luis Obispo Border Patrol, San Luis Obispo, California
+2895
+FedEx Corp Oakland Hub, Oakland, California
+2901
+Astoria, Oregon
+2902
+Newport, Oregon
+2903
+Coos Bay, Oregon
+2904
+Portland, Oregon
+2905
+Longview, Washington
+2907
+Boise, Idaho
+2908
+Vancouver, Washington
+2909
+Kalama, Washington
+2910
+Portland International Airport, Portland, Washington
+2911
+Twin Falls, Idaho
+2912
+Idaho Falls, Idaho
+2913
+Pueblo, Colorado
+2914
+Durango, Colorado
+2915
+Alamosa, Colorado
+2916
+Grand Junction, Colorado
+2917
+Glenwood Springs, Colorado
+2918
+Craig, Colorado
+2919
+Brush, Colorado
+2920
+Cheyenne, Wyoming
+2921
+Casper, Wyoming
+2983
+Hillsboro Airport, Hillsboro, Oregon
+December 2020 Appendix E E-18
+ACE M1 Import Manifest Electronic Data Interchange
+Port Codes
+Code
+Port
+3001
+Seattle, Washington
+3002
+Tacoma, Washington
+3003
+Aberdeen, Washington
+3004
+Blaine, Washington
+3005
+Bellingham, Washington
+3006
+Everett, Washington
+3007
+Port Angeles, Washington
+3008
+Port Townsend, Washington
+3009
+Sumas, Washington
+3010
+Anacortes, Washington
+3011
+Nighthawk, Washington
+3012
+Danville, Washington
+3013
+Ferry, Washington
+3014
+Friday Harbor, Washington
+3015
+Boundary, Washington
+3016
+Laurier, Washington
+3017
+Point Roberts, Washington
+3018
+Kenmore Air Harbor, Washington
+3019
+Oroville, Washington
+3020
+Frontier, Washington
+3022
+Spokane, Washington
+3023
+Lynden, Washington
+3024
+Wenatchee, Washington
+3025
+Metaline Falls, Washington
+3026
+Olympia, Washington
+3028
+Yakima, Washington
+3029
+Seattle-Tacoma International Airport, Seattle, Washington
+3030
+Pasco, Washington
+3050
+Border Patrol Sector HQ, Blaine, Washington
+3051
+Blaine Washington Border Patrol, Blaine, Washington
+3052
+Lynden Washington Border Patrol, Lynden, Washington
+3053
+Bellingham Border Patrol, Bellingham, Washington
+3054
+Port Angeles Border Patrol, Port Angeles, Washington
+3071
+ECCF UPS Seattle, Seattle, Washington
+3072
+ECCF Avion Brokers Seatac, Seatac, Washington
+3073
+ECCF DHL Worldwide Seatac, Washington
+3074
+ECCF Airborne Express Seatac, Seatac, Washington
+3082
+Grant County Airport, Moses Lake, Washington
+3095
+UPS Seatac Hub, Seatac, Washington
+3099
+Port of Puget Sound, Seattle, Washington
+3101
+Juneau, Alaska
+3102
+Ketchikan, Alaska
+3103
+Skagway, Alaska
+3104
+Alcan, Alaska
+3105
+Wrangell, Alaska
+3106
+Dalton Cache, Alaska
+December 2020 Appendix E E-19
+ACE M1 Import Manifest Electronic Data Interchange
+Port Codes
+Code
+Port
+3111
+Fairbanks, Alaska
+3115
+Sitka, Alaska
+3124
+Pelican, Alaska
+3126
+Anchorage, Alaska
+3181
+Saint Paul Airport, Anchorage, Alaska
+3195
+FedEx Corp Anchorage Hub, Anchorage, Alaska
+3196
+UPS Anchorage Hub, Anchorage, Alaska
+3201
+Honolulu, Hawaii
+3202
+Hilo, Hawaii
+3203
+Kahului, Hawaii
+3204
+Nawiliwili-Port Allen, Hawaii
+3205
+Honolulu International Airport, Honolulu, Hawaii
+3206
+Kona, Hawaii
+3207
+Guam Preclearance, Tamuning, Guam
+3208
+North Mariana Island, Guam
+3209
+American Samoa, Guam
+3210
+Guam, Maite, Guam
+3211
+Saipan, Tamuning, Guam
+3212
+Tinian, Tamuning, Guam
+3213
+Rota, Tamuning, Guam
+3279
+ECCF FedEx Corp Honolulu, Honolulu, Hawaii
+5650
+Border Patrol Sector HQ, Chula Vista, California
+5651
+San Clemente Border Patrol, California
+5652
+Temecula Border Patrol, California
+5653
+Brown Field Border Patrol, San Diego, California
+5654
+Chula Vista Border Patrol, California
+5655
+Campo (Area II) Border Patrol, Campo, California
+5656
+Boulevard California Border Patrol, Boulevard, California
+5657
+El Cajon (Area I) Border Patrol, El Cajon, California
+5658
+Imperial Beach Border Patrol, California
+5750
+Border Patrol Sector HQ, Spokane, Washington
+5751
+Spokane Border Patrol, Spokane, Washington
+5752
+Pasco Washington Border Patrol, Richland, Washington
+5753
+Oroville Washington Border Patrol, Oroville, Washington
+5754
+Wenatchee Washington Border Patrol, Wenatchee, Washington
+5755
+Colville Washington Border Patrol, Colville, Washington
+5756
+Bonners Ferry Idaho Border Patrol, Bonners Ferry, Idaho
+5757
+Whitefish Montana Border Patrol, Whitefish, Montana
+5758
+Eureka Montana Border Patrol, Eureka, Montana
+5759
+Curlew Washington Border Patrol, Curlew, Washington
+7700
+Pacific Region, Long Beach, California
+7728
+Pacific Region, San Francisco, California
+7729
+Pacific Region, San Francisco, California
+9232
+Calgary, Alberta
+December 2020 Appendix E E-20
