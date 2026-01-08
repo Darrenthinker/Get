@@ -1,27 +1,9 @@
-<svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <!-- 地球外圈 -->
-    <circle cx="20" cy="20" r="18" stroke="url(#logoGradient)" stroke-width="2.5" fill="none"/>
-    <!-- 经纬线 -->
-    <ellipse cx="20" cy="20" rx="18" ry="8" stroke="url(#logoGradient)" stroke-width="1.5" fill="none" opacity="0.6"/>
-    <ellipse cx="20" cy="20" rx="8" ry="18" stroke="url(#logoGradient)" stroke-width="1.5" fill="none" opacity="0.6"/>
-    <!-- 中心水平线 -->
-    <line x1="2" y1="20" x2="38" y2="20" stroke="url(#logoGradient)" stroke-width="1.5" opacity="0.4"/>
-    <!-- 飞机 -->
-    <g transform="translate(24, 8) rotate(45)">
-        <path d="M0 4L8 0L6 4L8 8L0 4Z" fill="url(#logoGradient)"/>
-        <path d="M2 4L0 2V6L2 4Z" fill="url(#logoGradient)"/>
-    </g>
-    <!-- 航线轨迹 -->
-    <path d="M8 28 Q20 14 32 12" stroke="url(#logoGradient)" stroke-width="2" stroke-dasharray="2 2" fill="none" opacity="0.7"/>
-    <!-- 书本底部 -->
-    <path d="M10 32 L20 28 L30 32 L20 36 Z" fill="url(#logoGradient)" opacity="0.9"/>
-    <line x1="20" y1="28" x2="20" y2="36" stroke="white" stroke-width="1.2"/>
-    <!-- 渐变定义 -->
-    <defs>
-        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#0071e3"/>
-            <stop offset="50%" style="stop-color:#34c759"/>
-            <stop offset="100%" style="stop-color:#00b4d8"/>
-        </linearGradient>
-    </defs>
+<svg viewBox="0 0 60 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- 背景圆角矩形 -->
+    <rect x="0" y="0" width="60" height="32" rx="6" fill="#1a1a1a"/>
+    <!-- Get 文字 - 前两个字母黑底白字 -->
+    <text x="6" y="23" font-family="Arial Black, Arial, sans-serif" font-size="18" font-weight="900" fill="#ffffff">Ge</text>
+    <!-- t 字母 - 橙色背景 -->
+    <rect x="36" y="4" width="20" height="24" rx="4" fill="#ff6b00"/>
+    <text x="40" y="23" font-family="Arial Black, Arial, sans-serif" font-size="18" font-weight="900" fill="#1a1a1a">t</text>
 </svg>
