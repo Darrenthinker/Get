@@ -41,6 +41,11 @@
     /* 过渡 */
     --transition-fast: 0.15s ease;
     --transition-normal: 0.25s ease;
+    
+    /* Apple风格缓动函数 */
+    --ease-apple: cubic-bezier(0.25, 0.1, 0.25, 1);
+    --ease-apple-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 /* 深色主题 */
@@ -145,7 +150,8 @@ button {
     font-weight: 700;
     font-size: 22px;
     color: var(--c-text);
-    transition: var(--transition-fast);
+    transition: color 0.3s var(--ease-apple),
+                transform 0.3s var(--ease-apple);
 }
 
 .logo:hover {
@@ -153,7 +159,7 @@ button {
 }
 
 .logo:hover .logo-icon {
-    transform: scale(1.08) rotate(5deg);
+    transform: scale(1.05);
 }
 
 .logo-icon {
@@ -162,7 +168,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.35s var(--ease-apple-out);
 }
 
 .logo-icon svg {
@@ -173,11 +179,13 @@ button {
 .logo-img {
     height: 32px;
     width: auto;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.35s var(--ease-apple-out),
+                filter 0.35s var(--ease-apple);
 }
 
 .logo:hover .logo-img {
-    transform: scale(1.05);
+    transform: scale(1.06);
+    filter: brightness(1.05);
 }
 
 .logo-text {
@@ -495,12 +503,16 @@ button {
     font-size: 15px;
     color: var(--c-text-lighter);
     border-left: 3px solid transparent;
-    transition: var(--transition-fast);
+    transition: color 0.2s var(--ease-apple),
+                background 0.2s var(--ease-apple),
+                border-color 0.2s var(--ease-apple),
+                transform 0.2s var(--ease-apple);
 }
 
 .sidebar-nav .nav-link:hover {
     color: var(--c-text);
     background: var(--c-bg-soft);
+    transform: translateX(2px);
 }
 
 .sidebar-nav .nav-link.active {
@@ -531,6 +543,80 @@ button {
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Apple风格精致动画 ===== */
+
+/* 页面加载渐入 - staggered效果 */
+@keyframes elegantFadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(20px);
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0);
+    }
+}
+
+@keyframes subtleFadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(8px);
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0);
+    }
+}
+
+/* 卡片浮起效果 */
+@keyframes cardLift {
+    from { 
+        transform: translateY(0);
+        box-shadow: var(--shadow-1);
+    }
+    to { 
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-2);
+    }
+}
+
+/* 内容区域加载动画 */
+.main-content {
+    animation: elegantFadeIn 0.6s var(--ease-apple-out) forwards;
+}
+
+/* 首页内容staggered动画 */
+.home-content .section-title {
+    opacity: 0;
+    animation: subtleFadeIn 0.5s var(--ease-apple-out) forwards;
+    animation-delay: 0.1s;
+}
+
+.home-content .region {
+    opacity: 0;
+    animation: subtleFadeIn 0.5s var(--ease-apple-out) forwards;
+}
+
+.home-content .region:nth-child(1) { animation-delay: 0.15s; }
+.home-content .region:nth-child(2) { animation-delay: 0.2s; }
+.home-content .region:nth-child(3) { animation-delay: 0.25s; }
+.home-content .region:nth-child(4) { animation-delay: 0.3s; }
+.home-content .region:nth-child(5) { animation-delay: 0.35s; }
+.home-content .region:nth-child(6) { animation-delay: 0.4s; }
+
+/* 滚动触发淡入 - 初始状态 */
+.fade-in-on-scroll {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s var(--ease-apple-out), 
+                transform 0.6s var(--ease-apple-out);
+}
+
+.fade-in-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .hero {
@@ -1180,20 +1266,25 @@ button {
     border: none;
     border-radius: 12px;
     padding: 16px 12px;
-    transition: all 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
+    transition: transform 0.3s var(--ease-apple-out),
+                box-shadow 0.3s var(--ease-apple-out),
+                background 0.2s ease;
     text-align: center;
-    box-shadow: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
     position: relative;
     cursor: pointer;
 }
 
 .country-card:hover {
     background: #e8e8ed;
-    transform: scale(1.02);
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08),
+                0 4px 10px rgba(0, 0, 0, 0.04);
 }
 
 .country-card:active {
-    transform: scale(0.98);
+    transform: translateY(-1px) scale(0.99);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
 .country-card a.country-link {
@@ -1217,6 +1308,8 @@ button {
 
 [data-theme="dark"] .country-card:hover {
     background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3),
+                0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 [data-theme="dark"] .country-card a.country-link {
@@ -1719,11 +1812,16 @@ button {
     font-size: 15px;
     text-decoration: none;
     cursor: pointer;
-    transition: color 0.15s ease;
+    border-radius: var(--radius-md);
+    transition: color 0.25s var(--ease-apple),
+                background 0.25s var(--ease-apple),
+                transform 0.25s var(--ease-apple);
 }
 
 .outline-item:hover {
     color: var(--c-brand);
+    background: var(--c-bg-soft);
+    transform: translateX(4px);
 }
 
 .outline-item::before {
@@ -1734,11 +1832,13 @@ button {
     border: 2px solid var(--c-text-mute);
     background: transparent;
     flex-shrink: 0;
-    transition: all 0.15s ease;
+    transition: all 0.25s var(--ease-apple),
+                transform 0.25s var(--ease-apple);
 }
 
 .outline-item:hover::before {
     border-color: var(--c-brand);
+    transform: scale(1.2);
 }
 
 /* 不同分类使用不同颜色圆圈 */
@@ -2117,13 +2217,20 @@ button {
     background: var(--c-bg);
     color: var(--c-text-light);
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.25s var(--ease-apple);
 }
 
 .reset-btn:hover {
     background: var(--c-brand);
     color: #fff;
     border-color: var(--c-brand);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+}
+
+.reset-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(59, 130, 246, 0.2);
 }
 
 /* 统计信息 */

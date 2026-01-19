@@ -4131,3 +4131,60 @@ window.showArticle = function(title) {
 };
 
 console.log('🚀 货代知识库已加载完成！');
+
+// ===== Apple风格滚动触发淡入效果 =====
+function initScrollReveal() {
+    // 为需要淡入的元素添加class
+    const elementsToReveal = document.querySelectorAll('.region, .outline-section, .article-content-wrapper > h3, .step-item');
+    
+    elementsToReveal.forEach(el => {
+        if (!el.classList.contains('fade-in-on-scroll')) {
+            el.classList.add('fade-in-on-scroll');
+        }
+    });
+    
+    // Intersection Observer - 优雅的滚动检测
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.1
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                // 添加staggered延迟
+                setTimeout(() => {
+                    entry.target.classList.add('is-visible');
+                }, index * 50);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    document.querySelectorAll('.fade-in-on-scroll').forEach(el => {
+        observer.observe(el);
+    });
+}
+
+// 页面加载完成后初始化滚动效果
+document.addEventListener('DOMContentLoaded', function() {
+    // 延迟初始化以确保DOM完全加载
+    setTimeout(initScrollReveal, 300);
+});
+
+// 当显示首页时重新初始化
+const originalShowHome = window.showHome;
+window.showHome = function() {
+    originalShowHome();
+    setTimeout(initScrollReveal, 100);
+};
+
+// 当显示大纲页面时初始化
+const originalShowCategoryOutline = window.showCategoryOutline;
+if (originalShowCategoryOutline) {
+    window.showCategoryOutline = function(categoryKey, scrollToSection) {
+        originalShowCategoryOutline(categoryKey, scrollToSection);
+        setTimeout(initScrollReveal, 100);
+    };
+}
