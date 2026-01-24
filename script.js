@@ -1173,6 +1173,77 @@ const knowledgeBase = {
                         </div>`,
                         keywords: ["ISF", "10+2规则", "进口安全申报", "海运", "AMS", "CBP"],
                         readCount: 2180
+                    },
+                    {
+                        title: "CBP Disposition Codes",
+                        content: `
+                        <div class="disposition-codes-page">
+                            <div class="dc-intro">
+                                <div class="dc-intro-content">
+                                    <h2>CBP Disposition Codes</h2>
+                                    <p class="dc-subtitle">Customs Automated Manifest Interface Requirements - Appendix D</p>
+                                    <p class="dc-desc-en">This appendix provides a complete listing of valid disposition codes. Disposition codes are status messages sent by U.S. Customs and Border Protection (CBP) to inform carriers, brokers, and importers about the status of cargo shipments.</p>
+                                    <p class="dc-desc-cn">本附录提供了所有有效处置代码的完整列表。处置代码是美国海关和边境保护局(CBP)发送的状态消息，用于通知承运人、报关行和进口商关于货物运输的状态。</p>
+                                </div>
+                                <div class="dc-version">
+                                    <span class="version-badge">CAMIR V19</span>
+                                    <span class="date-badge">March 2025</span>
+                                </div>
+                            </div>
+
+                            <div class="dc-filter-section">
+                                <div class="dc-search-box">
+                                    <input type="text" id="dcSearchInput" placeholder="Search by code, name or description..." oninput="filterDispositionCodes()">
+                                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="11" cy="11" r="8"></circle>
+                                        <path d="m21 21-4.35-4.35"></path>
+                                    </svg>
+                                </div>
+                                <div class="dc-category-filters">
+                                    <button class="dc-filter-btn active" onclick="filterByCategory('all')">All</button>
+                                    <button class="dc-filter-btn" onclick="filterByCategory('release')">
+                                        <span class="filter-dot release"></span>Release
+                                    </button>
+                                    <button class="dc-filter-btn" onclick="filterByCategory('hold')">
+                                        <span class="filter-dot hold"></span>Hold
+                                    </button>
+                                    <button class="dc-filter-btn" onclick="filterByCategory('advisory')">
+                                        <span class="filter-dot advisory"></span>Advisory
+                                    </button>
+                                    <button class="dc-filter-btn" onclick="filterByCategory('pga')">
+                                        <span class="filter-dot pga"></span>PGA
+                                    </button>
+                                    <button class="dc-filter-btn" onclick="filterByCategory('inbond')">
+                                        <span class="filter-dot inbond"></span>In-Bond
+                                    </button>
+                                    <button class="dc-filter-btn" onclick="filterByCategory('other')">
+                                        <span class="filter-dot other"></span>Other
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="dc-stats">
+                                <span id="dcCount">Showing all codes</span>
+                            </div>
+
+                            <div class="dc-table-wrapper">
+                                <table class="dc-table" id="dcTable">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-code" onclick="sortDcTable('code')">Code ↕</th>
+                                            <th class="col-name" onclick="sortDcTable('name')">Name ↕</th>
+                                            <th class="col-desc">Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="dcTableBody">
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div id="dcPagination" class="dc-pagination"></div>
+                        </div>`,
+                        keywords: ["Disposition Code", "CBP", "CAMIR", "货物状态", "Hold", "Release", "AMS"],
+                        readCount: 890
                     }
                 ]
     },
@@ -1847,10 +1918,10 @@ async function incrementViewCount(articleTitle) {
     } catch (error) {
         console.warn('CountAPI error:', error);
         // 降级到本地存储
-        const views = JSON.parse(localStorage.getItem('articleViews') || '{}');
-        views[articleTitle] = (views[articleTitle] || 0) + 1;
-        localStorage.setItem('articleViews', JSON.stringify(views));
-        return views[articleTitle];
+    const views = JSON.parse(localStorage.getItem('articleViews') || '{}');
+    views[articleTitle] = (views[articleTitle] || 0) + 1;
+    localStorage.setItem('articleViews', JSON.stringify(views));
+    return views[articleTitle];
     }
 }
 
@@ -1923,8 +1994,8 @@ function initNavigation() {
                 items.classList.remove('expanded');
             } else {
                 // 没有目录大纲的分类，正常展开/收起
-                title.classList.toggle('expanded');
-                items.classList.toggle('expanded');
+            title.classList.toggle('expanded');
+            items.classList.toggle('expanded');
             }
         });
     });
@@ -2059,27 +2130,92 @@ function performSearch(query) {
         return;
     }
     
-    searchDropdown.innerHTML = results.slice(0, 8).map(result => `
-        <div class="search-dropdown-item" onclick="selectSearchResult('${result.article.title}')">
-            <span class="search-dropdown-icon">📄</span>
-            <div class="search-dropdown-text">
-                <div class="search-dropdown-title">${result.article.title}</div>
-                <div class="search-dropdown-path">${result.categoryTitle}${result.subcategoryTitle ? ' > ' + result.subcategoryTitle : ''}</div>
+    // 分组显示：文章、Disposition Codes、Port Codes
+    let html = '';
+    const articles = results.filter(r => r.type === 'article');
+    const dcResults = results.filter(r => r.type === 'disposition');
+    const portResults = results.filter(r => r.type === 'port');
+    
+    if (articles.length > 0) {
+        html += '<div class="search-group-title">📚 文章</div>';
+        html += articles.slice(0, 5).map(result => `
+            <div class="search-dropdown-item" onclick="selectSearchResult('${result.article.title}')">
+                <span class="search-dropdown-icon">📄</span>
+                <div class="search-dropdown-text">
+                    <div class="search-dropdown-title">${result.article.title}</div>
+                    <div class="search-dropdown-path">${result.categoryTitle}${result.subcategoryTitle ? ' > ' + result.subcategoryTitle : ''}</div>
+                </div>
             </div>
-        </div>
-    `).join('');
+        `).join('');
+    }
+    
+    if (dcResults.length > 0) {
+        html += '<div class="search-group-title">🏛️ CBP Disposition Codes</div>';
+        html += dcResults.slice(0, 5).map(result => `
+            <div class="search-dropdown-item" onclick="goToDispositionCode('${result.code}')">
+                <span class="search-dropdown-icon search-code-badge">${result.code}</span>
+                <div class="search-dropdown-text">
+                    <div class="search-dropdown-title">${result.name}</div>
+                    <div class="search-dropdown-path">${result.nameCn || '美国海关 > CBP Disposition Codes'}</div>
+                </div>
+            </div>
+        `).join('');
+    }
+    
+    if (portResults.length > 0) {
+        html += '<div class="search-group-title">🚢 US CBP Port Codes</div>';
+        html += portResults.slice(0, 5).map(result => `
+            <div class="search-dropdown-item" onclick="goToPortCode('${result.code}')">
+                <span class="search-dropdown-icon search-code-badge">${result.code}</span>
+                <div class="search-dropdown-text">
+                    <div class="search-dropdown-title">${result.name}</div>
+                    <div class="search-dropdown-path">${result.state || ''} ${result.district || ''}</div>
+                </div>
+            </div>
+        `).join('');
+    }
+    
+    searchDropdown.innerHTML = html;
+}
+
+// 跳转到Disposition Code
+function goToDispositionCode(code) {
+    hideSearchDropdown();
+    showArticle('CBP Disposition Codes');
+    setTimeout(() => {
+        const input = document.getElementById('dcSearchInput');
+        if (input) {
+            input.value = code;
+            filterDispositionCodes();
+        }
+    }, 200);
+}
+
+// 跳转到Port Code
+function goToPortCode(code) {
+    hideSearchDropdown();
+    showArticle('US CBP Port Codes');
+    setTimeout(() => {
+        const input = document.getElementById('portSearch');
+        if (input) {
+            input.value = code;
+            filterPortCodes();
+        }
+    }, 200);
 }
 
 function searchKnowledge(query) {
     const results = [];
     query = query.toLowerCase();
     
+    // 搜索文章
     Object.entries(knowledgeBase).forEach(([catKey, category]) => {
         if (category.subcategories) {
             Object.entries(category.subcategories).forEach(([subKey, subcategory]) => {
             subcategory.articles.forEach(article => {
                     if (matchArticle(article, query)) {
                     results.push({
+                        type: 'article',
                         categoryTitle: category.title,
                         subcategoryTitle: subcategory.title,
                             article: article
@@ -2091,6 +2227,7 @@ function searchKnowledge(query) {
             category.articles.forEach(article => {
                 if (matchArticle(article, query)) {
                     results.push({
+                        type: 'article',
                         categoryTitle: category.title,
                         subcategoryTitle: null,
                         article: article
@@ -2099,6 +2236,43 @@ function searchKnowledge(query) {
             });
         }
     });
+    
+    // 搜索 Disposition Codes
+    if (typeof dispositionCodes !== 'undefined') {
+        dispositionCodes.forEach(dc => {
+            if (dc.code.toLowerCase().includes(query) ||
+                dc.name.toLowerCase().includes(query) ||
+                dc.description.toLowerCase().includes(query) ||
+                (dc.nameCn && dc.nameCn.includes(query)) ||
+                (dc.descCn && dc.descCn.includes(query))) {
+                results.push({
+                    type: 'disposition',
+                    code: dc.code,
+                    name: dc.name,
+                    nameCn: dc.nameCn,
+                    description: dc.description
+                });
+            }
+        });
+    }
+    
+    // 搜索 Port Codes
+    if (typeof usPortCodes !== 'undefined') {
+        usPortCodes.forEach(port => {
+            if (port.code.toLowerCase().includes(query) ||
+                port.name.toLowerCase().includes(query) ||
+                (port.state && port.state.toLowerCase().includes(query)) ||
+                (port.district && port.district.toLowerCase().includes(query))) {
+                results.push({
+                    type: 'port',
+                    code: port.code,
+                    name: port.name,
+                    state: port.state,
+                    district: port.district
+                });
+            }
+        });
+    }
     
     return results;
 }
@@ -2462,7 +2636,8 @@ const categoryOutlineData = {
                     { name: "US CBP Port Codes", article: "US CBP Port Codes" },
                     { name: "美国海关清关流程", article: "美国海关清关流程" },
                     { name: "CBP申报要求", article: "CBP申报要求" },
-                    { name: "ISF申报指南", article: "ISF申报指南" }
+                    { name: "ISF申报指南", article: "ISF申报指南" },
+                    { name: "CBP Disposition Codes", article: "CBP Disposition Codes" }
                 ]
             }
         ]
@@ -4188,3 +4363,757 @@ if (originalShowCategoryOutline) {
         setTimeout(initScrollReveal, 100);
     };
 }
+
+// ===== CBP Disposition Codes 数据和功能 =====
+// 完整数据来自 CBP Appendix D - CAMIR V19 March 2025
+const dispositionCodes = [
+    // Basic Numeric Codes (02-99)
+    { code: "02", name: "Entry Advisory", description: "Generated to a rail carrier as a result of an entry being filed against a bill either through selectivity or manually", category: "advisory" },
+    { code: "03", name: "Port of Entry Change", description: "Generated when a rail carrier changes a port of entry - port of entry is different in consist from original bill", category: "advisory" },
+    { code: "04", name: "Add Second Notify Party", description: "Generated to a rail carrier when a new second notify party SCAC code is assigned to a bill in an amendment to the consist record during train consisting", category: "advisory" },
+    { code: "11", name: "Arrival of in-bond - complete movement", description: "Advisory generated when a paperless or conventional in-bond has been arrived at destination as a complete movement by the ACE M1 participant or by CBP: ENT/REL quantities unaffected", category: "inbond" },
+    { code: "12", name: "Arrival of in-bond - bill of lading", description: "Advisory generated when a paperless or conventional in-bond has been arrived at destination by the bill of lading by the ACE M1 participant or by CBP: ENT/REL quantities unaffected", category: "inbond" },
+    { code: "13", name: "Arrival of in-bond - container", description: "Advisory generated when a paperless or conventional in-bond has been arrived at destination by the container/seal by the ACE M1 participant or by CBP: ENT/REL quantities unaffected", category: "inbond" },
+    { code: "14", name: "Delete entered quantity (transaction delete)", description: "Generated as a result of CBP action through the transaction delete function: Subtracts the ENT quantity", category: "advisory" },
+    { code: "15", name: "Delete released quantity (transaction delete)", description: "Generated as a result of CBP action through the transaction delete function: Subtracts the REL quantity", category: "advisory" },
+    { code: "16", name: "Delete entered/released quantity (transaction delete)", description: "Generated as a result of CBP action through the transaction delete function: Subtracts the ENT/REL quantities", category: "advisory" },
+    { code: "18", name: "Master in-bond advisory", description: "Advisory generated to participant when an entry has been filed in the port of destination against an in-bond bill that is enroute: Not a release: ENT/REL quantities unaffected", category: "inbond" },
+    { code: "19", name: "Actual conveyance arrival", description: "Advisory generated when a conveyance is arrived in ACE M1 by the ACE M1 participant or by CBP", category: "advisory" },
+    { code: "20", name: "Delete Arrival of In-bond at Intermediate Port-Complete Movement", description: "Generated by CBP or ACE M1 participant action after paperless or conventional in-bond has been arrived at northern border intermediate port: Deletes all arrivals in all bills associated with the in-bond number", category: "inbond" },
+    { code: "21", name: "Delete Arrival of In-bond at Intermediate Port-Bill of Lading", description: "Generated by CBP or ACE M1 participant action after paperless or conventional in-bond has been arrived at northern border intermediate port: Does not affect other bills associated with the in-bond number", category: "inbond" },
+    { code: "22", name: "Delete Arrival of In-bond at Intermediate Port-Container", description: "Generated by CBP or ACE M1 participant action after paperless or conventional in-bond has been arrived at northern border intermediate port by container-seal", category: "inbond" },
+    { code: "23", name: "Delete Departure of In-bond at Intermediate Port-Complete Movement", description: "Generated by CBP or ACE M1 participant action after paperless or conventional in-bond has been departed from northern border intermediate port", category: "inbond" },
+    { code: "24", name: "Delete Departure of In-bond at Intermediate Port-Bill of Lading", description: "Generated by CBP or ACE M1 participant action after paperless or conventional in-bond has been departed from northern border intermediate port by bill of lading", category: "inbond" },
+    { code: "25", name: "Delete Departure of In-bond at Intermediate Port-Container", description: "Generated by CBP or ACE M1 participant action after paperless or conventional in-bond has been departed from northern border port by container-seal", category: "inbond" },
+    { code: "26", name: "Delete Transfer of Liability for In-bond", description: "Generated by CBP or ACE M1 participant action after transferring custodial liability for an in-bond movement from one bonded carrier to another by the complete movement", category: "inbond" },
+    { code: "27", name: "Delete Transfer of Liability for Bill of Lading", description: "Generated by CBP or ACE M1 participant action after transferring custodial liability for an in-bond movement from one bonded carrier to another by the bill of lading", category: "inbond" },
+    { code: "28", name: "Delete Transfer of Liability for Container", description: "Generated by CBP or ACE M1 participant action after transferring custodial liability for an in-bond movement from one bonded carrier to another by the container-seal", category: "inbond" },
+    { code: "50", name: "Export of in-bond - complete movement", description: "Generated when paperless or conventional in-bond is exported from the destination port as a complete movement by the ACE M1 participant or by CBP. Do not EXPORT if any HOLDS are in force against the bill.", category: "inbond" },
+    { code: "51", name: "Export of in-bond - bill of lading", description: "Generated when paperless or conventional in-bond is exported from the destination port as a bill of lading by the ACE M1 participant or by CBP. Do not EXPORT if any HOLDS are in force against the bill.", category: "inbond" },
+    { code: "52", name: "Export of in-bond - container", description: "Generated when paperless or conventional in-bond is exported by the container from the destination port. Do not EXPORT if any holds are in force against the bill.", category: "inbond" },
+    { code: "53", name: "Overdue export", description: "Advisory generated to ACE M1 participant when paperless or conventional TE or IE in-bond movement is not exported from the destination port within 30 days after the in-bond arrival", category: "advisory" },
+    { code: "54", name: "Carrier bill - delete", description: "Generated in response to an amendment (A01) transmission from the ACE M1 participant deleting a bill from the manifest", category: "advisory" },
+    { code: "55", name: "Carrier bill - add", description: "Generated in response to an amendment (A01) transmission from the ACE M1 participant adding a bill from the manifest", category: "advisory" },
+    { code: "56", name: "Carrier bill - change", description: "Generated in response to an amendment (A01) transmission from the ACE M1 participant changing the quantity in a bill of lading without deleting it from the manifest", category: "advisory" },
+    { code: "57", name: "Change arrival of in-bond - complete movement", description: "Generated when a paperless or conventional in-bond is arrived at destination as a complete movement, subsequent to the original arrival", category: "inbond" },
+    { code: "58", name: "Change arrival of in-bond - bill of lading", description: "Generated when a paperless or conventional in-bond is arrived at destination by the bill of lading, subsequent to the original arrival", category: "inbond" },
+    { code: "59", name: "Change arrival of in-bond - container", description: "Generated when a paperless or conventional in-bond is arrived at destination by the container/seal, subsequent to the original arrival", category: "inbond" },
+    { code: "60", name: "Change export of in-bond - complete movement", description: "Generated when a paperless or conventional in-bond is exported from the destination port as a complete movement, subsequent to the original export", category: "inbond" },
+    { code: "61", name: "Change export of in-bond - bill of lading", description: "Generated when a paperless or conventional in-bond is exported from the destination port as a bill of lading, subsequent to the original export", category: "inbond" },
+    { code: "62", name: "Change export of in-bond - container", description: "Generated when paperless or conventional in-bond is exported from the destination port by container/seal, subsequent to the original export", category: "inbond" },
+    { code: "63", name: "Delete arrival of in-bond - complete movement", description: "Generated as a result of CBP action through the supervisory update function: ENT/REL quantities unaffected", category: "inbond" },
+    { code: "64", name: "Deleted arrival of in-bond - bill of lading", description: "Generated as a result of CBP action through the supervisory update function: ENT/REL quantities unaffected", category: "inbond" },
+    { code: "65", name: "Delete arrival of in-bond - container", description: "Generated as a result of CBP action through the supervisory update function: ENT/REL quantities unaffected", category: "inbond" },
+    { code: "66", name: "Delete export of in-bond - complete movement", description: "Generated as a result of CBP action through the supervisory update function: Subtracts ENT/REL quantities in all bills associated with the in-bond number", category: "inbond" },
+    { code: "67", name: "Delete export of in-bond - bill of lading", description: "Generated as a result of CBP action through the transaction delete function: Subtracts ENT/REL quantities", category: "inbond" },
+    { code: "68", name: "Delete export of in-bond - container", description: "Generated as a result of CBP action through the transaction delete function: Subtracts ENT/REL quantities in all bills associated with the container", category: "inbond" },
+    { code: "69", name: "Bill on File", description: "Generated when a user is nominated as a SNP by a rail, carrier or NVO participant", category: "advisory" },
+    { code: "70", name: "Penalty", description: "Generated as a result of CBP action: Indicates a CF5955A, Notice of Penalty, has been issued regarding the bill: Not a seizure", category: "advisory" },
+    { code: "71", name: "Intensive hold for CBPA placed at port of discharge", description: "Generated as a result of a manually posted CBPA intensive hold effective in the port of discharge. Release is denied. Bill status changes to HELD. Cargo cannot be released until the HOLD is removed by CBP.", category: "hold" },
+    { code: "72", name: "Inspection/document review hold for CBPA placed at port of discharge", description: "Generated as a result of a manually posted CBPA inspection/document review hold effective in the port of discharge. Release is denied. Bill status changes to HELD.", category: "hold" },
+    { code: "73", name: "Fumigation hold for CBPA placed at port of discharge", description: "Generated as a result of a manually posted CBPA fumigation hold effective in the port of discharge. Release is denied. Bill status changes to HELD.", category: "hold" },
+    { code: "74", name: "Intensive hold for CBPA removed at port of discharge", description: "Generated as a result of a manually posted removal of a CBPA intensive hold. Bill status returns to previous status. If there has been a RELEASE and no other HOLDS, cargo may be released.", category: "release" },
+    { code: "75", name: "Inspection/document review hold for CBPA removed at port of discharge", description: "Generated as a result of a manually posted removal of a CBPA inspection/document review hold. Bill status returns to previous status.", category: "release" },
+    { code: "76", name: "Fumigation hold for CBPA removed at port of discharge", description: "Generated as a result of a manually posted removal of a CBPA fumigation hold. Bill status returns to previous status.", category: "release" },
+    { code: "77", name: "Intensive hold for CBPA placed at port of in-bond destination", description: "Generated as a result of a manually posted CBPA intensive hold effective in the port of in-bond destination. Release is denied. Bill status changes to HELD.", category: "hold" },
+    { code: "78", name: "Inspection/document review hold for CBPA placed at port of in-bond destination", description: "Generated as a result of a manually posted CBPA inspection/document review hold effective in the port of in-bond destination. Release is denied.", category: "hold" },
+    { code: "79", name: "Fumigation hold for CBPA placed at port of in-bond destination", description: "Generated as a result of a manually posted CBPA fumigation hold effective in the port of in-bond destination. Release is denied.", category: "hold" },
+    { code: "80", name: "Intensive hold for CBPA removed at port of in-bond destination", description: "Generated as a result of a manually posted removal of a CBPA intensive hold effective in the port of in-bond destination. Bill status returns to previous status.", category: "release" },
+    { code: "81", name: "Inspection/document review hold for CBPA removed at port of in-bond destination", description: "Generated as a result of a manually posted removal of a CBPA inspection/document review hold effective in the port of in-bond destination.", category: "release" },
+    { code: "82", name: "Fumigation hold for CBPA removed at port of in-bond destination", description: "Generated as a result of a manually posted removal of a CBPA fumigation hold effective in the port of in-bond destination.", category: "release" },
+    { code: "83", name: "PTT cancelled", description: "Generated as a result of CBP action through the transaction delete function: ENT/REL quantities unaffected", category: "advisory" },
+    { code: "84", name: "Transfer for exam cancelled", description: "Generated as a result of on-line input by CBP", category: "advisory" },
+    { code: "85", name: "Arrive in-bond at intermediate port", description: "Generated when a paperless or conventional in-bond has been arrived at a northern border intermediate port as a complete movement", category: "inbond" },
+    { code: "86", name: "Arrive bill of lading at intermediate port", description: "Generated when a paperless or conventional in-bond has been arrived at a northern border intermediate port by the bill of lading", category: "inbond" },
+    { code: "87", name: "Arrive container at intermediate port", description: "Generated when a paperless or conventional in-bond has been arrived at a northern border intermediate port by the container/seal", category: "inbond" },
+    { code: "88", name: "Depart in-bond from intermediate port", description: "Generated when a paperless or conventional in-bond has departed from a northern border intermediate port as a complete movement", category: "inbond" },
+    { code: "89", name: "Depart bill of lading from intermediate port", description: "Generated when a paperless or conventional in-bond has departed from a northern border intermediate port as a bill of lading", category: "inbond" },
+    { code: "90", name: "Depart container from intermediate port", description: "Generated when a paperless or conventional in-bond has departed from a northern border intermediate port by container/seal", category: "inbond" },
+    { code: "91", name: "Transfer of liability for in-bond", description: "Generated in response to action either by the ACE M1 participant or by CBP in transferring custodial liability for an in-bond movement from one bonded carrier to another", category: "inbond" },
+    { code: "92", name: "Transfer of liability for bill of lading", description: "Generated in response to action either by the ACE M1 participant or by CBP in transferring custodial liability for an in-bond movement from one bonded carrier to another by the bill of lading", category: "inbond" },
+    { code: "93", name: "Transfer of liability for container", description: "Generated in response to action either by the ACE M1 participant or by CBP in transferring custodial liability for an in-bond movement from one bonded carrier to another by the container/seal", category: "inbond" },
+    { code: "95", name: "In-bond deleted", description: "Generated in response to action by CBP: An in-bond created by CBP on-line has been deleted via on-line function: All non-automated bills associated with the in-bond are also deleted", category: "inbond" },
+    { code: "96", name: "Manifest Consist", description: "This will be used in the ABI NS Application, Record Identifier 30. It indicates that Consist data is being transmitted in the ABI NS Application set.", category: "other" },
+    { code: "97", name: "Conveyance Departure (In-bond)", description: "Generated when a truck manifest conveyance carrying an in-bond is allowed to leave the port of first arrival. This message indicates that the in-bond is enroute to its destination.", category: "inbond" },
+    { code: "98", name: "Release Conveyance", description: "Generated as a result of on-line input by CBP. Indicates that a level hold has been removed. This notice is transmitted to a filer only.", category: "release" },
+    { code: "99", name: "Train Consist Deleted", description: "This will be used in the ABI NS Application, Record Identifier 30. It indicates that the bills are no longer associated with that particular train.", category: "other" },
+    
+    // 1X Series - Entry/Release/Hold Codes
+    { code: "1A", name: "Entered: Intensive examination required", description: "Generated as a result of selectivity processing or CBP manual posting: Writes ENT quantity to the bill. An entry has been filed against the cargo, and it is pending examination by CBP. Cargo is not RELEASED.", category: "hold" },
+    { code: "1B", name: "Released: Intensive examination completed", description: "Generated as a result of selectivity processing or CBP manual posting: Writes REL quantity to the bill. The cargo examination by CBP has been completed and the cargo has been released. Do not RELEASE until all HOLDS have been removed.", category: "release" },
+    { code: "1C", name: "Entered and released: General examination", description: "Generated as a result of selectivity processing or CBP manual posting: Writes ENT/REL quantity to the bill. Entry has been filed and the cargo has been released. Do not RELEASE cargo until all HOLDS have been removed.", category: "release" },
+    { code: "1F", name: "CBP hold removed at port of in-bond destination", description: "Generated as a result of a CBP hold removal posting affecting the port of in-bond destination: The bill returns to previous status from HELD. If there are no other HOLDS, cargo may be RELEASED.", category: "release" },
+    { code: "1G", name: "CBP hold placed at port of in-bond destination", description: "Generated as a result of a manually posted CBP hold effective in the port of in-bond destination: Release is denied: Bill status changes to HELD. Cargo cannot be released until RELEASED by CBP and all destination HOLDS have been removed.", category: "hold" },
+    { code: "1H", name: "CBP hold placed at port of discharge/Port of export", description: "Generated as a result of a manually posted CBP hold effective in the port of discharge (conveyance arrival): Release is denied: Bill status changes to HELD. Cargo cannot be released until the HOLD is removed by CBP.", category: "hold" },
+    { code: "1I", name: "CBP hold removed at port of discharge/Port of export", description: "Generated as a result of a manually posted removal of a CBP hold effective in the port of discharge/Port of export: Bill status returns to previous status. If there has been a RELEASE and no other HOLDS, cargo may be released.", category: "release" },
+    { code: "1J", name: "In-bond movement authorized: Bill of lading open", description: "Generated in response to IT, TE, and IE bill data input by ACE M1 participants or CBP: ENT/REL quantities unaffected. If there are no HOLDS at the port of discharge, the cargo may move in-bond to the destination port.", category: "inbond" },
+    { code: "1K", name: "Bill of lading late in 5 days", description: "Advisory generated for IT, TE, and IE in-bond bills created by ACE M1 participants that have not been arrived at destination 5 days before the expiration of the transit period", category: "advisory" },
+    { code: "1L", name: "Bill of lading late", description: "Advisory generated for IT, TE, and IE in-bond bills created by ACE M1 participants that have not been arrived at destination by the expiration of the transit period", category: "advisory" },
+    { code: "1M", name: "Bill of lading message transmission", description: "Generated as a result of CBP action: Free form message regarding the bill", category: "advisory" },
+    { code: "1N", name: "Overage", description: "Advisory generated when ENT/REL quantity exceeds AMEND quantity as a result of entry posting. Actual count greater than manifested amount. Amended quantity affected and carrier response (A01) expected.", category: "advisory" },
+    { code: "1O", name: "Shortage", description: "Generated as a result of landed quantity verification by CBP: Actual count less than manifested amount: Amended quantity affected and carrier response (A01) expected", category: "advisory" },
+    { code: "1P", name: "Within case shortage, goods specifically manifested", description: "Generated as a result of landed quantity verification by CBP: Actual count of merchandise within cases is less than manifested amount", category: "advisory" },
+    { code: "1Q", name: "US intransit bills released", description: "Generated to each bill in a USA-Canada-USA intransit movement when the conveyance arrives in USA at the end of the movement. Bills are released as US Goods returned.", category: "release" },
+    { code: "1R", name: "Pending eligible General Order", description: "Advisory generated 2 days before the expiration of lay order: Indicates ENT/REL quantities on the bill are less than AMEND quantity", category: "advisory" },
+    { code: "1S", name: "Ordered to General Order", description: "Advisory generated at expiration of lay order: Indicates discrepancy in ENT/REL quantities and AMEND quantity on the bill have not been resolved by end of lay order", category: "advisory" },
+    { code: "1T", name: "Seized", description: "Generated as a result of manual posting by CBP indicating that the manifested or partial quantity of the bill has been seized for violations: The seized quantity amount is written in the ENT/REL quantity fields", category: "hold" },
+    { code: "1U", name: "Sent to General Order", description: "Generated as a result of manual posting by CBP or G01, G03 records indicating that the manifested or partial quantity of the bill has been removed to a general order facility", category: "advisory" },
+    { code: "1W", name: "Within port transfer authorized: Bill of lading remains open", description: "Generated as a result of a participant request for PTT (Permit to Transfer), T01, or by manual posting of a PTT by CBP: Cargo cannot be transferred until all HOLDS are removed by CBP.", category: "inbond" },
+    { code: "1X", name: "Transfer for Exam", description: "Generated as a result of on-line input by CBP to designate a transfer to a CES (container examination station) for examination. Transfer with active hold is authorized.", category: "hold" },
+    { code: "1Y", name: "MVOC-NVOC Bill of Lading Match", description: "Generated to NVO when the SCAC and bill number transmitted by the NVO in the B04 record matches that of the contract carrier (MVOC).", category: "advisory" },
+    
+    // 2X Series
+    { code: "2F", name: "CBPA miscellaneous hold removed at port of in-bond destination", description: "Generated as a result of an CBPA miscellaneous hold removal posting affecting the port of in-bond destination. A HOLD at the in-bond destination has been removed.", category: "release" },
+    { code: "2G", name: "CBPA miscellaneous hold placed at port of in-bond destination", description: "Generated as a result of a manually posted CBPA miscellaneous hold effective in the port of in-bond destination: Release is denied: Bill status changes to HELD.", category: "hold" },
+    { code: "2H", name: "CBPA miscellaneous hold placed at port of discharge", description: "Generated as a result of a manually posted CBPA miscellaneous hold effective in the port of discharge. Release is denied. Bill status changes to HELD.", category: "hold" },
+    { code: "2I", name: "CBPA miscellaneous hold removed at port of discharge", description: "Generated as a result of a manually posted removal of a CBPA miscellaneous hold effective in the port of discharge. Bill status returns to previous status.", category: "release" },
+    { code: "2M", name: "Value may exceed consignee daily max ET86", description: "Generated on a bill when the consignee's daily de minimis (entry type 86) cargo value may exceed the CBP defined maximum of $800.", category: "advisory" },
+    { code: "2O", name: "ISF Hold - no ISF on file", description: "Generated when a Bill is received without ISF on file as part of the ISF Compliance program", category: "hold" },
+    { code: "2P", name: "ISF Hold - ISF Compliance Issue", description: "Generated on a Bill when ISF compliance issue is identified as part of the ISF Compliance Program.", category: "hold" },
+    { code: "2Q", name: "Do Not Load - No ISF On File", description: "Generated when a Bill is received without ISF on file as part of the ISF Compliance program", category: "hold" },
+    { code: "2R", name: "Do Not Load - ISF Compliance Issue", description: "Generated on a Bill when ISF compliance issue is identified as part of the ISF Compliance Program.", category: "hold" },
+    { code: "2Z", name: "Master/House Container Mis-Match", description: "Generated as a result of a comparison between the Master and House reported containers. Those containers that exist against either the Master or House that do not have a corresponding match will receive this message.", category: "advisory" },
+    
+    // 3X Series
+    { code: "3F", name: "Other Government Agency hold removed at port of in-bond destination", description: "Generated as a result of a manually posted removal of an Other Government Agency hold effective in the port of in-bond destination.", category: "release" },
+    { code: "3G", name: "Other Government Agency hold placed at port of in-bond destination", description: "Generated as a result of a manually posted Other Government Agency hold effective in the port of in-bond destination. Release is denied.", category: "hold" },
+    { code: "3H", name: "Other Government Agency hold placed at port of discharge", description: "Generated as a result of a manually posted Other Government Agency hold effective in the port of discharge. Release is denied. Bill status changes to HELD.", category: "hold" },
+    { code: "3I", name: "Other Government Agency hold removed at port of discharge", description: "Generated as a result of a manually posted removal of an Other Government Agency hold effective in the port of discharge.", category: "release" },
+    { code: "3M", name: "Unauthorized Attempt to use Bond", description: "Generated for the Custodial Bond owner when an unauthorized party tries to use a bond.", category: "advisory" },
+    { code: "3P", name: "Unauthorized Port of Origin for In-bond", description: "Generated for the Custodial Bond owner when a party is not authorized to use a bond for the given in-bond port of origin.", category: "advisory" },
+    { code: "3Q", name: "Unauthorized Port of Destination for In-bond", description: "Generated for the Custodial Bond owner when a party is not authorized to use a bond for the given in-bond port of destination.", category: "advisory" },
+    { code: "3R", name: "Attempt to Use Bond Outside Specified Date Range", description: "Generated for the Custodial Bond owner when a party's authorization to use a bond is not active based on the begin/end date range.", category: "advisory" },
+    { code: "3U", name: "Importer Security Filing Removed", description: "Generated as a result of the deleting of an Importer Security Filing.", category: "advisory" },
+    { code: "3W", name: "Request for In-bond Diversion Granted", description: "Generated as a result of an accepted request to divert an in-bond to a new destination.", category: "inbond" },
+    { code: "3Z", name: "Importer Security Filing on File", description: "Generated as a result of an accepted Importer Security Filing. An advisory message indicating that the Import Security Filing has been accepted for this shipment.", category: "advisory" },
+    
+    // 4X Series
+    { code: "4A", name: "Override", description: "Generated as a result of selectivity processing: Overrides 1C or 1B: Subtracts REL quantity from bill if preceding notification was 1C or 1B. Do not RELEASE cargo.", category: "hold" },
+    { code: "4C", name: "Override", description: "Generated as a result of selectivity processing: Overrides 1A to a 1C: Writes REL quantity to the bill. Cargo examination has been overridden. Cargo is RELEASED, however, do not RELEASE cargo if any HOLDS are still in force.", category: "release" },
+    { code: "4E", name: "Entry cancelled", description: "Generated as a result of selectivity processing: Indicates previous entry posting was withdrawn by the broker.", category: "advisory" },
+    { code: "4H", name: "Invalid Shipper Hold Placed", description: "Generated when an invalid shipper name is provided for the bill of lading.", category: "hold" },
+    { code: "4I", name: "Invalid Shipper Hold Removed", description: "Generated when the amended shipper name is valid for the bill of lading. The hold is subsequently removed.", category: "release" },
+    { code: "4O", name: "ISF Hold Removed for no ISF on file", description: "Generated to remove the ISF Hold identified in 2O", category: "release" },
+    { code: "4P", name: "ISF Hold Removed for ISF Compliance Issue", description: "Generated to remove the ISF Hold identified in 2P", category: "release" },
+    { code: "4Q", name: "Remove Do Not Load - No ISF On File", description: "Generated to remove the Do Not Load identified in 2Q", category: "release" },
+    { code: "4R", name: "Remove Do Not Load - ISF Compliance Issue", description: "Generated to remove the Do Not Load identified in 2R", category: "release" },
+    
+    // 5X-9X Series
+    { code: "5H", name: "Entry Processing Hold", description: "Generated as a result of selectivity processing: Indicates previous entry posting has been targeted for a document discrepancy exam. Release is denied. Entry status changed to HELD.", category: "hold" },
+    { code: "5I", name: "Entry Processing Hold Removed", description: "Generated as a result of selectivity processing: Bill status returns to previous status. Writes rel quantity to the bill.", category: "release" },
+    { code: "6H", name: "No Load", description: "Generated by CBP. Cargo has to be held at loading port until customs confirms to load cargo.", category: "hold" },
+    { code: "6I", name: "Release of No Load", description: "Generated by CBP. Cargo may again resume loading and is allowed to transit CBP territory.", category: "release" },
+    { code: "7H", name: "NII Exam Ordered", description: "Informs the carrier that a Non Intrusive Inspection (NII) has been ordered and the cargo has been held.", category: "hold" },
+    { code: "7I", name: "NII Exam Removed", description: "Informs the carrier that the NII has been removed. This disposition code cancels out the 7H held status.", category: "release" },
+    { code: "8H", name: "Invalid Cargo Description Hold Placed", description: "Generated when an invalid or vague cargo description is provided for the bill of lading.", category: "hold" },
+    { code: "8I", name: "Invalid Cargo Description Hold Removed", description: "Generated when the amended cargo description is valid for the bill of lading. The hold is subsequently removed.", category: "release" },
+    { code: "9H", name: "Invalid Consignee Hold Placed", description: "Generated when an invalid consignee name is provided for the bill of lading.", category: "hold" },
+    { code: "9I", name: "Invalid Consignee Hold Removed", description: "Generated when the amended consignee name is valid for the bill of lading. The hold is subsequently removed.", category: "release" },
+    
+    // AX Series - FDA/Arrival
+    { code: "A1", name: "FDA PN Advisory", description: "An advisory message indicating that the FDA Prior Notice of arrival has been filed for the shipment.", category: "pga" },
+    { code: "A2", name: "FDA PN Warning", description: "An advisory message indicating that movement is authorized and that Prior Notice data is required. (Message is sent by CBP in systems override mode only.)", category: "pga" },
+    { code: "A3", name: "FDA PN Movement Denied", description: "An advisory message indicating that the FDA Prior Notice data is missing and Authorization for Movement of the cargo is being denied.", category: "pga" },
+    { code: "AC", name: "Arrival of intransit conveyance in Canada", description: "Generated when an intransit truck arrives in Canada at the start of a USA-Canada-USA movement. Also generated when an intransit truck arrives in Canada at the end of a Canada-USA-Canada movement.", category: "other" },
+    { code: "AU", name: "Arrival of intransit conveyance in USA", description: "Generated when an intransit truck arrives in USA at the start of a Canada-USA-Canada movement. Also generated when an intransit truck arrives in USA at the end of a USA-Canada-USA movement.", category: "other" },
+    
+    // BX Series - Zone/Admission
+    { code: "BC", name: "Goods Not Authorized for Zone", description: "Informs the carrier that the goods they thought were going into a zone will not be and additional arrangements for clearance must be accomplished.", category: "advisory" },
+    { code: "BD", name: "Goods Accepted/No Qty Verification", description: "Informs the carrier the goods were acceptable to the Zone Operator and the goods will be processed by the Zone.", category: "advisory" },
+    { code: "BE", name: "Goods Arrived", description: "Informs the carrier that the goods have arrived at the zone. This is an inferred closure for the PTT.", category: "advisory" },
+    { code: "BG", name: "Admission Advisory", description: "Informs the carrier that the posted bill has been placed on a FTZ Admission.", category: "advisory" },
+    { code: "BH", name: "Admission is Deleted", description: "Informs the carrier that the previous admission filing has been deleted.", category: "advisory" },
+    
+    // SX Series - ISF Match
+    { code: "S1", name: "Bill of Lading Matched to Importer Security Filing", description: "Generated to the party filing the Importer Security Filing when the ISF is matched with a bill on file with CBP.", category: "advisory" },
+    { code: "S2", name: "Bill of Lading not on file", description: "Generated to the party filing the Importer Security Filing when the ISF does not match a bill on file with CBP.", category: "advisory" },
+    { code: "S3", name: "Bill of Lading not on file 5 days after filing the ISF", description: "Generated to the party filing the Importer Security Filing when the ISF does not match a bill on file with CBP within 5 days after the ISF is received.", category: "advisory" },
+    { code: "S4", name: "Bill of Lading not on file 20 days after filing the ISF", description: "Generated to the party filing the Importer Security Filing when the ISF does not match a bill on file with CBP within 20 days after the ISF is received.", category: "advisory" },
+    { code: "S5", name: "Bill of Lading not on file 30 days after filing the ISF", description: "Generated to the party filing the Importer Security Filing when the ISF does not match a bill on file with CBP within 30 days after the ISF is received.", category: "advisory" },
+    { code: "S6", name: "No Bill Match (Wrong Type)", description: "Generated when the ISF bill is on file in AMS as a different bill type.", category: "advisory" },
+    { code: "S7", name: "Duplicate ISF By Another Filer", description: "An ISF with same Bill Number and Importer of Record has been filed by another filer.", category: "advisory" },
+    { code: "SA", name: "No Bill Match (Wrong Type) - 5 days", description: "Generated when the ISF bill is on file in AMS as a different bill type, 5 days after filing the ISF", category: "advisory" },
+    { code: "SB", name: "No Bill Match (Wrong Type) - 20 days", description: "Generated when the ISF bill is on file in AMS as a different bill type, 20 days after filing the ISF", category: "advisory" },
+    { code: "SC", name: "No Bill Match (Wrong Type) - 30 days", description: "Generated when the ISF bill is on file in AMS as a different bill type, 30 days after filing the ISF", category: "advisory" },
+    
+    // Conveyance Codes
+    { code: "AAD", name: "Actual Arrival of Conveyance at First Port", description: "Generated in ANSI X12 350 Set V901 Element and in CAMIR R06 record in Response to a Conveyance Arrival Message", category: "other" },
+    { code: "CAE", name: "Actual departure of conveyance from last US port", description: "Generated in ANSI X12 350 Set V901 Element and in CAMIR R06 record in Response to a Conveyance Departure Message", category: "other" },
+    { code: "CCE", name: "Cancel departure of Conveyance from last US Port", description: "Generated in ANSI X12 350 Set V901 Element and in CAMIR R06 record in Response to a Conveyance Departure Cancellation Message", category: "other" },
+    { code: "COC", name: "Cancel arrival of Conveyance at First Port", description: "Generated in ANSI X12 350 Set V901 Element and in CAMIR R06 record in Response to a Conveyance Arrival Cancellation Message", category: "other" },
+    
+    // Truck/Rail Release Codes
+    { code: "HCR", name: "Crew/Passengers Held", description: "Used for CBP Truck Release when crew members or passengers are detained at border.", category: "hold" },
+    { code: "HEQ", name: "Equipment Held", description: "Used for CBP Truck Release when equipment is detained at border.", category: "hold" },
+    { code: "HMI", name: "Hold Conveyance", description: "Used for CBP Truck/Rail Release when conveyance is detained at border.", category: "hold" },
+    { code: "HRE", name: "Release from Hold/Miscellaneous", description: "Used for CBP Rail Release when a hold/miscellaneous is removed.", category: "release" },
+    { code: "HTR", name: "Trip Held", description: "Used for CBP Truck Release in lieu of HCR, HEQ, HMI and Cargo Held when all components are held.", category: "hold" },
+    { code: "LCK", name: "Consist Lock", description: "Used for CBP Rail Release after a train has crossed the border. Carrier or authorized agent can't amend the consist without CBP approval.", category: "other" },
+    { code: "OCA", name: "Overdue Conveyance Arrival", description: "Used for CBP Truck/Rail/Ocean Release when conveyance has not arrived at first U.S. port within two (2) days of consisting.", category: "advisory" },
+    { code: "OCE", name: "Overdue Conveyance Departure", description: "Used for CBP Truck/Rail/Ocean Release when conveyance has not departed within expected timeframe.", category: "advisory" },
+    { code: "RCR", name: "Crew/Passengers Released", description: "Used for CBP truck Release when crew/passengers are completely released at the border without detention or when detention has been completed.", category: "release" },
+    { code: "REQ", name: "Equipment Released", description: "Used for CBP truck Release when equipment is completely released at the border without detention or when detention has been completed.", category: "release" },
+    { code: "RTR", name: "Release Trip", description: "Used for CBP truck Release in lieu of RCR, RCO, or RCO when the entire trip is released at the border without detention.", category: "release" },
+    { code: "SEI", name: "Seized Equipment", description: "Used for CBP Rail Release when equipment is seized at the border for violations.", category: "hold" },
+    { code: "SER", name: "Seized Equipment removed", description: "Used for CBP Rail Release when previously seized equipment is completely released at the border.", category: "release" },
+    { code: "ULC", name: "Consist Unlock", description: "Used for CBP Rail Release when to allow a previously locked consist to be amended with approval of CBP.", category: "release" },
+    
+    // Diversion Codes
+    { code: "DC", name: "Conveyance Diversion Cancelled", description: "Used for CBP conveyance diversion. Previously requested and approved diversion of conveyance is cancelled by carrier", category: "other" },
+    { code: "DV", name: "Conveyance Diverted", description: "Used for CBP conveyance diversion. Previously requested and approved diversion of conveyance has resulted in conveyance being diverted to US port different from the one originally intended.", category: "other" },
+    { code: "DVA", name: "Conveyance Diversion Approval", description: "Used for CBP conveyance diversion. Previously requested diversion of conveyance has been approved by CBP", category: "other" },
+    { code: "DVC", name: "Conveyance Diversion Cancellation", description: "Used for CBP conveyance diversion. Previously requested and approved diversion of conveyance has been cancelled by carrier", category: "other" },
+    { code: "DVR", name: "Conveyance Diversion Rejection", description: "Used for CBP conveyance diversion. Previously requested diversion of conveyance has been rejected by CBP", category: "other" },
+    { code: "DVS", name: "Conveyance Diversion Submission", description: "Used for CBP conveyance diversion. A request to divert a conveyance from landing at the port originally intended to a different port has been submitted to CBP.", category: "other" },
+    { code: "DVU", name: "Conveyance Diversion Update", description: "Used for CBP conveyance diversion. Previously requested and approved diversion of conveyance has been updated by carrier", category: "other" },
+    
+    // FMCSA Codes
+    { code: "FCA", name: "Carrier does not possess valid U.S. operating authority", description: "Used for CBP Truck Release for FMCSA notifications. The carrier does not possess valid operating authority and will be subject to enforcement action.", category: "other" },
+    { code: "FCC", name: "Safety Score Indicates Inspection is Warranted", description: "Used for CBP Truck Release for FMCSA notifications. Safety score indicates Inspection is warranted.", category: "other" },
+    { code: "FCD", name: "Carrier Check not performed, data not available", description: "Used for CBP Truck Release for FMCSA notifications. Carrier Check not performed; data not available at this time.", category: "other" },
+    { code: "FCI", name: "Carrier's current insurance does not meet minimum level", description: "Used for CBP Truck Release for FMCSA notifications. The carrier's current insurance level does not meet the minimum requirements.", category: "other" },
+    { code: "FCS", name: "Carrier Data not found in FMCSA system", description: "Used for Truck Release for FMCSA notifications. The carrier is not registered with FMCSA.", category: "other" },
+    { code: "FDD", name: "Driver check not performed. Data unavailable.", description: "Used for CBP Truck Release for FMCSA notifications. Driver check not performed; data not available at this time.", category: "other" },
+    { code: "FDH", name: "Driver does not have proper CDL endorsements for HAZMAT", description: "Used for Truck Release for FMCSA notifications. The driver does not have a valid CDL with the proper HM endorsement.", category: "other" },
+    { code: "FDL", name: "Driver does not have valid, current CDL", description: "Used for CBP Truck Release for FMCSA notifications. The driver does not have a valid/current CDL or equivalent.", category: "other" },
+    { code: "FED", name: "Trailer check not performed; data not available", description: "Used for CBP Truck Release for FMCSA notifications. Trailer check not performed; data not available at this time.", category: "other" },
+    { code: "FVC", name: "No current CVSA decal on file", description: "Used for CBP Truck Release for FMCSA notifications. No current safety inspection decal on file for one or more commercial motor vehicles.", category: "other" },
+    { code: "FVD", name: "Tractor check not performed; data not available", description: "Used for CBP Truck Release for FMCSA notifications. Tractor check not performed; data not available at this time.", category: "other" },
+    
+    // ITN/Export Codes
+    { code: "N1", name: "APHIS Fumigation Hold", description: "Add Animal Plant Health Inspection Services Fumigation Hold at Port of Origin/Port of export", category: "pga" },
+    { code: "N2", name: "APHIS Fumigation Hold at In-bond Destination", description: "Add Animal Plant Health Inspection Services Fumigation Hold at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "N3", name: "Remove APHIS Fumigation Hold", description: "Remove Animal Plant Health Inspection Services Fumigation Hold at Port of Origin/Port of export", category: "pga" },
+    { code: "N4", name: "Remove APHIS Fumigation Hold at In-bond Destination", description: "Remove Animal Plant Health Inspection Services Fumigation Hold at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "N5", name: "Invalid ITN Number", description: "Generated in ANSI X12 350 set and CAMIR R06 n response to submitting an invalid ITN Number in an export manifest", category: "other" },
+    { code: "N6", name: "Invalid ITN Count", description: "Generated in ANSI X12 350 set and CAMIR R06 n response to submitting an invalid ITN count in an export manifest.", category: "other" },
+    { code: "N7", name: "Missing ITN Number", description: "Generated in ANSI X12 350 set and CAMIR R06 n response to submitting no ITN Number in an export manifest", category: "other" },
+    { code: "N8", name: "Export ITN Number", description: "Generated in ANSI X12 350 set and CAMIR R06 n response to submitting an exported ITN Number in an export manifest", category: "other" },
+    { code: "IW", name: "ITN approved", description: "ITN for export has been approved", category: "advisory" },
+    
+    // ===== PGA ENFORCEMENT ACTION CODES (D-16 to D-40) =====
+    // F Series - AMS/APHIS PGA Codes
+    { code: "F0", name: "AMS PGA - Denied Entry Hold", description: "Add Agricultural Marketing Services Hold for Denied Entry at Port of Origin", category: "pga" },
+    { code: "F1", name: "AMS PGA - Denied Entry Hold at In-bond Destination", description: "Add Agricultural Marketing Services Hold for Denied Entry at Port of In-Bond Destination", category: "pga" },
+    { code: "F2", name: "Remove AMS PGA - Denied Entry Hold", description: "Remove Agricultural Marketing Services Hold for Denied Entry at Port of Origin", category: "pga" },
+    { code: "F3", name: "Remove AMS PGA - Denied Entry Hold at In-bond Destination", description: "Remove Agricultural Marketing Services Hold for Denied Entry at Port of In-bond Destination", category: "pga" },
+    { code: "F4", name: "AMS PGA - Seal Check Hold", description: "Add Agricultural Marketing Services Hold for Seal Check at Port of Origin", category: "pga" },
+    { code: "F5", name: "AMS PGA - Seal Check Hold at In-Bond Destination", description: "Add Agricultural Marketing Services Hold for Seal Check at Port of In-Bond Destination", category: "pga" },
+    { code: "F6", name: "Remove AMS PGA - Seal Check Hold", description: "Remove Agricultural Marketing Services Hold for Seal Check at Port of Origin", category: "pga" },
+    { code: "F7", name: "Remove AMS PGA - Seal Check Hold at In-bond Destination", description: "Remove Agricultural Marketing Services Hold for Seal Check at Port of In-bond Destination", category: "pga" },
+    { code: "F8", name: "APHIS PGA - Seal Check Hold", description: "Add Animal Plant Health Inspection Services Hold for Seal Check at Port of Origin", category: "pga" },
+    { code: "F9", name: "APHIS PGA - Seal Check Hold at In-Bond Destination", description: "Add Animal Plant Health Inspection Services Hold for Seal Check at Port of In-Bond Destination", category: "pga" },
+    { code: "FA", name: "Remove APHIS PGA - Seal Check Hold", description: "Remove Animal Plant Health Inspection Services Hold for Seal Check at Port of Origin", category: "pga" },
+    { code: "FB", name: "Remove APHIS PGA - Seal Check Hold at In-bond Destination", description: "Remove Animal Plant Health Inspection Services Hold for Seal Check at Port of In-bond Destination", category: "pga" },
+    { code: "FC", name: "AMS PGA - PGA Documentation Required Hold", description: "Add Agricultural Marketing Services Hold for PGA Documentation Required at Port of Origin", category: "pga" },
+    { code: "FD", name: "AMS PGA - PGA Documentation Required Hold at In-bond Destination", description: "Add Agricultural Marketing Services Hold for PGA Documentation Required at Port of In-Bond Destination", category: "pga" },
+    { code: "FE", name: "Remove AMS PGA - PGA Documentation Required Hold", description: "Remove Agricultural Marketing Services Hold for PGA Documentation Required at Port of Origin", category: "pga" },
+    { code: "FF", name: "Remove AMS PGA - PGA Documentation Required Hold at In-bond Destination", description: "Remove Agricultural Marketing Services Hold for PGA Documentation Required at Port of In-bond Destination", category: "pga" },
+    { code: "FG", name: "APHIS PGA - PGA Documentation Required Hold", description: "Add Animal Plant Health Inspection Services Hold for PGA Documentation Required at Port of Origin", category: "pga" },
+    { code: "FH", name: "APHIS PGA - PGA Documentation Required Hold at In-Bond Destination", description: "Add Animal Plant Health Inspection Services Hold for PGA Documentation Required at Port of In-Bond Destination", category: "pga" },
+    { code: "FI", name: "Remove APHIS PGA - PGA Documentation Required Hold", description: "Remove Animal Plant Health Inspection Services Hold for PGA Documentation Required at Port of Origin", category: "pga" },
+    { code: "FJ", name: "Remove APHIS PGA - PGA Documentation Required Hold at In-bond Destination", description: "Remove Animal Plant Health Inspection Services Hold for PGA Documentation Required at Port of In-bond Destination", category: "pga" },
+    { code: "FK", name: "AMS PGA - Inspection Hold", description: "Add Agricultural Marketing Services Hold for Inspection at Port of Origin", category: "pga" },
+    { code: "FL", name: "AMS PGA - Inspection Hold at In-Bond Destination", description: "Add Agricultural Marketing Services Hold for Inspection at Port of In-Bond Destination", category: "pga" },
+    { code: "FM", name: "Remove AMS PGA - Inspection Hold", description: "Remove Agricultural Marketing Services Hold for Inspection at Port of Origin", category: "pga" },
+    { code: "FN", name: "Remove AMS PGA - Inspection Hold at In-bond Destination", description: "Remove Agricultural Marketing Services Hold for Inspection at Port of In-bond Destination", category: "pga" },
+    { code: "FO", name: "APHIS PGA - Inspection Hold", description: "Add Animal Plant Health Inspection Services Hold for Inspection at Port of Origin/Port of Export", category: "pga" },
+    { code: "FP", name: "APHIS PGA - Inspection Hold at In-bond Destination", description: "Add Animal Plant Health Inspection Services Hold for Inspection at Port of In-Bond Destination/Port of Export", category: "pga" },
+    { code: "FQ", name: "Remove APHIS PGA - Inspection Hold", description: "Remove Animal Plant Health Inspection Services Hold for Inspection at Port of Origin/Port of Export", category: "pga" },
+    { code: "FR", name: "Remove APHIS PGA - Inspection Hold at In-bond Destination", description: "Remove Animal Plant Health Inspection Services Hold for Inspection at Port of In-Bond Destination/Port of Export", category: "pga" },
+    { code: "FS", name: "EPA PGA - Inspection Hold", description: "Add Environmental Protection Agency Hold for Inspection at Port of Origin/Port of Export", category: "pga" },
+    { code: "FT", name: "EPA PGA - Inspection Hold at In-bond Destination", description: "Add Environmental Protection Agency Hold for Inspection at Port of In-Bond Destination/Port of Export", category: "pga" },
+    { code: "FU", name: "Remove EPA PGA - Inspection Hold", description: "Remove Environmental Protection Agency Hold for Inspection at Port of Origin/Port of Export", category: "pga" },
+    { code: "FV", name: "Remove EPA PGA - Inspection Hold at In-bond Destination", description: "Remove Environmental Protection Agency Hold for Inspection at Port of In-Bond Destination/Port of Export", category: "pga" },
+    { code: "FX", name: "FDA PGA - Inspection Hold", description: "Add Food and Drug Administration Hold for Inspection at Port of Origin/Port of Export", category: "pga" },
+    { code: "FY", name: "FDA PGA - Inspection Hold at In-Bond Destination", description: "Add Food and Drug Administration Hold for Inspection at Port of In-Bond Destination/Port of Export", category: "pga" },
+    { code: "FZ", name: "Remove FDA PGA - Inspection Hold", description: "Remove Food and Drug Administration Hold for Inspection at Port of Origin/Port of Export", category: "pga" },
+    
+    // G Series - More PGA Codes
+    { code: "G0", name: "Remove FDA PGA - Inspection Hold at In-bond Destination", description: "Remove Food and Drug Administration Hold for Inspection at Port of In-Bond Destination/Port of Export", category: "pga" },
+    { code: "G1", name: "FSIS PGA - Inspection Hold", description: "Add Food Safety Inspection Service Hold for Inspection at Port of Origin/Port of Export", category: "pga" },
+    { code: "G2", name: "FSIS PGA - Inspection Hold at In-bond Destination", description: "Add Food Safety Inspection Service Hold for Inspection at Port of In-Bond Destination/Port of Export", category: "pga" },
+    { code: "G3", name: "Remove FSIS PGA - Inspection Hold", description: "Remove Food Safety Inspection Service Hold for Inspection at Port of Origin/Port of Export", category: "pga" },
+    { code: "G4", name: "Remove FSIS PGA - Inspection Hold at In-bond Destination", description: "Remove Food Safety Inspection Service Hold for Inspection at Port of In-Bond Destination/Port of Export", category: "pga" },
+    { code: "G5", name: "FWS PGA - Inspection Hold", description: "Add Fish and Wildlife Service Hold for Inspection at Port of Origin/Port of Export", category: "pga" },
+    { code: "G6", name: "FWS PGA - Inspection Hold at In-Bond Destination", description: "Add Fish and Wildlife Service Hold for Inspection at Port of In-Bond Destination", category: "pga" },
+    { code: "G7", name: "Remove FWS PGA - Inspection Hold", description: "Remove Fish and Wildlife Service Hold for Inspection at Port of Origin/Port of export", category: "pga" },
+    { code: "G8", name: "Remove FWS PGA - Inspection Hold at In-bond Destination", description: "Remove Fish and Wildlife Service Hold for Inspection at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "G9", name: "NHTSA PGA - Inspection Hold", description: "Add National Highway Transportation Safety Administration Hold for Inspection at Port of Origin/Port of export", category: "pga" },
+    { code: "GA", name: "NHTSA PGA - Inspection Hold at In-Bond Destination", description: "Add National Highway Transportation Safety Administration Hold for Inspection at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "GB", name: "Remove NHTSA PGA - Inspection Hold", description: "Remove National Highway Transportation Safety Administration Hold for Inspection at Port of Origin/Port of export", category: "pga" },
+    { code: "GC", name: "Remove NHTSA PGA - Inspection Hold at In-bond Destination", description: "Remove National Highway Transportation Safety Administration Hold for Inspection at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "GD", name: "OFAC PGA - Inspection Hold", description: "Add Office of Foreign Assets Control Hold for Inspection at Port of Origin/Port of export", category: "pga" },
+    { code: "GE", name: "OFAC PGA - Inspection Hold at In-Bond Destination", description: "Add Office of Foreign Assets Control Hold for Inspection at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "GF", name: "Remove OFAC PGA - Inspection Hold", description: "Remove Office of Foreign Assets Control Hold for Inspection at Port of Origin/Port of export", category: "pga" },
+    { code: "GG", name: "Remove OFAC PGA - Inspection Hold at In-bond Destination", description: "Remove Office of Foreign Assets Control Hold for Inspection at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "GH", name: "TTB PGA - Inspection Hold", description: "Add Alcohol and Tobacco Tax and Trade Bureau Hold for Inspection at Port of Origin/Port of export", category: "pga" },
+    { code: "GI", name: "TTB PGA - Inspection Hold at In-Bond Destination", description: "Add Alcohol and Tobacco Tax and Trade Bureau Hold for Inspection at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "GJ", name: "Remove TTB PGA - Inspection Hold", description: "Remove Alcohol and Tobacco Tax and Trade Bureau Hold for Inspection at Port of Origin/Port of export", category: "pga" },
+    { code: "GK", name: "Remove TTB PGA - Inspection Hold at In-bond Destination", description: "Remove Alcohol and Tobacco Tax and Trade Bureau Hold for Inspection at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "GL", name: "USCG PGA - Inspection Hold", description: "Add U.S. Coast Guard Hold for Inspection at Port of Origin/Port of export", category: "pga" },
+    { code: "GM", name: "USCG PGA - Inspection Hold at In-Bond Destination", description: "Add U.S. Coast Guard Hold for Inspection at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "GN", name: "Remove USCG PGA - Inspection Hold", description: "Remove U.S. Coast Guard Hold for Inspection at Port of Origin/Port of export", category: "pga" },
+    { code: "GO", name: "Remove USCG PGA - Inspection Hold at In-bond Destination", description: "Remove U.S. Coast Guard Hold for Inspection at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "GP", name: "APHIS PGA - Denied Entry Hold", description: "Add Animal and Plant Health Inspection Service Hold for Denied Entry at Port of Origin/Port of export", category: "pga" },
+    { code: "GQ", name: "APHIS PGA - Denied Entry Hold at In-bond Destination", description: "Add Animal and Plant Health Inspection Service Hold for Denied Entry at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "GR", name: "Remove APHIS PGA - Denied Entry Hold", description: "Remove Animal and Plant Health Inspection Service Hold for Denied Entry at Port of Origin/Port of export", category: "pga" },
+    { code: "GS", name: "Remove APHIS PGA - Denied Entry Hold at In-bond Destination", description: "Remove Animal and Plant Health Inspection Service Hold for Denied Entry at Port of In-bond Destination/Port of export", category: "pga" },
+    { code: "GT", name: "EPA PGA - Denied Entry Hold", description: "Add U.S. Environmental Protection Agency Hold for Denied Entry at Port of Origin/Port of export", category: "pga" },
+    { code: "GU", name: "EPA PGA - Denied Entry Hold at In-bond Destination", description: "Add U.S. Environmental Protection Agency Hold for Denied Entry at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "GV", name: "Remove EPA PGA - Denied Entry Hold", description: "Remove U.S. Environmental Protection Agency Hold for Denied Entry at Port of Origin/Port of export", category: "pga" },
+    { code: "GX", name: "Remove EPA PGA - Denied Entry Hold at In-bond Destination", description: "Remove U.S. Environmental Protection Agency Hold for Denied Entry at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "GY", name: "FDA PGA - Denied Entry Hold", description: "Add U.S. Food and Drug Administration Hold for Denied Entry at Port of Origin/Port of export", category: "pga" },
+    { code: "GZ", name: "FDA PGA - Denied Entry Hold at In-bond Destination", description: "Add U.S. Food and Drug Administration Hold for Denied Entry at Port of In-Bond Destination/Port of export", category: "pga" },
+    
+    // H Series - More PGA Denied Entry/Inspection Codes
+    { code: "H0", name: "Remove FDA PGA - Denied Entry Hold", description: "Remove U.S. Food and Drug Administration Hold for Denied Entry at Port of Origin/Port of export", category: "pga" },
+    { code: "H1", name: "Remove FDA PGA - Denied Entry Hold at In-bond Destination", description: "Remove U.S. Food and Drug Administration Hold for Denied Entry at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "H2", name: "FSIS PGA - Denied Entry Hold", description: "Add Food Safety and Inspection Service Hold for Denied Entry at Port of Origin/Port of export", category: "pga" },
+    { code: "H3", name: "FSIS PGA - Denied Entry Hold at In-Bond Destination", description: "Add Food Safety and Inspection Service Agency Hold for Denied Entry at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "H4", name: "Remove FSIS PGA - Denied Entry Hold", description: "Remove Food Safety and Inspection Service Hold for Denied Entry at Port of Origin/Port of export", category: "pga" },
+    { code: "H5", name: "Remove FSIS PGA - Denied Entry Hold at In-bond Destination", description: "Remove Food Safety and Inspection Service Hold for Denied Entry at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "H6", name: "FWS PGA - Denied Entry Hold", description: "Add U.S. Fish and Wildlife Service Hold for Denied Entry at Port of Origin/Port of export", category: "pga" },
+    { code: "H7", name: "FWS PGA - Denied Entry Hold at In-Bond Destination", description: "Add U.S. Fish and Wildlife Service Hold for Denied Entry at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "H8", name: "Remove FWS PGA - Denied Entry Hold", description: "Remove U.S. Fish and Wildlife Service Hold for Denied Entry at Port of Origin/Port of export", category: "pga" },
+    { code: "H9", name: "Remove FWS PGA - Denied Entry Hold at In-bond Destination", description: "Remove U.S. Fish and Wildlife Service Hold for Denied Entry at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "HA", name: "NHTSA PGA - Denied Entry Hold", description: "Add National Highway Traffic Safety Administration Hold for Denied Entry at Port of Origin/Port of export", category: "pga" },
+    { code: "HB", name: "NHTSA PGA - Denied Entry Hold at In-Bond Destination", description: "Add National Highway Traffic Safety Administration Hold for Denied Entry at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "HC", name: "Remove NHTSA PGA - Denied Entry Hold", description: "Remove National Highway Traffic Safety Administration Hold for Denied Entry at Port of Origin/Port of export", category: "pga" },
+    { code: "HD", name: "Remove NHTSA PGA - Denied Entry Hold at In-bond Destination", description: "Remove National Highway Traffic Safety Administration Hold for Denied Entry at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "HE", name: "OFAC PGA - Denied Entry Hold", description: "Add Office of Foreign Assets Control Hold for Denied Entry at Port of Origin/Port of export", category: "pga" },
+    { code: "HF", name: "OFAC PGA - Denied Entry Hold at In-Bond Destination", description: "Add Office of Foreign Assets Control Hold for Denied Entry at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "HG", name: "Remove OFAC PGA - Denied Entry Hold", description: "Remove Office of Foreign Assets Control Hold for Denied Entry at Port of Origin/Port of export", category: "pga" },
+    { code: "HH", name: "Remove OFAC PGA - Denied Entry Hold at In-bond Destination", description: "Remove Office of Foreign Assets Control Hold for Denied Entry at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "HI", name: "TTB PGA - Denied Entry Hold", description: "Add Alcohol and Tobacco Tax and Trade Bureau Hold for Denied Entry at Port of Origin/Port of export", category: "pga" },
+    { code: "HJ", name: "TTB PGA - Denied Entry Hold at In-Bond Destination", description: "Add Alcohol and Tobacco Tax and Trade Bureau Hold for Denied Entry at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "HK", name: "Remove TTB PGA - Denied Entry Hold", description: "Remove Alcohol and Tobacco Tax and Trade Bureau Hold for Denied Entry at Port of Origin/Port of export", category: "pga" },
+    { code: "HL", name: "Remove TTB PGA - Denied Entry Hold at In-bond Destination", description: "Remove Alcohol and Tobacco Tax and Trade Bureau Hold for Denied Entry at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "HM", name: "USCG PGA - Denied Entry Hold", description: "Add U.S. Coast Guard Hold for Denied Entry at Port of Origin/Port of export", category: "pga" },
+    { code: "HN", name: "USCG PGA - Denied Entry Hold at In-Bond Destination", description: "Add U.S. Coast Guard Hold for Denied Entry at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "HO", name: "Remove USCG PGA - Denied Entry Hold", description: "Remove U.S. Coast Guard Hold for Denied Entry at Port of Origin/Port of export", category: "pga" },
+    { code: "HP", name: "Remove USCG PGA - Denied Entry Hold at In-bond Destination", description: "Remove U.S. Coast Guard Hold for Denied Entry at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "HQ", name: "CDC PGA - Inspection Hold", description: "Add Center for Disease Control and Prevention Hold for Inspection at Port of Origin/Port of export", category: "pga" },
+    { code: "HR", name: "CDC PGA - Inspection Hold at In-Bond Destination", description: "Add Center for Disease Control and Prevention Hold for Inspection at Port of In-Bond Destination", category: "pga" },
+    { code: "HS", name: "Remove CDC PGA - Inspection Hold", description: "Remove Center for Disease Control and Prevention Hold for Inspection at Port of Origin/Port of export", category: "pga" },
+    { code: "HT", name: "Remove CDC PGA - Inspection Hold at In-bond Destination", description: "Remove Center for Disease Control and Prevention Hold for Inspection at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "HU", name: "CPSC PGA - Inspection Hold", description: "Add Consumer Products Safety Commission Hold for Inspection at Port of Origin/Port of export", category: "pga" },
+    { code: "HV", name: "CPSC PGA - Inspection Hold at In-Bond Destination", description: "Add Consumer Products Safety Commission Hold for Inspection at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "HX", name: "Remove CPSC PGA - Inspection Hold", description: "Remove Consumer Products Safety Commission Hold for Inspection at Port of Origin/Port of export", category: "pga" },
+    { code: "HY", name: "Remove CPSC PGA - Inspection Hold at In-bond Destination", description: "Remove Consumer Products Safety Commission Hold for Inspection at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "HZ", name: "DEA PGA - Inspection Hold", description: "Add Drug Enforcement Administration Hold for Inspection at Port of Origin/Port of export", category: "pga" },
+    
+    // I Series - DEA/CBP/AMS Corrective Action Codes
+    { code: "I0", name: "DEA PGA - Inspection Hold at In-Bond Destination", description: "Add Drug Enforcement Administration Hold for Inspection at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "I1", name: "Remove DEA PGA - Inspection Hold", description: "Remove Drug Enforcement Administration Hold for Inspection at Port of Origin/Port of export", category: "pga" },
+    { code: "I2", name: "Remove DEA PGA - Inspection Hold at In-bond Destination", description: "Remove Drug Enforcement Administration Hold for Inspection at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "I3", name: "CBP PGA - Inspection Hold", description: "Add CBP placed PGA Hold for Inspection at Port of Origin/Port of export", category: "pga" },
+    { code: "I4", name: "CBP PGA - Inspection Hold at In-Bond Destination", description: "Add CBP placed PGA Hold for Inspection at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "I5", name: "Remove CBP PGA - Inspection Hold", description: "Remove CBP placed PGA Hold for Inspection at Port of Origin/Port of export", category: "pga" },
+    { code: "I6", name: "Remove CBP PGA - Inspection Hold at In-bond Destination", description: "Remove CBP placed PGA Hold for Inspection at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "I7", name: "AMS PGA - Corrective Action Hold", description: "Add Agricultural Marketing Services Hold for Corrective Action at Port of Origin/Port of export", category: "pga" },
+    { code: "I8", name: "AMS PGA - Corrective Action Hold at In-Bond Destination", description: "Add Agricultural Marketing Services Hold for Corrective Action at Port of In-Bond Destination", category: "pga" },
+    { code: "I9", name: "Remove AMS PGA - Corrective Action Hold", description: "Remove Agricultural Marketing Services Hold for Corrective Action at Port of Origin/Port of export", category: "pga" },
+    { code: "IA", name: "Remove AMS PGA - Corrective Action Hold at In-bond Destination", description: "Remove Agricultural Marketing Services Hold for Corrective Action at Port of In-bond Destination/Port of export", category: "pga" },
+    { code: "IB", name: "APHIS PGA - Corrective Action Hold", description: "Add Animal Plant Health Inspection Services Hold for Corrective Action Required at Port of Origin/Port of export", category: "pga" },
+    { code: "IC", name: "APHIS PGA - Corrective Action Hold at In-Bond Destination", description: "Add Animal Plant Health Inspection Services Hold for Corrective Action at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "ID", name: "Remove APHIS PGA - Corrective Action Hold", description: "Remove Animal Plant Health Inspection Services Hold for Corrective Action at Port of Origin/Port of export", category: "pga" },
+    { code: "IE", name: "Remove APHIS PGA - Corrective Action Hold at In-Bond Destination", description: "Remove Animal Plant Health Inspection Services Hold for Corrective Action at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "IF", name: "EPA PGA - Corrective Action Hold", description: "Add Environmental Protection Agency Hold for Corrective Action at Port of Origin/Port of export", category: "pga" },
+    { code: "IG", name: "EPA PGA - Corrective Action Hold at In-Bond Destination", description: "Add Environmental Protection Agency Hold for Corrective Action at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "IH", name: "Remove EPA PGA - Corrective Action Hold", description: "Remove Environmental Protection Agency Hold for Corrective Action at Port of Origin/Port of export", category: "pga" },
+    { code: "II", name: "Remove EPA PGA - Corrective Action Hold at In-Bond Destination", description: "Remove Environmental Protection Agency Hold for Corrective Action at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "IJ", name: "FDA PGA - Corrective Action Hold", description: "Add Food and Drug Administration Hold for Corrective Action at Port of Origin/Port of export", category: "pga" },
+    { code: "IK", name: "FDA PGA - Corrective Action Hold at In-Bond Destination", description: "Add Food and Drug Administration Hold for Corrective Action at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "IL", name: "Remove FDA PGA - Corrective Action Hold", description: "Remove Food and Drug Administration Hold for Corrective Action at Port of Origin/Port of export", category: "pga" },
+    { code: "IM", name: "Remove FDA PGA - Corrective Action Hold at In-Bond Destination", description: "Remove Food and Drug Administration Hold for Corrective Action at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "IN", name: "FSIS PGA - Corrective Action Hold", description: "Add Food Safety Inspection Service Hold for Corrective Action at Port of Origin/Port of export", category: "pga" },
+    { code: "IO", name: "FSIS PGA - Corrective Action Hold at In-Bond Destination", description: "Add Food Safety Inspection Service Hold for Corrective Action at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "IP", name: "Remove FSIS PGA - Corrective Action Hold", description: "Remove Food Safety Inspection Service Hold for Corrective Action at Port of Origin/Port of export", category: "pga" },
+    { code: "IQ", name: "Remove FSIS PGA - Corrective Action Hold at In-Bond Destination", description: "Remove Food Safety Inspection Service Hold for Corrective Action at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "IR", name: "FWS PGA - Corrective Action Hold", description: "Add Fish and Wildlife Service Hold for Corrective Action at Port of Origin/Port of export", category: "pga" },
+    { code: "IS", name: "FWS PGA - Corrective Action Hold at In-Bond Destination", description: "Add Fish and Wildlife Service Hold for Corrective Action at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "IT", name: "Remove FWS PGA - Corrective Action Hold", description: "Remove Fish and Wildlife Service Hold for Corrective Action at Port of Origin/Port of export", category: "pga" },
+    { code: "IU", name: "Remove FWS PGA - Corrective Action Hold at In-Bond Destination", description: "Remove Fish and Wildlife Service Hold for Corrective Action at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "IV", name: "NHTSA PGA - Corrective Action Hold", description: "Add National Highway Transportation Safety Administration Hold for Corrective Action at Port of Origin/Port of export", category: "pga" },
+    { code: "IX", name: "NHTSA PGA - Corrective Action Hold at In-Bond Destination", description: "Add National Highway Transportation Safety Administration Hold for Corrective Action at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "IY", name: "Remove NHTSA PGA - Corrective Action Hold", description: "Remove National Highway Transportation Safety Administration Hold for Corrective Action at Port of Origin/Port of export", category: "pga" },
+    { code: "IZ", name: "Remove NHTSA PGA - Corrective Action Hold at In-Bond Destination", description: "Remove National Highway Transportation Safety Administration Hold for Corrective Action at Port of In-Bond Destination/Port of export", category: "pga" },
+    
+    // J Series - OFAC/TTB/USCG/CDC/CPSC/DEA/CBP Corrective Action & Denied Entry
+    { code: "J0", name: "OFAC PGA - Corrective Action Hold", description: "Add Office of Foreign Assets Control Hold for Corrective Action at Port of Origin/Port of export", category: "pga" },
+    { code: "J1", name: "OFAC PGA - Corrective Action Hold at In-Bond Destination", description: "Add Office of Foreign Assets Control Hold for Corrective Action at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "J2", name: "Remove OFAC PGA - Corrective Action Hold", description: "Remove Office of Foreign Assets Control Hold for Corrective Action at Port of Origin/Port of export", category: "pga" },
+    { code: "J3", name: "Remove OFAC PGA - Corrective Action Hold at In-Bond Destination", description: "Remove Office of Foreign Assets Control Hold for Corrective Action at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "J4", name: "TTB PGA - Corrective Action Hold", description: "Add Alcohol and Tobacco Tax and Trade Bureau Hold for Corrective Action at Port of Origin/Port of export", category: "pga" },
+    { code: "J5", name: "TTB PGA - Corrective Action Hold at In-Bond Destination", description: "Add Alcohol and Tobacco Tax and Trade Bureau Hold for Corrective Action at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "J6", name: "Remove TTB PGA - Corrective Action Hold", description: "Remove Alcohol and Tobacco Tax and Trade Bureau Hold for Corrective Action at Port of Origin/Port of export", category: "pga" },
+    { code: "J7", name: "Remove TTB PGA - Corrective Action Hold at In-Bond Destination", description: "Remove Alcohol and Tobacco Tax and Trade Bureau Hold for Corrective Action at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "J8", name: "USCG PGA - Corrective Action Hold", description: "Add U.S. Coast Guard Hold for Corrective Action at Port of Origin/Port of export", category: "pga" },
+    { code: "J9", name: "USCG PGA - Corrective Action Hold at In-Bond Destination", description: "Add U.S. Coast Guard Hold for Corrective Action at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "JA", name: "Remove USCG PGA - Corrective Action Hold", description: "Remove U.S. Coast Guard Hold for Corrective Action at Port of Origin/Port of export", category: "pga" },
+    { code: "JB", name: "Remove USCG PGA - Corrective Action Hold at In-Bond Destination", description: "Remove U.S. Coast Guard Hold for Corrective Action at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "JC", name: "CDC PGA - Corrective Action Hold", description: "Add Center for Disease Control and Prevention Hold for Corrective Action at Port of Origin/Port of export", category: "pga" },
+    { code: "JD", name: "CDC PGA - Corrective Action Hold at In-Bond Destination", description: "Add Center for Disease Control and Prevention Hold for Corrective Action at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "JE", name: "Remove CDC PGA - Corrective Action Hold", description: "Remove Center for Disease Control and Prevention Hold for Corrective Action at Port of Origin/Port of export", category: "pga" },
+    { code: "JF", name: "Remove CDC PGA - Corrective Action Hold at In-Bond Destination", description: "Remove Center for Disease Control and Prevention Hold for Corrective Action at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "JG", name: "CPSC PGA - Corrective Action Hold", description: "Add Consumer Products Safety Commission Hold for Corrective Action at Port of Origin/Port of export", category: "pga" },
+    { code: "JH", name: "CPSC PGA - Corrective Action Hold at In-Bond Destination", description: "Add Consumer Products Safety Commission Hold for Corrective Action at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "JI", name: "Remove CPSC PGA - Corrective Action Hold", description: "Remove Consumer Products Safety Commission Hold for Corrective Action at Port of Origin/Port of export", category: "pga" },
+    { code: "JJ", name: "Remove CPSC PGA - Corrective Action Hold at In-Bond Destination", description: "Remove Consumer Products Safety Commission Hold for Corrective Action at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "JK", name: "DEA PGA - Corrective Action Hold", description: "Add Drug Enforcement Administration Hold for Corrective Action at Port of Origin/Port of export", category: "pga" },
+    { code: "JL", name: "DEA PGA - Corrective Action Hold at In-Bond Destination", description: "Add Drug Enforcement Administration Hold for Corrective Action at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "JM", name: "Remove DEA PGA - Corrective Action Hold", description: "Remove Drug Enforcement Administration Hold for Corrective Action at Port of Origin/Port of export", category: "pga" },
+    { code: "JN", name: "Remove DEA PGA - Corrective Action Hold at In-Bond Destination", description: "Remove Drug Enforcement Administration Hold for Corrective Action at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "JO", name: "CBP PGA - Corrective Action Hold", description: "Add CBP placed PGA Hold for Corrective Action at Port of Origin/Port of export", category: "pga" },
+    { code: "JP", name: "CBP PGA - Corrective Action Hold at In-Bond Destination", description: "Add CBP placed PGA Hold for Corrective Action at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "JQ", name: "Remove CBP PGA - Corrective Action Hold", description: "Remove CBP placed PGA Hold for Corrective Action at Port of Origin/Port of export", category: "pga" },
+    { code: "JR", name: "Remove CBP PGA - Corrective Action Hold at In-Bond Destination", description: "Remove CBP placed PGA Hold for Corrective Action at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "JS", name: "CDC PGA - Denied Entry Hold", description: "Add Center for Disease Control and Prevention Hold for Denied Entry at Port of Origin/Port of export", category: "pga" },
+    { code: "JT", name: "CDC PGA - Denied Entry Hold at In-Bond Destination", description: "Add Center for Disease Control and Prevention Hold for Denied Entry at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "JU", name: "Remove CDC PGA - Denied Entry Hold", description: "Remove Center for Disease Control and Prevention Hold for Denied Entry at Port of Origin/Port of export", category: "pga" },
+    { code: "JV", name: "Remove CDC PGA - Denied Entry Hold at In-Bond Destination", description: "Remove Center for Disease Control and Prevention Hold for Denied Entry at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "JX", name: "CPSC PGA - Denied Entry Hold", description: "Add Consumer Products Safety Commission Hold for Denied Entry at Port of Origin/Port of export", category: "pga" },
+    { code: "JY", name: "CPSC PGA - Denied Entry Hold at In-Bond Destination", description: "Add Consumer Products Safety Commission Hold for Denied Entry at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "JZ", name: "Remove CPSC PGA - Denied Entry Hold", description: "Remove Consumer Products Safety Commission Hold for Denied Entry at Port of Origin/Port of export", category: "pga" },
+    
+    // K Series - More Denied Entry & Seal Check Codes
+    { code: "K0", name: "Remove CPSC PGA - Denied Entry Hold at In-Bond Destination", description: "Remove Consumer Products Safety Commission Hold for Denied Entry at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "K1", name: "DEA PGA - Denied Entry Hold", description: "Add Drug Enforcement Administration Hold for Denied Entry at Port of Origin/Port of export", category: "pga" },
+    { code: "K2", name: "DEA PGA - Denied Entry Hold at In-Bond Destination", description: "Add Drug Enforcement Administration Hold for Denied Entry at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "K3", name: "Remove DEA PGA - Denied Entry Hold", description: "Remove Drug Enforcement Administration Hold for Denied Entry at Port of Origin/Port of export", category: "pga" },
+    { code: "K4", name: "Remove DEA PGA - Denied Entry Hold at In-Bond Destination", description: "Remove Drug Enforcement Administration Hold for Denied Entry at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "K5", name: "CBP PGA - Denied Entry Hold", description: "Add CBP placed PGA Hold for Denied Entry at Port of Origin/Port of export", category: "pga" },
+    { code: "K6", name: "CBP PGA - Denied Entry Hold at In-Bond Destination", description: "Add CBP placed PGA Hold for Denied Entry at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "K7", name: "Remove CBP PGA - Denied Entry Hold", description: "Remove CBP placed PGA Hold for Denied Entry at Port of Origin/Port of export", category: "pga" },
+    { code: "K8", name: "Remove CBP PGA - Denied Entry Hold at In-Bond Destination", description: "Remove CBP placed PGA Hold for Denied Entry at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "K9", name: "EPA PGA - Seal Check Hold", description: "Add Environmental Protection Agency Hold for Seal Check at Port of Origin/Port of export", category: "pga" },
+    { code: "KA", name: "EPA PGA - Seal Check Hold at In-Bond Destination", description: "Add Environmental Protection Agency Hold for Seal Check at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "KB", name: "Remove EPA PGA - Seal Check Hold", description: "Remove Environmental Protection Agency Hold for Seal Check at Port of Origin/Port of export", category: "pga" },
+    { code: "KC", name: "Remove EPA PGA - Seal Check Hold at In-Bond Destination", description: "Remove Environmental Protection Agency Hold for Seal Check at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "KD", name: "FDA PGA - Seal Check Hold", description: "Add Food and Drug Administration Hold for Seal Check at Port of Origin/Port of export", category: "pga" },
+    { code: "KE", name: "FDA PGA - Seal Check Hold at In-Bond Destination", description: "Add Food and Drug Administration Hold for Seal Check at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "KF", name: "Remove FDA PGA - Seal Check Hold", description: "Remove Food and Drug Administration Hold for Seal Check at Port of Origin/Port of export", category: "pga" },
+    { code: "KG", name: "Remove FDA PGA - Seal Check Hold at In-Bond Destination", description: "Remove Food and Drug Administration Hold for Seal Check at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "KH", name: "FSIS PGA - Seal Check Hold", description: "Add Food Safety Inspection Service Hold for Seal Check at Port of Origin/Port of export", category: "pga" },
+    { code: "KI", name: "FSIS PGA - Seal Check Hold at In-Bond Destination", description: "Add Food Safety Inspection Service Hold for Seal Check at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "KJ", name: "Remove FSIS PGA - Seal Check Hold", description: "Remove Food Safety Inspection Service Hold for Seal Check at Port of Origin/Port of export", category: "pga" },
+    { code: "KK", name: "Remove FSIS PGA - Seal Check Hold at In-Bond Destination", description: "Remove Food Safety Inspection Service Hold for Seal Check at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "KL", name: "FWS PGA - Seal Check Hold", description: "Add Fish and Wildlife Service Hold for Seal Check at Port of Origin/Port of export", category: "pga" },
+    { code: "KM", name: "FWS PGA - Seal Check Hold at In-Bond Destination", description: "Add Fish and Wildlife Service Hold for Seal Check at Port of In-Bond Destination", category: "pga" },
+    { code: "KN", name: "Remove FWS PGA - Seal Check Hold", description: "Remove Fish and Wildlife Service Hold for Seal Check at Port of Origin/Port of export", category: "pga" },
+    { code: "KO", name: "Remove FWS PGA - Seal Check Hold at In-Bond Destination", description: "Remove Fish and Wildlife Service Hold for Seal Check at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "KP", name: "NHTSA PGA - Seal Check Hold", description: "Add National Highway Transportation Safety Administration Hold for Seal Check at Port of Origin", category: "pga" },
+    { code: "KQ", name: "NHTSA PGA - Seal Check Hold at In-Bond Destination", description: "Add National Highway Transportation Safety Administration Hold for Seal Check at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "KR", name: "Remove NHTSA PGA - Seal Check Hold", description: "Remove National Highway Transportation Safety Administration Hold for Seal Check at Port of Origin/Port of export", category: "pga" },
+    { code: "KS", name: "Remove NHTSA PGA - Seal Check Hold at In-Bond Destination", description: "Remove National Highway Transportation Safety Administration Hold for Seal Check at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "KT", name: "OFAC PGA - Seal Check Hold", description: "Add Office of Foreign Assets Control Hold for Seal Check at Port of Origin/Port of export", category: "pga" },
+    { code: "KU", name: "OFAC PGA - Seal Check Hold at In-Bond Destination", description: "Add Office of Foreign Assets Control Hold for Seal Check at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "KV", name: "Remove OFAC PGA - Seal Check Hold", description: "Remove Office of Foreign Assets Control Hold for Seal Check at Port of Origin/Port of export", category: "pga" },
+    { code: "KX", name: "Remove OFAC PGA - Seal Check Hold at In-Bond Destination", description: "Remove Office of Foreign Assets Control Hold for Seal Check at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "KY", name: "TTB PGA - Seal Check Hold", description: "Add Alcohol and Tobacco Tax and Trade Bureau Hold for Seal Check at Port of Origin/Port of export", category: "pga" },
+    { code: "KZ", name: "TTB PGA - Seal Check Hold at In-Bond Destination", description: "Add Alcohol and Tobacco Tax and Trade Bureau Hold for Seal Check at Port of In-Bond Destination/Port of export", category: "pga" },
+    
+    // L Series - More Seal Check & PGA Documentation Required Codes
+    { code: "L0", name: "Remove TTB PGA - Seal Check Hold", description: "Remove Alcohol and Tobacco Tax and Trade Bureau Hold for Seal Check at Port of Origin/Port of export", category: "pga" },
+    { code: "L1", name: "Remove TTB PGA - Seal Check Hold at In-Bond Destination", description: "Remove Alcohol and Tobacco Tax and Trade Bureau Hold for Seal Check at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "L2", name: "USCG PGA - Seal Check Hold", description: "Add U.S. Coast Guard Hold for Seal Check at Port of Origin/Port of export", category: "pga" },
+    { code: "L3", name: "USCG PGA - Seal Check Hold at In-Bond Destination", description: "Add U.S. Coast Guard Hold for Seal Check at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "L4", name: "Remove USCG PGA - Seal Check Hold", description: "Remove U.S. Coast Guard Hold for Seal Check at Port of Origin/Port of export", category: "pga" },
+    { code: "L5", name: "Remove USCG PGA - Seal Check Hold at In-Bond Destination", description: "Remove U.S. Coast Guard Hold for Seal Check at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "L6", name: "CDC PGA - Seal Check Hold", description: "Add Center for Disease Control and Prevention Hold for Seal Check at Port of Origin/Port of export", category: "pga" },
+    { code: "L7", name: "CDC PGA - Seal Check Hold at In-Bond Destination", description: "Add Center for Disease Control and Prevention Hold for Seal Check at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "L8", name: "Remove CDC PGA - Seal Check Hold", description: "Remove Center for Disease Control and Prevention Hold for Seal Check at Port of Origin/Port of export", category: "pga" },
+    { code: "L9", name: "Remove CDC PGA - Seal Check Hold at In-Bond Destination", description: "Remove Center for Disease Control and Prevention Hold for Seal Check at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "LA", name: "CPSC PGA - Seal Check Hold", description: "Add Consumer Products Safety Commission Hold for Seal Check at Port of Origin/Port of export", category: "pga" },
+    { code: "LB", name: "CPSC PGA - Seal Check Hold at In-Bond Destination", description: "Add Consumer Products Safety Commission Hold for Seal Check at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "LC", name: "Remove CPSC PGA - Seal Check Hold", description: "Remove Consumer Products Safety Commission Hold for Seal Check at Port of Origin/Port of export", category: "pga" },
+    { code: "LD", name: "Remove CPSC PGA - Seal Check Hold at In-Bond Destination", description: "Remove Consumer Products Safety Commission Hold for Seal Check at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "LE", name: "DEA PGA - Seal Check Hold", description: "Add Drug Enforcement Administration Hold for Seal Check at Port of Origin/Port of export", category: "pga" },
+    { code: "LF", name: "DEA PGA - Seal Check Hold at In-Bond Destination", description: "Add Drug Enforcement Administration Hold for Seal Check at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "LG", name: "Remove DEA PGA - Seal Check Hold", description: "Remove Drug Enforcement Administration Hold for Seal Check at Port of Origin/Port of export", category: "pga" },
+    { code: "LH", name: "Remove DEA PGA - Seal Check Hold at In-Bond Destination", description: "Remove Drug Enforcement Administration Hold for Seal Check at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "LI", name: "CBP PGA - Seal Check Hold", description: "Add CBP placed PGA Hold for Seal Check at Port of Origin/Port of export", category: "pga" },
+    { code: "LJ", name: "CBP PGA - Seal Check Hold at In-Bond Destination", description: "Add CBP placed PGA Hold for Seal Check at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "LK", name: "Remove CBP PGA - Seal Check Hold", description: "Remove CBP placed PGA Hold for Seal Check at Port of Origin/Port of export", category: "pga" },
+    { code: "LL", name: "Remove CBP PGA - Seal Check Hold at In-Bond Destination", description: "Remove CBP placed PGA Hold for Seal Check at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "LM", name: "EPA PGA - PGA Documentation Required Hold", description: "Add Environmental Protection Agency Hold for PGA Documentation Required at Port of Origin/Port of export", category: "pga" },
+    { code: "LN", name: "EPA PGA - PGA Documentation Required Hold at In-Bond Destination", description: "Add Environmental Protection Agency Hold for PGA Documentation Required at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "LO", name: "Remove EPA PGA - PGA Documentation Required Hold", description: "Remove Environmental Protection Agency Hold for PGA Documentation Required at Port of Origin/Port of export", category: "pga" },
+    { code: "LP", name: "Remove EPA PGA - PGA Documentation Required Hold at In-Bond Destination", description: "Remove Environmental Protection Agency Hold for PGA Documentation Required at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "LQ", name: "FDA PGA - PGA Documentation Required Hold", description: "Add Food and Drug Administration Hold for PGA Documentation Required at Port of Origin/Port of export", category: "pga" },
+    { code: "LR", name: "FDA PGA - PGA Documentation Required Hold at In-Bond Destination", description: "Add Food and Drug Administration Hold for PGA Documentation Required At Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "LS", name: "Remove FDA PGA - PGA Documentation Required Hold", description: "Remove Food and Drug Administration Hold for PGA Documentation Required at Port of Origin/Port of export", category: "pga" },
+    { code: "LT", name: "Remove FDA PGA - PGA Documentation Required Hold at In-Bond Destination", description: "Remove Food and Drug Administration Hold for PGA Documentation Required at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "LU", name: "FSIS PGA - PGA Documentation Required Hold", description: "Add Food Safety Inspection Service Hold for PGA Documentation Required at Port of Origin/Port of export", category: "pga" },
+    { code: "LV", name: "FSIS PGA - PGA Documentation Required Hold at In-Bond Destination", description: "Add Food Safety Inspection Service Administration Hold for PGA Documentation Required at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "LX", name: "Remove FSIS PGA - PGA Documentation Required Hold", description: "Remove Food Safety Inspection Service Hold for PGA Documentation Required at Port of Origin/Port of export", category: "pga" },
+    { code: "LY", name: "Remove FSIS PGA - PGA Documentation Required Hold at In-Bond Destination", description: "Remove Food Safety Inspection Service Hold for PGA Documentation Required at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "LZ", name: "FWS PGA - PGA Documentation Required Hold", description: "Add Fish and Wildlife Service Hold for PGA Documentation Required at Port of Origin/Port of export", category: "pga" },
+    
+    // M Series - More PGA Documentation Required Codes
+    { code: "M0", name: "FWS PGA - PGA Documentation Required Hold at In-Bond Destination", description: "Add Fish and Wildlife Hold for PGA Documentation Required at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "M1", name: "Remove FWS PGA - PGA Documentation Required Hold", description: "Remove Fish and Wildlife Service Hold for PGA Documentation Required at Port of Origin/Port of export", category: "pga" },
+    { code: "M2", name: "Remove FWS PGA - PGA Documentation Required Hold at In-Bond Destination", description: "Remove Fish and Wildlife Service Hold for PGA Documentation Required at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "M3", name: "NHTSA PGA - PGA Documentation Required Hold", description: "Add National Highway Transportation Safety Administration Hold for PGA Documentation Required at Port of Origin/Port of export", category: "pga" },
+    { code: "M4", name: "NHTSA PGA - PGA Documentation Required Hold at In-Bond Destination", description: "Add National Highway Transportation Safety Administration Hold for PGA Documentation Required at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "M5", name: "Remove NHTSA PGA - PGA Documentation Required Hold", description: "Remove National Highway Transportation Safety Administration Hold for PGA Documentation Required at Port of Origin/Port of export", category: "pga" },
+    { code: "M6", name: "Remove NHTSA PGA - PGA Documentation Required Hold at In-Bond Destination", description: "Remove National Highway Transportation Safety Administration Hold for PGA Documentation Required at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "M7", name: "OFAC PGA - PGA Documentation Required Hold", description: "Add Office of Foreign Assets Control Hold for PGA Documentation Required at Port of Origin/Port of export", category: "pga" },
+    { code: "M8", name: "OFAC PGA - PGA Documentation Required Hold at In-Bond Destination", description: "Add Office of Foreign Assets Control Hold for PGA Documentation Required at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "M9", name: "Remove OFAC PGA - PGA Documentation Required Hold", description: "Remove Office of Foreign Assets Control Hold for PGA Documentation Required at Port of Origin/Port of export", category: "pga" },
+    { code: "MA", name: "Remove OFAC PGA - PGA Documentation Required Hold at In-Bond Destination", description: "Remove Office of Foreign Assets Control Hold for PGA Documentation Required at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "MB", name: "TTB PGA - PGA Documentation Required Hold", description: "Add Alcohol and Tobacco Tax and Trade Bureau Hold for PGA Documentation Required at Port of Origin/Port of export", category: "pga" },
+    { code: "MC", name: "TTB PGA - PGA Documentation Required Hold at In-Bond Destination", description: "Add Alcohol and Tobacco Tax and Trade Bureau Hold for PGA Documentation Required at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "MD", name: "Remove TTB PGA - PGA Documentation Required Hold", description: "Remove Alcohol and Tobacco Tax and Trade Bureau Hold for PGA Documentation Required at Port of Origin/Port of export", category: "pga" },
+    { code: "ME", name: "Remove TTB PGA - PGA Documentation Required Hold at In-Bond Destination", description: "Remove Alcohol and Tobacco Tax and Trade Bureau Hold for PGA Documentation Required at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "MF", name: "USCG PGA - PGA Documentation Required Hold", description: "Add U.S. Coast Guard Hold for PGA Documentation Required at Port of Origin/Port of export", category: "pga" },
+    { code: "MG", name: "USCG PGA - PGA Documentation Required Hold at In-Bond Destination", description: "Add U.S. Coast Guard Hold for PGA Documentation Required at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "MH", name: "Remove USCG PGA - PGA Documentation Required Hold", description: "Remove U.S. Coast Guard Hold for PGA Documentation Required at Port of Origin/Port of export", category: "pga" },
+    { code: "MI", name: "Remove USCG PGA - PGA Documentation Required Hold at In-Bond Destination", description: "Remove U.S. Coast Guard Hold for PGA Documentation Required at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "MJ", name: "CDC PGA - PGA Documentation Required Hold", description: "Add Center for Disease Control and Prevention Hold for PGA Documentation Required at Port of Origin/Port of export", category: "pga" },
+    { code: "MK", name: "CDC PGA - PGA Documentation Required Hold at In-Bond Destination", description: "Add Center for Disease Control and Prevention Hold for PGA Documentation Required at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "ML", name: "Remove CDC PGA - PGA Documentation Required Hold", description: "Remove Center for Disease Control and Prevention Hold for PGA Documentation Required at Port of Origin/Port of export", category: "pga" },
+    { code: "MM", name: "Remove CDC PGA - PGA Documentation Required Hold at In-Bond Destination", description: "Remove Center for Disease Control and Prevention Hold for PGA Documentation Required at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "MN", name: "CPSC PGA - PGA Documentation Required Hold", description: "Add Consumer Products Safety Commission Hold for PGA Documentation Required at Port of Origin/Port of export", category: "pga" },
+    { code: "MO", name: "CPSC PGA - PGA Documentation Required Hold at In-Bond Destination", description: "Add Consumer Products Safety Commission Hold for PGA Documentation Required at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "MP", name: "Remove CPSC PGA - PGA Documentation Required Hold", description: "Remove Consumer Products Safety Commission Hold for PGA Documentation Required at Port of Origin/Port of export", category: "pga" },
+    { code: "MQ", name: "Remove CPSC PGA - PGA Documentation Required Hold at In-Bond Destination", description: "Remove Consumer Products Safety Commission Hold for PGA Documentation Required at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "MR", name: "DEA PGA - PGA Documentation Required Hold", description: "Add Drug Enforcement Administration Hold for PGA Documentation Required at Port of Origin/Port of export", category: "pga" },
+    { code: "MS", name: "DEA PGA - PGA Documentation Required Hold at In-Bond Destination", description: "Add Drug Enforcement Administration Hold for PGA Documentation Required at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "MT", name: "Remove DEA PGA - PGA Documentation Required Hold", description: "Remove Drug Enforcement Administration Hold for PGA Documentation Required at Port of Origin/Port of export", category: "pga" },
+    { code: "MU", name: "Remove DEA PGA - PGA Documentation Required Hold at In-Bond Destination", description: "Remove Drug Enforcement Administration Hold for PGA Documentation Required at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "MV", name: "CBP PGA - PGA Documentation Required Hold", description: "Add CBP placed PGA Hold for PGA Documentation Required at Port of Origin/Port of export", category: "pga" },
+    { code: "MX", name: "CBP PGA - PGA Documentation Required Hold at In-Bond Destination", description: "Add CBP placed PGA Hold for PGA Documentation Required at Port of In-Bond Destination/Port of export", category: "pga" },
+    { code: "MY", name: "Remove CBP PGA - PGA Documentation Required Hold", description: "Remove CBP placed PGA Hold for PGA Documentation Required at Port of Origin/Port of export", category: "pga" },
+    { code: "MZ", name: "Remove CBP PGA - PGA Documentation Required Hold at In-Bond Destination", description: "Remove CBP placed PGA Hold for PGA Documentation Required at Port of In-Bond Destination/Port of export", category: "pga" }
+];
+
+// 自动翻译词典 - 常用术语中英对照
+const dcTranslations = {
+    // 动作词
+    "Add": "添加", "Remove": "移除", "Delete": "删除", "Cancel": "取消",
+    "Generated": "生成", "Advisory": "通知", "Hold": "扣留", "Release": "放行",
+    "Placed": "设置", "Removed": "移除", "Arrival": "到达", "Departure": "离开",
+    "Entry": "入境", "Export": "出口", "Import": "进口", "Transfer": "转移",
+    "Override": "覆盖", "Update": "更新", "Match": "匹配", "Seized": "扣押",
+    
+    // 机构名称
+    "CBP": "美国海关", "FDA": "食药监局", "EPA": "环保署", "USDA": "农业部",
+    "APHIS": "动植物检疫局", "AMS": "农业营销服务局", "FSIS": "食品安全检验局",
+    "FWS": "鱼类野生动物局", "NHTSA": "高速公路安全局", "OFAC": "海外资产控制办公室",
+    "TTB": "烟酒税贸易局", "USCG": "海岸警卫队", "CDC": "疾控中心",
+    "CPSC": "消费品安全委员会", "DEA": "缉毒局", "FMCSA": "联邦汽车运输安全局",
+    
+    // 货物相关
+    "Cargo": "货物", "Bill": "提单", "Bill of Lading": "提单", "Container": "集装箱",
+    "Conveyance": "运输工具", "Shipment": "货运", "Goods": "货物", "Manifest": "舱单",
+    "In-bond": "保税", "In-Bond": "保税", "Intransit": "过境", "Port": "港口",
+    "Destination": "目的地", "Origin": "始发地", "Zone": "区域", "Warehouse": "仓库",
+    
+    // 状态相关
+    "Inspection": "检查", "Examination": "查验", "Fumigation": "熏蒸", "Seal": "封条",
+    "Corrective Action": "整改措施", "Denied Entry": "拒绝入境", "Documentation": "文件",
+    "Compliance": "合规", "Violation": "违规", "Penalty": "罚款", "General Order": "一般指令",
+    
+    // PGA相关
+    "PGA": "政府机构", "Enforcement Action": "执法行动", "Seal Check": "封条检查",
+    "PGA Documentation Required": "需政府机构文件"
+};
+
+// 自动翻译函数
+function translateToChineseName(text) {
+    let result = text;
+    // 替换已知词汇
+    for (const [en, cn] of Object.entries(dcTranslations)) {
+        result = result.replace(new RegExp(en, 'gi'), cn);
+    }
+    return result !== text ? result : '';
+}
+
+function translateToChineseDesc(text) {
+    let result = text;
+    // 简化并翻译
+    const patterns = [
+        [/Generated (as a result of|when|to|in response to)/gi, "当"],
+        [/Used for/gi, "用于"],
+        [/Indicates/gi, "表明"],
+        [/Informs the carrier that/gi, "通知承运人"],
+        [/An advisory message indicating that/gi, "通知："],
+        [/at Port of Origin\/Port of export/gi, "在始发港/出口港"],
+        [/at Port of In-Bond Destination\/Port of export/gi, "在保税目的港/出口港"],
+        [/at Port of In-bond Destination/gi, "在保税目的港"],
+        [/at the port of discharge/gi, "在卸货港"],
+        [/at the port of in-bond destination/gi, "在保税目的港"],
+        [/Bill status/gi, "提单状态"],
+        [/ENT\/REL quantities/gi, "入境/放行数量"],
+    ];
+    
+    for (const [pattern, replacement] of patterns) {
+        result = result.replace(pattern, replacement);
+    }
+    
+    // 再替换术语
+    for (const [en, cn] of Object.entries(dcTranslations)) {
+        result = result.replace(new RegExp(`\\b${en}\\b`, 'gi'), cn);
+    }
+    
+    return result !== text ? result : '';
+}
+
+// 暂时禁用自动翻译（效果不理想）
+// 如需翻译，可手动为重要代码添加 nameCn 和 descCn 字段
+// dispositionCodes.forEach(item => {
+//     item.nameCn = translateToChineseName(item.name);
+//     item.descCn = translateToChineseDesc(item.description);
+// });
+
+// Disposition Codes 过滤和渲染 - 表格形式
+let dcFilteredData = dispositionCodes;
+let dcCurrentPage = 1;
+const dcPerPage = 50;
+let dcCurrentCategory = 'all';
+let dcSortKey = 'code';
+let dcSortAsc = true;
+
+function filterDispositionCodes() {
+    const searchTerm = document.getElementById('dcSearchInput')?.value.toLowerCase() || '';
+    
+    dcFilteredData = dispositionCodes.filter(item => {
+        const matchesSearch = !searchTerm || 
+            item.code.toLowerCase().includes(searchTerm) ||
+            item.name.toLowerCase().includes(searchTerm) ||
+            item.description.toLowerCase().includes(searchTerm);
+        
+        const matchesCategory = dcCurrentCategory === 'all' || item.category === dcCurrentCategory;
+        
+        return matchesSearch && matchesCategory;
+    });
+    
+    dcCurrentPage = 1;
+    renderDispositionCodes();
+}
+
+function filterByCategory(category) {
+    dcCurrentCategory = category;
+    
+    // Update button states
+    document.querySelectorAll('.dc-filter-btn').forEach(btn => btn.classList.remove('active'));
+    event.target.closest('.dc-filter-btn').classList.add('active');
+    
+    filterDispositionCodes();
+}
+
+function sortDcTable(key) {
+    if (dcSortKey === key) {
+        dcSortAsc = !dcSortAsc;
+    } else {
+        dcSortKey = key;
+        dcSortAsc = true;
+    }
+    
+    dcFilteredData.sort((a, b) => {
+        const valA = a[key].toLowerCase();
+        const valB = b[key].toLowerCase();
+        return dcSortAsc ? valA.localeCompare(valB) : valB.localeCompare(valA);
+    });
+    
+    renderDispositionCodes();
+}
+
+function renderDispositionCodes() {
+    const tbody = document.getElementById('dcTableBody');
+    const countEl = document.getElementById('dcCount');
+    if (!tbody) return;
+    
+    const startIdx = (dcCurrentPage - 1) * dcPerPage;
+    const endIdx = startIdx + dcPerPage;
+    const pageData = dcFilteredData.slice(startIdx, endIdx);
+    
+    // Update count
+    if (countEl) {
+        const start = startIdx + 1;
+        const end = Math.min(endIdx, dcFilteredData.length);
+        countEl.textContent = `Showing ${start}-${end} of ${dcFilteredData.length} codes`;
+    }
+    
+    // Category colors
+    const categoryColors = {
+        release: '#10b981',
+        hold: '#ef4444',
+        advisory: '#3b82f6',
+        pga: '#8b5cf6',
+        inbond: '#f59e0b',
+        other: '#6b7280'
+    };
+    
+    tbody.innerHTML = pageData.map(item => {
+        return `
+            <tr data-category="${item.category}">
+                <td class="col-code"><span class="code-badge">${item.code}</span></td>
+                <td class="col-name">
+                    <div class="name-en">${item.name}</div>
+                    ${item.nameCn ? `<div class="name-cn">${item.nameCn}</div>` : ''}
+                </td>
+                <td class="col-desc">
+                    <div class="desc-en">${item.description}</div>
+                    ${item.descCn ? `<div class="desc-cn">${item.descCn}</div>` : ''}
+                </td>
+            </tr>
+        `;
+    }).join('');
+    
+    renderDcPagination();
+}
+
+function renderDcPagination() {
+    const pagination = document.getElementById('dcPagination');
+    if (!pagination) return;
+    
+    const totalPages = Math.ceil(dcFilteredData.length / dcPerPage);
+    if (totalPages <= 1) {
+        pagination.innerHTML = '';
+        return;
+    }
+    
+    let html = `
+        <div class="dc-pagination-row">
+            <button class="dc-page-arrow" onclick="goToDcPage(1)" ${dcCurrentPage === 1 ? 'disabled' : ''} title="First">«</button>
+            <button class="dc-page-arrow" onclick="goToDcPage(${dcCurrentPage - 1})" ${dcCurrentPage === 1 ? 'disabled' : ''} title="Previous">‹</button>`;
+    
+    // 显示所有页码
+    for (let i = 1; i <= totalPages; i++) {
+        html += `<button class="dc-page-num ${i === dcCurrentPage ? 'active' : ''}" onclick="goToDcPage(${i})">${i}</button>`;
+    }
+    
+    html += `
+            <button class="dc-page-arrow" onclick="goToDcPage(${dcCurrentPage + 1})" ${dcCurrentPage === totalPages ? 'disabled' : ''} title="Next">›</button>
+            <button class="dc-page-arrow" onclick="goToDcPage(${totalPages})" ${dcCurrentPage === totalPages ? 'disabled' : ''} title="Last">»</button>
+            <span class="dc-page-info">Page ${dcCurrentPage}/${totalPages}</span>
+        </div>
+    `;
+    
+    pagination.innerHTML = html;
+}
+
+function goToDcPage(page) {
+    const totalPages = Math.ceil(dcFilteredData.length / dcPerPage);
+    if (page < 1 || page > totalPages) return;
+    dcCurrentPage = page;
+    renderDispositionCodes();
+    document.querySelector('.dc-table-wrapper')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// 扩展showArticle来初始化Disposition Codes
+const origShowArticleForDC = window.showArticle;
+window.showArticle = function(title) {
+    origShowArticleForDC(title);
+    if (title === 'CBP Disposition Codes') {
+        setTimeout(() => {
+            dcFilteredData = dispositionCodes;
+            dcCurrentPage = 1;
+            dcCurrentCategory = 'all';
+            renderDispositionCodes();
+        }, 100);
+    }
+};
