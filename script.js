@@ -2139,14 +2139,14 @@ function performSearch(query) {
     if (articles.length > 0) {
         html += '<div class="search-group-title">📚 文章</div>';
         html += articles.slice(0, 5).map(result => `
-            <div class="search-dropdown-item" onclick="selectSearchResult('${result.article.title}')">
-                <span class="search-dropdown-icon">📄</span>
-                <div class="search-dropdown-text">
-                    <div class="search-dropdown-title">${result.article.title}</div>
-                    <div class="search-dropdown-path">${result.categoryTitle}${result.subcategoryTitle ? ' > ' + result.subcategoryTitle : ''}</div>
-                </div>
+        <div class="search-dropdown-item" onclick="selectSearchResult('${result.article.title}')">
+            <span class="search-dropdown-icon">📄</span>
+            <div class="search-dropdown-text">
+                <div class="search-dropdown-title">${result.article.title}</div>
+                <div class="search-dropdown-path">${result.categoryTitle}${result.subcategoryTitle ? ' > ' + result.subcategoryTitle : ''}</div>
             </div>
-        `).join('');
+        </div>
+    `).join('');
     }
     
     if (dcResults.length > 0) {
@@ -3132,6 +3132,14 @@ const categoryOutlineData = {
     }
 };
 
+// ===== 数字转中文 =====
+function toChineseNum(num) {
+    const chineseNums = ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十'];
+    if (num <= 10) return chineseNums[num];
+    if (num < 20) return '十' + (num % 10 === 0 ? '' : chineseNums[num % 10]);
+    return chineseNums[Math.floor(num / 10)] + '十' + (num % 10 === 0 ? '' : chineseNums[num % 10]);
+}
+
 // ===== 显示分类目录大纲 =====
 function showCategoryOutline(categoryKey, scrollToSection = null) {
     const data = categoryOutlineData[categoryKey];
@@ -3149,23 +3157,25 @@ function showCategoryOutline(categoryKey, scrollToSection = null) {
     document.querySelector('.article-footer').style.display = 'none';
     document.getElementById('articleNav').innerHTML = '';
     
-    // 构建目录HTML
+    // 构建目录HTML - 1000h.org 风格
     let html = '<div class="category-outline">';
     
-    data.sections.forEach((section, index) => {
+    data.sections.forEach((section, sectionIndex) => {
+        const sectionNum = sectionIndex + 1;
         html += `
-            <div class="outline-section" id="outline-section-${index}">
+            <div class="outline-section" id="outline-section-${sectionIndex}">
                 <div class="outline-section-header">
-                    <h2 class="outline-section-title">${section.title}</h2>
+                    <h2 class="outline-section-title">${sectionNum}. ${section.title}</h2>
                 </div>
                 <div class="outline-items">
         `;
         
-        section.items.forEach(item => {
+        section.items.forEach((item, itemIndex) => {
+            const itemNum = `${sectionNum}.${itemIndex + 1}.`;
             if (item.tool) {
-                html += `<a class="outline-item" onclick="showTool('${item.tool}')">${item.name}</a>`;
+                html += `<a class="outline-item" onclick="showTool('${item.tool}')"><span class="item-number">${itemNum}</span><span class="item-text">${item.name}</span></a>`;
             } else {
-                html += `<a class="outline-item" onclick="showArticle('${item.article}')">${item.name}</a>`;
+                html += `<a class="outline-item" onclick="showArticle('${item.article}')"><span class="item-number">${itemNum}</span><span class="item-text">${item.name}</span></a>`;
             }
         });
         
