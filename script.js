@@ -2634,10 +2634,10 @@ const categoryOutlineData = {
                 title: "美国海关",
                 items: [
                     { name: "US CBP Port Codes", article: "US CBP Port Codes" },
+                    { name: "CBP Disposition Codes", article: "CBP Disposition Codes" },
                     { name: "美国海关清关流程", article: "美国海关清关流程" },
                     { name: "CBP申报要求", article: "CBP申报要求" },
-                    { name: "ISF申报指南", article: "ISF申报指南" },
-                    { name: "CBP Disposition Codes", article: "CBP Disposition Codes" }
+                    { name: "ISF申报指南", article: "ISF申报指南" }
                 ]
             }
         ]
