@@ -1925,16 +1925,11 @@ async function incrementViewCount(articleTitle) {
     }
 }
 
-// 更新显示浏览量
+// 更新显示浏览量 - 已禁用
 async function updateViewCountDisplay(articleTitle) {
     const metaEl = document.getElementById('articleMeta');
-    metaEl.innerHTML = `👁️ ...`;
-    
-    try {
-        const count = await incrementViewCount(articleTitle);
-        metaEl.innerHTML = `👁️ ${count}`;
-    } catch (error) {
-        metaEl.innerHTML = `👁️ 1`;
+    if (metaEl) {
+        metaEl.style.display = 'none';
     }
 }
 
@@ -2130,11 +2125,26 @@ function performSearch(query) {
         return;
     }
     
-    // 分组显示：文章、Disposition Codes、Port Codes
+    // 分组显示：国家、文章、Disposition Codes、Port Codes
     let html = '';
+    const countryResults = results.filter(r => r.type === 'country');
     const articles = results.filter(r => r.type === 'article');
     const dcResults = results.filter(r => r.type === 'disposition');
     const portResults = results.filter(r => r.type === 'port');
+    
+    // 国家搜索结果优先显示
+    if (countryResults.length > 0) {
+        html += '<div class="search-group-title">🌍 国家/地区</div>';
+        html += countryResults.slice(0, 8).map(result => `
+            <div class="search-dropdown-item" onclick="goToCountry('${result.continentKey}', '${result.countryKey}')">
+                <span class="search-dropdown-icon search-code-badge">${result.code}</span>
+                <div class="search-dropdown-text">
+                    <div class="search-dropdown-title">${result.name} <span style="color:#86868b;font-size:12px;">${result.nameEn}</span></div>
+                    <div class="search-dropdown-path">${result.continentName}</div>
+                </div>
+            </div>
+        `).join('');
+    }
     
     if (articles.length > 0) {
         html += '<div class="search-group-title">📚 文章</div>';
@@ -2202,6 +2212,12 @@ function goToPortCode(code) {
             filterPortCodes();
         }
     }, 200);
+}
+
+// 跳转到国家详情
+function goToCountry(continentKey, countryKey) {
+    hideSearchDropdown();
+    showCountryDetail(continentKey, countryKey);
 }
 
 function searchKnowledge(query) {
@@ -2274,6 +2290,32 @@ function searchKnowledge(query) {
         });
     }
     
+    // 搜索国家 - 支持中文名、英文名、国家代码
+    if (typeof knowledgeBase !== 'undefined' && knowledgeBase.countries) {
+        Object.entries(knowledgeBase.countries.continents).forEach(([continentKey, continent]) => {
+            if (continent.countries) {
+                Object.entries(continent.countries).forEach(([countryKey, country]) => {
+                    const codeInfo = countryCodeMap[countryKey] || {};
+                    const matchName = country.name.toLowerCase().includes(query);
+                    const matchCode = codeInfo.code && codeInfo.code.toLowerCase().includes(query);
+                    const matchNameEn = codeInfo.nameEn && codeInfo.nameEn.toLowerCase().includes(query);
+                    
+                    if (matchName || matchCode || matchNameEn) {
+                        results.push({
+                            type: 'country',
+                            continentKey: continentKey,
+                            countryKey: countryKey,
+                            name: country.name,
+                            code: codeInfo.code || '',
+                            nameEn: codeInfo.nameEn || '',
+                            continentName: continent.name
+                        });
+                    }
+                });
+            }
+        });
+    }
+    
     return results;
 }
 
@@ -2317,6 +2359,263 @@ function initQuickLinks() {
     });
 }
 
+// ===== 国家代码和英文名映射 =====
+const countryCodeMap = {
+    // === 亚洲 - 东亚 ===
+    "china": { code: "CN", nameEn: "China" },
+    "japan": { code: "JP", nameEn: "Japan" },
+    "korea": { code: "KR", nameEn: "South Korea" },
+    "mongolia": { code: "MN", nameEn: "Mongolia" },
+    "north-korea": { code: "KP", nameEn: "North Korea" },
+    // === 亚洲 - 东南亚 ===
+    "indonesia": { code: "ID", nameEn: "Indonesia" },
+    "thailand": { code: "TH", nameEn: "Thailand" },
+    "singapore": { code: "SG", nameEn: "Singapore" },
+    "malaysia": { code: "MY", nameEn: "Malaysia" },
+    "vietnam": { code: "VN", nameEn: "Vietnam" },
+    "philippines": { code: "PH", nameEn: "Philippines" },
+    "myanmar": { code: "MM", nameEn: "Myanmar" },
+    "cambodia": { code: "KH", nameEn: "Cambodia" },
+    "brunei": { code: "BN", nameEn: "Brunei" },
+    "laos": { code: "LA", nameEn: "Laos" },
+    "timor-leste": { code: "TL", nameEn: "Timor-Leste" },
+    // === 亚洲 - 南亚 ===
+    "india": { code: "IN", nameEn: "India" },
+    "pakistan": { code: "PK", nameEn: "Pakistan" },
+    "bangladesh": { code: "BD", nameEn: "Bangladesh" },
+    "srilanka": { code: "LK", nameEn: "Sri Lanka" },
+    "nepal": { code: "NP", nameEn: "Nepal" },
+    "maldives": { code: "MV", nameEn: "Maldives" },
+    "bhutan": { code: "BT", nameEn: "Bhutan" },
+    // === 亚洲 - 中亚 ===
+    "kazakhstan": { code: "KZ", nameEn: "Kazakhstan" },
+    "uzbekistan": { code: "UZ", nameEn: "Uzbekistan" },
+    "turkmenistan": { code: "TM", nameEn: "Turkmenistan" },
+    "kyrgyzstan": { code: "KG", nameEn: "Kyrgyzstan" },
+    "tajikistan": { code: "TJ", nameEn: "Tajikistan" },
+    // === 亚洲 - 西亚 ===
+    "turkey": { code: "TR", nameEn: "Turkey" },
+    "saudi-arabia": { code: "SA", nameEn: "Saudi Arabia" },
+    "uae": { code: "AE", nameEn: "United Arab Emirates" },
+    "israel": { code: "IL", nameEn: "Israel" },
+    "iran": { code: "IR", nameEn: "Iran" },
+    "iraq": { code: "IQ", nameEn: "Iraq" },
+    "qatar": { code: "QA", nameEn: "Qatar" },
+    "kuwait": { code: "KW", nameEn: "Kuwait" },
+    "oman": { code: "OM", nameEn: "Oman" },
+    "jordan": { code: "JO", nameEn: "Jordan" },
+    "lebanon": { code: "LB", nameEn: "Lebanon" },
+    "bahrain": { code: "BH", nameEn: "Bahrain" },
+    "georgia": { code: "GE", nameEn: "Georgia" },
+    "azerbaijan": { code: "AZ", nameEn: "Azerbaijan" },
+    "armenia": { code: "AM", nameEn: "Armenia" },
+    "cyprus": { code: "CY", nameEn: "Cyprus" },
+    "syria": { code: "SY", nameEn: "Syria" },
+    "yemen": { code: "YE", nameEn: "Yemen" },
+    "afghanistan": { code: "AF", nameEn: "Afghanistan" },
+    "palestine": { code: "PS", nameEn: "Palestine" },
+    // === 欧洲 - 北欧 ===
+    "sweden": { code: "SE", nameEn: "Sweden" },
+    "norway": { code: "NO", nameEn: "Norway" },
+    "denmark": { code: "DK", nameEn: "Denmark" },
+    "finland": { code: "FI", nameEn: "Finland" },
+    "iceland": { code: "IS", nameEn: "Iceland" },
+    // === 欧洲 - 西欧 ===
+    "france": { code: "FR", nameEn: "France" },
+    "uk": { code: "GB", nameEn: "United Kingdom" },
+    "netherlands": { code: "NL", nameEn: "Netherlands" },
+    "belgium": { code: "BE", nameEn: "Belgium" },
+    "ireland": { code: "IE", nameEn: "Ireland" },
+    "luxembourg": { code: "LU", nameEn: "Luxembourg" },
+    "monaco": { code: "MC", nameEn: "Monaco" },
+    // === 欧洲 - 中欧 ===
+    "germany": { code: "DE", nameEn: "Germany" },
+    "poland": { code: "PL", nameEn: "Poland" },
+    "switzerland": { code: "CH", nameEn: "Switzerland" },
+    "austria": { code: "AT", nameEn: "Austria" },
+    "czech": { code: "CZ", nameEn: "Czech Republic" },
+    "hungary": { code: "HU", nameEn: "Hungary" },
+    "slovakia": { code: "SK", nameEn: "Slovakia" },
+    "liechtenstein": { code: "LI", nameEn: "Liechtenstein" },
+    // === 欧洲 - 东欧 ===
+    "russia": { code: "RU", nameEn: "Russia" },
+    "ukraine": { code: "UA", nameEn: "Ukraine" },
+    "belarus": { code: "BY", nameEn: "Belarus" },
+    "lithuania": { code: "LT", nameEn: "Lithuania" },
+    "latvia": { code: "LV", nameEn: "Latvia" },
+    "estonia": { code: "EE", nameEn: "Estonia" },
+    "moldova": { code: "MD", nameEn: "Moldova" },
+    // === 欧洲 - 南欧 ===
+    "italy": { code: "IT", nameEn: "Italy" },
+    "spain": { code: "ES", nameEn: "Spain" },
+    "greece": { code: "GR", nameEn: "Greece" },
+    "portugal": { code: "PT", nameEn: "Portugal" },
+    "romania": { code: "RO", nameEn: "Romania" },
+    "croatia": { code: "HR", nameEn: "Croatia" },
+    "slovenia": { code: "SI", nameEn: "Slovenia" },
+    "bulgaria": { code: "BG", nameEn: "Bulgaria" },
+    "serbia": { code: "RS", nameEn: "Serbia" },
+    "bosnia": { code: "BA", nameEn: "Bosnia and Herzegovina" },
+    "albania": { code: "AL", nameEn: "Albania" },
+    "north-macedonia": { code: "MK", nameEn: "North Macedonia" },
+    "montenegro": { code: "ME", nameEn: "Montenegro" },
+    "malta": { code: "MT", nameEn: "Malta" },
+    "andorra": { code: "AD", nameEn: "Andorra" },
+    "san-marino": { code: "SM", nameEn: "San Marino" },
+    "vatican": { code: "VA", nameEn: "Vatican City" },
+    // === 欧洲地区 ===
+    "faroe-islands": { code: "FO", nameEn: "Faroe Islands" },
+    "gibraltar": { code: "GI", nameEn: "Gibraltar" },
+    // === 北美洲 ===
+    "usa": { code: "US", nameEn: "United States of America" },
+    "canada": { code: "CA", nameEn: "Canada" },
+    "mexico": { code: "MX", nameEn: "Mexico" },
+    "guatemala": { code: "GT", nameEn: "Guatemala" },
+    "panama": { code: "PA", nameEn: "Panama" },
+    "costa-rica": { code: "CR", nameEn: "Costa Rica" },
+    "el-salvador": { code: "SV", nameEn: "El Salvador" },
+    "honduras": { code: "HN", nameEn: "Honduras" },
+    "nicaragua": { code: "NI", nameEn: "Nicaragua" },
+    "belize": { code: "BZ", nameEn: "Belize" },
+    "dominican": { code: "DO", nameEn: "Dominican Republic" },
+    "cuba": { code: "CU", nameEn: "Cuba" },
+    "trinidad": { code: "TT", nameEn: "Trinidad and Tobago" },
+    "jamaica": { code: "JM", nameEn: "Jamaica" },
+    "bahamas": { code: "BS", nameEn: "Bahamas" },
+    "barbados": { code: "BB", nameEn: "Barbados" },
+    "haiti": { code: "HT", nameEn: "Haiti" },
+    "saint-lucia": { code: "LC", nameEn: "Saint Lucia" },
+    "antigua": { code: "AG", nameEn: "Antigua and Barbuda" },
+    "grenada": { code: "GD", nameEn: "Grenada" },
+    "saint-kitts": { code: "KN", nameEn: "Saint Kitts and Nevis" },
+    "saint-vincent": { code: "VC", nameEn: "Saint Vincent and the Grenadines" },
+    "dominica": { code: "DM", nameEn: "Dominica" },
+    // === 北美洲地区 ===
+    "puerto-rico": { code: "PR", nameEn: "Puerto Rico" },
+    "curacao": { code: "CW", nameEn: "Curaçao" },
+    "aruba": { code: "AW", nameEn: "Aruba" },
+    "cayman-islands": { code: "KY", nameEn: "Cayman Islands" },
+    "bermuda": { code: "BM", nameEn: "Bermuda" },
+    "greenland": { code: "GL", nameEn: "Greenland" },
+    "guadeloupe": { code: "GP", nameEn: "Guadeloupe" },
+    "martinique": { code: "MQ", nameEn: "Martinique" },
+    "us-virgin-islands": { code: "VI", nameEn: "U.S. Virgin Islands" },
+    "british-virgin-islands": { code: "VG", nameEn: "British Virgin Islands" },
+    "turks-caicos": { code: "TC", nameEn: "Turks and Caicos Islands" },
+    "sint-maarten": { code: "SX", nameEn: "Sint Maarten" },
+    "saint-martin": { code: "MF", nameEn: "Saint Martin" },
+    "saint-barthelemy": { code: "BL", nameEn: "Saint Barthélemy" },
+    "anguilla": { code: "AI", nameEn: "Anguilla" },
+    "montserrat": { code: "MS", nameEn: "Montserrat" },
+    "saint-pierre": { code: "PM", nameEn: "Saint Pierre and Miquelon" },
+    // === 南美洲 ===
+    "brazil": { code: "BR", nameEn: "Brazil" },
+    "argentina": { code: "AR", nameEn: "Argentina" },
+    "chile": { code: "CL", nameEn: "Chile" },
+    "colombia": { code: "CO", nameEn: "Colombia" },
+    "peru": { code: "PE", nameEn: "Peru" },
+    "venezuela": { code: "VE", nameEn: "Venezuela" },
+    "ecuador": { code: "EC", nameEn: "Ecuador" },
+    "bolivia": { code: "BO", nameEn: "Bolivia" },
+    "uruguay": { code: "UY", nameEn: "Uruguay" },
+    "paraguay": { code: "PY", nameEn: "Paraguay" },
+    "guyana": { code: "GY", nameEn: "Guyana" },
+    "suriname": { code: "SR", nameEn: "Suriname" },
+    "french-guiana": { code: "GF", nameEn: "French Guiana" },
+    "falkland-islands": { code: "FK", nameEn: "Falkland Islands" },
+    // === 非洲 - 北非 ===
+    "egypt": { code: "EG", nameEn: "Egypt" },
+    "algeria": { code: "DZ", nameEn: "Algeria" },
+    "morocco": { code: "MA", nameEn: "Morocco" },
+    "libya": { code: "LY", nameEn: "Libya" },
+    "tunisia": { code: "TN", nameEn: "Tunisia" },
+    // === 非洲 - 西非 ===
+    "nigeria": { code: "NG", nameEn: "Nigeria" },
+    "ghana": { code: "GH", nameEn: "Ghana" },
+    "ivory-coast": { code: "CI", nameEn: "Ivory Coast" },
+    "senegal": { code: "SN", nameEn: "Senegal" },
+    "cameroon": { code: "CM", nameEn: "Cameroon" },
+    "burkina-faso": { code: "BF", nameEn: "Burkina Faso" },
+    "mali": { code: "ML", nameEn: "Mali" },
+    "benin": { code: "BJ", nameEn: "Benin" },
+    "guinea": { code: "GN", nameEn: "Guinea" },
+    "niger": { code: "NE", nameEn: "Niger" },
+    "togo": { code: "TG", nameEn: "Togo" },
+    "mauritania": { code: "MR", nameEn: "Mauritania" },
+    "sierra-leone": { code: "SL", nameEn: "Sierra Leone" },
+    "liberia": { code: "LR", nameEn: "Liberia" },
+    "cape-verde": { code: "CV", nameEn: "Cape Verde" },
+    "gambia": { code: "GM", nameEn: "Gambia" },
+    "guinea-bissau": { code: "GW", nameEn: "Guinea-Bissau" },
+    // === 非洲 - 中非 ===
+    "congo-drc": { code: "CD", nameEn: "Democratic Republic of the Congo" },
+    "gabon": { code: "GA", nameEn: "Gabon" },
+    "congo": { code: "CG", nameEn: "Republic of the Congo" },
+    "equatorial-guinea": { code: "GQ", nameEn: "Equatorial Guinea" },
+    "chad": { code: "TD", nameEn: "Chad" },
+    "central-african": { code: "CF", nameEn: "Central African Republic" },
+    "sao-tome": { code: "ST", nameEn: "São Tomé and Príncipe" },
+    // === 非洲 - 东非 ===
+    "ethiopia": { code: "ET", nameEn: "Ethiopia" },
+    "kenya": { code: "KE", nameEn: "Kenya" },
+    "tanzania": { code: "TZ", nameEn: "Tanzania" },
+    "uganda": { code: "UG", nameEn: "Uganda" },
+    "sudan": { code: "SD", nameEn: "Sudan" },
+    "rwanda": { code: "RW", nameEn: "Rwanda" },
+    "south-sudan": { code: "SS", nameEn: "South Sudan" },
+    "mauritius": { code: "MU", nameEn: "Mauritius" },
+    "seychelles": { code: "SC", nameEn: "Seychelles" },
+    "djibouti": { code: "DJ", nameEn: "Djibouti" },
+    "somalia": { code: "SO", nameEn: "Somalia" },
+    "eritrea": { code: "ER", nameEn: "Eritrea" },
+    "burundi": { code: "BI", nameEn: "Burundi" },
+    // === 非洲 - 南部非洲 ===
+    "south-africa": { code: "ZA", nameEn: "South Africa" },
+    "angola": { code: "AO", nameEn: "Angola" },
+    "mozambique": { code: "MZ", nameEn: "Mozambique" },
+    "zambia": { code: "ZM", nameEn: "Zambia" },
+    "zimbabwe": { code: "ZW", nameEn: "Zimbabwe" },
+    "botswana": { code: "BW", nameEn: "Botswana" },
+    "namibia": { code: "NA", nameEn: "Namibia" },
+    "madagascar": { code: "MG", nameEn: "Madagascar" },
+    "malawi": { code: "MW", nameEn: "Malawi" },
+    "eswatini": { code: "SZ", nameEn: "Eswatini" },
+    "lesotho": { code: "LS", nameEn: "Lesotho" },
+    "comoros": { code: "KM", nameEn: "Comoros" },
+    // === 非洲地区 ===
+    "canary-islands": { code: "IC", nameEn: "Canary Islands" },
+    "reunion": { code: "RE", nameEn: "Réunion" },
+    "mayotte": { code: "YT", nameEn: "Mayotte" },
+    "western-sahara": { code: "EH", nameEn: "Western Sahara" },
+    "saint-helena": { code: "SH", nameEn: "Saint Helena" },
+    // === 大洋洲 ===
+    "australia": { code: "AU", nameEn: "Australia" },
+    "new-zealand": { code: "NZ", nameEn: "New Zealand" },
+    "papua-new-guinea": { code: "PG", nameEn: "Papua New Guinea" },
+    "fiji": { code: "FJ", nameEn: "Fiji" },
+    "solomon-islands": { code: "SB", nameEn: "Solomon Islands" },
+    "vanuatu": { code: "VU", nameEn: "Vanuatu" },
+    "new-caledonia": { code: "NC", nameEn: "New Caledonia" },
+    "french-polynesia": { code: "PF", nameEn: "French Polynesia" },
+    "samoa": { code: "WS", nameEn: "Samoa" },
+    "guam": { code: "GU", nameEn: "Guam" },
+    "tonga": { code: "TO", nameEn: "Tonga" },
+    "micronesia": { code: "FM", nameEn: "Micronesia" },
+    "kiribati": { code: "KI", nameEn: "Kiribati" },
+    "palau": { code: "PW", nameEn: "Palau" },
+    "marshall-islands": { code: "MH", nameEn: "Marshall Islands" },
+    "nauru": { code: "NR", nameEn: "Nauru" },
+    "tuvalu": { code: "TV", nameEn: "Tuvalu" },
+    "american-samoa": { code: "AS", nameEn: "American Samoa" },
+    "northern-mariana": { code: "MP", nameEn: "Northern Mariana Islands" },
+    "cook-islands": { code: "CK", nameEn: "Cook Islands" },
+    "wallis-futuna": { code: "WF", nameEn: "Wallis and Futuna" },
+    "niue": { code: "NU", nameEn: "Niue" },
+    "tokelau": { code: "TK", nameEn: "Tokelau" },
+    "norfolk-island": { code: "NF", nameEn: "Norfolk Island" },
+    "pitcairn": { code: "PN", nameEn: "Pitcairn Islands" }
+};
+
 // ===== 显示大洲国家列表 =====
 function showContinentCountries(continentKey) {
     const continent = knowledgeBase.countries.continents[continentKey];
@@ -2338,10 +2637,13 @@ function showContinentCountries(continentKey) {
             const countriesHTML = region.countries.map(countryKey => {
                 const country = continent.countries[countryKey];
                 if (!country) return '';
+                const codeInfo = countryCodeMap[countryKey] || {};
+                const codeDisplay = codeInfo.code ? ` <span class="country-code">${codeInfo.code}</span>` : '';
+                const titleAttr = codeInfo.nameEn ? `title="${codeInfo.nameEn}"` : '';
                 return `
                     <div class="country-card">
-                        <a href="#" class="country-link" data-continent-key="${continentKey}" data-country-key="${countryKey}">${country.name}</a>
-        </div>
+                        <a href="#" class="country-link" ${titleAttr} data-continent-key="${continentKey}" data-country-key="${countryKey}">${country.name}${codeDisplay}</a>
+                    </div>
                 `;
             }).join('');
             
@@ -2351,15 +2653,18 @@ function showContinentCountries(continentKey) {
                     <div class="countries-grid">
                         ${countriesHTML}
                     </div>
-                    </div>
+                </div>
             `;
         }).join('');
     } else {
         // 无地区分组，直接列出国家
         const countriesHTML = Object.entries(continent.countries).map(([key, country]) => {
+            const codeInfo = countryCodeMap[key] || {};
+            const codeDisplay = codeInfo.code ? ` <span class="country-code">${codeInfo.code}</span>` : '';
+            const titleAttr = codeInfo.nameEn ? `title="${codeInfo.nameEn}"` : '';
             return `
                 <div class="country-card">
-                    <a href="#" class="country-link" data-continent-key="${continentKey}" data-country-key="${key}">${country.name}</a>
+                    <a href="#" class="country-link" ${titleAttr} data-continent-key="${continentKey}" data-country-key="${key}">${country.name}${codeDisplay}</a>
                 </div>
             `;
         }).join('');
@@ -2367,8 +2672,8 @@ function showContinentCountries(continentKey) {
         contentHTML = `
             <div class="countries-grid">
                 ${countriesHTML}
-        </div>
-    `;
+            </div>
+        `;
     }
     
     // 填充内容
