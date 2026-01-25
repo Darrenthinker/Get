@@ -2366,16 +2366,15 @@ button {
 
 .port-codes-table td:last-child {
     text-align: center;
-    font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
-    font-weight: 700;
-    font-size: 13px;
-    color: #16a34a;
-    background: rgba(22, 163, 74, 0.08);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: #1d4ed8;
+    letter-spacing: 0.02em;
 }
 
 [data-theme="dark"] .port-codes-table td:last-child {
-    color: #4ade80;
-    background: rgba(74, 222, 128, 0.1);
+    color: #60a5fa;
 }
 
 /* 信息区域 */

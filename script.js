@@ -4243,14 +4243,17 @@ function goToPage(page) {
     }
 }
 
-// 搜索过滤
+// 搜索过滤 - Port Codes页面专用
 function filterPortCodes() {
-    const nameFilter = document.getElementById('searchPortName')?.value.toLowerCase() || '';
+    const nameFilter = document.getElementById('searchPortName')?.value.toLowerCase().trim() || '';
     const stateFilter = document.getElementById('searchState')?.value || '';
-    const codeFilter = document.getElementById('searchPortCode')?.value || '';
+    const codeFilter = document.getElementById('searchPortCode')?.value.trim() || '';
     
     const filtered = usPortCodes.filter(port => {
-        const matchName = port.name.toLowerCase().includes(nameFilter);
+        // PORT NAME字段：同时搜索名称和代码（更智能）
+        const matchName = !nameFilter || 
+            port.name.toLowerCase().includes(nameFilter) ||
+            port.code.includes(nameFilter);
         const matchState = !stateFilter || port.state === stateFilter;
         const matchCode = !codeFilter || port.code.includes(codeFilter);
         return matchName && matchState && matchCode;
