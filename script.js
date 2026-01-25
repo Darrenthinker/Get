@@ -102,56 +102,1421 @@ const knowledgeBase = {
                         ],
                         keywords: ["上海港", "宁波港", "深圳港", "中国港口"]
                     },
-                    "japan": { name: "日本", content: `<p>日本是亚洲发达经济体，港口设施先进。</p><h2>主要港口</h2><ul><li><strong>东京港</strong>：首都港口</li><li><strong>横滨港</strong>：关东最大港</li><li><strong>名古屋港</strong>：汽车出口重镇</li><li><strong>大阪港</strong>：关西枢纽</li><li><strong>神户港</strong>：历史名港</li><li><strong>博多港</strong>：九州门户</li></ul>`, keywords: ["东京港", "横滨港", "日本港口"] },
-                    "korea": { name: "韩国", content: `<p>韩国是重要的制造业和航运国家。</p><h2>主要港口</h2><ul><li><strong>釜山港</strong>：全球第六大集装箱港</li><li><strong>仁川港</strong>：首都圈门户</li><li><strong>光阳港</strong>：现代化深水港</li></ul>`, keywords: ["釜山港", "韩国港口"] },
-                    "taiwan": { name: "中国台湾", content: `<p>台湾是重要的电子产品制造和贸易中心。</p><h2>主要港口</h2><ul><li><strong>高雄港</strong>：台湾最大港口</li><li><strong>基隆港</strong>：北部主要港口</li><li><strong>台中港</strong>：中部工业港</li></ul>`, keywords: ["高雄港", "台湾港口"] },
-                    "hongkong": { name: "中国香港", content: `<p>香港是亚洲金融中心和重要转口港。</p><h2>主要港口</h2><ul><li><strong>香港港</strong>：全球重要转口港，葵涌货柜码头</li></ul>`, keywords: ["香港港", "葵涌码头"] },
-                    "macau": { name: "中国澳门", content: `<p>澳门是特别行政区，主要进行旅游相关贸易。</p><h2>港口</h2><ul><li><strong>澳门港</strong>：客货运港口</li></ul>`, keywords: ["澳门港"] },
-                    "mongolia": { name: "蒙古", content: `<p>蒙古是内陆国家，主要通过中俄港口进行贸易。</p><h2>贸易通道</h2><ul><li>主要通过中国天津港、大连港出海</li><li>通过俄罗斯符拉迪沃斯托克港</li></ul>`, keywords: ["蒙古贸易", "内陆运输"] },
-                    "singapore": { name: "新加坡", content: `<p>新加坡是全球最繁忙的转口港之一。</p><h2>主要港口</h2><ul><li><strong>新加坡港</strong>：全球第二大集装箱港，年吞吐量超3700万TEU</li></ul>`, keywords: ["新加坡港", "转口港"] },
-                    "malaysia": { name: "马来西亚", content: `<p>马来西亚位于马六甲海峡，地理位置优越。</p><h2>主要港口</h2><ul><li><strong>巴生港</strong>：马来西亚最大港口</li><li><strong>丹戎帕拉帕斯港</strong>：重要转运港</li><li><strong>槟城港</strong>：北部港口</li></ul>`, keywords: ["巴生港", "马来西亚港口"] },
-                    "thailand": { name: "泰国", content: `<p>泰国是东南亚制造业中心。</p><h2>主要港口</h2><ul><li><strong>林查班港</strong>：泰国最大深水港</li><li><strong>曼谷港</strong>：传统贸易港</li></ul>`, keywords: ["林查班港", "泰国港口"] },
-                    "vietnam": { name: "越南", content: `<p>越南是快速发展的制造业国家。</p><h2>主要港口</h2><ul><li><strong>胡志明港</strong>：越南最大港口</li><li><strong>海防港</strong>：北部主要港口</li><li><strong>岘港</strong>：中部港口</li></ul>`, keywords: ["胡志明港", "越南港口"] },
-                    "indonesia": { name: "印度尼西亚", content: `<p>印尼是东南亚最大国家，群岛国家港口众多。</p><h2>主要港口</h2><ul><li><strong>雅加达港</strong>：印尼最大港口</li><li><strong>泗水港</strong>：第二大港</li><li><strong>巴淡港</strong>：转运港</li></ul>`, keywords: ["雅加达港", "印尼港口"] },
-                    "philippines": { name: "菲律宾", content: `<p>菲律宾是群岛国家，港口分布广泛。</p><h2>主要港口</h2><ul><li><strong>马尼拉港</strong>：菲律宾最大港口</li><li><strong>宿务港</strong>：中部枢纽</li></ul>`, keywords: ["马尼拉港", "菲律宾港口"] },
-                    "myanmar": { name: "缅甸", content: `<p>缅甸正在发展其港口基础设施。</p><h2>主要港口</h2><ul><li><strong>仰光港</strong>：缅甸最大港口</li><li><strong>皎漂港</strong>：中缅经济走廊重要港口</li></ul>`, keywords: ["仰光港", "缅甸港口"] },
-                    "cambodia": { name: "柬埔寨", content: `<p>柬埔寨是东南亚新兴市场。</p><h2>主要港口</h2><ul><li><strong>西哈努克港</strong>：柬埔寨唯一深水港</li></ul>`, keywords: ["西哈努克港", "柬埔寨港口"] },
-                    "laos": { name: "老挝", content: `<p>老挝是内陆国家，通过邻国港口进行贸易。</p><h2>贸易通道</h2><ul><li>主要通过泰国林查班港</li><li>通过越南岘港、海防港</li></ul>`, keywords: ["老挝贸易", "内陆运输"] },
-                    "brunei": { name: "文莱", content: `<p>文莱是石油富国。</p><h2>主要港口</h2><ul><li><strong>穆阿拉港</strong>：文莱主要港口</li></ul>`, keywords: ["穆阿拉港", "文莱港口"] },
-                    "india": { name: "印度", content: `<p>印度是南亚最大经济体，港口快速发展。</p><h2>主要港口</h2><ul><li><strong>尼赫鲁港</strong>：印度最大集装箱港</li><li><strong>孟买港</strong>：西海岸枢纽</li><li><strong>金奈港</strong>：东海岸重要港口</li><li><strong>加尔各答港</strong>：传统贸易港</li><li><strong>蒙德拉港</strong>：私营大港</li></ul>`, keywords: ["尼赫鲁港", "孟买港", "印度港口"] },
-                    "pakistan": { name: "巴基斯坦", content: `<p>巴基斯坦是南亚重要国家，中巴经济走廊正在发展。</p><h2>主要港口</h2><ul><li><strong>卡拉奇港</strong>：巴基斯坦最大港口</li><li><strong>瓜达尔港</strong>：中巴经济走廊终点</li></ul>`, keywords: ["卡拉奇港", "瓜达尔港"] },
-                    "bangladesh": { name: "孟加拉国", content: `<p>孟加拉国是重要的纺织品出口国。</p><h2>主要港口</h2><ul><li><strong>吉大港</strong>：孟加拉国最大港口</li></ul>`, keywords: ["吉大港", "孟加拉国港口"] },
-                    "srilanka": { name: "斯里兰卡", content: `<p>斯里兰卡位于印度洋航运要道。</p><h2>主要港口</h2><ul><li><strong>科伦坡港</strong>：南亚重要转口港</li><li><strong>汉班托塔港</strong>：新建深水港</li></ul>`, keywords: ["科伦坡港", "斯里兰卡港口"] },
-                    "nepal": { name: "尼泊尔", content: `<p>尼泊尔是内陆国家。</p><h2>贸易通道</h2><ul><li>主要通过印度加尔各答港</li></ul>`, keywords: ["尼泊尔贸易"] },
-                    "maldives": { name: "马尔代夫", content: `<p>马尔代夫是印度洋岛国。</p><h2>主要港口</h2><ul><li><strong>马累港</strong>：首都港口</li></ul>`, keywords: ["马累港", "马尔代夫港口"] },
-                    "kazakhstan": { name: "哈萨克斯坦", content: `<p>哈萨克斯坦是中亚最大国家，"一带一路"重要节点。</p><h2>贸易通道</h2><ul><li>中欧班列重要途经国</li><li>阿克套港（里海）</li></ul>`, keywords: ["哈萨克斯坦", "中欧班列"] },
-                    "uzbekistan": { name: "乌兹别克斯坦", content: `<p>乌兹别克斯坦是中亚重要国家。</p><h2>贸易通道</h2><ul><li>主要通过铁路连接中国和欧洲</li></ul>`, keywords: ["乌兹别克斯坦"] },
-                    "turkmenistan": { name: "土库曼斯坦", content: `<p>土库曼斯坦拥有丰富的天然气资源。</p><h2>贸易通道</h2><ul><li>土库曼巴希港（里海）</li></ul>`, keywords: ["土库曼斯坦"] },
-                    "kyrgyzstan": { name: "吉尔吉斯斯坦", content: `<p>吉尔吉斯斯坦是中亚内陆国家。</p><h2>贸易通道</h2><ul><li>通过中国和哈萨克斯坦进行贸易</li></ul>`, keywords: ["吉尔吉斯斯坦"] },
-                    "tajikistan": { name: "塔吉克斯坦", content: `<p>塔吉克斯坦是中亚内陆国家。</p><h2>贸易通道</h2><ul><li>通过中国和阿富汗进行贸易</li></ul>`, keywords: ["塔吉克斯坦"] },
-                    "uae": { name: "阿联酋", content: `<p>阿联酋是中东最重要的贸易和转口中心。</p><h2>主要港口</h2><ul><li><strong>杰贝阿里港</strong>：中东最大港口，全球第九大港</li><li><strong>阿布扎比港</strong>：重要港口</li></ul>`, keywords: ["杰贝阿里港", "迪拜港口"] },
-                    "saudi-arabia": { name: "沙特阿拉伯", content: `<p>沙特是中东最大经济体。</p><h2>主要港口</h2><ul><li><strong>吉达港</strong>：红海最大港口</li><li><strong>达曼港</strong>：波斯湾港口</li><li><strong>朱拜勒港</strong>：工业港口</li></ul>`, keywords: ["吉达港", "沙特港口"] },
-                    "turkey": { name: "土耳其", content: `<p>土耳其横跨欧亚，是重要贸易桥梁。</p><h2>主要港口</h2><ul><li><strong>伊斯坦布尔港</strong>：博斯普鲁斯海峡枢纽</li><li><strong>伊兹密尔港</strong>：爱琴海港口</li><li><strong>梅尔辛港</strong>：地中海港口</li></ul>`, keywords: ["伊斯坦布尔港", "土耳其港口"] },
-                    "israel": { name: "以色列", content: `<p>以色列是中东科技和贸易中心。</p><h2>主要港口</h2><ul><li><strong>海法港</strong>：以色列最大港口</li><li><strong>阿什杜德港</strong>：现代化港口</li></ul>`, keywords: ["海法港", "以色列港口"] },
-                    "qatar": { name: "卡塔尔", content: `<p>卡塔尔是天然气出口大国。</p><h2>主要港口</h2><ul><li><strong>哈马德港</strong>：卡塔尔新建大港</li><li><strong>多哈港</strong>：传统港口</li></ul>`, keywords: ["哈马德港", "卡塔尔港口"] },
-                    "kuwait": { name: "科威特", content: `<p>科威特是石油出口国。</p><h2>主要港口</h2><ul><li><strong>舒威赫港</strong>：科威特主要港口</li></ul>`, keywords: ["科威特港口"] },
-                    "oman": { name: "阿曼", content: `<p>阿曼位于阿拉伯半岛东南。</p><h2>主要港口</h2><ul><li><strong>萨拉拉港</strong>：重要转运港</li><li><strong>苏哈尔港</strong>：工业港口</li></ul>`, keywords: ["萨拉拉港", "阿曼港口"] },
-                    "bahrain": { name: "巴林", content: `<p>巴林是波斯湾岛国。</p><h2>主要港口</h2><ul><li><strong>米纳萨尔曼港</strong>：巴林主要港口</li></ul>`, keywords: ["巴林港口"] },
-                    "jordan": { name: "约旦", content: `<p>约旦是中东重要贸易通道国家。</p><h2>主要港口</h2><ul><li><strong>亚喀巴港</strong>：约旦唯一港口</li></ul>`, keywords: ["亚喀巴港", "约旦港口"] },
-                    "lebanon": { name: "黎巴嫩", content: `<p>黎巴嫩是地中海东岸国家。</p><h2>主要港口</h2><ul><li><strong>贝鲁特港</strong>：黎巴嫩主要港口</li></ul>`, keywords: ["贝鲁特港", "黎巴嫩港口"] },
-                    "iraq": { name: "伊拉克", content: `<p>伊拉克是石油出口大国。</p><h2>主要港口</h2><ul><li><strong>乌姆盖斯尔港</strong>：伊拉克主要港口</li><li><strong>巴士拉港</strong>：波斯湾港口</li></ul>`, keywords: ["伊拉克港口"] },
-                    "iran": { name: "伊朗", content: `<p>伊朗拥有波斯湾和阿曼湾海岸线。</p><h2>主要港口</h2><ul><li><strong>阿巴斯港</strong>：伊朗最大港口</li><li><strong>恰巴哈尔港</strong>：印度投资的港口</li></ul>`, keywords: ["阿巴斯港", "伊朗港口"] },
-                    "syria": { name: "叙利亚", content: `<p>叙利亚位于地中海东岸。</p><h2>主要港口</h2><ul><li><strong>拉塔基亚港</strong>：叙利亚主要港口</li><li><strong>塔尔图斯港</strong>：地中海港口</li></ul>`, keywords: ["叙利亚港口"] },
-                    "yemen": { name: "也门", content: `<p>也门位于阿拉伯半岛南端。</p><h2>主要港口</h2><ul><li><strong>亚丁港</strong>：红海入口战略港口</li></ul>`, keywords: ["亚丁港", "也门港口"] },
-                    "north-korea": { name: "朝鲜", content: `<p>朝鲜民主主义人民共和国，贸易受限。</p><h2>主要港口</h2><ul><li><strong>南浦港</strong>：朝鲜西海岸主要港口</li><li><strong>清津港</strong>：东海岸主要港口</li><li><strong>元山港</strong>：东海岸港口</li></ul>`, keywords: ["南浦港", "朝鲜港口"] },
-                    "timor-leste": { name: "东帝汶", content: `<p>东帝汶是东南亚最年轻的国家。</p><h2>主要港口</h2><ul><li><strong>帝力港</strong>：首都港口</li></ul>`, keywords: ["帝力港", "东帝汶港口"] },
-                    "bhutan": { name: "不丹", content: `<p>不丹是南亚内陆国家。</p><h2>贸易通道</h2><ul><li>主要通过印度加尔各答港</li></ul>`, keywords: ["不丹贸易"] },
-                    "afghanistan": { name: "阿富汗", content: `<p>阿富汗是中亚内陆国家。</p><h2>贸易通道</h2><ul><li>通过巴基斯坦卡拉奇港</li><li>通过伊朗恰巴哈尔港</li></ul>`, keywords: ["阿富汗贸易"] },
-                    "georgia": { name: "格鲁吉亚", content: `<p>格鲁吉亚位于高加索地区，黑海沿岸。</p><h2>主要港口</h2><ul><li><strong>巴统港</strong>：格鲁吉亚主要港口</li><li><strong>波季港</strong>：黑海港口</li></ul>`, keywords: ["巴统港", "格鲁吉亚港口"] },
-                    "azerbaijan": { name: "阿塞拜疆", content: `<p>阿塞拜疆位于里海沿岸，石油出口国。</p><h2>主要港口</h2><ul><li><strong>巴库港</strong>：里海最大港口</li><li><strong>阿利亚特港</strong>：新建港口</li></ul>`, keywords: ["巴库港", "阿塞拜疆港口"] },
-                    "armenia": { name: "亚美尼亚", content: `<p>亚美尼亚是高加索内陆国家。</p><h2>贸易通道</h2><ul><li>通过格鲁吉亚巴统港</li><li>通过伊朗阿巴斯港</li></ul>`, keywords: ["亚美尼亚贸易"] },
-                    "palestine": { name: "巴勒斯坦", content: `<p>巴勒斯坦地区。</p><h2>贸易通道</h2><ul><li>通过以色列港口</li><li>通过埃及港口</li></ul>`, keywords: ["巴勒斯坦"] },
-                    "cyprus": { name: "塞浦路斯", content: `<p>塞浦路斯是地中海东部岛国，位于欧亚交界处。</p><h2>主要港口</h2><ul><li><strong>利马索尔港</strong>：塞浦路斯最大港口</li><li><strong>拉纳卡港</strong>：东部港口</li></ul>`, keywords: ["利马索尔港", "塞浦路斯港口"] }
+                    "japan": {
+                        name: "日本",
+                        intro: "日本是亚洲发达经济体，拥有世界领先的港口设施和完善的物流网络。",
+                        airports: {
+                            international: [
+                                { code: "NRT", name: "成田国际机场", city: "东京" },
+                                { code: "HND", name: "羽田国际机场", city: "东京" },
+                                { code: "KIX", name: "关西国际机场", city: "大阪" },
+                                { code: "NGO", name: "中部国际机场", city: "名古屋" },
+                                { code: "FUK", name: "福冈机场", city: "福冈" },
+                                { code: "CTS", name: "新千岁机场", city: "札幌" }
+                            ],
+                            domestic: [
+                                { code: "ITM", name: "大阪伊丹机场", city: "大阪" },
+                                { code: "OKA", name: "那霸机场", city: "冲绑" }
+                            ]
+                        },
+                        ports: {
+                            international: [
+                                { code: "JPTYO", name: "东京港", city: "东京", desc: "首都港口，日本最大贸易港之一" },
+                                { code: "JPYOK", name: "横滨港", city: "横滨", desc: "关东最大港口" },
+                                { code: "JPNGO", name: "名古屋港", city: "名古屋", desc: "汽车出口重镇" },
+                                { code: "JPOSA", name: "大阪港", city: "大阪", desc: "关西枢纽" },
+                                { code: "JPUKB", name: "神户港", city: "神户", desc: "历史名港" },
+                                { code: "JPHKT", name: "博多港", city: "福冈", desc: "九州门户" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "NH", name: "全日空", nameEn: "All Nippon Airways" },
+                            { code: "JL", name: "日本航空", nameEn: "Japan Airlines" },
+                            { code: "BC", name: "天马航空", nameEn: "Skymark Airlines" },
+                            { code: "JW", name: "香草航空", nameEn: "Vanilla Air" }
+                        ],
+                        shippingLines: [
+                            { code: "ONE", name: "海洋网联", nameEn: "Ocean Network Express", desc: "日本三大航运合并" },
+                            { code: "NYK", name: "日本邮船", nameEn: "Nippon Yusen", desc: "历史悠久" },
+                            { code: "MOL", name: "商船三井", nameEn: "Mitsui O.S.K. Lines", desc: "全球领先" }
+                        ],
+                        provinces: [
+                            { name: "关东地区", cities: ["东京", "横滨", "千叶", "埼玉"] },
+                            { name: "关西地区", cities: ["大阪", "京都", "神户", "奈良"] },
+                            { name: "中部地区", cities: ["名古屋", "静冈", "金�的"] },
+                            { name: "九州地区", cities: ["福冈", "北九州", "长崎"] }
+                        ],
+                        customsPolicies: [
+                            { title: "进口申报", content: "所有进口货物需向海关申报，提交进口申报单、发票、装箱单等文件。" },
+                            { title: "关税制度", content: "根据HS编码征收关税，部分商品享受EPA优惠税率。" }
+                        ],
+                        keywords: ["东京港", "横滨港", "日本港口", "成田机场"]
+                    },
+                    "korea": {
+                        name: "韩国",
+                        intro: "韩国是重要的制造业和航运国家，釜山港是全球第六大集装箱港。",
+                        airports: {
+                            international: [
+                                { code: "ICN", name: "仁川国际机场", city: "首尔" },
+                                { code: "GMP", name: "金浦国际机场", city: "首尔" },
+                                { code: "PUS", name: "金海国际机场", city: "釜山" },
+                                { code: "CJU", name: "济州国际机场", city: "济州" }
+                            ],
+                            domestic: [
+                                { code: "TAE", name: "大邱机场", city: "大邱" },
+                                { code: "KWJ", name: "光州机场", city: "光州" }
+                            ]
+                        },
+                        ports: {
+                            international: [
+                                { code: "KRPUS", name: "釜山港", city: "釜山", desc: "全球第六大集装箱港" },
+                                { code: "KRINC", name: "仁川港", city: "仁川", desc: "首都圈门户" },
+                                { code: "KRKWG", name: "光阳港", city: "光阳", desc: "现代化深水港" },
+                                { code: "KRULS", name: "蔚山港", city: "蔚山", desc: "工业港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "KE", name: "大韩航空", nameEn: "Korean Air" },
+                            { code: "OZ", name: "韩亚航空", nameEn: "Asiana Airlines" },
+                            { code: "LJ", name: "真航空", nameEn: "Jin Air" },
+                            { code: "7C", name: "济州航空", nameEn: "Jeju Air" }
+                        ],
+                        shippingLines: [
+                            { code: "KMTC", name: "高丽海运", nameEn: "KMTC Line", desc: "韩国区域航运" },
+                            { code: "HMM", name: "现代商船", nameEn: "HMM", desc: "韩国最大航运公司" }
+                        ],
+                        provinces: [
+                            { name: "首都圈", cities: ["首尔", "仁川", "水原"] },
+                            { name: "东南圈", cities: ["釜山", "蔚山", "大邱"] },
+                            { name: "西南圈", cities: ["光州", "全州"] },
+                            { name: "济州", cities: ["济州市", "西归浦"] }
+                        ],
+                        customsPolicies: [
+                            { title: "韩国海关申报", content: "进口货物需提交进口申报单，按HS编码缴纳关税。" },
+                            { title: "FTA优惠", content: "韩国与多国签署FTA，享受优惠关税。" }
+                        ],
+                        keywords: ["釜山港", "仁川机场", "韩国港口"]
+                    },
+                    "mongolia": {
+                        name: "蒙古",
+                        intro: "蒙古是内陆国家，主要通过中国和俄罗斯港口进行国际贸易。",
+                        airports: {
+                            international: [
+                                { code: "ULN", name: "成吉思汗国际机场", city: "乌兰巴托" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "OM", name: "蒙古航空", nameEn: "MIAT Mongolian Airlines" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "中央省", cities: ["乌兰巴托"] },
+                            { name: "东方省", cities: ["乔巴山"] }
+                        ],
+                        customsPolicies: [
+                            { title: "内陆运输", content: "货物主要通过中国天津港、大连港或俄罗斯符拉迪沃斯托克港转运。" }
+                        ],
+                        keywords: ["蒙古贸易", "内陆运输", "乌兰巴托"]
+                    },
+                    "north-korea": {
+                        name: "朝鲜",
+                        intro: "朝鲜民主主义人民共和国，受国际制裁影响，贸易受限。",
+                        airports: {
+                            international: [
+                                { code: "FNJ", name: "平壤顺安国际机场", city: "平壤" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "KPNAM", name: "南浦港", city: "南浦", desc: "朝鲜主要港口" },
+                                { code: "KPWON", name: "元山港", city: "元山", desc: "东海岸港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "JS", name: "高丽航空", nameEn: "Air Koryo" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "平壤", cities: ["平壤"] },
+                            { name: "南浦", cities: ["南浦"] }
+                        ],
+                        customsPolicies: [
+                            { title: "国际制裁", content: "受联合国制裁，大部分贸易受限。" }
+                        ],
+                        keywords: ["朝鲜", "平壤", "南浦港"]
+                    },
+                    "singapore": {
+                        name: "新加坡",
+                        intro: "新加坡是全球最繁忙的转口港之一，亚洲金融和物流中心。",
+                        airports: {
+                            international: [
+                                { code: "SIN", name: "樟宜国际机场", city: "新加坡" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "SGSIN", name: "新加坡港", city: "新加坡", desc: "全球第二大集装箱港" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "SQ", name: "新加坡航空", nameEn: "Singapore Airlines" },
+                            { code: "TR", name: "酷航", nameEn: "Scoot" }
+                        ],
+                        shippingLines: [
+                            { code: "PIL", name: "太平船务", nameEn: "Pacific International Lines", desc: "新加坡航运公司" }
+                        ],
+                        provinces: [
+                            { name: "新加坡", cities: ["新加坡市"] }
+                        ],
+                        customsPolicies: [
+                            { title: "自由港政策", content: "新加坡为自由贸易港，大部分货物免关税。" },
+                            { title: "GST税", content: "商品及服务税(GST)税率9%。" }
+                        ],
+                        keywords: ["新加坡港", "樟宜机场", "转口港"]
+                    },
+                    "malaysia": {
+                        name: "马来西亚",
+                        intro: "马来西亚位于马六甲海峡，是东南亚重要的贸易枢纽。",
+                        airports: {
+                            international: [
+                                { code: "KUL", name: "吉隆坡国际机场", city: "吉隆坡" },
+                                { code: "PEN", name: "槟城国际机场", city: "槟城" },
+                                { code: "BKI", name: "亚庇国际机场", city: "亚庇" }
+                            ],
+                            domestic: [
+                                { code: "JHB", name: "新山士乃机场", city: "新山" }
+                            ]
+                        },
+                        ports: {
+                            international: [
+                                { code: "MYPKG", name: "巴生港", city: "巴生", desc: "马来西亚最大港口" },
+                                { code: "MYTPP", name: "丹戎帕拉帕斯港", city: "柔佛", desc: "重要转运港" },
+                                { code: "MYPEN", name: "槟城港", city: "槟城", desc: "北部港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "MH", name: "马来西亚航空", nameEn: "Malaysia Airlines" },
+                            { code: "AK", name: "亚洲航空", nameEn: "AirAsia" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "吉隆坡", cities: ["吉隆坡"] },
+                            { name: "雪兰莪", cities: ["巴生", "莎阿南"] },
+                            { name: "槟城", cities: ["乔治市"] },
+                            { name: "柔佛", cities: ["新山"] }
+                        ],
+                        customsPolicies: [
+                            { title: "进口关税", content: "根据HS编码征收关税，部分商品免税。" }
+                        ],
+                        keywords: ["巴生港", "吉隆坡机场", "马来西亚港口"]
+                    },
+                    "thailand": {
+                        name: "泰国",
+                        intro: "泰国是东南亚制造业中心，物流网络发达。",
+                        airports: {
+                            international: [
+                                { code: "BKK", name: "素万那普国际机场", city: "曼谷" },
+                                { code: "DMK", name: "廊曼国际机场", city: "曼谷" },
+                                { code: "HKT", name: "普吉国际机场", city: "普吉" },
+                                { code: "CNX", name: "清迈国际机场", city: "清迈" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "THLCH", name: "林查班港", city: "春武里", desc: "泰国最大深水港" },
+                                { code: "THBKK", name: "曼谷港", city: "曼谷", desc: "传统贸易港" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "TG", name: "泰国航空", nameEn: "Thai Airways" },
+                            { code: "FD", name: "泰国亚航", nameEn: "Thai AirAsia" }
+                        ],
+                        shippingLines: [
+                            { code: "RCL", name: "宏海箱运", nameEn: "Regional Container Lines", desc: "泰国航运公司" }
+                        ],
+                        provinces: [
+                            { name: "曼谷", cities: ["曼谷"] },
+                            { name: "春武里", cities: ["芭提雅", "林查班"] },
+                            { name: "清迈", cities: ["清迈"] },
+                            { name: "普吉", cities: ["普吉"] }
+                        ],
+                        customsPolicies: [
+                            { title: "泰国海关", content: "进口需申报，按HS编码缴税。" }
+                        ],
+                        keywords: ["林查班港", "曼谷机场", "泰国港口"]
+                    },
+                    "vietnam": {
+                        name: "越南",
+                        intro: "越南是快速发展的制造业国家，成为全球供应链重要一环。",
+                        airports: {
+                            international: [
+                                { code: "SGN", name: "新山一国际机场", city: "胡志明市" },
+                                { code: "HAN", name: "内排国际机场", city: "河内" },
+                                { code: "DAD", name: "岘港国际机场", city: "岘港" }
+                            ],
+                            domestic: [
+                                { code: "CXR", name: "金兰机场", city: "芽庄" }
+                            ]
+                        },
+                        ports: {
+                            international: [
+                                { code: "VNSGN", name: "胡志明港", city: "胡志明市", desc: "越南最大港口" },
+                                { code: "VNHPH", name: "海防港", city: "海防", desc: "北部主要港口" },
+                                { code: "VNDAD", name: "岘港", city: "岘港", desc: "中部港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "VN", name: "越南航空", nameEn: "Vietnam Airlines" },
+                            { code: "VJ", name: "越捷航空", nameEn: "VietJet Air" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "胡志明市", cities: ["胡志明市"] },
+                            { name: "河内", cities: ["河内"] },
+                            { name: "岘港", cities: ["岘港"] },
+                            { name: "海防", cities: ["海防"] }
+                        ],
+                        customsPolicies: [
+                            { title: "越南海关", content: "进口需提交申报单，按HS编码缴税。" }
+                        ],
+                        keywords: ["胡志明港", "海防港", "越南港口"]
+                    },
+                    "indonesia": {
+                        name: "印度尼西亚",
+                        intro: "印尼是东南亚最大国家，群岛国家港口众多。",
+                        airports: {
+                            international: [
+                                { code: "CGK", name: "苏加诺-哈达国际机场", city: "雅加达" },
+                                { code: "DPS", name: "伍拉·赖国际机场", city: "巴厘岛" },
+                                { code: "SUB", name: "朱安达国际机场", city: "泗水" }
+                            ],
+                            domestic: [
+                                { code: "UPG", name: "苏丹哈桑丁机场", city: "望加锡" }
+                            ]
+                        },
+                        ports: {
+                            international: [
+                                { code: "IDJKT", name: "丹戎不碌港", city: "雅加达", desc: "印尼最大港口" },
+                                { code: "IDSUB", name: "泗水港", city: "泗水", desc: "第二大港" },
+                                { code: "IDBTH", name: "巴淡港", city: "巴淡", desc: "转运港" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "GA", name: "印尼鹰航", nameEn: "Garuda Indonesia" },
+                            { code: "JT", name: "狮子航空", nameEn: "Lion Air" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "雅加达", cities: ["雅加达"] },
+                            { name: "东爪哇", cities: ["泗水"] },
+                            { name: "巴厘", cities: ["登巴萨"] },
+                            { name: "廖内群岛", cities: ["巴淡"] }
+                        ],
+                        customsPolicies: [
+                            { title: "印尼海关", content: "进口需申报，按HS编码缴税。" }
+                        ],
+                        keywords: ["雅加达港", "泗水港", "印尼港口"]
+                    },
+                    "philippines": {
+                        name: "菲律宾",
+                        intro: "菲律宾是群岛国家，马尼拉是主要贸易枢纽。",
+                        airports: {
+                            international: [
+                                { code: "MNL", name: "尼诺·阿基诺国际机场", city: "马尼拉" },
+                                { code: "CEB", name: "麦克坦-宿务国际机场", city: "宿务" },
+                                { code: "CRK", name: "克拉克国际机场", city: "克拉克" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "PHMNL", name: "马尼拉港", city: "马尼拉", desc: "菲律宾最大港口" },
+                                { code: "PHCEB", name: "宿务港", city: "宿务", desc: "中部枢纽" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "PR", name: "菲律宾航空", nameEn: "Philippine Airlines" },
+                            { code: "5J", name: "宿务太平洋", nameEn: "Cebu Pacific" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "马尼拉大都会", cities: ["马尼拉", "马卡蒂", "奎松"] },
+                            { name: "宿务", cities: ["宿务市"] },
+                            { name: "达沃", cities: ["达沃市"] }
+                        ],
+                        customsPolicies: [
+                            { title: "菲律宾海关", content: "进口需申报，按HS编码缴税。" }
+                        ],
+                        keywords: ["马尼拉港", "宿务港", "菲律宾港口"]
+                    },
+                    "myanmar": {
+                        name: "缅甸",
+                        intro: "缅甸正在发展其港口基础设施，是中缅经济走廊重要节点。",
+                        airports: {
+                            international: [
+                                { code: "RGN", name: "仰光国际机场", city: "仰光" },
+                                { code: "MDL", name: "曼德勒国际机场", city: "曼德勒" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "MMRGN", name: "仰光港", city: "仰光", desc: "缅甸最大港口" },
+                                { code: "MMKYP", name: "皎漂港", city: "皎漂", desc: "中缅经济走廊重要港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "UB", name: "缅甸国家航空", nameEn: "Myanmar National Airlines" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "仰光", cities: ["仰光"] },
+                            { name: "曼德勒", cities: ["曼德勒"] }
+                        ],
+                        customsPolicies: [
+                            { title: "缅甸海关", content: "进口需申报，部分商品需许可证。" }
+                        ],
+                        keywords: ["仰光港", "皎漂港", "缅甸港口"]
+                    },
+                    "cambodia": {
+                        name: "柬埔寨",
+                        intro: "柬埔寨是东南亚新兴市场，制造业快速发展。",
+                        airports: {
+                            international: [
+                                { code: "PNH", name: "金边国际机场", city: "金边" },
+                                { code: "REP", name: "暹粒国际机场", city: "暹粒" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "KHSHV", name: "西哈努克港", city: "西哈努克", desc: "柬埔寨唯一深水港" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "KR", name: "柬埔寨航空", nameEn: "Cambodia Airways" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "金边", cities: ["金边"] },
+                            { name: "西哈努克", cities: ["西哈努克市"] },
+                            { name: "暹粒", cities: ["暹粒"] }
+                        ],
+                        customsPolicies: [
+                            { title: "柬埔寨海关", content: "进口需申报缴税。" }
+                        ],
+                        keywords: ["西哈努克港", "柬埔寨港口"]
+                    },
+                    "laos": {
+                        name: "老挝",
+                        intro: "老挝是内陆国家，通过邻国港口进行国际贸易。",
+                        airports: {
+                            international: [
+                                { code: "VTE", name: "瓦岱国际机场", city: "万象" },
+                                { code: "LPQ", name: "琅勃拉邦国际机场", city: "琅勃拉邦" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "QV", name: "老挝航空", nameEn: "Lao Airlines" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "万象", cities: ["万象"] },
+                            { name: "琅勃拉邦", cities: ["琅勃拉邦"] }
+                        ],
+                        customsPolicies: [
+                            { title: "内陆运输", content: "主要通过泰国林查班港或越南海防港转运。" }
+                        ],
+                        keywords: ["老挝贸易", "内陆运输"]
+                    },
+                    "brunei": {
+                        name: "文莱",
+                        intro: "文莱是石油富国，经济依赖能源出口。",
+                        airports: {
+                            international: [
+                                { code: "BWN", name: "文莱国际机场", city: "斯里巴加湾" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "BNMUA", name: "穆阿拉港", city: "穆阿拉", desc: "文莱主要港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "BI", name: "文莱皇家航空", nameEn: "Royal Brunei Airlines" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "文莱-穆阿拉", cities: ["斯里巴加湾"] }
+                        ],
+                        customsPolicies: [
+                            { title: "文莱海关", content: "伊斯兰国家，酒类等商品禁止进口。" }
+                        ],
+                        keywords: ["穆阿拉港", "文莱港口"]
+                    },
+                    "timor-leste": {
+                        name: "东帝汶",
+                        intro: "东帝汶是东南亚最年轻的国家，经济正在发展中。",
+                        airports: {
+                            international: [
+                                { code: "DIL", name: "尼古劳·洛巴托国际机场", city: "帝力" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "TLDIL", name: "帝力港", city: "帝力", desc: "东帝汶主要港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "帝力", cities: ["帝力"] }
+                        ],
+                        customsPolicies: [
+                            { title: "东帝汶海关", content: "进口需申报缴税。" }
+                        ],
+                        keywords: ["帝力港", "东帝汶"]
+                    },
+                    "india": {
+                        name: "印度",
+                        intro: "印度是南亚最大经济体，拥有快速发展的港口和物流网络。",
+                        airports: {
+                            international: [
+                                { code: "DEL", name: "英迪拉·甘地国际机场", city: "新德里" },
+                                { code: "BOM", name: "贾特拉帕蒂·希瓦吉国际机场", city: "孟买" },
+                                { code: "MAA", name: "金奈国际机场", city: "金奈" },
+                                { code: "BLR", name: "班加罗尔国际机场", city: "班加罗尔" },
+                                { code: "CCU", name: "加尔各答国际机场", city: "加尔各答" }
+                            ],
+                            domestic: [
+                                { code: "HYD", name: "海德拉巴机场", city: "海德拉巴" }
+                            ]
+                        },
+                        ports: {
+                            international: [
+                                { code: "INNSA", name: "尼赫鲁港", city: "孟买", desc: "印度最大集装箱港" },
+                                { code: "INBOM", name: "孟买港", city: "孟买", desc: "西海岸枢纽" },
+                                { code: "INMAA", name: "金奈港", city: "金奈", desc: "东海岸重要港口" },
+                                { code: "INCCU", name: "加尔各答港", city: "加尔各答", desc: "传统贸易港" },
+                                { code: "INMUN", name: "蒙德拉港", city: "古吉拉特", desc: "私营大港" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "AI", name: "印度航空", nameEn: "Air India" },
+                            { code: "6E", name: "靛蓝航空", nameEn: "IndiGo" },
+                            { code: "SG", name: "香料航空", nameEn: "SpiceJet" }
+                        ],
+                        shippingLines: [
+                            { code: "SCI", name: "印度航运", nameEn: "Shipping Corporation of India", desc: "印度国有航运" }
+                        ],
+                        provinces: [
+                            { name: "马哈拉施特拉", cities: ["孟买", "浦那"] },
+                            { name: "德里", cities: ["新德里"] },
+                            { name: "卡纳塔克", cities: ["班加罗尔"] },
+                            { name: "泰米尔纳德", cities: ["金奈"] },
+                            { name: "西孟加拉", cities: ["加尔各答"] }
+                        ],
+                        customsPolicies: [
+                            { title: "印度海关", content: "进口需申报，按HS编码缴纳关税和GST。" },
+                            { title: "BIS认证", content: "部分商品需要印度标准局(BIS)认证。" }
+                        ],
+                        keywords: ["尼赫鲁港", "孟买港", "印度港口"]
+                    },
+                    "pakistan": {
+                        name: "巴基斯坦",
+                        intro: "巴基斯坦是南亚重要国家，中巴经济走廊带来发展机遇。",
+                        airports: {
+                            international: [
+                                { code: "KHI", name: "真纳国际机场", city: "卡拉奇" },
+                                { code: "LHE", name: "阿拉马·伊克巴勒国际机场", city: "拉合尔" },
+                                { code: "ISB", name: "伊斯兰堡国际机场", city: "伊斯兰堡" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "PKKHI", name: "卡拉奇港", city: "卡拉奇", desc: "巴基斯坦最大港口" },
+                                { code: "PKGWD", name: "瓜达尔港", city: "瓜达尔", desc: "中巴经济走廊终点" },
+                                { code: "PKQCT", name: "卡西姆港", city: "卡拉奇", desc: "现代化港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "PK", name: "巴基斯坦国际航空", nameEn: "Pakistan International Airlines" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "信德", cities: ["卡拉奇", "海德拉巴"] },
+                            { name: "旁遮普", cities: ["拉合尔", "费萨拉巴德"] },
+                            { name: "联邦首都区", cities: ["伊斯兰堡"] },
+                            { name: "俾路支", cities: ["瓜达尔", "奎达"] }
+                        ],
+                        customsPolicies: [
+                            { title: "巴基斯坦海关", content: "进口需申报缴税，部分商品需许可证。" }
+                        ],
+                        keywords: ["卡拉奇港", "瓜达尔港", "巴基斯坦港口"]
+                    },
+                    "bangladesh": {
+                        name: "孟加拉国",
+                        intro: "孟加拉国是全球重要的纺织品出口国。",
+                        airports: {
+                            international: [
+                                { code: "DAC", name: "沙贾拉尔国际机场", city: "达卡" },
+                                { code: "CGP", name: "沙阿阿马纳国际机场", city: "吉大港" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "BDCGP", name: "吉大港", city: "吉大港", desc: "孟加拉国最大港口" },
+                                { code: "BDMGL", name: "蒙格拉港", city: "蒙格拉", desc: "第二大港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "BG", name: "孟加拉航空", nameEn: "Biman Bangladesh Airlines" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "达卡", cities: ["达卡"] },
+                            { name: "吉大港", cities: ["吉大港"] }
+                        ],
+                        customsPolicies: [
+                            { title: "孟加拉国海关", content: "进口需申报缴税。" }
+                        ],
+                        keywords: ["吉大港", "孟加拉国港口"]
+                    },
+                    "srilanka": {
+                        name: "斯里兰卡",
+                        intro: "斯里兰卡位于印度洋航运要道，是南亚重要转口港。",
+                        airports: {
+                            international: [
+                                { code: "CMB", name: "班达拉奈克国际机场", city: "科伦坡" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "LKCMB", name: "科伦坡港", city: "科伦坡", desc: "南亚重要转口港" },
+                                { code: "LKHRI", name: "汉班托塔港", city: "汉班托塔", desc: "新建深水港" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "UL", name: "斯里兰卡航空", nameEn: "SriLankan Airlines" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "西部省", cities: ["科伦坡"] },
+                            { name: "南部省", cities: ["汉班托塔"] }
+                        ],
+                        customsPolicies: [
+                            { title: "斯里兰卡海关", content: "进口需申报缴税。" }
+                        ],
+                        keywords: ["科伦坡港", "汉班托塔港", "斯里兰卡港口"]
+                    },
+                    "nepal": {
+                        name: "尼泊尔",
+                        intro: "尼泊尔是内陆国家，主要通过印度港口进行国际贸易。",
+                        airports: {
+                            international: [
+                                { code: "KTM", name: "特里布万国际机场", city: "加德满都" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "RA", name: "尼泊尔航空", nameEn: "Nepal Airlines" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "巴格马蒂", cities: ["加德满都"] },
+                            { name: "甘达基", cities: ["博卡拉"] }
+                        ],
+                        customsPolicies: [
+                            { title: "内陆运输", content: "主要通过印度加尔各答港转运。" }
+                        ],
+                        keywords: ["尼泊尔贸易", "内陆运输"]
+                    },
+                    "maldives": {
+                        name: "马尔代夫",
+                        intro: "马尔代夫是印度洋岛国，以旅游业为主。",
+                        airports: {
+                            international: [
+                                { code: "MLE", name: "维拉纳国际机场", city: "马累" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "MVMLE", name: "马累港", city: "马累", desc: "马尔代夫主要港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "Q2", name: "马尔代夫航空", nameEn: "Maldivian" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "马累", cities: ["马累"] }
+                        ],
+                        customsPolicies: [
+                            { title: "马尔代夫海关", content: "伊斯兰国家，酒类、猪肉等禁止进口。" }
+                        ],
+                        keywords: ["马累港", "马尔代夫港口"]
+                    },
+                    "bhutan": {
+                        name: "不丹",
+                        intro: "不丹是内陆国家，通过印度进行国际贸易。",
+                        airports: {
+                            international: [
+                                { code: "PBH", name: "帕罗机场", city: "帕罗" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "B3", name: "不丹皇家航空", nameEn: "Druk Air" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "廷布", cities: ["廷布"] },
+                            { name: "帕罗", cities: ["帕罗"] }
+                        ],
+                        customsPolicies: [
+                            { title: "内陆运输", content: "主要通过印度加尔各答港转运。" }
+                        ],
+                        keywords: ["不丹贸易", "内陆运输"]
+                    },
+                    "kazakhstan": {
+                        name: "哈萨克斯坦",
+                        intro: "哈萨克斯坦是中亚最大国家，中欧班列重要途经国。",
+                        airports: {
+                            international: [
+                                { code: "ALA", name: "阿拉木图国际机场", city: "阿拉木图" },
+                                { code: "NQZ", name: "努尔苏丹国际机场", city: "努尔苏丹" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "KZAKT", name: "阿克套港", city: "阿克套", desc: "里海港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "KC", name: "阿斯塔纳航空", nameEn: "Air Astana" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "阿拉木图", cities: ["阿拉木图"] },
+                            { name: "努尔苏丹", cities: ["努尔苏丹"] },
+                            { name: "阿克套", cities: ["阿克套"] }
+                        ],
+                        customsPolicies: [
+                            { title: "中欧班列", content: "中欧班列重要途经国，货物可在霍尔果斯口岸通关。" }
+                        ],
+                        keywords: ["哈萨克斯坦", "中欧班列", "阿克套港"]
+                    },
+                    "uzbekistan": {
+                        name: "乌兹别克斯坦",
+                        intro: "乌兹别克斯坦是中亚人口最多的国家。",
+                        airports: {
+                            international: [
+                                { code: "TAS", name: "塔什干国际机场", city: "塔什干" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "HY", name: "乌兹别克斯坦航空", nameEn: "Uzbekistan Airways" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "塔什干", cities: ["塔什干"] },
+                            { name: "撒马尔罕", cities: ["撒马尔罕"] }
+                        ],
+                        customsPolicies: [
+                            { title: "铁路运输", content: "主要通过铁路连接中国和欧洲。" }
+                        ],
+                        keywords: ["乌兹别克斯坦", "塔什干"]
+                    },
+                    "turkmenistan": {
+                        name: "土库曼斯坦",
+                        intro: "土库曼斯坦拥有丰富的天然气资源。",
+                        airports: {
+                            international: [
+                                { code: "ASB", name: "阿什哈巴德国际机场", city: "阿什哈巴德" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "TMTMB", name: "土库曼巴希港", city: "土库曼巴希", desc: "里海港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "T5", name: "土库曼斯坦航空", nameEn: "Turkmenistan Airlines" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "阿什哈巴德", cities: ["阿什哈巴德"] }
+                        ],
+                        customsPolicies: [
+                            { title: "土库曼斯坦海关", content: "进口需许可证，管控较严。" }
+                        ],
+                        keywords: ["土库曼斯坦", "土库曼巴希港"]
+                    },
+                    "kyrgyzstan": {
+                        name: "吉尔吉斯斯坦",
+                        intro: "吉尔吉斯斯坦是中亚内陆国家。",
+                        airports: {
+                            international: [
+                                { code: "FRU", name: "玛纳斯国际机场", city: "比什凯克" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "QH", name: "吉尔吉斯斯坦航空", nameEn: "Air Kyrgyzstan" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "比什凯克", cities: ["比什凯克"] },
+                            { name: "奥什", cities: ["奥什"] }
+                        ],
+                        customsPolicies: [
+                            { title: "内陆运输", content: "通过中国和哈萨克斯坦进行贸易。" }
+                        ],
+                        keywords: ["吉尔吉斯斯坦", "比什凯克"]
+                    },
+                    "tajikistan": {
+                        name: "塔吉克斯坦",
+                        intro: "塔吉克斯坦是中亚内陆国家。",
+                        airports: {
+                            international: [
+                                { code: "DYU", name: "杜尚别国际机场", city: "杜尚别" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "7J", name: "塔吉克航空", nameEn: "Tajik Air" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "杜尚别", cities: ["杜尚别"] }
+                        ],
+                        customsPolicies: [
+                            { title: "内陆运输", content: "通过中国或邻国进行贸易。" }
+                        ],
+                        keywords: ["塔吉克斯坦", "杜尚别"]
+                    },
+                    "uae": {
+                        name: "阿联酋",
+                        intro: "阿联酋是中东最重要的贸易和物流中心，迪拜是全球转口贸易枢纽。",
+                        airports: {
+                            international: [
+                                { code: "DXB", name: "迪拜国际机场", city: "迪拜" },
+                                { code: "AUH", name: "阿布扎比国际机场", city: "阿布扎比" },
+                                { code: "DWC", name: "阿勒马克图姆国际机场", city: "迪拜" },
+                                { code: "SHJ", name: "沙迦国际机场", city: "沙迦" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "AEJEA", name: "杰贝阿里港", city: "迪拜", desc: "中东最大港口，全球第九大港" },
+                                { code: "AEAUH", name: "阿布扎比港", city: "阿布扎比", desc: "重要港口" },
+                                { code: "AEKLF", name: "哈利法港", city: "阿布扎比", desc: "现代化港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "EK", name: "阿联酋航空", nameEn: "Emirates" },
+                            { code: "EY", name: "阿提哈德航空", nameEn: "Etihad Airways" },
+                            { code: "FZ", name: "迪拜航空", nameEn: "flydubai" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "迪拜", cities: ["迪拜"] },
+                            { name: "阿布扎比", cities: ["阿布扎比"] },
+                            { name: "沙迦", cities: ["沙迦"] }
+                        ],
+                        customsPolicies: [
+                            { title: "自贸区政策", content: "杰贝阿里自贸区享受免税优惠。" },
+                            { title: "VAT税", content: "增值税税率5%。" }
+                        ],
+                        keywords: ["杰贝阿里港", "迪拜机场", "阿联酋港口"]
+                    },
+                    "saudi-arabia": {
+                        name: "沙特阿拉伯",
+                        intro: "沙特是中东最大经济体，石油出口大国。",
+                        airports: {
+                            international: [
+                                { code: "RUH", name: "哈立德国王国际机场", city: "利雅得" },
+                                { code: "JED", name: "阿卜杜勒-阿齐兹国王国际机场", city: "吉达" },
+                                { code: "DMM", name: "法赫德国王国际机场", city: "达曼" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "SAJED", name: "吉达港", city: "吉达", desc: "红海最大港口" },
+                                { code: "SADMM", name: "达曼港", city: "达曼", desc: "波斯湾港口" },
+                                { code: "SAJUB", name: "朱拜勒港", city: "朱拜勒", desc: "工业港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "SV", name: "沙特阿拉伯航空", nameEn: "Saudi Arabian Airlines" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "利雅得", cities: ["利雅得"] },
+                            { name: "麦加", cities: ["吉达", "麦加"] },
+                            { name: "东部省", cities: ["达曼", "胡拜尔"] }
+                        ],
+                        customsPolicies: [
+                            { title: "沙特海关", content: "伊斯兰国家，酒类、猪肉等禁止进口。" },
+                            { title: "SASO认证", content: "部分商品需SASO认证。" }
+                        ],
+                        keywords: ["吉达港", "达曼港", "沙特港口"]
+                    },
+                    "turkey": {
+                        name: "土耳其",
+                        intro: "土耳其横跨欧亚大陆，是重要的贸易桥梁。",
+                        airports: {
+                            international: [
+                                { code: "IST", name: "伊斯坦布尔机场", city: "伊斯坦布尔" },
+                                { code: "SAW", name: "萨比哈·格克琴机场", city: "伊斯坦布尔" },
+                                { code: "ESB", name: "埃森博阿机场", city: "安卡拉" },
+                                { code: "ADB", name: "阿德南·门德列斯机场", city: "伊兹密尔" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "TRIST", name: "伊斯坦布尔港", city: "伊斯坦布尔", desc: "博斯普鲁斯海峡枢纽" },
+                                { code: "TRIZM", name: "伊兹密尔港", city: "伊兹密尔", desc: "爱琴海港口" },
+                                { code: "TRMER", name: "梅尔辛港", city: "梅尔辛", desc: "地中海最大港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "TK", name: "土耳其航空", nameEn: "Turkish Airlines" },
+                            { code: "PC", name: "飞马航空", nameEn: "Pegasus Airlines" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "伊斯坦布尔", cities: ["伊斯坦布尔"] },
+                            { name: "安卡拉", cities: ["安卡拉"] },
+                            { name: "伊兹密尔", cities: ["伊兹密尔"] },
+                            { name: "梅尔辛", cities: ["梅尔辛"] }
+                        ],
+                        customsPolicies: [
+                            { title: "土耳其海关", content: "与欧盟有关税同盟，部分商品免关税。" }
+                        ],
+                        keywords: ["伊斯坦布尔港", "梅尔辛港", "土耳其港口"]
+                    },
+                    "israel": {
+                        name: "以色列",
+                        intro: "以色列是中东高科技国家，拥有先进的物流设施。",
+                        airports: {
+                            international: [
+                                { code: "TLV", name: "本-古里安国际机场", city: "特拉维夫" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "ILHFA", name: "海法港", city: "海法", desc: "以色列最大港口" },
+                                { code: "ILASH", name: "阿什杜德港", city: "阿什杜德", desc: "现代化港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "LY", name: "以色列航空", nameEn: "El Al" }
+                        ],
+                        shippingLines: [
+                            { code: "ZIM", name: "以星航运", nameEn: "ZIM", desc: "以色列航运公司" }
+                        ],
+                        provinces: [
+                            { name: "特拉维夫区", cities: ["特拉维夫"] },
+                            { name: "海法区", cities: ["海法"] }
+                        ],
+                        customsPolicies: [
+                            { title: "以色列海关", content: "进口需申报缴税。" }
+                        ],
+                        keywords: ["海法港", "以色列港口"]
+                    },
+                    "qatar": {
+                        name: "卡塔尔",
+                        intro: "卡塔尔是全球最富裕的国家之一，天然气出口大国。",
+                        airports: {
+                            international: [
+                                { code: "DOH", name: "哈马德国际机场", city: "多哈" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "QAHMD", name: "哈马德港", city: "多哈", desc: "卡塔尔新建大港" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "QR", name: "卡塔尔航空", nameEn: "Qatar Airways" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "多哈", cities: ["多哈"] }
+                        ],
+                        customsPolicies: [
+                            { title: "卡塔尔海关", content: "免税港口，大部分商品免关税。" }
+                        ],
+                        keywords: ["哈马德港", "卡塔尔港口"]
+                    },
+                    "kuwait": {
+                        name: "科威特",
+                        intro: "科威特是石油出口国，经济依赖能源。",
+                        airports: {
+                            international: [
+                                { code: "KWI", name: "科威特国际机场", city: "科威特城" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "KWSWK", name: "舒威赫港", city: "科威特城", desc: "科威特主要港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "KU", name: "科威特航空", nameEn: "Kuwait Airways" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "科威特城", cities: ["科威特城"] }
+                        ],
+                        customsPolicies: [
+                            { title: "科威特海关", content: "GCC成员国，部分商品享受优惠税率。" }
+                        ],
+                        keywords: ["舒威赫港", "科威特港口"]
+                    },
+                    "oman": {
+                        name: "阿曼",
+                        intro: "阿曼位于阿拉伯半岛东南，是重要的转口贸易中心。",
+                        airports: {
+                            international: [
+                                { code: "MCT", name: "马斯喀特国际机场", city: "马斯喀特" },
+                                { code: "SLL", name: "萨拉拉机场", city: "萨拉拉" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "OMSLL", name: "萨拉拉港", city: "萨拉拉", desc: "印度洋重要转口港" },
+                                { code: "OMSOH", name: "苏哈尔港", city: "苏哈尔", desc: "新兴工业港" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "WY", name: "阿曼航空", nameEn: "Oman Air" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "马斯喀特", cities: ["马斯喀特"] },
+                            { name: "佐法尔", cities: ["萨拉拉"] }
+                        ],
+                        customsPolicies: [
+                            { title: "阿曼海关", content: "GCC成员国，部分商品免关税。" }
+                        ],
+                        keywords: ["萨拉拉港", "阿曼港口"]
+                    },
+                    "bahrain": {
+                        name: "巴林",
+                        intro: "巴林是波斯湾岛国，金融和贸易中心。",
+                        airports: {
+                            international: [
+                                { code: "BAH", name: "巴林国际机场", city: "麦纳麦" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "BHMIN", name: "米纳萨尔曼港", city: "麦纳麦", desc: "巴林主要港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "GF", name: "海湾航空", nameEn: "Gulf Air" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "麦纳麦", cities: ["麦纳麦"] }
+                        ],
+                        customsPolicies: [
+                            { title: "巴林海关", content: "GCC成员国，部分商品免关税。" }
+                        ],
+                        keywords: ["巴林港口"]
+                    },
+                    "jordan": {
+                        name: "约旦",
+                        intro: "约旦是中东重要国家，亚喀巴是唯一出海口。",
+                        airports: {
+                            international: [
+                                { code: "AMM", name: "阿勒娅王后国际机场", city: "安曼" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "JOAQJ", name: "亚喀巴港", city: "亚喀巴", desc: "约旦唯一海港" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "RJ", name: "皇家约旦航空", nameEn: "Royal Jordanian" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "安曼", cities: ["安曼"] },
+                            { name: "亚喀巴", cities: ["亚喀巴"] }
+                        ],
+                        customsPolicies: [
+                            { title: "约旦海关", content: "与多国有自贸协定。" }
+                        ],
+                        keywords: ["亚喀巴港", "约旦港口"]
+                    },
+                    "lebanon": {
+                        name: "黎巴嫩",
+                        intro: "黎巴嫩是地中海东岸国家，贝鲁特是区域贸易中心。",
+                        airports: {
+                            international: [
+                                { code: "BEY", name: "贝鲁特国际机场", city: "贝鲁特" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "LBBEY", name: "贝鲁特港", city: "贝鲁特", desc: "黎巴嫩主要港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "ME", name: "中东航空", nameEn: "Middle East Airlines" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "贝鲁特", cities: ["贝鲁特"] }
+                        ],
+                        customsPolicies: [
+                            { title: "黎巴嫩海关", content: "进口需申报缴税。" }
+                        ],
+                        keywords: ["贝鲁特港", "黎巴嫩港口"]
+                    },
+                    "iraq": {
+                        name: "伊拉克",
+                        intro: "伊拉克正在重建经济，石油出口为主要收入。",
+                        airports: {
+                            international: [
+                                { code: "BGW", name: "巴格达国际机场", city: "巴格达" },
+                                { code: "BSR", name: "巴士拉国际机场", city: "巴士拉" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "IQUQR", name: "乌姆盖斯尔港", city: "巴士拉", desc: "伊拉克主要港口" },
+                                { code: "IQBSR", name: "巴士拉港", city: "巴士拉", desc: "波斯湾港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "IA", name: "伊拉克航空", nameEn: "Iraqi Airways" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "巴格达", cities: ["巴格达"] },
+                            { name: "巴士拉", cities: ["巴士拉"] }
+                        ],
+                        customsPolicies: [
+                            { title: "伊拉克海关", content: "进口需申报，部分商品需许可证。" }
+                        ],
+                        keywords: ["伊拉克港口"]
+                    },
+                    "iran": {
+                        name: "伊朗",
+                        intro: "伊朗是中东大国，受国际制裁影响贸易受限。",
+                        airports: {
+                            international: [
+                                { code: "IKA", name: "伊玛目霍梅尼国际机场", city: "德黑兰" },
+                                { code: "THR", name: "梅赫拉巴德机场", city: "德黑兰" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "IRBND", name: "阿巴斯港", city: "阿巴斯", desc: "伊朗最大港口" },
+                                { code: "IRCHB", name: "恰巴哈尔港", city: "恰巴哈尔", desc: "印度投资的港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "IR", name: "伊朗航空", nameEn: "Iran Air" },
+                            { code: "W5", name: "马汉航空", nameEn: "Mahan Air" }
+                        ],
+                        shippingLines: [
+                            { code: "IRISL", name: "伊朗国航", nameEn: "IRISL", desc: "伊朗国有航运" }
+                        ],
+                        provinces: [
+                            { name: "德黑兰", cities: ["德黑兰"] },
+                            { name: "霍尔木兹甘", cities: ["阿巴斯"] }
+                        ],
+                        customsPolicies: [
+                            { title: "制裁影响", content: "受美国制裁，贸易受限，需注意合规。" }
+                        ],
+                        keywords: ["阿巴斯港", "伊朗港口"]
+                    },
+                    "syria": {
+                        name: "叙利亚",
+                        intro: "叙利亚位于地中海东岸，受冲突影响贸易受限。",
+                        airports: {
+                            international: [
+                                { code: "DAM", name: "大马士革国际机场", city: "大马士革" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "SYLAT", name: "拉塔基亚港", city: "拉塔基亚", desc: "叙利亚主要港口" },
+                                { code: "SYTTS", name: "塔尔图斯港", city: "塔尔图斯", desc: "地中海港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "RB", name: "叙利亚航空", nameEn: "Syrian Air" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "大马士革", cities: ["大马士革"] },
+                            { name: "拉塔基亚", cities: ["拉塔基亚"] }
+                        ],
+                        customsPolicies: [
+                            { title: "制裁影响", content: "受国际制裁，贸易受限。" }
+                        ],
+                        keywords: ["叙利亚港口"]
+                    },
+                    "yemen": {
+                        name: "也门",
+                        intro: "也门位于阿拉伯半岛南端，受冲突影响严重。",
+                        airports: {
+                            international: [
+                                { code: "SAH", name: "萨那国际机场", city: "萨那" },
+                                { code: "ADE", name: "亚丁国际机场", city: "亚丁" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "YEADE", name: "亚丁港", city: "亚丁", desc: "红海入口战略港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "IY", name: "也门航空", nameEn: "Yemenia" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "萨那", cities: ["萨那"] },
+                            { name: "亚丁", cities: ["亚丁"] }
+                        ],
+                        customsPolicies: [
+                            { title: "冲突影响", content: "受内战影响，贸易受限。" }
+                        ],
+                        keywords: ["亚丁港", "也门港口"]
+                    },
+                    "georgia": {
+                        name: "格鲁吉亚",
+                        intro: "格鲁吉亚是高加索国家，黑海沿岸重要贸易通道。",
+                        airports: {
+                            international: [
+                                { code: "TBS", name: "第比利斯国际机场", city: "第比利斯" },
+                                { code: "BUS", name: "巴统机场", city: "巴统" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "GEBAT", name: "巴统港", city: "巴统", desc: "黑海港口" },
+                                { code: "GEPTI", name: "波季港", city: "波季", desc: "重要转运港" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "A9", name: "格鲁吉亚航空", nameEn: "Georgian Airways" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "第比利斯", cities: ["第比利斯"] },
+                            { name: "阿扎尔", cities: ["巴统"] }
+                        ],
+                        customsPolicies: [
+                            { title: "格鲁吉亚海关", content: "自由贸易政策，关税较低。" }
+                        ],
+                        keywords: ["巴统港", "格鲁吉亚港口"]
+                    },
+                    "azerbaijan": {
+                        name: "阿塞拜疆",
+                        intro: "阿塞拜疆是里海沿岸国家，石油资源丰富。",
+                        airports: {
+                            international: [
+                                { code: "GYD", name: "盖达尔·阿利耶夫国际机场", city: "巴库" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "AZBAK", name: "巴库港", city: "巴库", desc: "里海最大港口" },
+                                { code: "AZALY", name: "阿利亚特港", city: "阿利亚特", desc: "新建港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "J2", name: "阿塞拜疆航空", nameEn: "Azerbaijan Airlines" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "巴库", cities: ["巴库"] }
+                        ],
+                        customsPolicies: [
+                            { title: "阿塞拜疆海关", content: "进口需申报缴税。" }
+                        ],
+                        keywords: ["巴库港", "阿塞拜疆港口"]
+                    },
+                    "armenia": {
+                        name: "亚美尼亚",
+                        intro: "亚美尼亚是高加索内陆国家。",
+                        airports: {
+                            international: [
+                                { code: "EVN", name: "兹瓦尔特诺茨国际机场", city: "埃里温" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "U8", name: "亚美尼亚航空", nameEn: "Armenia Aircompany" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "埃里温", cities: ["埃里温"] }
+                        ],
+                        customsPolicies: [
+                            { title: "内陆运输", content: "通过格鲁吉亚巴统港或伊朗阿巴斯港进行贸易。" }
+                        ],
+                        keywords: ["亚美尼亚贸易"]
+                    },
+                    "palestine": {
+                        name: "巴勒斯坦",
+                        intro: "巴勒斯坦地区，贸易通过以色列港口进行。",
+                        airports: {
+                            international: [],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [],
+                            domestic: []
+                        },
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "西岸", cities: ["拉姆安拉"] },
+                            { name: "加沙", cities: ["加沙"] }
+                        ],
+                        customsPolicies: [
+                            { title: "贸易通道", content: "通过以色列或埃及港口进行贸易。" }
+                        ],
+                        keywords: ["巴勒斯坦"]
+                    },
+                    "cyprus": {
+                        name: "塞浦路斯",
+                        intro: "塞浦路斯是地中海岛国，欧盟成员国。",
+                        airports: {
+                            international: [
+                                { code: "LCA", name: "拉纳卡国际机场", city: "拉纳卡" },
+                                { code: "PFO", name: "帕福斯机场", city: "帕福斯" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "CYLMS", name: "利马索尔港", city: "利马索尔", desc: "塞浦路斯最大港口" },
+                                { code: "CYLCA", name: "拉纳卡港", city: "拉纳卡", desc: "东部港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "CY", name: "塞浦路斯航空", nameEn: "Cyprus Airways" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "尼科西亚", cities: ["尼科西亚"] },
+                            { name: "利马索尔", cities: ["利马索尔"] }
+                        ],
+                        customsPolicies: [
+                            { title: "欧盟成员国", content: "作为欧盟成员国，适用欧盟关税政策。" }
+                        ],
+                        keywords: ["利马索尔港", "塞浦路斯港口"]
+                    }
                 }
             },
             "europe": {
@@ -184,54 +1549,1298 @@ const knowledgeBase = {
                     }
                 },
                 countries: {
-                    "netherlands": { name: "荷兰", content: `<p>荷兰是欧洲物流枢纽，拥有欧洲最大港口。</p><h2>主要港口</h2><ul><li><strong>鹿特丹港</strong>：欧洲最大港口，年吞吐量超1500万TEU</li><li><strong>阿姆斯特丹港</strong>：重要港口</li></ul>`, keywords: ["鹿特丹港", "荷兰港口"] },
-                    "belgium": { name: "比利时", content: `<p>比利时是欧洲贸易枢纽。</p><h2>主要港口</h2><ul><li><strong>安特卫普港</strong>：欧洲第二大港</li><li><strong>泽布吕赫港</strong>：重要港口</li></ul>`, keywords: ["安特卫普港", "比利时港口"] },
-                    "france": { name: "法国", content: `<p>法国是西欧大国，海岸线漫长。</p><h2>主要港口</h2><ul><li><strong>勒阿弗尔港</strong>：法国最大港口</li><li><strong>马赛港</strong>：地中海港口</li><li><strong>敦刻尔克港</strong>：北部港口</li></ul>`, keywords: ["勒阿弗尔港", "法国港口"] },
-                    "uk": { name: "英国", content: `<p>英国是欧洲重要贸易国。</p><h2>主要港口</h2><ul><li><strong>费利克斯托港</strong>：英国最大集装箱港</li><li><strong>南安普顿港</strong>：主要港口</li><li><strong>伦敦门户港</strong>：新建深水港</li></ul>`, keywords: ["费利克斯托港", "英国港口"] },
-                    "ireland": { name: "爱尔兰", content: `<p>爱尔兰是欧洲岛国。</p><h2>主要港口</h2><ul><li><strong>都柏林港</strong>：爱尔兰最大港口</li><li><strong>科克港</strong>：重要港口</li></ul>`, keywords: ["都柏林港", "爱尔兰港口"] },
-                    "luxembourg": { name: "卢森堡", content: `<p>卢森堡是内陆国家，通过邻国港口贸易。</p><h2>贸易通道</h2><ul><li>主要通过鹿特丹港和安特卫普港</li></ul>`, keywords: ["卢森堡"] },
-                    "monaco": { name: "摩纳哥", content: `<p>摩纳哥是地中海小国。</p><h2>港口</h2><ul><li><strong>摩纳哥港</strong>：游艇港口为主</li></ul>`, keywords: ["摩纳哥"] },
-                    "sweden": { name: "瑞典", content: `<p>瑞典是北欧最大国家。</p><h2>主要港口</h2><ul><li><strong>哥德堡港</strong>：北欧最大港口</li><li><strong>斯德哥尔摩港</strong>：首都港口</li></ul>`, keywords: ["哥德堡港", "瑞典港口"] },
-                    "norway": { name: "挪威", content: `<p>挪威海岸线漫长，港口众多。</p><h2>主要港口</h2><ul><li><strong>奥斯陆港</strong>：挪威最大港口</li><li><strong>卑尔根港</strong>：西部重要港口</li></ul>`, keywords: ["奥斯陆港", "挪威港口"] },
-                    "denmark": { name: "丹麦", content: `<p>丹麦是航运大国。</p><h2>主要港口</h2><ul><li><strong>哥本哈根港</strong>：丹麦最大港口</li><li><strong>奥胡斯港</strong>：集装箱港口</li></ul>`, keywords: ["哥本哈根港", "丹麦港口"] },
-                    "finland": { name: "芬兰", content: `<p>芬兰是北欧国家。</p><h2>主要港口</h2><ul><li><strong>赫尔辛基港</strong>：芬兰最大港口</li></ul>`, keywords: ["赫尔辛基港", "芬兰港口"] },
-                    "iceland": { name: "冰岛", content: `<p>冰岛是北大西洋岛国。</p><h2>主要港口</h2><ul><li><strong>雷克雅未克港</strong>：冰岛主要港口</li></ul>`, keywords: ["雷克雅未克港", "冰岛港口"] },
-                    "germany": { name: "德国", content: `<p>德国是欧洲最大经济体。</p><h2>主要港口</h2><ul><li><strong>汉堡港</strong>：德国最大港口，欧洲第三大港</li><li><strong>不来梅港</strong>：重要港口</li><li><strong>威廉港</strong>：深水港</li></ul>`, keywords: ["汉堡港", "德国港口"] },
-                    "poland": { name: "波兰", content: `<p>波兰是东欧重要国家。</p><h2>主要港口</h2><ul><li><strong>格但斯克港</strong>：波兰最大港口</li><li><strong>格丁尼亚港</strong>：重要港口</li></ul>`, keywords: ["格但斯克港", "波兰港口"] },
-                    "czech": { name: "捷克", content: `<p>捷克是内陆国家。</p><h2>贸易通道</h2><ul><li>主要通过汉堡港和不来梅港</li></ul>`, keywords: ["捷克"] },
-                    "austria": { name: "奥地利", content: `<p>奥地利是内陆国家。</p><h2>贸易通道</h2><ul><li>主要通过汉堡港和的里雅斯特港</li></ul>`, keywords: ["奥地利"] },
-                    "switzerland": { name: "瑞士", content: `<p>瑞士是内陆国家。</p><h2>贸易通道</h2><ul><li>主要通过鹿特丹港和热那亚港</li></ul>`, keywords: ["瑞士"] },
-                    "hungary": { name: "匈牙利", content: `<p>匈牙利是内陆国家。</p><h2>贸易通道</h2><ul><li>多瑙河内河运输</li><li>通过里耶卡港和科佩尔港</li></ul>`, keywords: ["匈牙利"] },
-                    "slovakia": { name: "斯洛伐克", content: `<p>斯洛伐克是内陆国家。</p><h2>贸易通道</h2><ul><li>主要通过汉堡港</li></ul>`, keywords: ["斯洛伐克"] },
-                    "italy": { name: "意大利", content: `<p>意大利是地中海航运大国。</p><h2>主要港口</h2><ul><li><strong>热那亚港</strong>：意大利最大港口</li><li><strong>拉斯佩齐亚港</strong>：集装箱港口</li><li><strong>的里雅斯特港</strong>：亚得里亚海港口</li><li><strong>那不勒斯港</strong>：南部港口</li></ul>`, keywords: ["热那亚港", "意大利港口"] },
-                    "spain": { name: "西班牙", content: `<p>西班牙海岸线漫长。</p><h2>主要港口</h2><ul><li><strong>瓦伦西亚港</strong>：地中海最大港口</li><li><strong>巴塞罗那港</strong>：重要港口</li><li><strong>阿尔赫西拉斯港</strong>：直布罗陀海峡港口</li><li><strong>毕尔巴鄂港</strong>：北部港口</li></ul>`, keywords: ["瓦伦西亚港", "西班牙港口"] },
-                    "portugal": { name: "葡萄牙", content: `<p>葡萄牙是大西洋沿岸国家。</p><h2>主要港口</h2><ul><li><strong>锡尼什港</strong>：葡萄牙最大港口</li><li><strong>里斯本港</strong>：首都港口</li></ul>`, keywords: ["锡尼什港", "葡萄牙港口"] },
-                    "greece": { name: "希腊", content: `<p>希腊是航运大国，船东数量全球第一。</p><h2>主要港口</h2><ul><li><strong>比雷埃夫斯港</strong>：地中海枢纽，中远海运经营</li><li><strong>塞萨洛尼基港</strong>：北部港口</li></ul>`, keywords: ["比雷埃夫斯港", "希腊港口"] },
-                    "malta": { name: "马耳他", content: `<p>马耳他是地中海岛国。</p><h2>主要港口</h2><ul><li><strong>马尔萨什洛克港</strong>：地中海转运港</li></ul>`, keywords: ["马耳他港口"] },
-                    "cyprus": { name: "塞浦路斯", content: `<p>塞浦路斯是地中海岛国。</p><h2>主要港口</h2><ul><li><strong>利马索尔港</strong>：塞浦路斯最大港口</li></ul>`, keywords: ["利马索尔港", "塞浦路斯港口"] },
-                    "slovenia": { name: "斯洛文尼亚", content: `<p>斯洛文尼亚是欧洲小国。</p><h2>主要港口</h2><ul><li><strong>科佩尔港</strong>：亚得里亚海港口</li></ul>`, keywords: ["科佩尔港", "斯洛文尼亚港口"] },
-                    "croatia": { name: "克罗地亚", content: `<p>克罗地亚拥有漫长的亚得里亚海海岸线。</p><h2>主要港口</h2><ul><li><strong>里耶卡港</strong>：克罗地亚最大港口</li></ul>`, keywords: ["里耶卡港", "克罗地亚港口"] },
-                    "russia": { name: "俄罗斯", content: `<p>俄罗斯横跨欧亚大陆，港口分布广泛。</p><h2>主要港口</h2><ul><li><strong>圣彼得堡港</strong>：波罗的海最大港口</li><li><strong>新罗西斯克港</strong>：黑海最大港口</li><li><strong>符拉迪沃斯托克港</strong>：远东最大港口</li><li><strong>东方港</strong>：远东集装箱港</li></ul>`, keywords: ["圣彼得堡港", "俄罗斯港口"] },
-                    "ukraine": { name: "乌克兰", content: `<p>乌克兰拥有黑海海岸线。</p><h2>主要港口</h2><ul><li><strong>敖德萨港</strong>：乌克兰最大港口</li></ul>`, keywords: ["敖德萨港", "乌克兰港口"] },
-                    "romania": { name: "罗马尼亚", content: `<p>罗马尼亚拥有黑海海岸线。</p><h2>主要港口</h2><ul><li><strong>康斯坦察港</strong>：罗马尼亚最大港口，黑海重要港口</li></ul>`, keywords: ["康斯坦察港", "罗马尼亚港口"] },
-                    "bulgaria": { name: "保加利亚", content: `<p>保加利亚拥有黑海海岸线。</p><h2>主要港口</h2><ul><li><strong>瓦尔纳港</strong>：保加利亚最大港口</li></ul>`, keywords: ["瓦尔纳港", "保加利亚港口"] },
-                    "belarus": { name: "白俄罗斯", content: `<p>白俄罗斯是内陆国家。</p><h2>贸易通道</h2><ul><li>中欧班列重要途经国</li><li>通过立陶宛克莱佩达港</li></ul>`, keywords: ["白俄罗斯"] },
-                    "moldova": { name: "摩尔多瓦", content: `<p>摩尔多瓦是内陆国家。</p><h2>贸易通道</h2><ul><li>通过罗马尼亚康斯坦察港</li></ul>`, keywords: ["摩尔多瓦"] },
-                    "lithuania": { name: "立陶宛", content: `<p>立陶宛是波罗的海国家。</p><h2>主要港口</h2><ul><li><strong>克莱佩达港</strong>：波罗的海重要港口</li></ul>`, keywords: ["克莱佩达港", "立陶宛港口"] },
-                    "latvia": { name: "拉脱维亚", content: `<p>拉脱维亚是波罗的海国家。</p><h2>主要港口</h2><ul><li><strong>里加港</strong>：拉脱维亚最大港口</li></ul>`, keywords: ["里加港", "拉脱维亚港口"] },
-                    "estonia": { name: "爱沙尼亚", content: `<p>爱沙尼亚是波罗的海国家。</p><h2>主要港口</h2><ul><li><strong>塔林港</strong>：爱沙尼亚最大港口</li></ul>`, keywords: ["塔林港", "爱沙尼亚港口"] },
-                    "serbia": { name: "塞尔维亚", content: `<p>塞尔维亚是内陆国家。</p><h2>贸易通道</h2><ul><li>多瑙河内河运输</li><li>通过希腊比雷埃夫斯港</li></ul>`, keywords: ["塞尔维亚"] },
-                    "bosnia": { name: "波黑", content: `<p>波斯尼亚和黑塞哥维那。</p><h2>港口</h2><ul><li><strong>普洛切港</strong>（借用克罗地亚）</li></ul>`, keywords: ["波黑"] },
-                    "montenegro": { name: "黑山", content: `<p>黑山是亚得里亚海沿岸国家。</p><h2>主要港口</h2><ul><li><strong>巴尔港</strong>：黑山主要港口</li></ul>`, keywords: ["巴尔港", "黑山港口"] },
-                    "albania": { name: "阿尔巴尼亚", content: `<p>阿尔巴尼亚是亚得里亚海沿岸国家。</p><h2>主要港口</h2><ul><li><strong>都拉斯港</strong>：阿尔巴尼亚最大港口</li></ul>`, keywords: ["都拉斯港", "阿尔巴尼亚港口"] },
-                    "north-macedonia": { name: "北马其顿", content: `<p>北马其顿是内陆国家。</p><h2>贸易通道</h2><ul><li>通过希腊塞萨洛尼基港</li></ul>`, keywords: ["北马其顿"] },
-                    "andorra": { name: "安道尔", content: `<p>安道尔是比利牛斯山脉小国。</p><h2>贸易通道</h2><ul><li>通过西班牙和法国港口</li></ul>`, keywords: ["安道尔"] },
-                    "liechtenstein": { name: "列支敦士登", content: `<p>列支敦士登是欧洲微型国家。</p><h2>贸易通道</h2><ul><li>通过瑞士和奥地利</li></ul>`, keywords: ["列支敦士登"] },
-                    "san-marino": { name: "圣马力诺", content: `<p>圣马力诺是意大利境内的小国。</p><h2>贸易通道</h2><ul><li>通过意大利港口</li></ul>`, keywords: ["圣马力诺"] },
-                    "vatican": { name: "梵蒂冈", content: `<p>梵蒂冈是世界上最小的国家。</p><h2>贸易通道</h2><ul><li>通过意大利港口</li></ul>`, keywords: ["梵蒂冈"] },
-                    "kosovo": { name: "科索沃", content: `<p>科索沃是巴尔干内陆地区。</p><h2>贸易通道</h2><ul><li>通过希腊塞萨洛尼基港</li><li>通过阿尔巴尼亚都拉斯港</li></ul>`, keywords: ["科索沃"] },
-                    "faroe-islands": { name: "法罗群岛", content: `<p>法罗群岛是丹麦的海外自治领地，位于北大西洋。</p><h2>主要港口</h2><ul><li><strong>托尔斯港</strong>：法罗群岛首府港口</li><li><strong>克拉克斯维克港</strong>：渔业港口</li></ul>`, keywords: ["托尔斯港", "法罗群岛港口"] },
-                    "gibraltar": { name: "直布罗陀", content: `<p>直布罗陀是英国海外领土，位于直布罗陀海峡战略要地。</p><h2>主要港口</h2><ul><li><strong>直布罗陀港</strong>：地中海重要加油港和转运港</li></ul>`, keywords: ["直布罗陀港", "海峡"] }
+                    // ===== 北欧国家 =====
+                    "sweden": {
+                        name: "瑞典",
+                        intro: "瑞典是北欧最大国家，拥有发达的制造业和物流体系。",
+                        airports: {
+                            international: [
+                                { code: "ARN", name: "斯德哥尔摩阿兰达机场", city: "斯德哥尔摩" },
+                                { code: "GOT", name: "哥德堡兰德维特机场", city: "哥德堡" }
+                            ],
+                            domestic: [
+                                { code: "MMX", name: "马尔默机场", city: "马尔默" }
+                            ]
+                        },
+                        ports: {
+                            international: [
+                                { code: "SEGOT", name: "哥德堡港", city: "哥德堡", desc: "北欧最大港口" },
+                                { code: "SESTO", name: "斯德哥尔摩港", city: "斯德哥尔摩", desc: "首都港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "SK", name: "北欧航空", nameEn: "SAS Scandinavian Airlines" }
+                        ],
+                        shippingLines: [
+                            { code: "WALLENIUS", name: "华伦威尔森", nameEn: "Wallenius Wilhelmsen", desc: "汽车滚装船领导者" }
+                        ],
+                        provinces: [
+                            { name: "斯德哥尔摩", cities: ["斯德哥尔摩"] },
+                            { name: "西约塔兰", cities: ["哥德堡"] },
+                            { name: "斯科讷", cities: ["马尔默"] }
+                        ],
+                        customsPolicies: [
+                            { title: "欧盟成员国", content: "作为欧盟成员国，适用欧盟关税政策和进口法规。" }
+                        ],
+                        keywords: ["哥德堡港", "瑞典港口"]
+                    },
+                    "norway": {
+                        name: "挪威",
+                        intro: "挪威海岸线漫长，是全球重要的航运国家。",
+                        airports: {
+                            international: [
+                                { code: "OSL", name: "奥斯陆加勒穆恩机场", city: "奥斯陆" },
+                                { code: "BGO", name: "卑尔根机场", city: "卑尔根" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "NOOSL", name: "奥斯陆港", city: "奥斯陆", desc: "挪威最大港口" },
+                                { code: "NOBGO", name: "卑尔根港", city: "卑尔根", desc: "西部重要港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "SK", name: "北欧航空", nameEn: "SAS" },
+                            { code: "DY", name: "挪威航空", nameEn: "Norwegian Air" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "奥斯陆", cities: ["奥斯陆"] },
+                            { name: "霍达兰", cities: ["卑尔根"] }
+                        ],
+                        customsPolicies: [
+                            { title: "非欧盟国家", content: "挪威非欧盟成员，进口需单独清关。" }
+                        ],
+                        keywords: ["奥斯陆港", "挪威港口"]
+                    },
+                    "denmark": {
+                        name: "丹麦",
+                        intro: "丹麦是全球航运大国，马士基总部所在地。",
+                        airports: {
+                            international: [
+                                { code: "CPH", name: "哥本哈根机场", city: "哥本哈根" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "DKCPH", name: "哥本哈根港", city: "哥本哈根", desc: "丹麦最大港口" },
+                                { code: "DKAAR", name: "奥胡斯港", city: "奥胡斯", desc: "集装箱港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "SK", name: "北欧航空", nameEn: "SAS" }
+                        ],
+                        shippingLines: [
+                            { code: "MAERSK", name: "马士基", nameEn: "Maersk", desc: "全球最大集装箱航运公司" }
+                        ],
+                        provinces: [
+                            { name: "首都大区", cities: ["哥本哈根"] },
+                            { name: "中日德兰", cities: ["奥胡斯"] }
+                        ],
+                        customsPolicies: [
+                            { title: "欧盟成员国", content: "作为欧盟成员国，适用欧盟关税政策。" }
+                        ],
+                        keywords: ["哥本哈根港", "马士基", "丹麦港口"]
+                    },
+                    "finland": {
+                        name: "芬兰",
+                        intro: "芬兰是北欧国家，与俄罗斯接壤。",
+                        airports: {
+                            international: [
+                                { code: "HEL", name: "赫尔辛基万塔机场", city: "赫尔辛基" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "FIHEL", name: "赫尔辛基港", city: "赫尔辛基", desc: "芬兰最大港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "AY", name: "芬兰航空", nameEn: "Finnair" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "新地区", cities: ["赫尔辛基", "埃斯波"] }
+                        ],
+                        customsPolicies: [
+                            { title: "欧盟成员国", content: "作为欧盟成员国，适用欧盟关税政策。" }
+                        ],
+                        keywords: ["赫尔辛基港", "芬兰港口"]
+                    },
+                    "iceland": {
+                        name: "冰岛",
+                        intro: "冰岛是北大西洋岛国，渔业发达。",
+                        airports: {
+                            international: [
+                                { code: "KEF", name: "凯夫拉维克国际机场", city: "雷克雅未克" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "ISREY", name: "雷克雅未克港", city: "雷克雅未克", desc: "冰岛主要港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "FI", name: "冰岛航空", nameEn: "Icelandair" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "首都区", cities: ["雷克雅未克"] }
+                        ],
+                        customsPolicies: [
+                            { title: "非欧盟国家", content: "冰岛非欧盟成员，进口需单独清关。" }
+                        ],
+                        keywords: ["雷克雅未克港", "冰岛港口"]
+                    },
+                    // ===== 西欧国家 =====
+                    "france": {
+                        name: "法国",
+                        intro: "法国是西欧大国，拥有大西洋和地中海海岸线。",
+                        airports: {
+                            international: [
+                                { code: "CDG", name: "巴黎戴高乐机场", city: "巴黎" },
+                                { code: "ORY", name: "巴黎奥利机场", city: "巴黎" },
+                                { code: "NCE", name: "尼斯机场", city: "尼斯" },
+                                { code: "MRS", name: "马赛机场", city: "马赛" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "FRLEH", name: "勒阿弗尔港", city: "勒阿弗尔", desc: "法国最大港口" },
+                                { code: "FRMRS", name: "马赛港", city: "马赛", desc: "地中海港口" },
+                                { code: "FRDKK", name: "敦刻尔克港", city: "敦刻尔克", desc: "北部港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "AF", name: "法国航空", nameEn: "Air France" }
+                        ],
+                        shippingLines: [
+                            { code: "CMA-CGM", name: "达飞轮船", nameEn: "CMA CGM", desc: "全球第三大航运公司" }
+                        ],
+                        provinces: [
+                            { name: "法兰西岛", cities: ["巴黎"] },
+                            { name: "诺曼底", cities: ["勒阿弗尔"] },
+                            { name: "普罗旺斯", cities: ["马赛", "尼斯"] }
+                        ],
+                        customsPolicies: [
+                            { title: "欧盟成员国", content: "作为欧盟成员国，适用欧盟关税政策。" }
+                        ],
+                        keywords: ["勒阿弗尔港", "法国港口", "达飞"]
+                    },
+                    "uk": {
+                        name: "英国",
+                        intro: "英国是欧洲重要贸易国，脱欧后有独立关税政策。",
+                        airports: {
+                            international: [
+                                { code: "LHR", name: "伦敦希思罗机场", city: "伦敦" },
+                                { code: "LGW", name: "伦敦盖特威克机场", city: "伦敦" },
+                                { code: "MAN", name: "曼彻斯特机场", city: "曼彻斯特" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "GBFXT", name: "费利克斯托港", city: "费利克斯托", desc: "英国最大集装箱港" },
+                                { code: "GBSOU", name: "南安普顿港", city: "南安普顿", desc: "主要港口" },
+                                { code: "GBLON", name: "伦敦门户港", city: "伦敦", desc: "新建深水港" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "BA", name: "英国航空", nameEn: "British Airways" },
+                            { code: "VS", name: "维珍航空", nameEn: "Virgin Atlantic" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "大伦敦", cities: ["伦敦"] },
+                            { name: "大曼彻斯特", cities: ["曼彻斯特"] },
+                            { name: "苏福克", cities: ["费利克斯托"] }
+                        ],
+                        customsPolicies: [
+                            { title: "脱欧后关税", content: "英国已脱离欧盟，进口需单独清关，适用英国关税政策。" }
+                        ],
+                        keywords: ["费利克斯托港", "英国港口"]
+                    },
+                    "netherlands": {
+                        name: "荷兰",
+                        intro: "荷兰是欧洲物流枢纽，拥有欧洲最大港口鹿特丹。",
+                        airports: {
+                            international: [
+                                { code: "AMS", name: "阿姆斯特丹史基浦机场", city: "阿姆斯特丹" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "NLRTM", name: "鹿特丹港", city: "鹿特丹", desc: "欧洲最大港口" },
+                                { code: "NLAMS", name: "阿姆斯特丹港", city: "阿姆斯特丹", desc: "重要港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "KL", name: "荷兰皇家航空", nameEn: "KLM" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "北荷兰", cities: ["阿姆斯特丹"] },
+                            { name: "南荷兰", cities: ["鹿特丹", "海牙"] }
+                        ],
+                        customsPolicies: [
+                            { title: "欧盟成员国", content: "作为欧盟成员国，鹿特丹是欧洲主要清关港口。" }
+                        ],
+                        keywords: ["鹿特丹港", "荷兰港口"]
+                    },
+                    "belgium": {
+                        name: "比利时",
+                        intro: "比利时是欧洲贸易枢纽，安特卫普是欧洲第二大港。",
+                        airports: {
+                            international: [
+                                { code: "BRU", name: "布鲁塞尔机场", city: "布鲁塞尔" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "BEANR", name: "安特卫普港", city: "安特卫普", desc: "欧洲第二大港" },
+                                { code: "BEZEE", name: "泽布吕赫港", city: "泽布吕赫", desc: "重要港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "SN", name: "布鲁塞尔航空", nameEn: "Brussels Airlines" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "布鲁塞尔首都", cities: ["布鲁塞尔"] },
+                            { name: "安特卫普", cities: ["安特卫普"] }
+                        ],
+                        customsPolicies: [
+                            { title: "欧盟成员国", content: "作为欧盟成员国，安特卫普是重要清关港口。" }
+                        ],
+                        keywords: ["安特卫普港", "比利时港口"]
+                    },
+                    "ireland": {
+                        name: "爱尔兰",
+                        intro: "爱尔兰是欧洲岛国，科技产业发达。",
+                        airports: {
+                            international: [
+                                { code: "DUB", name: "都柏林机场", city: "都柏林" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "IEDUB", name: "都柏林港", city: "都柏林", desc: "爱尔兰最大港口" },
+                                { code: "IEORK", name: "科克港", city: "科克", desc: "重要港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "EI", name: "爱尔兰航空", nameEn: "Aer Lingus" },
+                            { code: "FR", name: "瑞安航空", nameEn: "Ryanair" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "都柏林", cities: ["都柏林"] },
+                            { name: "科克", cities: ["科克"] }
+                        ],
+                        customsPolicies: [
+                            { title: "欧盟成员国", content: "作为欧盟成员国，适用欧盟关税政策。" }
+                        ],
+                        keywords: ["都柏林港", "爱尔兰港口"]
+                    },
+                    "luxembourg": {
+                        name: "卢森堡",
+                        intro: "卢森堡是欧洲内陆小国，金融中心。",
+                        airports: {
+                            international: [
+                                { code: "LUX", name: "卢森堡机场", city: "卢森堡" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "LG", name: "卢森堡货运航空", nameEn: "Cargolux" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "卢森堡", cities: ["卢森堡市"] }
+                        ],
+                        customsPolicies: [
+                            { title: "内陆运输", content: "主要通过鹿特丹港和安特卫普港进行贸易。" }
+                        ],
+                        keywords: ["卢森堡"]
+                    },
+                    "monaco": {
+                        name: "摩纳哥",
+                        intro: "摩纳哥是地中海城邦小国。",
+                        airports: {
+                            international: [],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "MCMON", name: "摩纳哥港", city: "摩纳哥", desc: "游艇港口为主" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "摩纳哥", cities: ["摩纳哥"] }
+                        ],
+                        customsPolicies: [
+                            { title: "与法国关税同盟", content: "与法国有关税同盟，通过法国尼斯机场和港口。" }
+                        ],
+                        keywords: ["摩纳哥"]
+                    },
+                    // ===== 中欧国家 =====
+                    "germany": {
+                        name: "德国",
+                        intro: "德国是欧洲最大经济体，制造业和物流业发达。",
+                        airports: {
+                            international: [
+                                { code: "FRA", name: "法兰克福机场", city: "法兰克福" },
+                                { code: "MUC", name: "慕尼黑机场", city: "慕尼黑" },
+                                { code: "DUS", name: "杜塞尔多夫机场", city: "杜塞尔多夫" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "DEHAM", name: "汉堡港", city: "汉堡", desc: "德国最大港口，欧洲第三大港" },
+                                { code: "DEBRV", name: "不来梅港", city: "不来梅", desc: "重要港口" },
+                                { code: "DEWVN", name: "威廉港", city: "威廉港", desc: "深水港" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "LH", name: "汉莎航空", nameEn: "Lufthansa" }
+                        ],
+                        shippingLines: [
+                            { code: "HAPAG", name: "赫伯罗特", nameEn: "Hapag-Lloyd", desc: "全球第五大航运公司" }
+                        ],
+                        provinces: [
+                            { name: "汉堡", cities: ["汉堡"] },
+                            { name: "黑森", cities: ["法兰克福"] },
+                            { name: "巴伐利亚", cities: ["慕尼黑"] },
+                            { name: "不来梅", cities: ["不来梅"] }
+                        ],
+                        customsPolicies: [
+                            { title: "欧盟成员国", content: "作为欧盟成员国，汉堡是重要清关港口。" }
+                        ],
+                        keywords: ["汉堡港", "德国港口", "赫伯罗特"]
+                    },
+                    "poland": {
+                        name: "波兰",
+                        intro: "波兰是中东欧重要国家，物流枢纽。",
+                        airports: {
+                            international: [
+                                { code: "WAW", name: "华沙肖邦机场", city: "华沙" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "PLGDN", name: "格但斯克港", city: "格但斯克", desc: "波兰最大港口" },
+                                { code: "PLGDY", name: "格丁尼亚港", city: "格丁尼亚", desc: "重要港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "LO", name: "波兰航空", nameEn: "LOT Polish Airlines" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "马佐夫舍", cities: ["华沙"] },
+                            { name: "滨海", cities: ["格但斯克", "格丁尼亚"] }
+                        ],
+                        customsPolicies: [
+                            { title: "欧盟成员国", content: "作为欧盟成员国，适用欧盟关税政策。" }
+                        ],
+                        keywords: ["格但斯克港", "波兰港口"]
+                    },
+                    "switzerland": {
+                        name: "瑞士",
+                        intro: "瑞士是欧洲内陆国家，金融和航运业发达。",
+                        airports: {
+                            international: [
+                                { code: "ZRH", name: "苏黎世机场", city: "苏黎世" },
+                                { code: "GVA", name: "日内瓦机场", city: "日内瓦" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "LX", name: "瑞士航空", nameEn: "Swiss" }
+                        ],
+                        shippingLines: [
+                            { code: "MSC", name: "地中海航运", nameEn: "MSC", desc: "全球第二大航运公司，总部日内瓦" }
+                        ],
+                        provinces: [
+                            { name: "苏黎世", cities: ["苏黎世"] },
+                            { name: "日内瓦", cities: ["日内瓦"] }
+                        ],
+                        customsPolicies: [
+                            { title: "非欧盟国家", content: "瑞士非欧盟成员，进口需单独清关。主要通过鹿特丹港和热那亚港。" }
+                        ],
+                        keywords: ["瑞士", "MSC"]
+                    },
+                    "austria": {
+                        name: "奥地利",
+                        intro: "奥地利是欧洲内陆国家，中欧交通枢纽。",
+                        airports: {
+                            international: [
+                                { code: "VIE", name: "维也纳机场", city: "维也纳" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "OS", name: "奥地利航空", nameEn: "Austrian Airlines" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "维也纳", cities: ["维也纳"] },
+                            { name: "萨尔茨堡", cities: ["萨尔茨堡"] }
+                        ],
+                        customsPolicies: [
+                            { title: "内陆运输", content: "主要通过汉堡港和的里雅斯特港进行贸易。" }
+                        ],
+                        keywords: ["奥地利"]
+                    },
+                    "czech": {
+                        name: "捷克",
+                        intro: "捷克是欧洲内陆国家，制造业发达。",
+                        airports: {
+                            international: [
+                                { code: "PRG", name: "布拉格机场", city: "布拉格" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "OK", name: "捷克航空", nameEn: "Czech Airlines" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "布拉格", cities: ["布拉格"] },
+                            { name: "摩拉维亚", cities: ["布尔诺"] }
+                        ],
+                        customsPolicies: [
+                            { title: "内陆运输", content: "主要通过汉堡港和不来梅港进行贸易。" }
+                        ],
+                        keywords: ["捷克"]
+                    },
+                    "hungary": {
+                        name: "匈牙利",
+                        intro: "匈牙利是欧洲内陆国家，多瑙河贯穿。",
+                        airports: {
+                            international: [
+                                { code: "BUD", name: "布达佩斯机场", city: "布达佩斯" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "W6", name: "维兹航空", nameEn: "Wizz Air" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "布达佩斯", cities: ["布达佩斯"] }
+                        ],
+                        customsPolicies: [
+                            { title: "内陆运输", content: "多瑙河内河运输，通过里耶卡港和科佩尔港。" }
+                        ],
+                        keywords: ["匈牙利"]
+                    },
+                    "slovakia": {
+                        name: "斯洛伐克",
+                        intro: "斯洛伐克是欧洲内陆国家。",
+                        airports: {
+                            international: [
+                                { code: "BTS", name: "布拉迪斯拉发机场", city: "布拉迪斯拉发" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [],
+                            domestic: []
+                        },
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "布拉迪斯拉发", cities: ["布拉迪斯拉发"] }
+                        ],
+                        customsPolicies: [
+                            { title: "内陆运输", content: "主要通过汉堡港进行贸易。" }
+                        ],
+                        keywords: ["斯洛伐克"]
+                    },
+                    "liechtenstein": {
+                        name: "列支敦士登",
+                        intro: "列支敦士登是欧洲微型内陆国家。",
+                        airports: {
+                            international: [],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [],
+                            domestic: []
+                        },
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "瓦杜兹", cities: ["瓦杜兹"] }
+                        ],
+                        customsPolicies: [
+                            { title: "与瑞士关税同盟", content: "与瑞士有关税同盟，通过瑞士进出口。" }
+                        ],
+                        keywords: ["列支敦士登"]
+                    },
+                    // ===== 南欧国家 =====
+                    "italy": {
+                        name: "意大利",
+                        intro: "意大利是地中海航运大国，拥有漫长的海岸线。",
+                        airports: {
+                            international: [
+                                { code: "FCO", name: "罗马菲乌米奇诺机场", city: "罗马" },
+                                { code: "MXP", name: "米兰马尔彭萨机场", city: "米兰" },
+                                { code: "VCE", name: "威尼斯机场", city: "威尼斯" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "ITGOA", name: "热那亚港", city: "热那亚", desc: "意大利最大港口" },
+                                { code: "ITLSP", name: "拉斯佩齐亚港", city: "拉斯佩齐亚", desc: "集装箱港口" },
+                                { code: "ITTRS", name: "的里雅斯特港", city: "的里雅斯特", desc: "亚得里亚海港口" },
+                                { code: "ITNAP", name: "那不勒斯港", city: "那不勒斯", desc: "南部港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "AZ", name: "意大利航空", nameEn: "ITA Airways" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "拉齐奥", cities: ["罗马"] },
+                            { name: "伦巴第", cities: ["米兰"] },
+                            { name: "利古里亚", cities: ["热那亚"] }
+                        ],
+                        customsPolicies: [
+                            { title: "欧盟成员国", content: "作为欧盟成员国，适用欧盟关税政策。" }
+                        ],
+                        keywords: ["热那亚港", "意大利港口"]
+                    },
+                    "spain": {
+                        name: "西班牙",
+                        intro: "西班牙海岸线漫长，拥有大西洋和地中海港口。",
+                        airports: {
+                            international: [
+                                { code: "MAD", name: "马德里巴拉哈斯机场", city: "马德里" },
+                                { code: "BCN", name: "巴塞罗那机场", city: "巴塞罗那" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "ESVLC", name: "瓦伦西亚港", city: "瓦伦西亚", desc: "地中海最大港口" },
+                                { code: "ESBCN", name: "巴塞罗那港", city: "巴塞罗那", desc: "重要港口" },
+                                { code: "ESALG", name: "阿尔赫西拉斯港", city: "阿尔赫西拉斯", desc: "直布罗陀海峡港口" },
+                                { code: "ESBIO", name: "毕尔巴鄂港", city: "毕尔巴鄂", desc: "北部港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "IB", name: "西班牙国家航空", nameEn: "Iberia" },
+                            { code: "VY", name: "伏林航空", nameEn: "Vueling" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "马德里", cities: ["马德里"] },
+                            { name: "加泰罗尼亚", cities: ["巴塞罗那"] },
+                            { name: "瓦伦西亚", cities: ["瓦伦西亚"] }
+                        ],
+                        customsPolicies: [
+                            { title: "欧盟成员国", content: "作为欧盟成员国，适用欧盟关税政策。" }
+                        ],
+                        keywords: ["瓦伦西亚港", "西班牙港口"]
+                    },
+                    "portugal": {
+                        name: "葡萄牙",
+                        intro: "葡萄牙是大西洋沿岸国家，航海历史悠久。",
+                        airports: {
+                            international: [
+                                { code: "LIS", name: "里斯本机场", city: "里斯本" },
+                                { code: "OPO", name: "波尔图机场", city: "波尔图" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "PTSIN", name: "锡尼什港", city: "锡尼什", desc: "葡萄牙最大港口" },
+                                { code: "PTLIS", name: "里斯本港", city: "里斯本", desc: "首都港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "TP", name: "葡萄牙航空", nameEn: "TAP Air Portugal" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "里斯本", cities: ["里斯本"] },
+                            { name: "波尔图", cities: ["波尔图"] }
+                        ],
+                        customsPolicies: [
+                            { title: "欧盟成员国", content: "作为欧盟成员国，适用欧盟关税政策。" }
+                        ],
+                        keywords: ["锡尼什港", "葡萄牙港口"]
+                    },
+                    "greece": {
+                        name: "希腊",
+                        intro: "希腊是全球航运大国，船东数量全球第一。",
+                        airports: {
+                            international: [
+                                { code: "ATH", name: "雅典机场", city: "雅典" },
+                                { code: "SKG", name: "塞萨洛尼基机场", city: "塞萨洛尼基" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "GRPIR", name: "比雷埃夫斯港", city: "雅典", desc: "地中海枢纽，中远海运经营" },
+                                { code: "GRSKG", name: "塞萨洛尼基港", city: "塞萨洛尼基", desc: "北部港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "A3", name: "爱琴海航空", nameEn: "Aegean Airlines" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "阿提卡", cities: ["雅典", "比雷埃夫斯"] },
+                            { name: "中马其顿", cities: ["塞萨洛尼基"] }
+                        ],
+                        customsPolicies: [
+                            { title: "欧盟成员国", content: "作为欧盟成员国，适用欧盟关税政策。" }
+                        ],
+                        keywords: ["比雷埃夫斯港", "希腊港口"]
+                    },
+                    "romania": {
+                        name: "罗马尼亚",
+                        intro: "罗马尼亚拥有黑海海岸线，是东南欧重要国家。",
+                        airports: {
+                            international: [
+                                { code: "OTP", name: "布加勒斯特机场", city: "布加勒斯特" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "ROCND", name: "康斯坦察港", city: "康斯坦察", desc: "黑海重要港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "RO", name: "罗马尼亚航空", nameEn: "TAROM" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "布加勒斯特", cities: ["布加勒斯特"] },
+                            { name: "康斯坦察", cities: ["康斯坦察"] }
+                        ],
+                        customsPolicies: [
+                            { title: "欧盟成员国", content: "作为欧盟成员国，适用欧盟关税政策。" }
+                        ],
+                        keywords: ["康斯坦察港", "罗马尼亚港口"]
+                    },
+                    "croatia": {
+                        name: "克罗地亚",
+                        intro: "克罗地亚拥有漫长的亚得里亚海海岸线。",
+                        airports: {
+                            international: [
+                                { code: "ZAG", name: "萨格勒布机场", city: "萨格勒布" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "HRRJK", name: "里耶卡港", city: "里耶卡", desc: "克罗地亚最大港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "OU", name: "克罗地亚航空", nameEn: "Croatia Airlines" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "萨格勒布", cities: ["萨格勒布"] },
+                            { name: "滨海", cities: ["里耶卡"] }
+                        ],
+                        customsPolicies: [
+                            { title: "欧盟成员国", content: "作为欧盟成员国，适用欧盟关税政策。" }
+                        ],
+                        keywords: ["里耶卡港", "克罗地亚港口"]
+                    },
+                    "slovenia": {
+                        name: "斯洛文尼亚",
+                        intro: "斯洛文尼亚是中欧小国，科佩尔港是重要出海口。",
+                        airports: {
+                            international: [
+                                { code: "LJU", name: "卢布尔雅那机场", city: "卢布尔雅那" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "SIKOP", name: "科佩尔港", city: "科佩尔", desc: "亚得里亚海港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "卢布尔雅那", cities: ["卢布尔雅那"] }
+                        ],
+                        customsPolicies: [
+                            { title: "欧盟成员国", content: "作为欧盟成员国，适用欧盟关税政策。" }
+                        ],
+                        keywords: ["科佩尔港", "斯洛文尼亚港口"]
+                    },
+                    "bulgaria": {
+                        name: "保加利亚",
+                        intro: "保加利亚拥有黑海海岸线。",
+                        airports: {
+                            international: [
+                                { code: "SOF", name: "索非亚机场", city: "索非亚" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "BGVAR", name: "瓦尔纳港", city: "瓦尔纳", desc: "保加利亚最大港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "FB", name: "保加利亚航空", nameEn: "Bulgaria Air" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "索非亚", cities: ["索非亚"] },
+                            { name: "瓦尔纳", cities: ["瓦尔纳"] }
+                        ],
+                        customsPolicies: [
+                            { title: "欧盟成员国", content: "作为欧盟成员国，适用欧盟关税政策。" }
+                        ],
+                        keywords: ["瓦尔纳港", "保加利亚港口"]
+                    },
+                    "serbia": {
+                        name: "塞尔维亚",
+                        intro: "塞尔维亚是巴尔干内陆国家。",
+                        airports: {
+                            international: [
+                                { code: "BEG", name: "贝尔格莱德机场", city: "贝尔格莱德" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "JU", name: "塞尔维亚航空", nameEn: "Air Serbia" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "贝尔格莱德", cities: ["贝尔格莱德"] }
+                        ],
+                        customsPolicies: [
+                            { title: "内陆运输", content: "多瑙河内河运输，通过希腊比雷埃夫斯港。" }
+                        ],
+                        keywords: ["塞尔维亚"]
+                    },
+                    "bosnia": {
+                        name: "波黑",
+                        intro: "波斯尼亚和黑塞哥维那，巴尔干国家。",
+                        airports: {
+                            international: [
+                                { code: "SJJ", name: "萨拉热窝机场", city: "萨拉热窝" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [],
+                            domestic: []
+                        },
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "萨拉热窝", cities: ["萨拉热窝"] }
+                        ],
+                        customsPolicies: [
+                            { title: "内陆运输", content: "通过克罗地亚普洛切港。" }
+                        ],
+                        keywords: ["波黑"]
+                    },
+                    "montenegro": {
+                        name: "黑山",
+                        intro: "黑山是亚得里亚海沿岸小国。",
+                        airports: {
+                            international: [
+                                { code: "TGD", name: "波德戈里察机场", city: "波德戈里察" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "MEBAR", name: "巴尔港", city: "巴尔", desc: "黑山主要港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "波德戈里察", cities: ["波德戈里察"] }
+                        ],
+                        customsPolicies: [
+                            { title: "黑山海关", content: "非欧盟国家，进口需单独清关。" }
+                        ],
+                        keywords: ["巴尔港", "黑山港口"]
+                    },
+                    "albania": {
+                        name: "阿尔巴尼亚",
+                        intro: "阿尔巴尼亚是亚得里亚海沿岸国家。",
+                        airports: {
+                            international: [
+                                { code: "TIA", name: "地拉那机场", city: "地拉那" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "ALDUR", name: "都拉斯港", city: "都拉斯", desc: "阿尔巴尼亚最大港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "地拉那", cities: ["地拉那"] }
+                        ],
+                        customsPolicies: [
+                            { title: "阿尔巴尼亚海关", content: "非欧盟国家，进口需单独清关。" }
+                        ],
+                        keywords: ["都拉斯港", "阿尔巴尼亚港口"]
+                    },
+                    "north-macedonia": {
+                        name: "北马其顿",
+                        intro: "北马其顿是巴尔干内陆国家。",
+                        airports: {
+                            international: [
+                                { code: "SKP", name: "斯科普里机场", city: "斯科普里" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [],
+                            domestic: []
+                        },
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "斯科普里", cities: ["斯科普里"] }
+                        ],
+                        customsPolicies: [
+                            { title: "内陆运输", content: "通过希腊塞萨洛尼基港。" }
+                        ],
+                        keywords: ["北马其顿"]
+                    },
+                    "malta": {
+                        name: "马耳他",
+                        intro: "马耳他是地中海岛国，重要转运港。",
+                        airports: {
+                            international: [
+                                { code: "MLA", name: "马耳他机场", city: "瓦莱塔" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "MTMAR", name: "马尔萨什洛克港", city: "马尔萨什洛克", desc: "地中海转运港" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "KM", name: "马耳他航空", nameEn: "Air Malta" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "瓦莱塔", cities: ["瓦莱塔"] }
+                        ],
+                        customsPolicies: [
+                            { title: "欧盟成员国", content: "作为欧盟成员国，适用欧盟关税政策。" }
+                        ],
+                        keywords: ["马耳他港口"]
+                    },
+                    "andorra": {
+                        name: "安道尔",
+                        intro: "安道尔是比利牛斯山脉微型国家。",
+                        airports: {
+                            international: [],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [],
+                            domestic: []
+                        },
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "安道尔城", cities: ["安道尔城"] }
+                        ],
+                        customsPolicies: [
+                            { title: "内陆运输", content: "通过西班牙和法国港口。" }
+                        ],
+                        keywords: ["安道尔"]
+                    },
+                    "san-marino": {
+                        name: "圣马力诺",
+                        intro: "圣马力诺是意大利境内的微型国家。",
+                        airports: {
+                            international: [],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [],
+                            domestic: []
+                        },
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "圣马力诺", cities: ["圣马力诺"] }
+                        ],
+                        customsPolicies: [
+                            { title: "内陆运输", content: "通过意大利港口。" }
+                        ],
+                        keywords: ["圣马力诺"]
+                    },
+                    "vatican": {
+                        name: "梵蒂冈",
+                        intro: "梵蒂冈是世界上最小的国家。",
+                        airports: {
+                            international: [],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [],
+                            domestic: []
+                        },
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "梵蒂冈", cities: ["梵蒂冈"] }
+                        ],
+                        customsPolicies: [
+                            { title: "内陆运输", content: "通过意大利港口。" }
+                        ],
+                        keywords: ["梵蒂冈"]
+                    },
+                    // ===== 东欧国家 =====
+                    "russia": {
+                        name: "俄罗斯",
+                        intro: "俄罗斯横跨欧亚大陆，是世界最大国家。",
+                        airports: {
+                            international: [
+                                { code: "SVO", name: "莫斯科谢列梅捷沃机场", city: "莫斯科" },
+                                { code: "DME", name: "莫斯科多莫杰多沃机场", city: "莫斯科" },
+                                { code: "LED", name: "圣彼得堡普尔科沃机场", city: "圣彼得堡" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "RULED", name: "圣彼得堡港", city: "圣彼得堡", desc: "波罗的海最大港口" },
+                                { code: "RUNVS", name: "新罗西斯克港", city: "新罗西斯克", desc: "黑海最大港口" },
+                                { code: "RUVVO", name: "符拉迪沃斯托克港", city: "符拉迪沃斯托克", desc: "远东最大港口" },
+                                { code: "RUVYP", name: "东方港", city: "纳霍德卡", desc: "远东集装箱港" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "SU", name: "俄罗斯航空", nameEn: "Aeroflot" },
+                            { code: "S7", name: "西伯利亚航空", nameEn: "S7 Airlines" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "莫斯科", cities: ["莫斯科"] },
+                            { name: "圣彼得堡", cities: ["圣彼得堡"] },
+                            { name: "滨海边疆区", cities: ["符拉迪沃斯托克"] }
+                        ],
+                        customsPolicies: [
+                            { title: "俄罗斯海关", content: "受制裁影响，部分贸易受限。" }
+                        ],
+                        keywords: ["圣彼得堡港", "俄罗斯港口"]
+                    },
+                    "ukraine": {
+                        name: "乌克兰",
+                        intro: "乌克兰拥有黑海海岸线，是东欧大国。",
+                        airports: {
+                            international: [
+                                { code: "KBP", name: "基辅鲍里斯波尔机场", city: "基辅" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "UAODS", name: "敖德萨港", city: "敖德萨", desc: "乌克兰最大港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "PS", name: "乌克兰国际航空", nameEn: "Ukraine International" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "基辅", cities: ["基辅"] },
+                            { name: "敖德萨", cities: ["敖德萨"] }
+                        ],
+                        customsPolicies: [
+                            { title: "乌克兰海关", content: "受冲突影响，贸易受限。" }
+                        ],
+                        keywords: ["敖德萨港", "乌克兰港口"]
+                    },
+                    "belarus": {
+                        name: "白俄罗斯",
+                        intro: "白俄罗斯是东欧内陆国家，中欧班列途经国。",
+                        airports: {
+                            international: [
+                                { code: "MSQ", name: "明斯克机场", city: "明斯克" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "B2", name: "白俄罗斯航空", nameEn: "Belavia" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "明斯克", cities: ["明斯克"] }
+                        ],
+                        customsPolicies: [
+                            { title: "内陆运输", content: "中欧班列重要途经国，通过立陶宛克莱佩达港。" }
+                        ],
+                        keywords: ["白俄罗斯"]
+                    },
+                    "lithuania": {
+                        name: "立陶宛",
+                        intro: "立陶宛是波罗的海国家，克莱佩达是重要港口。",
+                        airports: {
+                            international: [
+                                { code: "VNO", name: "维尔纽斯机场", city: "维尔纽斯" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "LTKLA", name: "克莱佩达港", city: "克莱佩达", desc: "波罗的海重要港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "维尔纽斯", cities: ["维尔纽斯"] },
+                            { name: "克莱佩达", cities: ["克莱佩达"] }
+                        ],
+                        customsPolicies: [
+                            { title: "欧盟成员国", content: "作为欧盟成员国，适用欧盟关税政策。" }
+                        ],
+                        keywords: ["克莱佩达港", "立陶宛港口"]
+                    },
+                    "latvia": {
+                        name: "拉脱维亚",
+                        intro: "拉脱维亚是波罗的海国家。",
+                        airports: {
+                            international: [
+                                { code: "RIX", name: "里加机场", city: "里加" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "LVRIX", name: "里加港", city: "里加", desc: "拉脱维亚最大港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "BT", name: "波罗的海航空", nameEn: "airBaltic" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "里加", cities: ["里加"] }
+                        ],
+                        customsPolicies: [
+                            { title: "欧盟成员国", content: "作为欧盟成员国，适用欧盟关税政策。" }
+                        ],
+                        keywords: ["里加港", "拉脱维亚港口"]
+                    },
+                    "estonia": {
+                        name: "爱沙尼亚",
+                        intro: "爱沙尼亚是波罗的海国家，数字化程度高。",
+                        airports: {
+                            international: [
+                                { code: "TLL", name: "塔林机场", city: "塔林" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "EETLL", name: "塔林港", city: "塔林", desc: "爱沙尼亚最大港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "塔林", cities: ["塔林"] }
+                        ],
+                        customsPolicies: [
+                            { title: "欧盟成员国", content: "作为欧盟成员国，适用欧盟关税政策。" }
+                        ],
+                        keywords: ["塔林港", "爱沙尼亚港口"]
+                    },
+                    "moldova": {
+                        name: "摩尔多瓦",
+                        intro: "摩尔多瓦是东欧内陆国家。",
+                        airports: {
+                            international: [
+                                { code: "KIV", name: "基希讷乌机场", city: "基希讷乌" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "9U", name: "摩尔多瓦航空", nameEn: "Air Moldova" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "基希讷乌", cities: ["基希讷乌"] }
+                        ],
+                        customsPolicies: [
+                            { title: "内陆运输", content: "通过罗马尼亚康斯坦察港。" }
+                        ],
+                        keywords: ["摩尔多瓦"]
+                    },
+                    "kosovo": {
+                        name: "科索沃",
+                        intro: "科索沃是巴尔干内陆地区。",
+                        airports: {
+                            international: [
+                                { code: "PRN", name: "普里什蒂纳机场", city: "普里什蒂纳" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [],
+                            domestic: []
+                        },
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "普里什蒂纳", cities: ["普里什蒂纳"] }
+                        ],
+                        customsPolicies: [
+                            { title: "内陆运输", content: "通过希腊塞萨洛尼基港或阿尔巴尼亚都拉斯港。" }
+                        ],
+                        keywords: ["科索沃"]
+                    },
+                    // ===== 欧洲地区 =====
+                    "faroe-islands": {
+                        name: "法罗群岛",
+                        intro: "法罗群岛是丹麦的海外自治领地。",
+                        airports: {
+                            international: [
+                                { code: "FAE", name: "沃格尔机场", city: "托尔斯港" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "FOTOR", name: "托尔斯港", city: "托尔斯港", desc: "首府港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "RC", name: "大西洋航空", nameEn: "Atlantic Airways" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "托尔斯港", cities: ["托尔斯港"] }
+                        ],
+                        customsPolicies: [
+                            { title: "非欧盟地区", content: "丹麦自治领，非欧盟关税区。" }
+                        ],
+                        keywords: ["托尔斯港", "法罗群岛港口"]
+                    },
+                    "gibraltar": {
+                        name: "直布罗陀",
+                        intro: "直布罗陀是英国海外领土，战略要地。",
+                        airports: {
+                            international: [
+                                { code: "GIB", name: "直布罗陀机场", city: "直布罗陀" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "GIGIB", name: "直布罗陀港", city: "直布罗陀", desc: "地中海重要加油港" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "直布罗陀", cities: ["直布罗陀"] }
+                        ],
+                        customsPolicies: [
+                            { title: "英国海外领土", content: "非欧盟关税区，有独立关税政策。" }
+                        ],
+                        keywords: ["直布罗陀港", "海峡"]
+                    }
                 }
             },
             "north-america": {
@@ -256,46 +2865,1081 @@ const knowledgeBase = {
                     }
                 },
                 countries: {
-                    "usa": { name: "美国", content: `<p>美国是全球最大进口国，港口设施世界一流。</p><h2>西海岸港口</h2><ul><li><strong>洛杉矶港</strong>：美国最大港口</li><li><strong>长滩港</strong>：与洛杉矶合称美西双港</li><li><strong>奥克兰港</strong>：北加州门户</li><li><strong>西雅图港</strong>：太平洋西北门户</li></ul><h2>东海岸港口</h2><ul><li><strong>纽约/新泽西港</strong>：东海岸最大港</li><li><strong>萨凡纳港</strong>：增长最快港口</li><li><strong>查尔斯顿港</strong>：南卡重要港口</li><li><strong>诺福克港</strong>：弗吉尼亚港口</li></ul><h2>墨西哥湾</h2><ul><li><strong>休斯顿港</strong>：德州最大港</li><li><strong>新奥尔良港</strong>：密西西比河港口</li></ul>`, keywords: ["洛杉矶港", "纽约港", "美国港口"] },
-                    "canada": { name: "加拿大", content: `<p>加拿大是北美重要贸易国。</p><h2>主要港口</h2><ul><li><strong>温哥华港</strong>：加拿大最大港口，太平洋门户</li><li><strong>蒙特利尔港</strong>：圣劳伦斯河港口</li><li><strong>哈利法克斯港</strong>：大西洋门户</li><li><strong>多伦多港</strong>：五大湖港口</li></ul>`, keywords: ["温哥华港", "加拿大港口"] },
-                    "mexico": { name: "墨西哥", content: `<p>墨西哥是拉美重要贸易国。</p><h2>主要港口</h2><ul><li><strong>曼萨尼约港</strong>：太平洋最大港</li><li><strong>拉萨罗卡德纳斯港</strong>：重要港口</li><li><strong>韦拉克鲁斯港</strong>：墨西哥湾港口</li></ul>`, keywords: ["曼萨尼约港", "墨西哥港口"] },
-                    "guatemala": { name: "危地马拉", content: `<p>危地马拉是中美洲国家。</p><h2>主要港口</h2><ul><li><strong>圣托马斯港</strong>：主要港口</li></ul>`, keywords: ["危地马拉港口"] },
-                    "honduras": { name: "洪都拉斯", content: `<p>洪都拉斯是中美洲国家。</p><h2>主要港口</h2><ul><li><strong>科尔特斯港</strong>：主要港口</li></ul>`, keywords: ["洪都拉斯港口"] },
-                    "el-salvador": { name: "萨尔瓦多", content: `<p>萨尔瓦多是中美洲最小国家。</p><h2>主要港口</h2><ul><li><strong>阿卡胡特拉港</strong>：主要港口</li></ul>`, keywords: ["萨尔瓦多港口"] },
-                    "nicaragua": { name: "尼加拉瓜", content: `<p>尼加拉瓜是中美洲国家。</p><h2>主要港口</h2><ul><li><strong>科林托港</strong>：主要港口</li></ul>`, keywords: ["尼加拉瓜港口"] },
-                    "costa-rica": { name: "哥斯达黎加", content: `<p>哥斯达黎加是中美洲国家。</p><h2>主要港口</h2><ul><li><strong>利蒙港</strong>：加勒比海港口</li><li><strong>卡尔德拉港</strong>：太平洋港口</li></ul>`, keywords: ["哥斯达黎加港口"] },
-                    "panama": { name: "巴拿马", content: `<p>巴拿马运河连接太平洋和大西洋，战略位置极其重要。</p><h2>主要港口</h2><ul><li><strong>科隆港</strong>：大西洋侧最大港口</li><li><strong>巴尔博亚港</strong>：太平洋侧港口</li></ul>`, keywords: ["巴拿马运河", "科隆港"] },
-                    "belize": { name: "伯利兹", content: `<p>伯利兹是中美洲国家。</p><h2>主要港口</h2><ul><li><strong>伯利兹城港</strong>：主要港口</li></ul>`, keywords: ["伯利兹港口"] },
-                    "cuba": { name: "古巴", content: `<p>古巴是加勒比最大岛国。</p><h2>主要港口</h2><ul><li><strong>哈瓦那港</strong>：古巴最大港口</li><li><strong>马里埃尔港</strong>：新建深水港</li></ul>`, keywords: ["哈瓦那港", "古巴港口"] },
-                    "dominican": { name: "多米尼加", content: `<p>多米尼加是加勒比国家。</p><h2>主要港口</h2><ul><li><strong>考塞多港</strong>：多米尼加最大港口</li></ul>`, keywords: ["多米尼加港口"] },
-                    "jamaica": { name: "牙买加", content: `<p>牙买加是加勒比岛国。</p><h2>主要港口</h2><ul><li><strong>金斯敦港</strong>：加勒比重要转运港</li></ul>`, keywords: ["金斯敦港", "牙买加港口"] },
-                    "haiti": { name: "海地", content: `<p>海地是加勒比国家。</p><h2>主要港口</h2><ul><li><strong>太子港</strong>：海地主要港口</li></ul>`, keywords: ["海地港口"] },
-                    "puerto-rico": { name: "波多黎各", content: `<p>波多黎各是美国自治领土。</p><h2>主要港口</h2><ul><li><strong>圣胡安港</strong>：加勒比重要港口</li></ul>`, keywords: ["圣胡安港", "波多黎各港口"] },
-                    "bahamas": { name: "巴哈马", content: `<p>巴哈马是加勒比岛国。</p><h2>主要港口</h2><ul><li><strong>弗里波特港</strong>：转运港</li></ul>`, keywords: ["巴哈马港口"] },
-                    "trinidad": { name: "特立尼达和多巴哥", content: `<p>特立尼达和多巴哥是加勒比岛国。</p><h2>主要港口</h2><ul><li><strong>西班牙港</strong>：主要港口</li></ul>`, keywords: ["特立尼达港口"] },
-                    "barbados": { name: "巴巴多斯", content: `<p>巴巴多斯是加勒比岛国。</p><h2>主要港口</h2><ul><li><strong>布里奇敦港</strong>：巴巴多斯主要港口</li></ul>`, keywords: ["巴巴多斯港口"] },
-                    "saint-lucia": { name: "圣卢西亚", content: `<p>圣卢西亚是加勒比岛国。</p><h2>主要港口</h2><ul><li><strong>卡斯特里港</strong>：圣卢西亚主要港口</li></ul>`, keywords: ["圣卢西亚港口"] },
-                    "grenada": { name: "格林纳达", content: `<p>格林纳达是加勒比岛国。</p><h2>主要港口</h2><ul><li><strong>圣乔治港</strong>：格林纳达主要港口</li></ul>`, keywords: ["格林纳达港口"] },
-                    "antigua": { name: "安提瓜和巴布达", content: `<p>安提瓜和巴布达是加勒比岛国。</p><h2>主要港口</h2><ul><li><strong>圣约翰斯港</strong>：主要港口</li></ul>`, keywords: ["安提瓜港口"] },
-                    "saint-vincent": { name: "圣文森特和格林纳丁斯", content: `<p>圣文森特是加勒比岛国。</p><h2>主要港口</h2><ul><li><strong>金斯敦港</strong>：主要港口</li></ul>`, keywords: ["圣文森特港口"] },
-                    "dominica": { name: "多米尼克", content: `<p>多米尼克是加勒比岛国。</p><h2>主要港口</h2><ul><li><strong>罗索港</strong>：主要港口</li></ul>`, keywords: ["多米尼克港口"] },
-                    "saint-kitts": { name: "圣基茨和尼维斯", content: `<p>圣基茨是加勒比岛国。</p><h2>主要港口</h2><ul><li><strong>巴斯特尔港</strong>：主要港口</li></ul>`, keywords: ["圣基茨港口"] },
-                    "aruba": { name: "阿鲁巴", content: `<p>阿鲁巴是荷兰王国组成国。</p><h2>主要港口</h2><ul><li><strong>奥拉涅斯塔德港</strong>：主要港口</li></ul>`, keywords: ["阿鲁巴港口"] },
-                    "curacao": { name: "库拉索", content: `<p>库拉索是荷兰王国组成国。</p><h2>主要港口</h2><ul><li><strong>威廉斯塔德港</strong>：加勒比重要转运港</li></ul>`, keywords: ["库拉索港口"] },
-                    "greenland": { name: "格陵兰", content: `<p>格陵兰是丹麦的自治领土，世界最大岛屿。</p><h2>主要港口</h2><ul><li><strong>努克港</strong>：格陵兰首府港口</li><li><strong>伊卢利萨特港</strong>：重要渔业港口</li></ul>`, keywords: ["努克港", "格陵兰港口"] },
-                    "saint-pierre": { name: "圣皮埃尔和密克隆", content: `<p>圣皮埃尔和密克隆是法国海外领地，位于加拿大东部。</p><h2>主要港口</h2><ul><li><strong>圣皮埃尔港</strong>：主要港口</li></ul>`, keywords: ["圣皮埃尔港口"] },
-                    "bermuda": { name: "百慕大", content: `<p>百慕大是英国海外领土，位于北大西洋。</p><h2>主要港口</h2><ul><li><strong>汉密尔顿港</strong>：百慕大主要港口</li></ul>`, keywords: ["汉密尔顿港", "百慕大港口"] },
-                    "british-virgin-islands": { name: "英属维尔京群岛", content: `<p>英属维尔京群岛是英国海外领土。</p><h2>主要港口</h2><ul><li><strong>罗德城港</strong>：主要港口</li></ul>`, keywords: ["英属维尔京群岛港口"] },
-                    "us-virgin-islands": { name: "美属维尔京群岛", content: `<p>美属维尔京群岛是美国非建制属地。</p><h2>主要港口</h2><ul><li><strong>夏洛特阿马利亚港</strong>：主要港口</li></ul>`, keywords: ["美属维尔京群岛港口"] },
-                    "anguilla": { name: "安圭拉", content: `<p>安圭拉是英国海外领土，加勒比海岛屿。</p><h2>主要港口</h2><ul><li><strong>布洛因港</strong>：主要港口</li></ul>`, keywords: ["安圭拉港口"] },
-                    "montserrat": { name: "蒙特塞拉特", content: `<p>蒙特塞拉特是英国海外领土。</p><h2>主要港口</h2><ul><li><strong>小海湾港</strong>：主要港口</li></ul>`, keywords: ["蒙特塞拉特港口"] },
-                    "guadeloupe": { name: "瓜德罗普", content: `<p>瓜德罗普是法国海外省，加勒比海岛屿。</p><h2>主要港口</h2><ul><li><strong>皮特尔角港</strong>：瓜德罗普主要港口</li></ul>`, keywords: ["瓜德罗普港口"] },
-                    "martinique": { name: "马提尼克", content: `<p>马提尼克是法国海外省。</p><h2>主要港口</h2><ul><li><strong>法兰西堡港</strong>：马提尼克主要港口</li></ul>`, keywords: ["马提尼克港口"] },
-                    "sint-maarten": { name: "荷属圣马丁", content: `<p>荷属圣马丁是荷兰王国的组成国。</p><h2>主要港口</h2><ul><li><strong>菲利普斯堡港</strong>：主要港口</li></ul>`, keywords: ["荷属圣马丁港口"] },
-                    "saint-martin": { name: "法属圣马丁", content: `<p>法属圣马丁是法国海外领地。</p><h2>主要港口</h2><ul><li><strong>马里戈港</strong>：主要港口</li></ul>`, keywords: ["法属圣马丁港口"] },
-                    "saint-barthelemy": { name: "圣巴泰勒米岛", content: `<p>圣巴泰勒米岛是法国海外领地。</p><h2>主要港口</h2><ul><li><strong>古斯塔维亚港</strong>：主要港口</li></ul>`, keywords: ["圣巴泰勒米港口"] },
-                    "turks-caicos": { name: "特克斯和凯科斯群岛", content: `<p>特克斯和凯科斯群岛是英国海外领土。</p><h2>主要港口</h2><ul><li><strong>普罗维登西亚莱斯港</strong>：主要港口</li></ul>`, keywords: ["特克斯和凯科斯港口"] },
-                    "cayman-islands": { name: "开曼群岛", content: `<p>开曼群岛是英国海外领土，知名离岸金融中心。</p><h2>主要港口</h2><ul><li><strong>乔治敦港</strong>：开曼群岛主要港口</li></ul>`, keywords: ["开曼群岛港口"] }
+                    // ===== 北美国家 =====
+                    "usa": {
+                        name: "美国",
+                        intro: "美国是全球最大进口国和消费市场，港口设施世界一流。",
+                        airports: {
+                            international: [
+                                { code: "JFK", name: "纽约肯尼迪机场", city: "纽约" },
+                                { code: "LAX", name: "洛杉矶机场", city: "洛杉矶" },
+                                { code: "ORD", name: "芝加哥奥黑尔机场", city: "芝加哥" },
+                                { code: "ATL", name: "亚特兰大机场", city: "亚特兰大" },
+                                { code: "DFW", name: "达拉斯机场", city: "达拉斯" },
+                                { code: "MIA", name: "迈阿密机场", city: "迈阿密" },
+                                { code: "SFO", name: "旧金山机场", city: "旧金山" },
+                                { code: "SEA", name: "西雅图机场", city: "西雅图" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "USLAX", name: "洛杉矶港", city: "洛杉矶", desc: "美国最大港口" },
+                                { code: "USLGB", name: "长滩港", city: "长滩", desc: "美西第二大港" },
+                                { code: "USNYC", name: "纽约/新泽西港", city: "纽约", desc: "东海岸最大港" },
+                                { code: "USSAV", name: "萨凡纳港", city: "萨凡纳", desc: "增长最快港口" },
+                                { code: "USHOU", name: "休斯顿港", city: "休斯顿", desc: "德州最大港" },
+                                { code: "USSEA", name: "西雅图港", city: "西雅图", desc: "太平洋西北门户" },
+                                { code: "USOAK", name: "奥克兰港", city: "奥克兰", desc: "北加州门户" },
+                                { code: "USCHS", name: "查尔斯顿港", city: "查尔斯顿", desc: "南卡重要港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "AA", name: "美国航空", nameEn: "American Airlines" },
+                            { code: "UA", name: "美联航", nameEn: "United Airlines" },
+                            { code: "DL", name: "达美航空", nameEn: "Delta Air Lines" },
+                            { code: "WN", name: "西南航空", nameEn: "Southwest Airlines" }
+                        ],
+                        shippingLines: [
+                            { code: "MATSON", name: "美森轮船", nameEn: "Matson", desc: "美国本土航运公司" }
+                        ],
+                        provinces: [
+                            { name: "加利福尼亚", cities: ["洛杉矶", "旧金山", "长滩", "奥克兰"] },
+                            { name: "纽约", cities: ["纽约"] },
+                            { name: "德克萨斯", cities: ["休斯顿", "达拉斯"] },
+                            { name: "佐治亚", cities: ["亚特兰大", "萨凡纳"] },
+                            { name: "华盛顿", cities: ["西雅图"] },
+                            { name: "佛罗里达", cities: ["迈阿密"] }
+                        ],
+                        customsPolicies: [
+                            { title: "CBP清关", content: "美国海关和边境保护局(CBP)负责进口清关，需提前申报ISF。" },
+                            { title: "关税政策", content: "根据HTS编码征收关税，部分商品有反倾销税。" }
+                        ],
+                        keywords: ["洛杉矶港", "纽约港", "美国港口"]
+                    },
+                    "canada": {
+                        name: "加拿大",
+                        intro: "加拿大是北美重要贸易国，与美国有紧密的贸易关系。",
+                        airports: {
+                            international: [
+                                { code: "YYZ", name: "多伦多皮尔逊机场", city: "多伦多" },
+                                { code: "YVR", name: "温哥华机场", city: "温哥华" },
+                                { code: "YUL", name: "蒙特利尔机场", city: "蒙特利尔" },
+                                { code: "YYC", name: "卡尔加里机场", city: "卡尔加里" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "CAVAN", name: "温哥华港", city: "温哥华", desc: "加拿大最大港口，太平洋门户" },
+                                { code: "CAMTR", name: "蒙特利尔港", city: "蒙特利尔", desc: "圣劳伦斯河港口" },
+                                { code: "CAHAL", name: "哈利法克斯港", city: "哈利法克斯", desc: "大西洋门户" },
+                                { code: "CATOR", name: "多伦多港", city: "多伦多", desc: "五大湖港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "AC", name: "加拿大航空", nameEn: "Air Canada" },
+                            { code: "WS", name: "西捷航空", nameEn: "WestJet" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "安大略", cities: ["多伦多", "渥太华"] },
+                            { name: "不列颠哥伦比亚", cities: ["温哥华"] },
+                            { name: "魁北克", cities: ["蒙特利尔", "魁北克城"] },
+                            { name: "新斯科舍", cities: ["哈利法克斯"] }
+                        ],
+                        customsPolicies: [
+                            { title: "CBSA清关", content: "加拿大边境服务局(CBSA)负责进口清关。" },
+                            { title: "CUSMA协定", content: "美加墨协定下，部分商品享受优惠关税。" }
+                        ],
+                        keywords: ["温哥华港", "加拿大港口"]
+                    },
+                    // ===== 中美洲国家 =====
+                    "mexico": {
+                        name: "墨西哥",
+                        intro: "墨西哥是拉美重要贸易国，与美国有紧密的供应链关系。",
+                        airports: {
+                            international: [
+                                { code: "MEX", name: "墨西哥城机场", city: "墨西哥城" },
+                                { code: "GDL", name: "瓜达拉哈拉机场", city: "瓜达拉哈拉" },
+                                { code: "CUN", name: "坎昆机场", city: "坎昆" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "MXZLO", name: "曼萨尼约港", city: "曼萨尼约", desc: "太平洋最大港" },
+                                { code: "MXLZC", name: "拉萨罗卡德纳斯港", city: "拉萨罗卡德纳斯", desc: "重要港口" },
+                                { code: "MXVER", name: "韦拉克鲁斯港", city: "韦拉克鲁斯", desc: "墨西哥湾港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "AM", name: "墨西哥航空", nameEn: "Aeromexico" },
+                            { code: "4O", name: "沃拉里斯", nameEn: "Volaris" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "墨西哥城", cities: ["墨西哥城"] },
+                            { name: "哈利斯科", cities: ["瓜达拉哈拉"] },
+                            { name: "新莱昂", cities: ["蒙特雷"] }
+                        ],
+                        customsPolicies: [
+                            { title: "墨西哥海关", content: "SAT负责海关事务，需要墨西哥RFC税号。" }
+                        ],
+                        keywords: ["曼萨尼约港", "墨西哥港口"]
+                    },
+                    "guatemala": {
+                        name: "危地马拉",
+                        intro: "危地马拉是中美洲人口最多的国家。",
+                        airports: {
+                            international: [
+                                { code: "GUA", name: "危地马拉城机场", city: "危地马拉城" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "GTPRQ", name: "圣托马斯港", city: "圣托马斯", desc: "主要港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "GU", name: "危地马拉航空", nameEn: "Avianca Guatemala" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "危地马拉", cities: ["危地马拉城"] }
+                        ],
+                        customsPolicies: [
+                            { title: "危地马拉海关", content: "SAT负责海关清关。" }
+                        ],
+                        keywords: ["危地马拉港口"]
+                    },
+                    "honduras": {
+                        name: "洪都拉斯",
+                        intro: "洪都拉斯是中美洲国家，制造业发展中。",
+                        airports: {
+                            international: [
+                                { code: "SAP", name: "圣佩德罗苏拉机场", city: "圣佩德罗苏拉" },
+                                { code: "TGU", name: "特古西加尔巴机场", city: "特古西加尔巴" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "HNPCR", name: "科尔特斯港", city: "科尔特斯", desc: "主要港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "科尔特斯", cities: ["圣佩德罗苏拉"] },
+                            { name: "弗朗西斯科", cities: ["特古西加尔巴"] }
+                        ],
+                        customsPolicies: [
+                            { title: "洪都拉斯海关", content: "需要进口许可证。" }
+                        ],
+                        keywords: ["洪都拉斯港口"]
+                    },
+                    "el-salvador": {
+                        name: "萨尔瓦多",
+                        intro: "萨尔瓦多是中美洲最小国家。",
+                        airports: {
+                            international: [
+                                { code: "SAL", name: "圣萨尔瓦多机场", city: "圣萨尔瓦多" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "SVAQJ", name: "阿卡胡特拉港", city: "阿卡胡特拉", desc: "主要港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "TA", name: "中美洲航空", nameEn: "Avianca El Salvador" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "圣萨尔瓦多", cities: ["圣萨尔瓦多"] }
+                        ],
+                        customsPolicies: [
+                            { title: "萨尔瓦多海关", content: "进口需申报缴税。" }
+                        ],
+                        keywords: ["萨尔瓦多港口"]
+                    },
+                    "nicaragua": {
+                        name: "尼加拉瓜",
+                        intro: "尼加拉瓜是中美洲国家。",
+                        airports: {
+                            international: [
+                                { code: "MGA", name: "马那瓜机场", city: "马那瓜" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "NICRN", name: "科林托港", city: "科林托", desc: "主要港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "马那瓜", cities: ["马那瓜"] }
+                        ],
+                        customsPolicies: [
+                            { title: "尼加拉瓜海关", content: "进口需申报缴税。" }
+                        ],
+                        keywords: ["尼加拉瓜港口"]
+                    },
+                    "costa-rica": {
+                        name: "哥斯达黎加",
+                        intro: "哥斯达黎加是中美洲较发达国家，生态旅游著名。",
+                        airports: {
+                            international: [
+                                { code: "SJO", name: "圣何塞机场", city: "圣何塞" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "CRLIO", name: "利蒙港", city: "利蒙", desc: "加勒比海港口" },
+                                { code: "CRCAL", name: "卡尔德拉港", city: "卡尔德拉", desc: "太平洋港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "圣何塞", cities: ["圣何塞"] }
+                        ],
+                        customsPolicies: [
+                            { title: "哥斯达黎加海关", content: "进口需申报，与多国有自贸协定。" }
+                        ],
+                        keywords: ["哥斯达黎加港口"]
+                    },
+                    "panama": {
+                        name: "巴拿马",
+                        intro: "巴拿马运河连接太平洋和大西洋，是全球航运要道。",
+                        airports: {
+                            international: [
+                                { code: "PTY", name: "巴拿马城机场", city: "巴拿马城" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "PACLC", name: "科隆港", city: "科隆", desc: "大西洋侧最大港口" },
+                                { code: "PABLB", name: "巴尔博亚港", city: "巴拿马城", desc: "太平洋侧港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "CM", name: "巴拿马航空", nameEn: "Copa Airlines" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "巴拿马", cities: ["巴拿马城"] },
+                            { name: "科隆", cities: ["科隆"] }
+                        ],
+                        customsPolicies: [
+                            { title: "巴拿马运河", content: "全球航运枢纽，科隆自贸区享受优惠政策。" }
+                        ],
+                        keywords: ["巴拿马运河", "科隆港"]
+                    },
+                    "belize": {
+                        name: "伯利兹",
+                        intro: "伯利兹是中美洲唯一英语国家。",
+                        airports: {
+                            international: [
+                                { code: "BZE", name: "伯利兹城机场", city: "伯利兹城" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "BZBZE", name: "伯利兹城港", city: "伯利兹城", desc: "主要港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "伯利兹", cities: ["伯利兹城"] }
+                        ],
+                        customsPolicies: [
+                            { title: "伯利兹海关", content: "进口需申报缴税。" }
+                        ],
+                        keywords: ["伯利兹港口"]
+                    },
+                    // ===== 加勒比国家 =====
+                    "cuba": {
+                        name: "古巴",
+                        intro: "古巴是加勒比最大岛国，受美国制裁影响。",
+                        airports: {
+                            international: [
+                                { code: "HAV", name: "哈瓦那机场", city: "哈瓦那" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "CUHAV", name: "哈瓦那港", city: "哈瓦那", desc: "古巴最大港口" },
+                                { code: "CUMAR", name: "马里埃尔港", city: "马里埃尔", desc: "新建深水港" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "CU", name: "古巴航空", nameEn: "Cubana" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "哈瓦那", cities: ["哈瓦那"] }
+                        ],
+                        customsPolicies: [
+                            { title: "制裁影响", content: "受美国制裁，与美国贸易受限。" }
+                        ],
+                        keywords: ["哈瓦那港", "古巴港口"]
+                    },
+                    "dominican": {
+                        name: "多米尼加",
+                        intro: "多米尼加是加勒比重要经济体。",
+                        airports: {
+                            international: [
+                                { code: "SDQ", name: "圣多明各机场", city: "圣多明各" },
+                                { code: "PUJ", name: "蓬塔卡纳机场", city: "蓬塔卡纳" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "DOCAU", name: "考塞多港", city: "考塞多", desc: "多米尼加最大港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "国家区", cities: ["圣多明各"] }
+                        ],
+                        customsPolicies: [
+                            { title: "多米尼加海关", content: "进口需申报缴税。" }
+                        ],
+                        keywords: ["多米尼加港口"]
+                    },
+                    "jamaica": {
+                        name: "牙买加",
+                        intro: "牙买加是加勒比重要转运港。",
+                        airports: {
+                            international: [
+                                { code: "KIN", name: "金斯敦机场", city: "金斯敦" },
+                                { code: "MBJ", name: "蒙特哥贝机场", city: "蒙特哥贝" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "JMKIN", name: "金斯敦港", city: "金斯敦", desc: "加勒比重要转运港" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "萨里", cities: ["金斯敦"] }
+                        ],
+                        customsPolicies: [
+                            { title: "牙买加海关", content: "进口需申报缴税。" }
+                        ],
+                        keywords: ["金斯敦港", "牙买加港口"]
+                    },
+                    "haiti": {
+                        name: "海地",
+                        intro: "海地是加勒比国家。",
+                        airports: {
+                            international: [
+                                { code: "PAP", name: "太子港机场", city: "太子港" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "HTPAP", name: "太子港", city: "太子港", desc: "海地主要港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "西部省", cities: ["太子港"] }
+                        ],
+                        customsPolicies: [
+                            { title: "海地海关", content: "进口需申报缴税。" }
+                        ],
+                        keywords: ["海地港口"]
+                    },
+                    "bahamas": {
+                        name: "巴哈马",
+                        intro: "巴哈马是加勒比岛国，旅游业发达。",
+                        airports: {
+                            international: [
+                                { code: "NAS", name: "拿骚机场", city: "拿骚" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "BSFPO", name: "弗里波特港", city: "弗里波特", desc: "转运港" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "UP", name: "巴哈马航空", nameEn: "Bahamasair" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "新普罗维登斯", cities: ["拿骚"] }
+                        ],
+                        customsPolicies: [
+                            { title: "巴哈马海关", content: "进口需申报缴税。" }
+                        ],
+                        keywords: ["巴哈马港口"]
+                    },
+                    "trinidad": {
+                        name: "特立尼达和多巴哥",
+                        intro: "特立尼达和多巴哥是加勒比能源大国。",
+                        airports: {
+                            international: [
+                                { code: "POS", name: "西班牙港机场", city: "西班牙港" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "TTPOS", name: "西班牙港", city: "西班牙港", desc: "主要港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "BW", name: "加勒比航空", nameEn: "Caribbean Airlines" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "西班牙港", cities: ["西班牙港"] }
+                        ],
+                        customsPolicies: [
+                            { title: "特多海关", content: "进口需申报缴税。" }
+                        ],
+                        keywords: ["特立尼达港口"]
+                    },
+                    "barbados": {
+                        name: "巴巴多斯",
+                        intro: "巴巴多斯是加勒比岛国。",
+                        airports: {
+                            international: [
+                                { code: "BGI", name: "布里奇敦机场", city: "布里奇敦" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "BBBGI", name: "布里奇敦港", city: "布里奇敦", desc: "主要港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "布里奇敦", cities: ["布里奇敦"] }
+                        ],
+                        customsPolicies: [
+                            { title: "巴巴多斯海关", content: "进口需申报缴税。" }
+                        ],
+                        keywords: ["巴巴多斯港口"]
+                    },
+                    "saint-lucia": {
+                        name: "圣卢西亚",
+                        intro: "圣卢西亚是加勒比岛国。",
+                        airports: {
+                            international: [
+                                { code: "UVF", name: "圣卢西亚机场", city: "卡斯特里" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "LCSFG", name: "卡斯特里港", city: "卡斯特里", desc: "主要港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "卡斯特里", cities: ["卡斯特里"] }
+                        ],
+                        customsPolicies: [
+                            { title: "圣卢西亚海关", content: "进口需申报缴税。" }
+                        ],
+                        keywords: ["圣卢西亚港口"]
+                    },
+                    "grenada": {
+                        name: "格林纳达",
+                        intro: "格林纳达是加勒比岛国，香料之岛。",
+                        airports: {
+                            international: [
+                                { code: "GND", name: "格林纳达机场", city: "圣乔治" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "GDSTG", name: "圣乔治港", city: "圣乔治", desc: "主要港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "圣乔治", cities: ["圣乔治"] }
+                        ],
+                        customsPolicies: [
+                            { title: "格林纳达海关", content: "进口需申报缴税。" }
+                        ],
+                        keywords: ["格林纳达港口"]
+                    },
+                    "antigua": {
+                        name: "安提瓜和巴布达",
+                        intro: "安提瓜和巴布达是加勒比岛国。",
+                        airports: {
+                            international: [
+                                { code: "ANU", name: "安提瓜机场", city: "圣约翰斯" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "AGSTJ", name: "圣约翰斯港", city: "圣约翰斯", desc: "主要港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "圣约翰", cities: ["圣约翰斯"] }
+                        ],
+                        customsPolicies: [
+                            { title: "安提瓜海关", content: "进口需申报缴税。" }
+                        ],
+                        keywords: ["安提瓜港口"]
+                    },
+                    "saint-vincent": {
+                        name: "圣文森特和格林纳丁斯",
+                        intro: "圣文森特是加勒比岛国。",
+                        airports: {
+                            international: [
+                                { code: "SVD", name: "圣文森特机场", city: "金斯敦" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "VCKIN", name: "金斯敦港", city: "金斯敦", desc: "主要港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "圣乔治", cities: ["金斯敦"] }
+                        ],
+                        customsPolicies: [
+                            { title: "圣文森特海关", content: "进口需申报缴税。" }
+                        ],
+                        keywords: ["圣文森特港口"]
+                    },
+                    "dominica": {
+                        name: "多米尼克",
+                        intro: "多米尼克是加勒比岛国，自然之岛。",
+                        airports: {
+                            international: [
+                                { code: "DOM", name: "多米尼克机场", city: "罗索" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "DMRSU", name: "罗索港", city: "罗索", desc: "主要港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "圣乔治", cities: ["罗索"] }
+                        ],
+                        customsPolicies: [
+                            { title: "多米尼克海关", content: "进口需申报缴税。" }
+                        ],
+                        keywords: ["多米尼克港口"]
+                    },
+                    "saint-kitts": {
+                        name: "圣基茨和尼维斯",
+                        intro: "圣基茨是加勒比岛国。",
+                        airports: {
+                            international: [
+                                { code: "SKB", name: "圣基茨机场", city: "巴斯特尔" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "KNBAS", name: "巴斯特尔港", city: "巴斯特尔", desc: "主要港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "巴斯特尔", cities: ["巴斯特尔"] }
+                        ],
+                        customsPolicies: [
+                            { title: "圣基茨海关", content: "进口需申报缴税。" }
+                        ],
+                        keywords: ["圣基茨港口"]
+                    },
+                    // ===== 北美洲地区 =====
+                    "puerto-rico": {
+                        name: "波多黎各",
+                        intro: "波多黎各是美国自治邦。",
+                        airports: {
+                            international: [
+                                { code: "SJU", name: "圣胡安机场", city: "圣胡安" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "PRSJU", name: "圣胡安港", city: "圣胡安", desc: "加勒比重要港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "圣胡安", cities: ["圣胡安"] }
+                        ],
+                        customsPolicies: [
+                            { title: "美国关税", content: "作为美国领土，适用美国关税政策。" }
+                        ],
+                        keywords: ["圣胡安港", "波多黎各港口"]
+                    },
+                    "aruba": {
+                        name: "阿鲁巴",
+                        intro: "阿鲁巴是荷兰王国组成国。",
+                        airports: {
+                            international: [
+                                { code: "AUA", name: "阿鲁巴机场", city: "奥拉涅斯塔德" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "AWORA", name: "奥拉涅斯塔德港", city: "奥拉涅斯塔德", desc: "主要港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "奥拉涅斯塔德", cities: ["奥拉涅斯塔德"] }
+                        ],
+                        customsPolicies: [
+                            { title: "阿鲁巴海关", content: "荷兰王国领土，有独立关税政策。" }
+                        ],
+                        keywords: ["阿鲁巴港口"]
+                    },
+                    "curacao": {
+                        name: "库拉索",
+                        intro: "库拉索是荷兰王国组成国，加勒比转运中心。",
+                        airports: {
+                            international: [
+                                { code: "CUR", name: "库拉索机场", city: "威廉斯塔德" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "CWWIL", name: "威廉斯塔德港", city: "威廉斯塔德", desc: "加勒比重要转运港" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "威廉斯塔德", cities: ["威廉斯塔德"] }
+                        ],
+                        customsPolicies: [
+                            { title: "库拉索海关", content: "荷兰王国领土，有独立关税政策。" }
+                        ],
+                        keywords: ["库拉索港口"]
+                    },
+                    "greenland": {
+                        name: "格陵兰",
+                        intro: "格陵兰是丹麦自治领土，世界最大岛屿。",
+                        airports: {
+                            international: [
+                                { code: "GOH", name: "努克机场", city: "努克" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "GLGOH", name: "努克港", city: "努克", desc: "格陵兰首府港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "GL", name: "格陵兰航空", nameEn: "Air Greenland" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "努克", cities: ["努克"] }
+                        ],
+                        customsPolicies: [
+                            { title: "丹麦领土", content: "非欧盟关税区，有独立关税政策。" }
+                        ],
+                        keywords: ["努克港", "格陵兰港口"]
+                    },
+                    "bermuda": {
+                        name: "百慕大",
+                        intro: "百慕大是英国海外领土，金融中心。",
+                        airports: {
+                            international: [
+                                { code: "BDA", name: "百慕大机场", city: "汉密尔顿" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "BMHAM", name: "汉密尔顿港", city: "汉密尔顿", desc: "主要港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "汉密尔顿", cities: ["汉密尔顿"] }
+                        ],
+                        customsPolicies: [
+                            { title: "英国领土", content: "英国海外领土，有独立关税政策。" }
+                        ],
+                        keywords: ["汉密尔顿港", "百慕大港口"]
+                    },
+                    "cayman-islands": {
+                        name: "开曼群岛",
+                        intro: "开曼群岛是英国海外领土，知名离岸金融中心。",
+                        airports: {
+                            international: [
+                                { code: "GCM", name: "乔治敦机场", city: "乔治敦" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "KYGEC", name: "乔治敦港", city: "乔治敦", desc: "主要港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [
+                            { code: "KX", name: "开曼航空", nameEn: "Cayman Airways" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "乔治敦", cities: ["乔治敦"] }
+                        ],
+                        customsPolicies: [
+                            { title: "开曼海关", content: "英国海外领土，免税港口。" }
+                        ],
+                        keywords: ["开曼群岛港口"]
+                    },
+                    "us-virgin-islands": {
+                        name: "美属维尔京群岛",
+                        intro: "美属维尔京群岛是美国非建制属地。",
+                        airports: {
+                            international: [
+                                { code: "STT", name: "圣托马斯机场", city: "夏洛特阿马利亚" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "VISTT", name: "夏洛特阿马利亚港", city: "夏洛特阿马利亚", desc: "主要港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "圣托马斯", cities: ["夏洛特阿马利亚"] }
+                        ],
+                        customsPolicies: [
+                            { title: "美国领土", content: "美国领土，适用特殊关税政策。" }
+                        ],
+                        keywords: ["美属维尔京群岛港口"]
+                    },
+                    "british-virgin-islands": {
+                        name: "英属维尔京群岛",
+                        intro: "英属维尔京群岛是英国海外领土。",
+                        airports: {
+                            international: [
+                                { code: "EIS", name: "托托拉机场", city: "罗德城" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "VGRTC", name: "罗德城港", city: "罗德城", desc: "主要港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "托托拉", cities: ["罗德城"] }
+                        ],
+                        customsPolicies: [
+                            { title: "英国领土", content: "英国海外领土，有独立关税政策。" }
+                        ],
+                        keywords: ["英属维尔京群岛港口"]
+                    },
+                    "turks-caicos": {
+                        name: "特克斯和凯科斯群岛",
+                        intro: "特克斯和凯科斯群岛是英国海外领土。",
+                        airports: {
+                            international: [
+                                { code: "PLS", name: "普罗维登西亚莱斯机场", city: "普罗维登西亚莱斯" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "TCPLS", name: "普罗维登西亚莱斯港", city: "普罗维登西亚莱斯", desc: "主要港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "普罗维登西亚莱斯", cities: ["普罗维登西亚莱斯"] }
+                        ],
+                        customsPolicies: [
+                            { title: "英国领土", content: "英国海外领土。" }
+                        ],
+                        keywords: ["特克斯和凯科斯港口"]
+                    },
+                    "anguilla": {
+                        name: "安圭拉",
+                        intro: "安圭拉是英国海外领土。",
+                        airports: {
+                            international: [
+                                { code: "AXA", name: "安圭拉机场", city: "瓦利" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "AIBLW", name: "布洛因港", city: "布洛因", desc: "主要港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "瓦利", cities: ["瓦利"] }
+                        ],
+                        customsPolicies: [
+                            { title: "英国领土", content: "英国海外领土。" }
+                        ],
+                        keywords: ["安圭拉港口"]
+                    },
+                    "montserrat": {
+                        name: "蒙特塞拉特",
+                        intro: "蒙特塞拉特是英国海外领土。",
+                        airports: {
+                            international: [
+                                { code: "MNI", name: "蒙特塞拉特机场", city: "布莱兹" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "MSLBY", name: "小海湾港", city: "小海湾", desc: "主要港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "布莱兹", cities: ["布莱兹"] }
+                        ],
+                        customsPolicies: [
+                            { title: "英国领土", content: "英国海外领土。" }
+                        ],
+                        keywords: ["蒙特塞拉特港口"]
+                    },
+                    "guadeloupe": {
+                        name: "瓜德罗普",
+                        intro: "瓜德罗普是法国海外省。",
+                        airports: {
+                            international: [
+                                { code: "PTP", name: "瓜德罗普机场", city: "皮特尔角" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "GPPTP", name: "皮特尔角港", city: "皮特尔角", desc: "主要港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "皮特尔角", cities: ["皮特尔角"] }
+                        ],
+                        customsPolicies: [
+                            { title: "法国领土", content: "法国海外省，适用欧盟关税政策。" }
+                        ],
+                        keywords: ["瓜德罗普港口"]
+                    },
+                    "martinique": {
+                        name: "马提尼克",
+                        intro: "马提尼克是法国海外省。",
+                        airports: {
+                            international: [
+                                { code: "FDF", name: "马提尼克机场", city: "法兰西堡" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "MQFDF", name: "法兰西堡港", city: "法兰西堡", desc: "主要港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "法兰西堡", cities: ["法兰西堡"] }
+                        ],
+                        customsPolicies: [
+                            { title: "法国领土", content: "法国海外省，适用欧盟关税政策。" }
+                        ],
+                        keywords: ["马提尼克港口"]
+                    },
+                    "sint-maarten": {
+                        name: "荷属圣马丁",
+                        intro: "荷属圣马丁是荷兰王国组成国。",
+                        airports: {
+                            international: [
+                                { code: "SXM", name: "朱丽安娜公主机场", city: "菲利普斯堡" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "SXPHI", name: "菲利普斯堡港", city: "菲利普斯堡", desc: "主要港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "菲利普斯堡", cities: ["菲利普斯堡"] }
+                        ],
+                        customsPolicies: [
+                            { title: "荷兰领土", content: "荷兰王国领土。" }
+                        ],
+                        keywords: ["荷属圣马丁港口"]
+                    },
+                    "saint-martin": {
+                        name: "法属圣马丁",
+                        intro: "法属圣马丁是法国海外领地。",
+                        airports: {
+                            international: [],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "MFMRG", name: "马里戈港", city: "马里戈", desc: "主要港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "马里戈", cities: ["马里戈"] }
+                        ],
+                        customsPolicies: [
+                            { title: "法国领土", content: "法国海外领地。" }
+                        ],
+                        keywords: ["法属圣马丁港口"]
+                    },
+                    "saint-barthelemy": {
+                        name: "圣巴泰勒米岛",
+                        intro: "圣巴泰勒米岛是法国海外领地。",
+                        airports: {
+                            international: [
+                                { code: "SBH", name: "圣巴泰勒米机场", city: "古斯塔维亚" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "BLGUS", name: "古斯塔维亚港", city: "古斯塔维亚", desc: "主要港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "古斯塔维亚", cities: ["古斯塔维亚"] }
+                        ],
+                        customsPolicies: [
+                            { title: "法国领土", content: "法国海外领地。" }
+                        ],
+                        keywords: ["圣巴泰勒米港口"]
+                    },
+                    "saint-pierre": {
+                        name: "圣皮埃尔和密克隆",
+                        intro: "圣皮埃尔和密克隆是法国海外领地。",
+                        airports: {
+                            international: [
+                                { code: "FSP", name: "圣皮埃尔机场", city: "圣皮埃尔" }
+                            ],
+                            domestic: []
+                        },
+                        ports: {
+                            international: [
+                                { code: "PMFSP", name: "圣皮埃尔港", city: "圣皮埃尔", desc: "主要港口" }
+                            ],
+                            domestic: []
+                        },
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "圣皮埃尔", cities: ["圣皮埃尔"] }
+                        ],
+                        customsPolicies: [
+                            { title: "法国领土", content: "法国海外领地。" }
+                        ],
+                        keywords: ["圣皮埃尔港口"]
+                    }
                 }
             },
             "south-america": {
@@ -324,20 +3968,353 @@ const knowledgeBase = {
                     }
                 },
                 countries: {
-                    "brazil": { name: "巴西", content: `<p>巴西是南美最大经济体。</p><h2>主要港口</h2><ul><li><strong>桑托斯港</strong>：南美最大港口</li><li><strong>巴拉那瓜港</strong>：农产品出口港</li><li><strong>里约热内卢港</strong>：重要港口</li><li><strong>伊塔瓜伊港</strong>：深水港</li></ul>`, keywords: ["桑托斯港", "巴西港口"] },
-                    "argentina": { name: "阿根廷", content: `<p>阿根廷是南美重要国家。</p><h2>主要港口</h2><ul><li><strong>布宜诺斯艾利斯港</strong>：阿根廷最大港口</li><li><strong>罗萨里奥港</strong>：巴拉那河港口</li></ul>`, keywords: ["布宜诺斯艾利斯港", "阿根廷港口"] },
-                    "uruguay": { name: "乌拉圭", content: `<p>乌拉圭是南美小国。</p><h2>主要港口</h2><ul><li><strong>蒙得维的亚港</strong>：乌拉圭最大港口</li></ul>`, keywords: ["蒙得维的亚港", "乌拉圭港口"] },
-                    "paraguay": { name: "巴拉圭", content: `<p>巴拉圭是内陆国家。</p><h2>贸易通道</h2><ul><li>通过巴拉那河和阿根廷港口</li></ul>`, keywords: ["巴拉圭"] },
-                    "chile": { name: "智利", content: `<p>智利拥有漫长的太平洋海岸线。</p><h2>主要港口</h2><ul><li><strong>瓦尔帕莱索港</strong>：智利最大港口</li><li><strong>圣安东尼奥港</strong>：集装箱港</li></ul>`, keywords: ["瓦尔帕莱索港", "智利港口"] },
-                    "peru": { name: "秘鲁", content: `<p>秘鲁是太平洋沿岸国家。</p><h2>主要港口</h2><ul><li><strong>卡亚俄港</strong>：秘鲁最大港口</li></ul>`, keywords: ["卡亚俄港", "秘鲁港口"] },
-                    "ecuador": { name: "厄瓜多尔", content: `<p>厄瓜多尔是太平洋沿岸国家。</p><h2>主要港口</h2><ul><li><strong>瓜亚基尔港</strong>：厄瓜多尔最大港口</li></ul>`, keywords: ["瓜亚基尔港", "厄瓜多尔港口"] },
-                    "colombia": { name: "哥伦比亚", content: `<p>哥伦比亚同时拥有太平洋和大西洋海岸线。</p><h2>主要港口</h2><ul><li><strong>卡塔赫纳港</strong>：加勒比海最大港口</li><li><strong>布埃纳文图拉港</strong>：太平洋港口</li></ul>`, keywords: ["卡塔赫纳港", "哥伦比亚港口"] },
-                    "venezuela": { name: "委内瑞拉", content: `<p>委内瑞拉是石油出口国。</p><h2>主要港口</h2><ul><li><strong>拉瓜伊拉港</strong>：委内瑞拉主要港口</li><li><strong>马拉开波港</strong>：石油出口港</li></ul>`, keywords: ["委内瑞拉港口"] },
-                    "guyana": { name: "圭亚那", content: `<p>圭亚那是南美北部国家。</p><h2>主要港口</h2><ul><li><strong>乔治敦港</strong>：圭亚那主要港口</li></ul>`, keywords: ["圭亚那港口"] },
-                    "suriname": { name: "苏里南", content: `<p>苏里南是南美小国。</p><h2>主要港口</h2><ul><li><strong>帕拉马里博港</strong>：苏里南主要港口</li></ul>`, keywords: ["苏里南港口"] },
-                    "bolivia": { name: "玻利维亚", content: `<p>玻利维亚是内陆国家。</p><h2>贸易通道</h2><ul><li>通过智利阿里卡港和秘鲁伊洛港</li></ul>`, keywords: ["玻利维亚"] },
-                    "french-guiana": { name: "法属圭亚那", content: `<p>法属圭亚那是法国海外省，位于南美洲北部。</p><h2>主要港口</h2><ul><li><strong>卡宴港</strong>：法属圭亚那主要港口</li><li><strong>库鲁港</strong>：欧洲航天发射中心所在地</li></ul>`, keywords: ["法属圭亚那港口", "卡宴港"] },
-                    "falkland-islands": { name: "马尔维纳斯群岛", content: `<p>马尔维纳斯群岛（福克兰群岛）由阿根廷和英国争议，目前由英国实际控制。</p><h2>主要港口</h2><ul><li><strong>斯坦利港</strong>：群岛首府港口</li></ul>`, keywords: ["马尔维纳斯群岛", "福克兰群岛", "斯坦利港"] }
+                    "brazil": {
+                        name: "巴西",
+                        airports: [
+                            { name: "圣保罗-瓜鲁柳斯国际机场", code: "GRU", city: "圣保罗" },
+                            { name: "里约热内卢-加利昂国际机场", code: "GIG", city: "里约热内卢" },
+                            { name: "巴西利亚国际机场", code: "BSB", city: "巴西利亚" },
+                            { name: "坎皮纳斯-维拉科波斯国际机场", code: "VCP", city: "坎皮纳斯" },
+                            { name: "累西腓国际机场", code: "REC", city: "累西腓" }
+                        ],
+                        ports: [
+                            { name: "桑托斯港", city: "桑托斯", type: "南美最大港口" },
+                            { name: "巴拉那瓜港", city: "巴拉那瓜", type: "农产品出口港" },
+                            { name: "里约热内卢港", city: "里约热内卢", type: "重要港口" },
+                            { name: "伊塔瓜伊港", city: "伊塔瓜伊", type: "深水港" },
+                            { name: "苏阿普港", city: "苏阿普", type: "东北部港口" }
+                        ],
+                        airlines: [
+                            { name: "拉塔姆巴西航空", code: "JJ", type: "巴西最大航空" },
+                            { name: "高尔航空", code: "G3", type: "低成本航空" },
+                            { name: "阿祖尔巴西航空", code: "AD", type: "国内航空" }
+                        ],
+                        shippingLines: [
+                            { name: "Log-In Logística", type: "巴西航运公司" },
+                            { name: "Aliança Navegação", type: "南美沿海航运" }
+                        ],
+                        provinces: [
+                            { name: "圣保罗州", capital: "圣保罗", cities: ["圣保罗", "坎皮纳斯", "桑托斯", "瓜鲁柳斯"] },
+                            { name: "里约热内卢州", capital: "里约热内卢", cities: ["里约热内卢", "尼泰罗伊"] },
+                            { name: "米纳斯吉拉斯州", capital: "贝洛奥里藏特", cities: ["贝洛奥里藏特", "乌贝兰迪亚"] },
+                            { name: "南里奥格兰德州", capital: "阿雷格里港", cities: ["阿雷格里港"] },
+                            { name: "巴拉那州", capital: "库里蒂巴", cities: ["库里蒂巴", "巴拉那瓜"] }
+                        ],
+                        customsPolicies: [
+                            { title: "进口关税", content: "巴西进口关税较高，平均约11.5%，部分商品可达35%" },
+                            { title: "工业产品税(IPI)", content: "根据产品类别征收0-300%不等" },
+                            { title: "增值税(ICMS)", content: "各州税率不同，通常7-18%" },
+                            { title: "进口许可", content: "大部分商品需要进口许可证(LI)" }
+                        ]
+                    },
+                    "argentina": {
+                        name: "阿根廷",
+                        airports: [
+                            { name: "埃塞萨国际机场", code: "EZE", city: "布宜诺斯艾利斯" },
+                            { name: "豪尔赫·纽贝里机场", code: "AEP", city: "布宜诺斯艾利斯" },
+                            { name: "科尔多瓦国际机场", code: "COR", city: "科尔多瓦" },
+                            { name: "门多萨国际机场", code: "MDZ", city: "门多萨" }
+                        ],
+                        ports: [
+                            { name: "布宜诺斯艾利斯港", city: "布宜诺斯艾利斯", type: "阿根廷最大港口" },
+                            { name: "罗萨里奥港", city: "罗萨里奥", type: "巴拉那河港口" },
+                            { name: "巴伊亚布兰卡港", city: "巴伊亚布兰卡", type: "深水港" }
+                        ],
+                        airlines: [
+                            { name: "阿根廷航空", code: "AR", type: "国家航空公司" },
+                            { name: "Flybondi", code: "FO", type: "低成本航空" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "布宜诺斯艾利斯省", capital: "拉普拉塔", cities: ["布宜诺斯艾利斯", "拉普拉塔", "马德普拉塔"] },
+                            { name: "科尔多瓦省", capital: "科尔多瓦", cities: ["科尔多瓦"] },
+                            { name: "圣菲省", capital: "圣菲", cities: ["罗萨里奥", "圣菲"] },
+                            { name: "门多萨省", capital: "门多萨", cities: ["门多萨"] }
+                        ],
+                        customsPolicies: [
+                            { title: "进口关税", content: "阿根廷进口关税根据商品类别不同，平均约13%" },
+                            { title: "增值税(IVA)", content: "标准税率21%，部分商品10.5%" },
+                            { title: "进口限制", content: "实施进口许可制度，部分商品需要预先批准" }
+                        ]
+                    },
+                    "chile": {
+                        name: "智利",
+                        airports: [
+                            { name: "阿图罗·梅里诺·贝尼特斯国际机场", code: "SCL", city: "圣地亚哥" },
+                            { name: "迭戈·阿拉塞纳国际机场", code: "IQQ", city: "伊基克" },
+                            { name: "埃尔洛阿机场", code: "ANF", city: "安托法加斯塔" }
+                        ],
+                        ports: [
+                            { name: "瓦尔帕莱索港", city: "瓦尔帕莱索", type: "智利最大港口" },
+                            { name: "圣安东尼奥港", city: "圣安东尼奥", type: "集装箱港" },
+                            { name: "塔尔卡瓦诺港", city: "塔尔卡瓦诺", type: "工业港口" },
+                            { name: "伊基克港", city: "伊基克", type: "自由贸易区港口" }
+                        ],
+                        airlines: [
+                            { name: "拉塔姆智利航空", code: "LA", type: "南美最大航空" },
+                            { name: "智利天空航空", code: "H2", type: "低成本航空" },
+                            { name: "JetSMART", code: "JA", type: "低成本航空" }
+                        ],
+                        shippingLines: [
+                            { name: "CSAV", type: "智利航运公司(现属赫伯罗特)" }
+                        ],
+                        provinces: [
+                            { name: "圣地亚哥大区", capital: "圣地亚哥", cities: ["圣地亚哥"] },
+                            { name: "瓦尔帕莱索大区", capital: "瓦尔帕莱索", cities: ["瓦尔帕莱索", "维尼亚德尔马"] },
+                            { name: "比奥比奥大区", capital: "康塞普西翁", cities: ["康塞普西翁", "塔尔卡瓦诺"] },
+                            { name: "安托法加斯塔大区", capital: "安托法加斯塔", cities: ["安托法加斯塔"] }
+                        ],
+                        customsPolicies: [
+                            { title: "统一关税", content: "智利实行统一6%进口关税（自由贸易协定国家可享优惠）" },
+                            { title: "增值税(IVA)", content: "标准税率19%" },
+                            { title: "自由贸易区", content: "伊基克和蓬塔阿雷纳斯设有自由贸易区" },
+                            { title: "FTA优惠", content: "与中国、美国、欧盟等签有自贸协定" }
+                        ]
+                    },
+                    "colombia": {
+                        name: "哥伦比亚",
+                        airports: [
+                            { name: "埃尔多拉多国际机场", code: "BOG", city: "波哥大" },
+                            { name: "何塞·玛丽亚·科尔多瓦国际机场", code: "MDE", city: "麦德林" },
+                            { name: "阿方索·博尼利亚·阿拉贡国际机场", code: "CLO", city: "卡利" },
+                            { name: "拉斐尔·努涅斯国际机场", code: "CTG", city: "卡塔赫纳" }
+                        ],
+                        ports: [
+                            { name: "卡塔赫纳港", city: "卡塔赫纳", type: "加勒比海最大港口" },
+                            { name: "布埃纳文图拉港", city: "布埃纳文图拉", type: "太平洋港口" },
+                            { name: "巴兰基亚港", city: "巴兰基亚", type: "加勒比海港口" },
+                            { name: "圣玛尔塔港", city: "圣玛尔塔", type: "煤炭出口港" }
+                        ],
+                        airlines: [
+                            { name: "哥伦比亚航空", code: "AV", type: "国家航空公司" },
+                            { name: "拉塔姆哥伦比亚航空", code: "4C", type: "区域航空" },
+                            { name: "Viva Air Colombia", code: "FC", type: "低成本航空" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "波哥大首都区", capital: "波哥大", cities: ["波哥大"] },
+                            { name: "安蒂奥基亚省", capital: "麦德林", cities: ["麦德林"] },
+                            { name: "山谷省", capital: "卡利", cities: ["卡利", "布埃纳文图拉"] },
+                            { name: "大西洋省", capital: "巴兰基亚", cities: ["巴兰基亚"] },
+                            { name: "玻利瓦尔省", capital: "卡塔赫纳", cities: ["卡塔赫纳"] }
+                        ],
+                        customsPolicies: [
+                            { title: "进口关税", content: "哥伦比亚关税根据商品类别不同，0-20%不等" },
+                            { title: "增值税(IVA)", content: "标准税率19%" },
+                            { title: "自由贸易区", content: "设有多个自由贸易区，享受税收优惠" }
+                        ]
+                    },
+                    "peru": {
+                        name: "秘鲁",
+                        airports: [
+                            { name: "豪尔赫·查韦斯国际机场", code: "LIM", city: "利马" },
+                            { name: "亚历杭德罗·贝拉斯科·阿斯特特国际机场", code: "CUZ", city: "库斯科" },
+                            { name: "罗德里格斯·巴隆机场", code: "AQP", city: "阿雷基帕" }
+                        ],
+                        ports: [
+                            { name: "卡亚俄港", city: "卡亚俄", type: "秘鲁最大港口" },
+                            { name: "派塔港", city: "派塔", type: "北部港口" },
+                            { name: "马塔拉尼港", city: "马塔拉尼", type: "南部港口" }
+                        ],
+                        airlines: [
+                            { name: "拉塔姆秘鲁航空", code: "LP", type: "主要航空公司" },
+                            { name: "秘鲁星空航空", code: "2I", type: "国内航空" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "利马省", capital: "利马", cities: ["利马", "卡亚俄"] },
+                            { name: "阿雷基帕省", capital: "阿雷基帕", cities: ["阿雷基帕"] },
+                            { name: "库斯科省", capital: "库斯科", cities: ["库斯科"] },
+                            { name: "拉利伯塔德省", capital: "特鲁希略", cities: ["特鲁希略"] }
+                        ],
+                        customsPolicies: [
+                            { title: "进口关税", content: "秘鲁关税分为0%、6%和11%三档" },
+                            { title: "增值税(IGV)", content: "标准税率18%" },
+                            { title: "FTA优惠", content: "与中国、美国签有自贸协定" }
+                        ]
+                    },
+                    "venezuela": {
+                        name: "委内瑞拉",
+                        airports: [
+                            { name: "西蒙·玻利瓦尔国际机场", code: "CCS", city: "加拉加斯" },
+                            { name: "拉钦塔国际机场", code: "MAR", city: "马拉开波" },
+                            { name: "圣地亚哥·马里尼奥国际机场", code: "PMV", city: "玛格丽塔岛" }
+                        ],
+                        ports: [
+                            { name: "拉瓜伊拉港", city: "拉瓜伊拉", type: "委内瑞拉主要港口" },
+                            { name: "马拉开波港", city: "马拉开波", type: "石油出口港" },
+                            { name: "卡贝略港", city: "卡贝略港", type: "工业港口" }
+                        ],
+                        airlines: [
+                            { name: "委内瑞拉联合航空", code: "V0", type: "国家航空公司" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "首都区", capital: "加拉加斯", cities: ["加拉加斯"] },
+                            { name: "苏利亚州", capital: "马拉开波", cities: ["马拉开波"] },
+                            { name: "卡拉沃沃州", capital: "巴伦西亚", cities: ["巴伦西亚"] }
+                        ],
+                        customsPolicies: [
+                            { title: "进口管制", content: "委内瑞拉实施严格的外汇和进口管制" },
+                            { title: "关税", content: "关税率较高，部分商品禁止进口" }
+                        ]
+                    },
+                    "ecuador": {
+                        name: "厄瓜多尔",
+                        airports: [
+                            { name: "马里斯卡尔·苏克雷国际机场", code: "UIO", city: "基多" },
+                            { name: "何塞·华金·德·奥尔梅多国际机场", code: "GYE", city: "瓜亚基尔" }
+                        ],
+                        ports: [
+                            { name: "瓜亚基尔港", city: "瓜亚基尔", type: "厄瓜多尔最大港口" },
+                            { name: "埃斯梅拉达斯港", city: "埃斯梅拉达斯", type: "石油出口港" },
+                            { name: "曼塔港", city: "曼塔", type: "渔业港口" }
+                        ],
+                        airlines: [
+                            { name: "厄瓜多尔TAME航空", code: "EQ", type: "国家航空公司" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "皮钦查省", capital: "基多", cities: ["基多"] },
+                            { name: "瓜亚斯省", capital: "瓜亚基尔", cities: ["瓜亚基尔"] },
+                            { name: "阿苏艾省", capital: "昆卡", cities: ["昆卡"] }
+                        ],
+                        customsPolicies: [
+                            { title: "进口关税", content: "厄瓜多尔关税根据商品类别，0-25%不等" },
+                            { title: "增值税(IVA)", content: "标准税率12%" }
+                        ]
+                    },
+                    "bolivia": {
+                        name: "玻利维亚",
+                        airports: [
+                            { name: "维鲁维鲁国际机场", code: "VVI", city: "圣克鲁斯" },
+                            { name: "埃尔阿尔托国际机场", code: "LPB", city: "拉巴斯" }
+                        ],
+                        ports: [],
+                        airlines: [
+                            { name: "玻利维亚航空", code: "OB", type: "国家航空公司" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "拉巴斯省", capital: "拉巴斯", cities: ["拉巴斯", "埃尔阿尔托"] },
+                            { name: "圣克鲁斯省", capital: "圣克鲁斯", cities: ["圣克鲁斯"] },
+                            { name: "科恰班巴省", capital: "科恰班巴", cities: ["科恰班巴"] }
+                        ],
+                        customsPolicies: [
+                            { title: "内陆国家", content: "玻利维亚是内陆国，货物通过智利阿里卡港和秘鲁伊洛港转运" },
+                            { title: "进口关税", content: "关税率根据商品类别不同" }
+                        ]
+                    },
+                    "uruguay": {
+                        name: "乌拉圭",
+                        airports: [
+                            { name: "卡拉斯科国际机场", code: "MVD", city: "蒙得维的亚" }
+                        ],
+                        ports: [
+                            { name: "蒙得维的亚港", city: "蒙得维的亚", type: "乌拉圭最大港口" },
+                            { name: "科洛尼亚港", city: "科洛尼亚", type: "渡轮港口" }
+                        ],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "蒙得维的亚省", capital: "蒙得维的亚", cities: ["蒙得维的亚"] },
+                            { name: "卡内洛内斯省", capital: "卡内洛内斯", cities: ["卡内洛内斯"] }
+                        ],
+                        customsPolicies: [
+                            { title: "进口关税", content: "乌拉圭实施南方共同市场统一关税" },
+                            { title: "增值税(IVA)", content: "标准税率22%" }
+                        ]
+                    },
+                    "paraguay": {
+                        name: "巴拉圭",
+                        airports: [
+                            { name: "西尔维奥·佩蒂罗西国际机场", code: "ASU", city: "亚松森" }
+                        ],
+                        ports: [],
+                        airlines: [
+                            { name: "巴拉圭航空", code: "I2", type: "国家航空公司" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "首都区", capital: "亚松森", cities: ["亚松森"] },
+                            { name: "中央省", capital: "阿雷瓜", cities: ["阿雷瓜", "费尔南多·德拉莫拉"] }
+                        ],
+                        customsPolicies: [
+                            { title: "内陆国家", content: "巴拉圭是内陆国，货物通过巴拉那河和阿根廷港口转运" },
+                            { title: "进口关税", content: "实施南方共同市场统一关税" }
+                        ]
+                    },
+                    "guyana": {
+                        name: "圭亚那",
+                        airports: [
+                            { name: "切迪·贾根国际机场", code: "GEO", city: "乔治敦" }
+                        ],
+                        ports: [
+                            { name: "乔治敦港", city: "乔治敦", type: "圭亚那主要港口" }
+                        ],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "德梅拉拉-马海卡区", capital: "乔治敦", cities: ["乔治敦"] }
+                        ],
+                        customsPolicies: [
+                            { title: "进口关税", content: "圭亚那作为加共体成员实施共同对外关税" }
+                        ]
+                    },
+                    "suriname": {
+                        name: "苏里南",
+                        airports: [
+                            { name: "约翰·阿道夫·彭格尔国际机场", code: "PBM", city: "帕拉马里博" }
+                        ],
+                        ports: [
+                            { name: "帕拉马里博港", city: "帕拉马里博", type: "苏里南主要港口" }
+                        ],
+                        airlines: [
+                            { name: "苏里南航空", code: "PY", type: "国家航空公司" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "帕拉马里博区", capital: "帕拉马里博", cities: ["帕拉马里博"] }
+                        ],
+                        customsPolicies: [
+                            { title: "进口关税", content: "苏里南作为加共体成员实施共同对外关税" }
+                        ]
+                    },
+                    "french-guiana": {
+                        name: "法属圭亚那",
+                        airports: [
+                            { name: "卡宴-费利克斯·埃布埃机场", code: "CAY", city: "卡宴" }
+                        ],
+                        ports: [
+                            { name: "卡宴港", city: "卡宴", type: "法属圭亚那主要港口" },
+                            { name: "库鲁港", city: "库鲁", type: "欧洲航天发射中心" }
+                        ],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "法属圭亚那", capital: "卡宴", cities: ["卡宴", "库鲁"] }
+                        ],
+                        customsPolicies: [
+                            { title: "法国海外省", content: "法属圭亚那是法国海外省，适用欧盟关税规定" }
+                        ]
+                    },
+                    "falkland-islands": {
+                        name: "马尔维纳斯群岛",
+                        airports: [
+                            { name: "芒特普莱森特机场", code: "MPN", city: "芒特普莱森特" }
+                        ],
+                        ports: [
+                            { name: "斯坦利港", city: "斯坦利", type: "群岛首府港口" }
+                        ],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "马尔维纳斯群岛", capital: "斯坦利", cities: ["斯坦利"] }
+                        ],
+                        customsPolicies: [
+                            { title: "英国海外领土", content: "马尔维纳斯群岛由英国管辖，适用英国海外领土关税规定" }
+                        ]
+                    }
                 }
             },
             "africa": {
@@ -370,67 +4347,1153 @@ const knowledgeBase = {
                     }
                 },
                 countries: {
-                    "egypt": { name: "埃及", content: `<p>埃及拥有苏伊士运河，是亚欧非航运枢纽。</p><h2>主要港口</h2><ul><li><strong>塞得港</strong>：苏伊士运河北端，全球重要转运港</li><li><strong>亚历山大港</strong>：埃及最大港口</li><li><strong>达米埃塔港</strong>：尼罗河三角洲港口</li></ul>`, keywords: ["塞得港", "苏伊士运河", "埃及港口"] },
-                    "morocco": { name: "摩洛哥", content: `<p>摩洛哥位于直布罗陀海峡南侧。</p><h2>主要港口</h2><ul><li><strong>丹吉尔地中海港</strong>：非洲最大港口，重要转运中心</li><li><strong>卡萨布兰卡港</strong>：传统大港</li></ul>`, keywords: ["丹吉尔港", "摩洛哥港口"] },
-                    "algeria": { name: "阿尔及利亚", content: `<p>阿尔及利亚是北非大国。</p><h2>主要港口</h2><ul><li><strong>阿尔及尔港</strong>：阿尔及利亚最大港口</li></ul>`, keywords: ["阿尔及尔港", "阿尔及利亚港口"] },
-                    "tunisia": { name: "突尼斯", content: `<p>突尼斯是北非国家。</p><h2>主要港口</h2><ul><li><strong>拉迪斯港</strong>：突尼斯最大集装箱港</li></ul>`, keywords: ["突尼斯港口"] },
-                    "libya": { name: "利比亚", content: `<p>利比亚是北非石油出口国。</p><h2>主要港口</h2><ul><li><strong>的黎波里港</strong>：利比亚主要港口</li></ul>`, keywords: ["利比亚港口"] },
-                    "nigeria": { name: "尼日利亚", content: `<p>尼日利亚是非洲人口最多、经济最大的国家。</p><h2>主要港口</h2><ul><li><strong>阿帕帕港</strong>：拉各斯主要港口</li><li><strong>廷坎港</strong>：拉各斯第二大港</li><li><strong>哈科特港</strong>：石油出口港</li></ul>`, keywords: ["拉各斯港", "尼日利亚港口"] },
-                    "ghana": { name: "加纳", content: `<p>加纳是西非重要国家。</p><h2>主要港口</h2><ul><li><strong>特马港</strong>：加纳最大港口</li></ul>`, keywords: ["特马港", "加纳港口"] },
-                    "senegal": { name: "塞内加尔", content: `<p>塞内加尔是西非国家。</p><h2>主要港口</h2><ul><li><strong>达喀尔港</strong>：西非重要港口</li></ul>`, keywords: ["达喀尔港", "塞内加尔港口"] },
-                    "ivory-coast": { name: "科特迪瓦", content: `<p>科特迪瓦是西非经济大国。</p><h2>主要港口</h2><ul><li><strong>阿比让港</strong>：西非最大港口之一</li></ul>`, keywords: ["阿比让港", "科特迪瓦港口"] },
-                    "cameroon": { name: "喀麦隆", content: `<p>喀麦隆是中西非国家。</p><h2>主要港口</h2><ul><li><strong>杜阿拉港</strong>：喀麦隆最大港口</li></ul>`, keywords: ["杜阿拉港", "喀麦隆港口"] },
-                    "togo": { name: "多哥", content: `<p>多哥是西非小国。</p><h2>主要港口</h2><ul><li><strong>洛美港</strong>：多哥主要港口，区域转运中心</li></ul>`, keywords: ["洛美港", "多哥港口"] },
-                    "benin": { name: "贝宁", content: `<p>贝宁是西非国家。</p><h2>主要港口</h2><ul><li><strong>科托努港</strong>：贝宁主要港口</li></ul>`, keywords: ["科托努港", "贝宁港口"] },
-                    "kenya": { name: "肯尼亚", content: `<p>肯尼亚是东非经济中心。</p><h2>主要港口</h2><ul><li><strong>蒙巴萨港</strong>：东非最大港口</li></ul>`, keywords: ["蒙巴萨港", "肯尼亚港口"] },
-                    "tanzania": { name: "坦桑尼亚", content: `<p>坦桑尼亚是东非国家。</p><h2>主要港口</h2><ul><li><strong>达累斯萨拉姆港</strong>：坦桑尼亚最大港口</li></ul>`, keywords: ["达累斯萨拉姆港", "坦桑尼亚港口"] },
-                    "ethiopia": { name: "埃塞俄比亚", content: `<p>埃塞俄比亚是非洲人口第二大国，内陆国家。</p><h2>贸易通道</h2><ul><li>主要通过吉布提港</li></ul>`, keywords: ["埃塞俄比亚"] },
-                    "uganda": { name: "乌干达", content: `<p>乌干达是东非内陆国家。</p><h2>贸易通道</h2><ul><li>通过肯尼亚蒙巴萨港</li></ul>`, keywords: ["乌干达"] },
-                    "rwanda": { name: "卢旺达", content: `<p>卢旺达是东非内陆国家。</p><h2>贸易通道</h2><ul><li>通过坦桑尼亚达累斯萨拉姆港</li></ul>`, keywords: ["卢旺达"] },
-                    "djibouti": { name: "吉布提", content: `<p>吉布提位于红海入口，战略位置重要。</p><h2>主要港口</h2><ul><li><strong>吉布提港</strong>：东非重要港口，埃塞俄比亚主要出海口</li><li><strong>多拉莱港</strong>：新建多功能港</li></ul>`, keywords: ["吉布提港"] },
-                    "mauritius": { name: "毛里求斯", content: `<p>毛里求斯是印度洋岛国。</p><h2>主要港口</h2><ul><li><strong>路易港</strong>：毛里求斯主要港口</li></ul>`, keywords: ["路易港", "毛里求斯港口"] },
-                    "madagascar": { name: "马达加斯加", content: `<p>马达加斯加是非洲岛国。</p><h2>主要港口</h2><ul><li><strong>塔马塔夫港</strong>：马达加斯加最大港口</li></ul>`, keywords: ["马达加斯加港口"] },
-                    "south-africa": { name: "南非", content: `<p>南非是非洲经济最发达的国家。</p><h2>主要港口</h2><ul><li><strong>德班港</strong>：非洲最繁忙的集装箱港</li><li><strong>开普敦港</strong>：好望角重要港口</li><li><strong>伊丽莎白港</strong>：汽车出口港</li></ul>`, keywords: ["德班港", "南非港口"] },
-                    "mozambique": { name: "莫桑比克", content: `<p>莫桑比克拥有漫长的印度洋海岸线。</p><h2>主要港口</h2><ul><li><strong>马普托港</strong>：莫桑比克最大港口</li><li><strong>贝拉港</strong>：中部港口</li></ul>`, keywords: ["马普托港", "莫桑比克港口"] },
-                    "angola": { name: "安哥拉", content: `<p>安哥拉是非洲石油大国。</p><h2>主要港口</h2><ul><li><strong>罗安达港</strong>：安哥拉最大港口</li></ul>`, keywords: ["罗安达港", "安哥拉港口"] },
-                    "namibia": { name: "纳米比亚", content: `<p>纳米比亚是南部非洲国家。</p><h2>主要港口</h2><ul><li><strong>沃尔维斯港</strong>：纳米比亚最大港口</li></ul>`, keywords: ["沃尔维斯港", "纳米比亚港口"] },
-                    "zimbabwe": { name: "津巴布韦", content: `<p>津巴布韦是内陆国家。</p><h2>贸易通道</h2><ul><li>通过南非和莫桑比克港口</li></ul>`, keywords: ["津巴布韦"] },
-                    "zambia": { name: "赞比亚", content: `<p>赞比亚是内陆国家。</p><h2>贸易通道</h2><ul><li>通过南非德班港和坦桑尼亚达累斯萨拉姆港</li></ul>`, keywords: ["赞比亚"] },
-                    "botswana": { name: "博茨瓦纳", content: `<p>博茨瓦纳是内陆国家。</p><h2>贸易通道</h2><ul><li>通过南非港口</li></ul>`, keywords: ["博茨瓦纳"] },
-                    "congo-drc": { name: "刚果（金）", content: `<p>刚果民主共和国是非洲面积最大国家。</p><h2>主要港口</h2><ul><li><strong>马塔迪港</strong>：刚果河港口</li></ul>`, keywords: ["刚果金港口"] },
-                    "congo": { name: "刚果（布）", content: `<p>刚果共和国是中非国家。</p><h2>主要港口</h2><ul><li><strong>黑角港</strong>：刚果最大港口</li></ul>`, keywords: ["刚果布港口"] },
-                    "gabon": { name: "加蓬", content: `<p>加蓬是中非石油国家。</p><h2>主要港口</h2><ul><li><strong>利伯维尔港</strong>：加蓬主要港口</li></ul>`, keywords: ["加蓬港口"] },
-                    "sudan": { name: "苏丹", content: `<p>苏丹是非洲面积第三大国。</p><h2>主要港口</h2><ul><li><strong>苏丹港</strong>：红海主要港口</li></ul>`, keywords: ["苏丹港口"] },
-                    "mauritania": { name: "毛里塔尼亚", content: `<p>毛里塔尼亚是西非国家。</p><h2>主要港口</h2><ul><li><strong>努瓦克肖特港</strong>：首都港口</li><li><strong>努瓦迪布港</strong>：矿产出口港</li></ul>`, keywords: ["毛里塔尼亚港口"] },
-                    "mali": { name: "马里", content: `<p>马里是西非内陆国家。</p><h2>贸易通道</h2><ul><li>通过塞内加尔达喀尔港</li><li>通过科特迪瓦阿比让港</li></ul>`, keywords: ["马里"] },
-                    "niger": { name: "尼日尔", content: `<p>尼日尔是西非内陆国家。</p><h2>贸易通道</h2><ul><li>通过贝宁科托努港</li><li>通过多哥洛美港</li></ul>`, keywords: ["尼日尔"] },
-                    "burkina-faso": { name: "布基纳法索", content: `<p>布基纳法索是西非内陆国家。</p><h2>贸易通道</h2><ul><li>通过科特迪瓦阿比让港</li><li>通过加纳特马港</li></ul>`, keywords: ["布基纳法索"] },
-                    "guinea": { name: "几内亚", content: `<p>几内亚是西非沿海国家。</p><h2>主要港口</h2><ul><li><strong>科纳克里港</strong>：几内亚主要港口</li></ul>`, keywords: ["科纳克里港", "几内亚港口"] },
-                    "guinea-bissau": { name: "几内亚比绍", content: `<p>几内亚比绍是西非小国。</p><h2>主要港口</h2><ul><li><strong>比绍港</strong>：首都港口</li></ul>`, keywords: ["几内亚比绍港口"] },
-                    "sierra-leone": { name: "塞拉利昂", content: `<p>塞拉利昂是西非沿海国家。</p><h2>主要港口</h2><ul><li><strong>弗里敦港</strong>：塞拉利昂主要港口</li></ul>`, keywords: ["弗里敦港", "塞拉利昂港口"] },
-                    "liberia": { name: "利比里亚", content: `<p>利比里亚是西非沿海国家，船旗国。</p><h2>主要港口</h2><ul><li><strong>蒙罗维亚港</strong>：利比里亚主要港口</li></ul>`, keywords: ["蒙罗维亚港", "利比里亚港口"] },
-                    "gambia": { name: "冈比亚", content: `<p>冈比亚是西非最小国家。</p><h2>主要港口</h2><ul><li><strong>班珠尔港</strong>：冈比亚主要港口</li></ul>`, keywords: ["班珠尔港", "冈比亚港口"] },
-                    "cape-verde": { name: "佛得角", content: `<p>佛得角是大西洋岛国。</p><h2>主要港口</h2><ul><li><strong>明德罗港</strong>：佛得角主要港口</li></ul>`, keywords: ["佛得角港口"] },
-                    "somalia": { name: "索马里", content: `<p>索马里位于非洲之角。</p><h2>主要港口</h2><ul><li><strong>摩加迪沙港</strong>：索马里首都港口</li><li><strong>柏培拉港</strong>：索马里兰港口</li></ul>`, keywords: ["摩加迪沙港", "索马里港口"] },
-                    "eritrea": { name: "厄立特里亚", content: `<p>厄立特里亚位于红海沿岸。</p><h2>主要港口</h2><ul><li><strong>马萨瓦港</strong>：厄立特里亚主要港口</li><li><strong>阿萨布港</strong>：红海港口</li></ul>`, keywords: ["马萨瓦港", "厄立特里亚港口"] },
-                    "south-sudan": { name: "南苏丹", content: `<p>南苏丹是非洲最年轻的国家，内陆国家。</p><h2>贸易通道</h2><ul><li>通过肯尼亚蒙巴萨港</li><li>通过苏丹港</li></ul>`, keywords: ["南苏丹"] },
-                    "burundi": { name: "布隆迪", content: `<p>布隆迪是东非内陆国家。</p><h2>贸易通道</h2><ul><li>通过坦桑尼亚达累斯萨拉姆港</li></ul>`, keywords: ["布隆迪"] },
-                    "seychelles": { name: "塞舌尔", content: `<p>塞舌尔是印度洋岛国。</p><h2>主要港口</h2><ul><li><strong>维多利亚港</strong>：塞舌尔主要港口</li></ul>`, keywords: ["塞舌尔港口"] },
-                    "comoros": { name: "科摩罗", content: `<p>科摩罗是印度洋岛国。</p><h2>主要港口</h2><ul><li><strong>莫罗尼港</strong>：科摩罗主要港口</li></ul>`, keywords: ["科摩罗港口"] },
-                    "malawi": { name: "马拉维", content: `<p>马拉维是东南非内陆国家。</p><h2>贸易通道</h2><ul><li>通过莫桑比克贝拉港</li></ul>`, keywords: ["马拉维"] },
-                    "lesotho": { name: "莱索托", content: `<p>莱索托是南非境内的内陆国。</p><h2>贸易通道</h2><ul><li>通过南非德班港</li></ul>`, keywords: ["莱索托"] },
-                    "eswatini": { name: "斯威士兰", content: `<p>斯威士兰是南部非洲内陆国。</p><h2>贸易通道</h2><ul><li>通过南非德班港</li><li>通过莫桑比克马普托港</li></ul>`, keywords: ["斯威士兰"] },
-                    "central-african": { name: "中非共和国", content: `<p>中非共和国是内陆国家。</p><h2>贸易通道</h2><ul><li>通过喀麦隆杜阿拉港</li></ul>`, keywords: ["中非共和国"] },
-                    "chad": { name: "乍得", content: `<p>乍得是非洲内陆国家。</p><h2>贸易通道</h2><ul><li>通过喀麦隆杜阿拉港</li></ul>`, keywords: ["乍得"] },
-                    "equatorial-guinea": { name: "赤道几内亚", content: `<p>赤道几内亚是中非石油国。</p><h2>主要港口</h2><ul><li><strong>巴塔港</strong>：赤道几内亚主要港口</li><li><strong>马拉博港</strong>：首都港口</li></ul>`, keywords: ["赤道几内亚港口"] },
-                    "sao-tome": { name: "圣多美和普林西比", content: `<p>圣多美和普林西比是几内亚湾岛国。</p><h2>主要港口</h2><ul><li><strong>圣多美港</strong>：主要港口</li></ul>`, keywords: ["圣多美港口"] },
-                    "azores": { name: "亚速尔群岛", content: `<p>亚速尔群岛是葡萄牙的自治区，位于北大西洋。</p><h2>主要港口</h2><ul><li><strong>蓬塔德尔加达港</strong>：亚速尔群岛最大港口</li></ul>`, keywords: ["亚速尔群岛港口"] },
-                    "madeira": { name: "马德拉群岛", content: `<p>马德拉群岛是葡萄牙的自治区，位于北大西洋。</p><h2>主要港口</h2><ul><li><strong>丰沙尔港</strong>：马德拉群岛主要港口</li></ul>`, keywords: ["马德拉群岛港口"] },
-                    "canary-islands": { name: "加那利群岛", content: `<p>加那利群岛是西班牙的自治区，位于非洲西北海岸。</p><h2>主要港口</h2><ul><li><strong>拉斯帕尔马斯港</strong>：加那利群岛最大港口</li><li><strong>圣克鲁斯港</strong>：特内里费岛港口</li></ul>`, keywords: ["加那利群岛港口", "拉斯帕尔马斯港"] },
-                    "western-sahara": { name: "西撒哈拉", content: `<p>西撒哈拉是非洲西北部争议地区，目前由摩洛哥实际控制。</p><h2>主要港口</h2><ul><li><strong>阿尤恩港</strong>：西撒哈拉主要港口</li><li><strong>达赫拉港</strong>：渔业港口</li></ul>`, keywords: ["西撒哈拉港口"] },
-                    "reunion": { name: "留尼汪岛", content: `<p>留尼汪岛是法国海外省，位于印度洋西南部。</p><h2>主要港口</h2><ul><li><strong>勒波尔港</strong>：留尼汪岛主要港口</li></ul>`, keywords: ["留尼汪港口"] },
-                    "saint-helena": { name: "圣赫勒拿岛", content: `<p>圣赫勒拿岛是英国海外领土，位于南大西洋。</p><h2>港口</h2><ul><li><strong>詹姆斯敦港</strong>：圣赫勒拿岛主要港口</li></ul>`, keywords: ["圣赫勒拿港口"] },
-                    "mayotte": { name: "马约特", content: `<p>马约特是法国海外省，位于科摩罗群岛。</p><h2>主要港口</h2><ul><li><strong>马穆楚港</strong>：马约特主要港口</li></ul>`, keywords: ["马约特港口"] }
+                    "egypt": {
+                        name: "埃及",
+                        airports: [
+                            { name: "开罗国际机场", code: "CAI", city: "开罗" },
+                            { name: "亚历山大博格艾尔阿拉伯机场", code: "HBE", city: "亚历山大" },
+                            { name: "沙姆沙伊赫国际机场", code: "SSH", city: "沙姆沙伊赫" },
+                            { name: "卢克索国际机场", code: "LXR", city: "卢克索" }
+                        ],
+                        ports: [
+                            { name: "塞得港", city: "塞得", type: "苏伊士运河北端，全球重要转运港" },
+                            { name: "亚历山大港", city: "亚历山大", type: "埃及最大港口" },
+                            { name: "达米埃塔港", city: "达米埃塔", type: "尼罗河三角洲港口" },
+                            { name: "苏伊士港", city: "苏伊士", type: "苏伊士运河南端" }
+                        ],
+                        airlines: [
+                            { name: "埃及航空", code: "MS", type: "国家航空公司" },
+                            { name: "尼罗河航空", code: "NP", type: "低成本航空" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "开罗省", capital: "开罗", cities: ["开罗", "吉萨"] },
+                            { name: "亚历山大省", capital: "亚历山大", cities: ["亚历山大"] },
+                            { name: "塞得港省", capital: "塞得港", cities: ["塞得港"] }
+                        ],
+                        customsPolicies: [
+                            { title: "苏伊士运河", content: "苏伊士运河是连接地中海和红海的国际航运要道" },
+                            { title: "进口关税", content: "埃及关税根据商品类别不同，5-60%不等" },
+                            { title: "增值税", content: "标准税率14%" }
+                        ]
+                    },
+                    "morocco": {
+                        name: "摩洛哥",
+                        airports: [
+                            { name: "穆罕默德五世国际机场", code: "CMN", city: "卡萨布兰卡" },
+                            { name: "马拉喀什梅纳拉机场", code: "RAK", city: "马拉喀什" },
+                            { name: "丹吉尔伊本·白图泰机场", code: "TNG", city: "丹吉尔" }
+                        ],
+                        ports: [
+                            { name: "丹吉尔地中海港", city: "丹吉尔", type: "非洲最大港口，重要转运中心" },
+                            { name: "卡萨布兰卡港", city: "卡萨布兰卡", type: "传统大港" },
+                            { name: "阿加迪尔港", city: "阿加迪尔", type: "渔业港口" }
+                        ],
+                        airlines: [
+                            { name: "摩洛哥皇家航空", code: "AT", type: "国家航空公司" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "大卡萨布兰卡大区", capital: "卡萨布兰卡", cities: ["卡萨布兰卡"] },
+                            { name: "拉巴特-萨累大区", capital: "拉巴特", cities: ["拉巴特", "萨累"] },
+                            { name: "丹吉尔-得土安大区", capital: "丹吉尔", cities: ["丹吉尔"] }
+                        ],
+                        customsPolicies: [
+                            { title: "自由贸易区", content: "丹吉尔设有自由贸易区，享受税收优惠" },
+                            { title: "进口关税", content: "关税率根据商品类别和原产地不同" }
+                        ]
+                    },
+                    "algeria": {
+                        name: "阿尔及利亚",
+                        airports: [
+                            { name: "阿尔及尔胡阿里·布迈丁机场", code: "ALG", city: "阿尔及尔" },
+                            { name: "奥兰艾哈迈德·本·贝拉机场", code: "ORN", city: "奥兰" }
+                        ],
+                        ports: [
+                            { name: "阿尔及尔港", city: "阿尔及尔", type: "阿尔及利亚最大港口" },
+                            { name: "奥兰港", city: "奥兰", type: "第二大港口" }
+                        ],
+                        airlines: [
+                            { name: "阿尔及利亚航空", code: "AH", type: "国家航空公司" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "阿尔及尔省", capital: "阿尔及尔", cities: ["阿尔及尔"] },
+                            { name: "奥兰省", capital: "奥兰", cities: ["奥兰"] }
+                        ],
+                        customsPolicies: [
+                            { title: "进口管制", content: "阿尔及利亚实施进口许可制度" },
+                            { title: "关税", content: "关税率根据商品类别不同" }
+                        ]
+                    },
+                    "tunisia": {
+                        name: "突尼斯",
+                        airports: [
+                            { name: "突尼斯-迦太基国际机场", code: "TUN", city: "突尼斯" },
+                            { name: "莫纳斯提尔哈比卜·布尔吉巴机场", code: "MIR", city: "莫纳斯提尔" }
+                        ],
+                        ports: [
+                            { name: "拉迪斯港", city: "拉迪斯", type: "突尼斯最大集装箱港" },
+                            { name: "突尼斯港", city: "突尼斯", type: "传统港口" }
+                        ],
+                        airlines: [
+                            { name: "突尼斯航空", code: "TU", type: "国家航空公司" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "突尼斯省", capital: "突尼斯", cities: ["突尼斯"] },
+                            { name: "斯法克斯省", capital: "斯法克斯", cities: ["斯法克斯"] }
+                        ],
+                        customsPolicies: [
+                            { title: "进口关税", content: "突尼斯关税根据商品类别不同" }
+                        ]
+                    },
+                    "libya": {
+                        name: "利比亚",
+                        airports: [
+                            { name: "的黎波里国际机场", code: "TIP", city: "的黎波里" },
+                            { name: "班加西贝尼纳机场", code: "BEN", city: "班加西" }
+                        ],
+                        ports: [
+                            { name: "的黎波里港", city: "的黎波里", type: "利比亚主要港口" },
+                            { name: "班加西港", city: "班加西", type: "东部港口" }
+                        ],
+                        airlines: [
+                            { name: "利比亚航空", code: "LN", type: "国家航空公司" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "的黎波里省", capital: "的黎波里", cities: ["的黎波里"] },
+                            { name: "班加西省", capital: "班加西", cities: ["班加西"] }
+                        ],
+                        customsPolicies: [
+                            { title: "贸易状况", content: "利比亚因局势不稳定，贸易受限" }
+                        ]
+                    },
+                    "nigeria": {
+                        name: "尼日利亚",
+                        airports: [
+                            { name: "穆尔塔拉·穆罕默德国际机场", code: "LOS", city: "拉各斯" },
+                            { name: "纳姆迪·阿齐基韦国际机场", code: "ABV", city: "阿布贾" },
+                            { name: "哈科特港国际机场", code: "PHC", city: "哈科特港" }
+                        ],
+                        ports: [
+                            { name: "阿帕帕港", city: "拉各斯", type: "拉各斯主要港口" },
+                            { name: "廷坎港", city: "拉各斯", type: "拉各斯第二大港" },
+                            { name: "哈科特港", city: "哈科特港", type: "石油出口港" }
+                        ],
+                        airlines: [
+                            { name: "阿里克航空", code: "W3", type: "私营航空" },
+                            { name: "和平航空", code: "P4", type: "私营航空" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "拉各斯州", capital: "伊凯贾", cities: ["拉各斯", "伊凯贾"] },
+                            { name: "联邦首都区", capital: "阿布贾", cities: ["阿布贾"] },
+                            { name: "河流州", capital: "哈科特港", cities: ["哈科特港"] }
+                        ],
+                        customsPolicies: [
+                            { title: "进口关税", content: "尼日利亚关税根据商品类别不同，5-35%不等" },
+                            { title: "进口限制", content: "部分商品禁止进口，需进口许可证" }
+                        ]
+                    },
+                    "south-africa": {
+                        name: "南非",
+                        airports: [
+                            { name: "奥利弗·坦博国际机场", code: "JNB", city: "约翰内斯堡" },
+                            { name: "开普敦国际机场", code: "CPT", city: "开普敦" },
+                            { name: "沙卡国王国际机场", code: "DUR", city: "德班" }
+                        ],
+                        ports: [
+                            { name: "德班港", city: "德班", type: "非洲最繁忙的集装箱港" },
+                            { name: "开普敦港", city: "开普敦", type: "好望角重要港口" },
+                            { name: "伊丽莎白港", city: "伊丽莎白港", type: "汽车出口港" },
+                            { name: "理查兹湾港", city: "理查兹湾", type: "煤炭出口港" }
+                        ],
+                        airlines: [
+                            { name: "南非航空", code: "SA", type: "国家航空公司" },
+                            { name: "芒果航空", code: "JE", type: "低成本航空" },
+                            { name: "FlySafair", code: "FA", type: "低成本航空" }
+                        ],
+                        shippingLines: [
+                            { name: "Safmarine", type: "南非航运(现属马士基)" }
+                        ],
+                        provinces: [
+                            { name: "豪登省", capital: "约翰内斯堡", cities: ["约翰内斯堡", "比勒陀利亚"] },
+                            { name: "西开普省", capital: "开普敦", cities: ["开普敦"] },
+                            { name: "夸祖鲁-纳塔尔省", capital: "彼得马里茨堡", cities: ["德班", "彼得马里茨堡"] },
+                            { name: "东开普省", capital: "比绍", cities: ["伊丽莎白港"] }
+                        ],
+                        customsPolicies: [
+                            { title: "进口关税", content: "南非作为南部非洲关税同盟成员，实施共同关税" },
+                            { title: "增值税(VAT)", content: "标准税率15%" },
+                            { title: "自由贸易区", content: "设有多个工业开发区和经济特区" }
+                        ]
+                    },
+                    "kenya": {
+                        name: "肯尼亚",
+                        airports: [
+                            { name: "乔莫·肯雅塔国际机场", code: "NBO", city: "内罗毕" },
+                            { name: "莫伊国际机场", code: "MBA", city: "蒙巴萨" }
+                        ],
+                        ports: [
+                            { name: "蒙巴萨港", city: "蒙巴萨", type: "东非最大港口" }
+                        ],
+                        airlines: [
+                            { name: "肯尼亚航空", code: "KQ", type: "国家航空公司" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "内罗毕市", capital: "内罗毕", cities: ["内罗毕"] },
+                            { name: "蒙巴萨县", capital: "蒙巴萨", cities: ["蒙巴萨"] }
+                        ],
+                        customsPolicies: [
+                            { title: "东非共同体", content: "肯尼亚是东非共同体成员，实施共同对外关税" },
+                            { title: "增值税(VAT)", content: "标准税率16%" }
+                        ]
+                    },
+                    "tanzania": {
+                        name: "坦桑尼亚",
+                        airports: [
+                            { name: "朱利叶斯·尼雷尔国际机场", code: "DAR", city: "达累斯萨拉姆" },
+                            { name: "乞力马扎罗国际机场", code: "JRO", city: "乞力马扎罗" }
+                        ],
+                        ports: [
+                            { name: "达累斯萨拉姆港", city: "达累斯萨拉姆", type: "坦桑尼亚最大港口" },
+                            { name: "桑给巴尔港", city: "桑给巴尔", type: "岛屿港口" }
+                        ],
+                        airlines: [
+                            { name: "坦桑尼亚航空", code: "TC", type: "国家航空公司" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "达累斯萨拉姆区", capital: "达累斯萨拉姆", cities: ["达累斯萨拉姆"] },
+                            { name: "桑给巴尔", capital: "桑给巴尔市", cities: ["桑给巴尔市"] }
+                        ],
+                        customsPolicies: [
+                            { title: "东非共同体", content: "坦桑尼亚是东非共同体成员" }
+                        ]
+                    },
+                    "ethiopia": {
+                        name: "埃塞俄比亚",
+                        airports: [
+                            { name: "博莱国际机场", code: "ADD", city: "亚的斯亚贝巴" }
+                        ],
+                        ports: [],
+                        airlines: [
+                            { name: "埃塞俄比亚航空", code: "ET", type: "非洲最大航空公司" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "亚的斯亚贝巴", capital: "亚的斯亚贝巴", cities: ["亚的斯亚贝巴"] }
+                        ],
+                        customsPolicies: [
+                            { title: "内陆国家", content: "埃塞俄比亚是内陆国，主要通过吉布提港进出口" }
+                        ]
+                    },
+                    "ghana": {
+                        name: "加纳",
+                        airports: [
+                            { name: "科托卡国际机场", code: "ACC", city: "阿克拉" }
+                        ],
+                        ports: [
+                            { name: "特马港", city: "特马", type: "加纳最大港口" },
+                            { name: "塔科拉迪港", city: "塔科拉迪", type: "第二大港口" }
+                        ],
+                        airlines: [
+                            { name: "非洲环球航空", code: "G7", type: "加纳航空" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "大阿克拉地区", capital: "阿克拉", cities: ["阿克拉", "特马"] }
+                        ],
+                        customsPolicies: [
+                            { title: "西非经济共同体", content: "加纳是西非经共体成员" }
+                        ]
+                    },
+                    "senegal": {
+                        name: "塞内加尔",
+                        airports: [
+                            { name: "布莱斯·迪亚涅国际机场", code: "DSS", city: "达喀尔" }
+                        ],
+                        ports: [
+                            { name: "达喀尔港", city: "达喀尔", type: "西非重要港口" }
+                        ],
+                        airlines: [
+                            { name: "塞内加尔航空", code: "HC", type: "国家航空公司" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "达喀尔大区", capital: "达喀尔", cities: ["达喀尔"] }
+                        ],
+                        customsPolicies: [
+                            { title: "西非经济共同体", content: "塞内加尔是西非经共体成员" }
+                        ]
+                    },
+                    "ivory-coast": {
+                        name: "科特迪瓦",
+                        airports: [
+                            { name: "费利克斯·乌弗埃-博瓦尼国际机场", code: "ABJ", city: "阿比让" }
+                        ],
+                        ports: [
+                            { name: "阿比让港", city: "阿比让", type: "西非最大港口之一" },
+                            { name: "圣佩德罗港", city: "圣佩德罗", type: "可可出口港" }
+                        ],
+                        airlines: [
+                            { name: "科特迪瓦航空", code: "HF", type: "国家航空公司" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "阿比让区", capital: "阿比让", cities: ["阿比让"] }
+                        ],
+                        customsPolicies: [
+                            { title: "西非经济共同体", content: "科特迪瓦是西非经共体成员" }
+                        ]
+                    },
+                    "cameroon": {
+                        name: "喀麦隆",
+                        airports: [
+                            { name: "杜阿拉国际机场", code: "DLA", city: "杜阿拉" },
+                            { name: "雅温得恩西马伦国际机场", code: "NSI", city: "雅温得" }
+                        ],
+                        ports: [
+                            { name: "杜阿拉港", city: "杜阿拉", type: "喀麦隆最大港口" }
+                        ],
+                        airlines: [
+                            { name: "喀麦隆航空", code: "QC", type: "国家航空公司" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "滨海省", capital: "杜阿拉", cities: ["杜阿拉"] },
+                            { name: "中央省", capital: "雅温得", cities: ["雅温得"] }
+                        ],
+                        customsPolicies: [
+                            { title: "中非经济共同体", content: "喀麦隆是中非经共体成员" }
+                        ]
+                    },
+                    "angola": {
+                        name: "安哥拉",
+                        airports: [
+                            { name: "二月四日国际机场", code: "LAD", city: "罗安达" }
+                        ],
+                        ports: [
+                            { name: "罗安达港", city: "罗安达", type: "安哥拉最大港口" },
+                            { name: "洛比托港", city: "洛比托", type: "大西洋港口" }
+                        ],
+                        airlines: [
+                            { name: "安哥拉航空", code: "DT", type: "国家航空公司" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "罗安达省", capital: "罗安达", cities: ["罗安达"] }
+                        ],
+                        customsPolicies: [
+                            { title: "进口关税", content: "安哥拉关税根据商品类别不同" }
+                        ]
+                    },
+                    "mozambique": {
+                        name: "莫桑比克",
+                        airports: [
+                            { name: "马普托国际机场", code: "MPM", city: "马普托" }
+                        ],
+                        ports: [
+                            { name: "马普托港", city: "马普托", type: "莫桑比克最大港口" },
+                            { name: "贝拉港", city: "贝拉", type: "中部港口" },
+                            { name: "纳卡拉港", city: "纳卡拉", type: "北部深水港" }
+                        ],
+                        airlines: [
+                            { name: "莫桑比克航空", code: "TM", type: "国家航空公司" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "马普托省", capital: "马普托", cities: ["马普托"] }
+                        ],
+                        customsPolicies: [
+                            { title: "南部非洲发展共同体", content: "莫桑比克是SADC成员" }
+                        ]
+                    },
+                    "djibouti": {
+                        name: "吉布提",
+                        airports: [
+                            { name: "吉布提-安布利国际机场", code: "JIB", city: "吉布提市" }
+                        ],
+                        ports: [
+                            { name: "吉布提港", city: "吉布提市", type: "东非重要港口" },
+                            { name: "多拉莱港", city: "多拉莱", type: "新建多功能港" }
+                        ],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "吉布提市", capital: "吉布提市", cities: ["吉布提市"] }
+                        ],
+                        customsPolicies: [
+                            { title: "自由贸易区", content: "吉布提设有自由贸易区" },
+                            { title: "战略位置", content: "吉布提是埃塞俄比亚主要出海口" }
+                        ]
+                    },
+                    "mauritius": {
+                        name: "毛里求斯",
+                        airports: [
+                            { name: "西沃萨古尔·拉姆古兰爵士国际机场", code: "MRU", city: "路易港" }
+                        ],
+                        ports: [
+                            { name: "路易港", city: "路易港", type: "毛里求斯主要港口" }
+                        ],
+                        airlines: [
+                            { name: "毛里求斯航空", code: "MK", type: "国家航空公司" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "路易港区", capital: "路易港", cities: ["路易港"] }
+                        ],
+                        customsPolicies: [
+                            { title: "自由港", content: "毛里求斯路易港是重要的自由港" }
+                        ]
+                    },
+                    "madagascar": {
+                        name: "马达加斯加",
+                        airports: [
+                            { name: "伊瓦图国际机场", code: "TNR", city: "塔那那利佛" }
+                        ],
+                        ports: [
+                            { name: "塔马塔夫港", city: "塔马塔夫", type: "马达加斯加最大港口" }
+                        ],
+                        airlines: [
+                            { name: "马达加斯加航空", code: "MD", type: "国家航空公司" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "塔那那利佛省", capital: "塔那那利佛", cities: ["塔那那利佛"] }
+                        ],
+                        customsPolicies: [
+                            { title: "进口关税", content: "马达加斯加关税根据商品类别不同" }
+                        ]
+                    },
+                    "namibia": {
+                        name: "纳米比亚",
+                        airports: [
+                            { name: "霍齐亚·库塔科国际机场", code: "WDH", city: "温得和克" }
+                        ],
+                        ports: [
+                            { name: "沃尔维斯港", city: "沃尔维斯湾", type: "纳米比亚最大港口" }
+                        ],
+                        airlines: [
+                            { name: "纳米比亚航空", code: "SW", type: "国家航空公司" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "霍马斯区", capital: "温得和克", cities: ["温得和克"] }
+                        ],
+                        customsPolicies: [
+                            { title: "南部非洲关税同盟", content: "纳米比亚是SACU成员" }
+                        ]
+                    },
+                    "uganda": {
+                        name: "乌干达",
+                        airports: [
+                            { name: "恩德培国际机场", code: "EBB", city: "恩德培" }
+                        ],
+                        ports: [],
+                        airlines: [
+                            { name: "乌干达航空", code: "UR", type: "国家航空公司" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "中央区", capital: "坎帕拉", cities: ["坎帕拉", "恩德培"] }
+                        ],
+                        customsPolicies: [
+                            { title: "内陆国家", content: "乌干达通过肯尼亚蒙巴萨港进出口" }
+                        ]
+                    },
+                    "rwanda": {
+                        name: "卢旺达",
+                        airports: [
+                            { name: "基加利国际机场", code: "KGL", city: "基加利" }
+                        ],
+                        ports: [],
+                        airlines: [
+                            { name: "卢旺达航空", code: "WB", type: "国家航空公司" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "基加利市", capital: "基加利", cities: ["基加利"] }
+                        ],
+                        customsPolicies: [
+                            { title: "内陆国家", content: "卢旺达通过坦桑尼亚达累斯萨拉姆港进出口" }
+                        ]
+                    },
+                    "sudan": {
+                        name: "苏丹",
+                        airports: [
+                            { name: "喀土穆国际机场", code: "KRT", city: "喀土穆" }
+                        ],
+                        ports: [
+                            { name: "苏丹港", city: "苏丹港", type: "红海主要港口" }
+                        ],
+                        airlines: [
+                            { name: "苏丹航空", code: "SD", type: "国家航空公司" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "喀土穆州", capital: "喀土穆", cities: ["喀土穆", "恩图曼"] }
+                        ],
+                        customsPolicies: [
+                            { title: "制裁影响", content: "苏丹曾受国际制裁影响" }
+                        ]
+                    },
+                    "zimbabwe": {
+                        name: "津巴布韦",
+                        airports: [
+                            { name: "哈拉雷国际机场", code: "HRE", city: "哈拉雷" }
+                        ],
+                        ports: [],
+                        airlines: [
+                            { name: "津巴布韦航空", code: "UM", type: "国家航空公司" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "哈拉雷省", capital: "哈拉雷", cities: ["哈拉雷"] }
+                        ],
+                        customsPolicies: [
+                            { title: "内陆国家", content: "津巴布韦通过南非和莫桑比克港口进出口" }
+                        ]
+                    },
+                    "zambia": {
+                        name: "赞比亚",
+                        airports: [
+                            { name: "肯尼思·卡翁达国际机场", code: "LUN", city: "卢萨卡" }
+                        ],
+                        ports: [],
+                        airlines: [
+                            { name: "赞比亚航空", code: "ZA", type: "国家航空公司" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "卢萨卡省", capital: "卢萨卡", cities: ["卢萨卡"] }
+                        ],
+                        customsPolicies: [
+                            { title: "内陆国家", content: "赞比亚通过南非德班港和坦桑尼亚达累斯萨拉姆港进出口" }
+                        ]
+                    },
+                    "botswana": {
+                        name: "博茨瓦纳",
+                        airports: [
+                            { name: "塞雷茨·卡马国际机场", code: "GBE", city: "哈博罗内" }
+                        ],
+                        ports: [],
+                        airlines: [
+                            { name: "博茨瓦纳航空", code: "BP", type: "国家航空公司" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "南区", capital: "哈博罗内", cities: ["哈博罗内"] }
+                        ],
+                        customsPolicies: [
+                            { title: "内陆国家", content: "博茨瓦纳通过南非港口进出口" },
+                            { title: "南部非洲关税同盟", content: "博茨瓦纳是SACU成员" }
+                        ]
+                    },
+                    "congo-drc": {
+                        name: "刚果（金）",
+                        airports: [
+                            { name: "恩吉利国际机场", code: "FIH", city: "金沙萨" }
+                        ],
+                        ports: [
+                            { name: "马塔迪港", city: "马塔迪", type: "刚果河港口" }
+                        ],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "金沙萨", capital: "金沙萨", cities: ["金沙萨"] }
+                        ],
+                        customsPolicies: [
+                            { title: "进口关税", content: "刚果金关税根据商品类别不同" }
+                        ]
+                    },
+                    "congo": {
+                        name: "刚果（布）",
+                        airports: [
+                            { name: "玛雅-玛雅机场", code: "BZV", city: "布拉柴维尔" }
+                        ],
+                        ports: [
+                            { name: "黑角港", city: "黑角", type: "刚果最大港口" }
+                        ],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "布拉柴维尔", capital: "布拉柴维尔", cities: ["布拉柴维尔"] }
+                        ],
+                        customsPolicies: [
+                            { title: "中非经济共同体", content: "刚果布是中非经共体成员" }
+                        ]
+                    },
+                    "gabon": {
+                        name: "加蓬",
+                        airports: [
+                            { name: "利伯维尔莱昂·姆巴机场", code: "LBV", city: "利伯维尔" }
+                        ],
+                        ports: [
+                            { name: "利伯维尔港", city: "利伯维尔", type: "加蓬主要港口" },
+                            { name: "让蒂尔港", city: "让蒂尔港", type: "石油出口港" }
+                        ],
+                        airlines: [
+                            { name: "加蓬航空", code: "GY", type: "国家航空公司" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "河口省", capital: "利伯维尔", cities: ["利伯维尔"] }
+                        ],
+                        customsPolicies: [
+                            { title: "中非经济共同体", content: "加蓬是中非经共体成员" }
+                        ]
+                    },
+                    "togo": {
+                        name: "多哥",
+                        airports: [
+                            { name: "洛美-托科因机场", code: "LFW", city: "洛美" }
+                        ],
+                        ports: [
+                            { name: "洛美港", city: "洛美", type: "多哥主要港口，区域转运中心" }
+                        ],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "滨海区", capital: "洛美", cities: ["洛美"] }
+                        ],
+                        customsPolicies: [
+                            { title: "西非经济共同体", content: "多哥是西非经共体成员" }
+                        ]
+                    },
+                    "benin": {
+                        name: "贝宁",
+                        airports: [
+                            { name: "科托努卡杰洪机场", code: "COO", city: "科托努" }
+                        ],
+                        ports: [
+                            { name: "科托努港", city: "科托努", type: "贝宁主要港口" }
+                        ],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "滨海省", capital: "科托努", cities: ["科托努"] }
+                        ],
+                        customsPolicies: [
+                            { title: "西非经济共同体", content: "贝宁是西非经共体成员" }
+                        ]
+                    },
+                    "mauritania": {
+                        name: "毛里塔尼亚",
+                        airports: [
+                            { name: "努瓦克肖特-乌姆图西国际机场", code: "NKC", city: "努瓦克肖特" }
+                        ],
+                        ports: [
+                            { name: "努瓦克肖特港", city: "努瓦克肖特", type: "首都港口" },
+                            { name: "努瓦迪布港", city: "努瓦迪布", type: "矿产出口港" }
+                        ],
+                        airlines: [
+                            { name: "毛里塔尼亚航空", code: "L6", type: "国家航空公司" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "努瓦克肖特", capital: "努瓦克肖特", cities: ["努瓦克肖特"] }
+                        ],
+                        customsPolicies: [
+                            { title: "进口关税", content: "毛里塔尼亚关税根据商品类别不同" }
+                        ]
+                    },
+                    "mali": {
+                        name: "马里",
+                        airports: [
+                            { name: "巴马科-塞努国际机场", code: "BKO", city: "巴马科" }
+                        ],
+                        ports: [],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "巴马科区", capital: "巴马科", cities: ["巴马科"] }
+                        ],
+                        customsPolicies: [
+                            { title: "内陆国家", content: "马里通过塞内加尔达喀尔港和科特迪瓦阿比让港进出口" }
+                        ]
+                    },
+                    "niger": {
+                        name: "尼日尔",
+                        airports: [
+                            { name: "迪奥里·哈马尼国际机场", code: "NIM", city: "尼亚美" }
+                        ],
+                        ports: [],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "尼亚美", capital: "尼亚美", cities: ["尼亚美"] }
+                        ],
+                        customsPolicies: [
+                            { title: "内陆国家", content: "尼日尔通过贝宁科托努港和多哥洛美港进出口" }
+                        ]
+                    },
+                    "burkina-faso": {
+                        name: "布基纳法索",
+                        airports: [
+                            { name: "瓦加杜古机场", code: "OUA", city: "瓦加杜古" }
+                        ],
+                        ports: [],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "卡迪奥戈省", capital: "瓦加杜古", cities: ["瓦加杜古"] }
+                        ],
+                        customsPolicies: [
+                            { title: "内陆国家", content: "布基纳法索通过科特迪瓦阿比让港和加纳特马港进出口" }
+                        ]
+                    },
+                    "guinea": {
+                        name: "几内亚",
+                        airports: [
+                            { name: "科纳克里国际机场", code: "CKY", city: "科纳克里" }
+                        ],
+                        ports: [
+                            { name: "科纳克里港", city: "科纳克里", type: "几内亚主要港口" }
+                        ],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "科纳克里", capital: "科纳克里", cities: ["科纳克里"] }
+                        ],
+                        customsPolicies: [
+                            { title: "西非经济共同体", content: "几内亚是西非经共体成员" }
+                        ]
+                    },
+                    "guinea-bissau": {
+                        name: "几内亚比绍",
+                        airports: [
+                            { name: "奥斯瓦尔多·维埃拉国际机场", code: "OXB", city: "比绍" }
+                        ],
+                        ports: [
+                            { name: "比绍港", city: "比绍", type: "首都港口" }
+                        ],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "比绍", capital: "比绍", cities: ["比绍"] }
+                        ],
+                        customsPolicies: [
+                            { title: "西非经济共同体", content: "几内亚比绍是西非经共体成员" }
+                        ]
+                    },
+                    "sierra-leone": {
+                        name: "塞拉利昂",
+                        airports: [
+                            { name: "弗里敦隆吉国际机场", code: "FNA", city: "弗里敦" }
+                        ],
+                        ports: [
+                            { name: "弗里敦港", city: "弗里敦", type: "塞拉利昂主要港口" }
+                        ],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "西部区", capital: "弗里敦", cities: ["弗里敦"] }
+                        ],
+                        customsPolicies: [
+                            { title: "西非经济共同体", content: "塞拉利昂是西非经共体成员" }
+                        ]
+                    },
+                    "liberia": {
+                        name: "利比里亚",
+                        airports: [
+                            { name: "罗伯茨国际机场", code: "ROB", city: "蒙罗维亚" }
+                        ],
+                        ports: [
+                            { name: "蒙罗维亚港", city: "蒙罗维亚", type: "利比里亚主要港口" }
+                        ],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "蒙特塞拉多县", capital: "蒙罗维亚", cities: ["蒙罗维亚"] }
+                        ],
+                        customsPolicies: [
+                            { title: "船旗国", content: "利比里亚是重要的船旗国" }
+                        ]
+                    },
+                    "gambia": {
+                        name: "冈比亚",
+                        airports: [
+                            { name: "班珠尔国际机场", code: "BJL", city: "班珠尔" }
+                        ],
+                        ports: [
+                            { name: "班珠尔港", city: "班珠尔", type: "冈比亚主要港口" }
+                        ],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "班珠尔", capital: "班珠尔", cities: ["班珠尔"] }
+                        ],
+                        customsPolicies: [
+                            { title: "西非经济共同体", content: "冈比亚是西非经共体成员" }
+                        ]
+                    },
+                    "cape-verde": {
+                        name: "佛得角",
+                        airports: [
+                            { name: "阿米尔卡·卡布拉尔国际机场", code: "SID", city: "萨尔岛" },
+                            { name: "纳尔逊·曼德拉国际机场", code: "RAI", city: "普拉亚" }
+                        ],
+                        ports: [
+                            { name: "明德罗港", city: "明德罗", type: "佛得角主要港口" }
+                        ],
+                        airlines: [
+                            { name: "佛得角航空", code: "VR", type: "国家航空公司" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "普拉亚", capital: "普拉亚", cities: ["普拉亚"] }
+                        ],
+                        customsPolicies: [
+                            { title: "岛国", content: "佛得角是大西洋岛国" }
+                        ]
+                    },
+                    "somalia": {
+                        name: "索马里",
+                        airports: [
+                            { name: "亚丁·阿德国际机场", code: "MGQ", city: "摩加迪沙" }
+                        ],
+                        ports: [
+                            { name: "摩加迪沙港", city: "摩加迪沙", type: "索马里首都港口" },
+                            { name: "柏培拉港", city: "柏培拉", type: "索马里兰港口" }
+                        ],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "班纳迪尔州", capital: "摩加迪沙", cities: ["摩加迪沙"] }
+                        ],
+                        customsPolicies: [
+                            { title: "贸易状况", content: "索马里因局势不稳定，贸易受限" }
+                        ]
+                    },
+                    "eritrea": {
+                        name: "厄立特里亚",
+                        airports: [
+                            { name: "阿斯马拉国际机场", code: "ASM", city: "阿斯马拉" }
+                        ],
+                        ports: [
+                            { name: "马萨瓦港", city: "马萨瓦", type: "厄立特里亚主要港口" },
+                            { name: "阿萨布港", city: "阿萨布", type: "红海港口" }
+                        ],
+                        airlines: [
+                            { name: "厄立特里亚航空", code: "B8", type: "国家航空公司" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "中央区", capital: "阿斯马拉", cities: ["阿斯马拉"] }
+                        ],
+                        customsPolicies: [
+                            { title: "红海位置", content: "厄立特里亚位于红海沿岸战略位置" }
+                        ]
+                    },
+                    "south-sudan": {
+                        name: "南苏丹",
+                        airports: [
+                            { name: "朱巴国际机场", code: "JUB", city: "朱巴" }
+                        ],
+                        ports: [],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "中赤道州", capital: "朱巴", cities: ["朱巴"] }
+                        ],
+                        customsPolicies: [
+                            { title: "内陆国家", content: "南苏丹通过肯尼亚蒙巴萨港和苏丹港进出口" }
+                        ]
+                    },
+                    "burundi": {
+                        name: "布隆迪",
+                        airports: [
+                            { name: "布琼布拉国际机场", code: "BJM", city: "布琼布拉" }
+                        ],
+                        ports: [],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "布琼布拉", capital: "布琼布拉", cities: ["布琼布拉"] }
+                        ],
+                        customsPolicies: [
+                            { title: "内陆国家", content: "布隆迪通过坦桑尼亚达累斯萨拉姆港进出口" }
+                        ]
+                    },
+                    "seychelles": {
+                        name: "塞舌尔",
+                        airports: [
+                            { name: "塞舌尔国际机场", code: "SEZ", city: "维多利亚" }
+                        ],
+                        ports: [
+                            { name: "维多利亚港", city: "维多利亚", type: "塞舌尔主要港口" }
+                        ],
+                        airlines: [
+                            { name: "塞舌尔航空", code: "HM", type: "国家航空公司" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "马埃岛", capital: "维多利亚", cities: ["维多利亚"] }
+                        ],
+                        customsPolicies: [
+                            { title: "岛国", content: "塞舌尔是印度洋岛国" }
+                        ]
+                    },
+                    "comoros": {
+                        name: "科摩罗",
+                        airports: [
+                            { name: "赛义德·易卜拉欣王子国际机场", code: "HAH", city: "莫罗尼" }
+                        ],
+                        ports: [
+                            { name: "莫罗尼港", city: "莫罗尼", type: "科摩罗主要港口" }
+                        ],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "大科摩罗岛", capital: "莫罗尼", cities: ["莫罗尼"] }
+                        ],
+                        customsPolicies: [
+                            { title: "岛国", content: "科摩罗是印度洋岛国" }
+                        ]
+                    },
+                    "malawi": {
+                        name: "马拉维",
+                        airports: [
+                            { name: "利隆圭国际机场", code: "LLW", city: "利隆圭" }
+                        ],
+                        ports: [],
+                        airlines: [
+                            { name: "马拉维航空", code: "QM", type: "国家航空公司" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "中央区", capital: "利隆圭", cities: ["利隆圭"] }
+                        ],
+                        customsPolicies: [
+                            { title: "内陆国家", content: "马拉维通过莫桑比克贝拉港进出口" }
+                        ]
+                    },
+                    "lesotho": {
+                        name: "莱索托",
+                        airports: [
+                            { name: "莫舒舒一世国际机场", code: "MSU", city: "马塞卢" }
+                        ],
+                        ports: [],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "马塞卢区", capital: "马塞卢", cities: ["马塞卢"] }
+                        ],
+                        customsPolicies: [
+                            { title: "内陆国家", content: "莱索托是南非境内的内陆国，通过南非德班港进出口" },
+                            { title: "南部非洲关税同盟", content: "莱索托是SACU成员" }
+                        ]
+                    },
+                    "eswatini": {
+                        name: "斯威士兰",
+                        airports: [
+                            { name: "恩斯瓦蒂三世国际机场", code: "SHO", city: "姆巴巴内" }
+                        ],
+                        ports: [],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "霍霍区", capital: "姆巴巴内", cities: ["姆巴巴内"] }
+                        ],
+                        customsPolicies: [
+                            { title: "内陆国家", content: "斯威士兰通过南非德班港和莫桑比克马普托港进出口" },
+                            { title: "南部非洲关税同盟", content: "斯威士兰是SACU成员" }
+                        ]
+                    },
+                    "central-african": {
+                        name: "中非共和国",
+                        airports: [
+                            { name: "班吉-姆波科国际机场", code: "BGF", city: "班吉" }
+                        ],
+                        ports: [],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "班吉", capital: "班吉", cities: ["班吉"] }
+                        ],
+                        customsPolicies: [
+                            { title: "内陆国家", content: "中非共和国通过喀麦隆杜阿拉港进出口" }
+                        ]
+                    },
+                    "chad": {
+                        name: "乍得",
+                        airports: [
+                            { name: "恩贾梅纳国际机场", code: "NDJ", city: "恩贾梅纳" }
+                        ],
+                        ports: [],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "恩贾梅纳", capital: "恩贾梅纳", cities: ["恩贾梅纳"] }
+                        ],
+                        customsPolicies: [
+                            { title: "内陆国家", content: "乍得通过喀麦隆杜阿拉港进出口" }
+                        ]
+                    },
+                    "equatorial-guinea": {
+                        name: "赤道几内亚",
+                        airports: [
+                            { name: "马拉博国际机场", code: "SSG", city: "马拉博" },
+                            { name: "巴塔机场", code: "BSG", city: "巴塔" }
+                        ],
+                        ports: [
+                            { name: "巴塔港", city: "巴塔", type: "赤道几内亚主要港口" },
+                            { name: "马拉博港", city: "马拉博", type: "首都港口" }
+                        ],
+                        airlines: [
+                            { name: "赤道航空", code: "CE", type: "国家航空公司" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "北比奥科省", capital: "马拉博", cities: ["马拉博"] }
+                        ],
+                        customsPolicies: [
+                            { title: "石油出口国", content: "赤道几内亚是中非石油出口国" }
+                        ]
+                    },
+                    "sao-tome": {
+                        name: "圣多美和普林西比",
+                        airports: [
+                            { name: "圣多美国际机场", code: "TMS", city: "圣多美" }
+                        ],
+                        ports: [
+                            { name: "圣多美港", city: "圣多美", type: "主要港口" }
+                        ],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "圣多美岛", capital: "圣多美", cities: ["圣多美"] }
+                        ],
+                        customsPolicies: [
+                            { title: "岛国", content: "圣多美和普林西比是几内亚湾岛国" }
+                        ]
+                    },
+                    "azores": {
+                        name: "亚速尔群岛",
+                        airports: [
+                            { name: "蓬塔德尔加达机场", code: "PDL", city: "蓬塔德尔加达" }
+                        ],
+                        ports: [
+                            { name: "蓬塔德尔加达港", city: "蓬塔德尔加达", type: "亚速尔群岛最大港口" }
+                        ],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "亚速尔群岛", capital: "蓬塔德尔加达", cities: ["蓬塔德尔加达"] }
+                        ],
+                        customsPolicies: [
+                            { title: "葡萄牙自治区", content: "亚速尔群岛是葡萄牙的自治区" }
+                        ]
+                    },
+                    "madeira": {
+                        name: "马德拉群岛",
+                        airports: [
+                            { name: "马德拉克里斯蒂亚诺·罗纳尔多机场", code: "FNC", city: "丰沙尔" }
+                        ],
+                        ports: [
+                            { name: "丰沙尔港", city: "丰沙尔", type: "马德拉群岛主要港口" }
+                        ],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "马德拉群岛", capital: "丰沙尔", cities: ["丰沙尔"] }
+                        ],
+                        customsPolicies: [
+                            { title: "葡萄牙自治区", content: "马德拉群岛是葡萄牙的自治区" }
+                        ]
+                    },
+                    "canary-islands": {
+                        name: "加那利群岛",
+                        airports: [
+                            { name: "大加那利机场", code: "LPA", city: "拉斯帕尔马斯" },
+                            { name: "特内里费北部机场", code: "TFN", city: "圣克鲁斯" }
+                        ],
+                        ports: [
+                            { name: "拉斯帕尔马斯港", city: "拉斯帕尔马斯", type: "加那利群岛最大港口" },
+                            { name: "圣克鲁斯港", city: "圣克鲁斯", type: "特内里费岛港口" }
+                        ],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "加那利群岛", capital: "拉斯帕尔马斯", cities: ["拉斯帕尔马斯", "圣克鲁斯"] }
+                        ],
+                        customsPolicies: [
+                            { title: "西班牙自治区", content: "加那利群岛是西班牙的自治区" }
+                        ]
+                    },
+                    "western-sahara": {
+                        name: "西撒哈拉",
+                        airports: [
+                            { name: "阿尤恩机场", code: "EUN", city: "阿尤恩" }
+                        ],
+                        ports: [
+                            { name: "阿尤恩港", city: "阿尤恩", type: "西撒哈拉主要港口" },
+                            { name: "达赫拉港", city: "达赫拉", type: "渔业港口" }
+                        ],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "阿尤恩", capital: "阿尤恩", cities: ["阿尤恩"] }
+                        ],
+                        customsPolicies: [
+                            { title: "争议地区", content: "西撒哈拉是非洲西北部争议地区，目前由摩洛哥实际控制" }
+                        ]
+                    },
+                    "reunion": {
+                        name: "留尼汪岛",
+                        airports: [
+                            { name: "罗兰·加洛斯机场", code: "RUN", city: "圣但尼" }
+                        ],
+                        ports: [
+                            { name: "勒波尔港", city: "勒波尔", type: "留尼汪岛主要港口" }
+                        ],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "留尼汪岛", capital: "圣但尼", cities: ["圣但尼", "勒波尔"] }
+                        ],
+                        customsPolicies: [
+                            { title: "法国海外省", content: "留尼汪岛是法国海外省" }
+                        ]
+                    },
+                    "saint-helena": {
+                        name: "圣赫勒拿岛",
+                        airports: [
+                            { name: "圣赫勒拿机场", code: "HLE", city: "詹姆斯敦" }
+                        ],
+                        ports: [
+                            { name: "詹姆斯敦港", city: "詹姆斯敦", type: "圣赫勒拿岛主要港口" }
+                        ],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "圣赫勒拿岛", capital: "詹姆斯敦", cities: ["詹姆斯敦"] }
+                        ],
+                        customsPolicies: [
+                            { title: "英国海外领土", content: "圣赫勒拿岛是英国海外领土" }
+                        ]
+                    },
+                    "mayotte": {
+                        name: "马约特",
+                        airports: [
+                            { name: "藻德齐机场", code: "DZA", city: "藻德齐" }
+                        ],
+                        ports: [
+                            { name: "马穆楚港", city: "马穆楚", type: "马约特主要港口" }
+                        ],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "马约特", capital: "马穆楚", cities: ["马穆楚"] }
+                        ],
+                        customsPolicies: [
+                            { title: "法国海外省", content: "马约特是法国海外省" }
+                        ]
+                    }
                 }
             },
             "oceania": {
@@ -459,30 +5522,459 @@ const knowledgeBase = {
                     }
                 },
                 countries: {
-                    "australia": { name: "澳大利亚", content: `<p>澳大利亚是大洋洲最大经济体，矿产资源丰富。</p><h2>主要港口</h2><ul><li><strong>墨尔本港</strong>：澳大利亚最大集装箱港</li><li><strong>悉尼港</strong>：新南威尔士主要港口</li><li><strong>布里斯班港</strong>：昆士兰主要港口</li><li><strong>弗里曼特尔港</strong>：西澳主要港口</li><li><strong>阿德莱德港</strong>：南澳主要港口</li></ul>`, keywords: ["墨尔本港", "悉尼港", "澳大利亚港口"] },
-                    "new-zealand": { name: "新西兰", content: `<p>新西兰是重要的农产品出口国。</p><h2>主要港口</h2><ul><li><strong>奥克兰港</strong>：新西兰最大港口</li><li><strong>陶朗加港</strong>：出口量最大港口</li><li><strong>利特尔顿港</strong>：南岛主要港口</li></ul>`, keywords: ["奥克兰港", "新西兰港口"] },
-                    "papua-new-guinea": { name: "巴布亚新几内亚", content: `<p>巴布亚新几内亚是太平洋岛国。</p><h2>主要港口</h2><ul><li><strong>莫尔兹比港</strong>：首都港口</li><li><strong>莱城港</strong>：第二大城市港口</li></ul>`, keywords: ["巴新港口"] },
-                    "fiji": { name: "斐济", content: `<p>斐济是太平洋岛国。</p><h2>主要港口</h2><ul><li><strong>苏瓦港</strong>：斐济主要港口</li></ul>`, keywords: ["苏瓦港", "斐济港口"] },
-                    "solomon": { name: "所罗门群岛", content: `<p>所罗门群岛是太平洋岛国。</p><h2>主要港口</h2><ul><li><strong>霍尼亚拉港</strong>：主要港口</li></ul>`, keywords: ["所罗门港口"] },
-                    "vanuatu": { name: "瓦努阿图", content: `<p>瓦努阿图是太平洋岛国。</p><h2>主要港口</h2><ul><li><strong>维拉港</strong>：主要港口</li></ul>`, keywords: ["瓦努阿图港口"] },
-                    "new-caledonia": { name: "新喀里多尼亚", content: `<p>新喀里多尼亚是法属太平洋领地。</p><h2>主要港口</h2><ul><li><strong>努美阿港</strong>：主要港口</li></ul>`, keywords: ["新喀里多尼亚港口"] },
-                    "samoa": { name: "萨摩亚", content: `<p>萨摩亚是太平洋岛国。</p><h2>主要港口</h2><ul><li><strong>阿皮亚港</strong>：主要港口</li></ul>`, keywords: ["萨摩亚港口"] },
-                    "tonga": { name: "汤加", content: `<p>汤加是太平洋岛国。</p><h2>主要港口</h2><ul><li><strong>努库阿洛法港</strong>：主要港口</li></ul>`, keywords: ["汤加港口"] },
-                    "french-polynesia": { name: "法属波利尼西亚", content: `<p>法属波利尼西亚是法国海外领地。</p><h2>主要港口</h2><ul><li><strong>帕皮提港</strong>：主要港口</li></ul>`, keywords: ["法属波利尼西亚港口"] },
-                    "cook-islands": { name: "库克群岛", content: `<p>库克群岛是新西兰联系国。</p><h2>主要港口</h2><ul><li><strong>阿瓦鲁阿港</strong>：主要港口</li></ul>`, keywords: ["库克群岛港口"] },
-                    "tuvalu": { name: "图瓦卢", content: `<p>图瓦卢是太平洋小岛国。</p><h2>主要港口</h2><ul><li><strong>富纳富提港</strong>：主要港口</li></ul>`, keywords: ["图瓦卢港口"] },
-                    "american-samoa": { name: "美属萨摩亚", content: `<p>美属萨摩亚是美国非建制属地。</p><h2>主要港口</h2><ul><li><strong>帕果帕果港</strong>：主要港口</li></ul>`, keywords: ["美属萨摩亚港口"] },
-                    "guam": { name: "关岛", content: `<p>关岛是美国非建制属地。</p><h2>主要港口</h2><ul><li><strong>阿普拉港</strong>：关岛主要港口</li></ul>`, keywords: ["关岛港口"] },
-                    "palau": { name: "帕劳", content: `<p>帕劳是太平洋岛国。</p><h2>主要港口</h2><ul><li><strong>科罗尔港</strong>：主要港口</li></ul>`, keywords: ["帕劳港口"] },
-                    "micronesia": { name: "密克罗尼西亚联邦", content: `<p>密克罗尼西亚联邦是太平洋岛国。</p><h2>主要港口</h2><ul><li><strong>波纳佩港</strong>：主要港口</li></ul>`, keywords: ["密克罗尼西亚港口"] },
-                    "marshall-islands": { name: "马绍尔群岛", content: `<p>马绍尔群岛是太平洋岛国，重要船旗国。</p><h2>主要港口</h2><ul><li><strong>马朱罗港</strong>：首都港口</li></ul>`, keywords: ["马绍尔群岛港口"] },
-                    "nauru": { name: "瑙鲁", content: `<p>瑙鲁是世界第三小国。</p><h2>港口</h2><ul><li>无深水港，使用驳船装卸</li></ul>`, keywords: ["瑙鲁"] },
-                    "kiribati": { name: "基里巴斯", content: `<p>基里巴斯横跨赤道，太平洋岛国。</p><h2>主要港口</h2><ul><li><strong>贝蒂奥港</strong>：主要港口</li></ul>`, keywords: ["基里巴斯港口"] },
-                    "niue": { name: "纽埃", content: `<p>纽埃是新西兰的联系国，太平洋岛国。</p><h2>港口</h2><ul><li>无深水港，使用驳船装卸</li></ul>`, keywords: ["纽埃"] },
-                    "northern-mariana": { name: "北马里亚纳群岛", content: `<p>北马里亚纳群岛是美国非建制属地。</p><h2>主要港口</h2><ul><li><strong>塞班港</strong>：塞班岛主要港口</li></ul>`, keywords: ["北马里亚纳港口", "塞班港"] },
-                    "tokelau": { name: "托克劳", content: `<p>托克劳是新西兰的非自治领土。</p><h2>港口</h2><ul><li>无深水港，使用小艇接驳</li></ul>`, keywords: ["托克劳"] },
-                    "wallis-futuna": { name: "瓦利斯和富图纳", content: `<p>瓦利斯和富图纳是法国海外领地。</p><h2>主要港口</h2><ul><li><strong>马塔乌图港</strong>：主要港口</li></ul>`, keywords: ["瓦利斯和富图纳港口"] },
-                    "pitcairn": { name: "皮特凯恩群岛", content: `<p>皮特凯恩群岛是英国海外领土，人口最少的有人居住地区之一。</p><h2>港口</h2><ul><li><strong>邦蒂湾</strong>：主要锚地</li></ul>`, keywords: ["皮特凯恩群岛"] }
+                    "australia": {
+                        name: "澳大利亚",
+                        airports: [
+                            { name: "悉尼金斯福德·史密斯国际机场", code: "SYD", city: "悉尼" },
+                            { name: "墨尔本图拉马林机场", code: "MEL", city: "墨尔本" },
+                            { name: "布里斯班机场", code: "BNE", city: "布里斯班" },
+                            { name: "珀斯机场", code: "PER", city: "珀斯" },
+                            { name: "阿德莱德机场", code: "ADL", city: "阿德莱德" }
+                        ],
+                        ports: [
+                            { name: "墨尔本港", city: "墨尔本", type: "澳大利亚最大集装箱港" },
+                            { name: "悉尼港", city: "悉尼", type: "新南威尔士主要港口" },
+                            { name: "布里斯班港", city: "布里斯班", type: "昆士兰主要港口" },
+                            { name: "弗里曼特尔港", city: "弗里曼特尔", type: "西澳主要港口" },
+                            { name: "阿德莱德港", city: "阿德莱德", type: "南澳主要港口" }
+                        ],
+                        airlines: [
+                            { name: "澳洲航空", code: "QF", type: "国家航空公司" },
+                            { name: "维珍澳大利亚航空", code: "VA", type: "主要航空" },
+                            { name: "捷星航空", code: "JQ", type: "低成本航空" }
+                        ],
+                        shippingLines: [
+                            { name: "ANL Container Line", type: "澳大利亚航运" }
+                        ],
+                        provinces: [
+                            { name: "新南威尔士州", capital: "悉尼", cities: ["悉尼", "纽卡斯尔", "卧龙岗"] },
+                            { name: "维多利亚州", capital: "墨尔本", cities: ["墨尔本", "吉朗"] },
+                            { name: "昆士兰州", capital: "布里斯班", cities: ["布里斯班", "黄金海岸", "凯恩斯"] },
+                            { name: "西澳大利亚州", capital: "珀斯", cities: ["珀斯", "弗里曼特尔"] },
+                            { name: "南澳大利亚州", capital: "阿德莱德", cities: ["阿德莱德"] }
+                        ],
+                        customsPolicies: [
+                            { title: "进口关税", content: "澳大利亚大部分商品关税为5%或免税" },
+                            { title: "商品服务税(GST)", content: "标准税率10%" },
+                            { title: "生物安全", content: "澳大利亚实施严格的生物安全检疫制度" },
+                            { title: "FTA优惠", content: "与中国签有自贸协定(ChAFTA)" }
+                        ]
+                    },
+                    "new-zealand": {
+                        name: "新西兰",
+                        airports: [
+                            { name: "奥克兰国际机场", code: "AKL", city: "奥克兰" },
+                            { name: "惠灵顿国际机场", code: "WLG", city: "惠灵顿" },
+                            { name: "基督城国际机场", code: "CHC", city: "基督城" }
+                        ],
+                        ports: [
+                            { name: "奥克兰港", city: "奥克兰", type: "新西兰最大港口" },
+                            { name: "陶朗加港", city: "陶朗加", type: "出口量最大港口" },
+                            { name: "利特尔顿港", city: "利特尔顿", type: "南岛主要港口" }
+                        ],
+                        airlines: [
+                            { name: "新西兰航空", code: "NZ", type: "国家航空公司" },
+                            { name: "捷星新西兰", code: "JQ", type: "低成本航空" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "奥克兰大区", capital: "奥克兰", cities: ["奥克兰"] },
+                            { name: "惠灵顿大区", capital: "惠灵顿", cities: ["惠灵顿"] },
+                            { name: "坎特伯雷大区", capital: "基督城", cities: ["基督城"] }
+                        ],
+                        customsPolicies: [
+                            { title: "进口关税", content: "新西兰大部分商品关税较低或免税" },
+                            { title: "商品服务税(GST)", content: "标准税率15%" },
+                            { title: "生物安全", content: "新西兰实施严格的生物安全检疫制度" }
+                        ]
+                    },
+                    "papua-new-guinea": {
+                        name: "巴布亚新几内亚",
+                        airports: [
+                            { name: "杰克逊国际机场", code: "POM", city: "莫尔兹比港" },
+                            { name: "纳兹阿布机场", code: "LAE", city: "莱城" }
+                        ],
+                        ports: [
+                            { name: "莫尔兹比港", city: "莫尔兹比港", type: "首都港口" },
+                            { name: "莱城港", city: "莱城", type: "第二大城市港口" }
+                        ],
+                        airlines: [
+                            { name: "新几内亚航空", code: "PX", type: "国家航空公司" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "国家首都区", capital: "莫尔兹比港", cities: ["莫尔兹比港"] },
+                            { name: "莫罗贝省", capital: "莱城", cities: ["莱城"] }
+                        ],
+                        customsPolicies: [
+                            { title: "进口关税", content: "巴布亚新几内亚关税根据商品类别不同" }
+                        ]
+                    },
+                    "fiji": {
+                        name: "斐济",
+                        airports: [
+                            { name: "楠迪国际机场", code: "NAN", city: "楠迪" },
+                            { name: "苏瓦瑙索里机场", code: "SUV", city: "苏瓦" }
+                        ],
+                        ports: [
+                            { name: "苏瓦港", city: "苏瓦", type: "斐济主要港口" },
+                            { name: "劳托卡港", city: "劳托卡", type: "第二大港口" }
+                        ],
+                        airlines: [
+                            { name: "斐济航空", code: "FJ", type: "国家航空公司" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "中央区", capital: "苏瓦", cities: ["苏瓦"] },
+                            { name: "西区", capital: "劳托卡", cities: ["劳托卡", "楠迪"] }
+                        ],
+                        customsPolicies: [
+                            { title: "进口关税", content: "斐济关税根据商品类别不同" }
+                        ]
+                    },
+                    "solomon": {
+                        name: "所罗门群岛",
+                        airports: [
+                            { name: "霍尼亚拉国际机场", code: "HIR", city: "霍尼亚拉" }
+                        ],
+                        ports: [
+                            { name: "霍尼亚拉港", city: "霍尼亚拉", type: "主要港口" }
+                        ],
+                        airlines: [
+                            { name: "所罗门航空", code: "IE", type: "国家航空公司" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "霍尼亚拉", capital: "霍尼亚拉", cities: ["霍尼亚拉"] }
+                        ],
+                        customsPolicies: [
+                            { title: "进口关税", content: "所罗门群岛关税根据商品类别不同" }
+                        ]
+                    },
+                    "vanuatu": {
+                        name: "瓦努阿图",
+                        airports: [
+                            { name: "维拉港鲍尔菲尔德机场", code: "VLI", city: "维拉港" }
+                        ],
+                        ports: [
+                            { name: "维拉港", city: "维拉港", type: "主要港口" }
+                        ],
+                        airlines: [
+                            { name: "瓦努阿图航空", code: "NF", type: "国家航空公司" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "谢法省", capital: "维拉港", cities: ["维拉港"] }
+                        ],
+                        customsPolicies: [
+                            { title: "进口关税", content: "瓦努阿图关税根据商品类别不同" }
+                        ]
+                    },
+                    "new-caledonia": {
+                        name: "新喀里多尼亚",
+                        airports: [
+                            { name: "拉东托塔国际机场", code: "NOU", city: "努美阿" }
+                        ],
+                        ports: [
+                            { name: "努美阿港", city: "努美阿", type: "主要港口" }
+                        ],
+                        airlines: [
+                            { name: "喀里多尼亚航空", code: "SB", type: "区域航空" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "南方省", capital: "努美阿", cities: ["努美阿"] }
+                        ],
+                        customsPolicies: [
+                            { title: "法属领地", content: "新喀里多尼亚是法属太平洋领地" }
+                        ]
+                    },
+                    "samoa": {
+                        name: "萨摩亚",
+                        airports: [
+                            { name: "法莱奥洛国际机场", code: "APW", city: "阿皮亚" }
+                        ],
+                        ports: [
+                            { name: "阿皮亚港", city: "阿皮亚", type: "主要港口" }
+                        ],
+                        airlines: [
+                            { name: "萨摩亚航空", code: "OL", type: "国家航空公司" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "图阿马萨加区", capital: "阿皮亚", cities: ["阿皮亚"] }
+                        ],
+                        customsPolicies: [
+                            { title: "进口关税", content: "萨摩亚关税根据商品类别不同" }
+                        ]
+                    },
+                    "tonga": {
+                        name: "汤加",
+                        airports: [
+                            { name: "法阿莫图国际机场", code: "TBU", city: "努库阿洛法" }
+                        ],
+                        ports: [
+                            { name: "努库阿洛法港", city: "努库阿洛法", type: "主要港口" }
+                        ],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "汤加塔布岛", capital: "努库阿洛法", cities: ["努库阿洛法"] }
+                        ],
+                        customsPolicies: [
+                            { title: "进口关税", content: "汤加关税根据商品类别不同" }
+                        ]
+                    },
+                    "french-polynesia": {
+                        name: "法属波利尼西亚",
+                        airports: [
+                            { name: "法阿国际机场", code: "PPT", city: "帕皮提" }
+                        ],
+                        ports: [
+                            { name: "帕皮提港", city: "帕皮提", type: "主要港口" }
+                        ],
+                        airlines: [
+                            { name: "大溪地航空", code: "TN", type: "区域航空" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "向风群岛", capital: "帕皮提", cities: ["帕皮提"] }
+                        ],
+                        customsPolicies: [
+                            { title: "法属领地", content: "法属波利尼西亚是法国海外领地" }
+                        ]
+                    },
+                    "cook-islands": {
+                        name: "库克群岛",
+                        airports: [
+                            { name: "拉罗汤加国际机场", code: "RAR", city: "阿瓦鲁阿" }
+                        ],
+                        ports: [
+                            { name: "阿瓦鲁阿港", city: "阿瓦鲁阿", type: "主要港口" }
+                        ],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "拉罗汤加岛", capital: "阿瓦鲁阿", cities: ["阿瓦鲁阿"] }
+                        ],
+                        customsPolicies: [
+                            { title: "新西兰联系国", content: "库克群岛是新西兰的联系国" }
+                        ]
+                    },
+                    "tuvalu": {
+                        name: "图瓦卢",
+                        airports: [
+                            { name: "富纳富提国际机场", code: "FUN", city: "富纳富提" }
+                        ],
+                        ports: [
+                            { name: "富纳富提港", city: "富纳富提", type: "主要港口" }
+                        ],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "富纳富提", capital: "富纳富提", cities: ["富纳富提"] }
+                        ],
+                        customsPolicies: [
+                            { title: "小岛国", content: "图瓦卢是太平洋小岛国" }
+                        ]
+                    },
+                    "american-samoa": {
+                        name: "美属萨摩亚",
+                        airports: [
+                            { name: "帕果帕果国际机场", code: "PPG", city: "帕果帕果" }
+                        ],
+                        ports: [
+                            { name: "帕果帕果港", city: "帕果帕果", type: "主要港口" }
+                        ],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "美属萨摩亚", capital: "帕果帕果", cities: ["帕果帕果"] }
+                        ],
+                        customsPolicies: [
+                            { title: "美国领地", content: "美属萨摩亚是美国非建制属地" }
+                        ]
+                    },
+                    "guam": {
+                        name: "关岛",
+                        airports: [
+                            { name: "安东尼奥·B·旺帕特国际机场", code: "GUM", city: "哈加特纳" }
+                        ],
+                        ports: [
+                            { name: "阿普拉港", city: "阿普拉", type: "关岛主要港口" }
+                        ],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "关岛", capital: "哈加特纳", cities: ["哈加特纳", "塔穆宁"] }
+                        ],
+                        customsPolicies: [
+                            { title: "美国领地", content: "关岛是美国非建制属地" }
+                        ]
+                    },
+                    "palau": {
+                        name: "帕劳",
+                        airports: [
+                            { name: "帕劳国际机场", code: "ROR", city: "科罗尔" }
+                        ],
+                        ports: [
+                            { name: "科罗尔港", city: "科罗尔", type: "主要港口" }
+                        ],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "科罗尔州", capital: "科罗尔", cities: ["科罗尔"] }
+                        ],
+                        customsPolicies: [
+                            { title: "自由联系国", content: "帕劳是美国的自由联系国" }
+                        ]
+                    },
+                    "micronesia": {
+                        name: "密克罗尼西亚联邦",
+                        airports: [
+                            { name: "波纳佩国际机场", code: "PNI", city: "帕利基尔" }
+                        ],
+                        ports: [
+                            { name: "波纳佩港", city: "波纳佩", type: "主要港口" }
+                        ],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "波纳佩州", capital: "帕利基尔", cities: ["帕利基尔"] }
+                        ],
+                        customsPolicies: [
+                            { title: "自由联系国", content: "密克罗尼西亚联邦是美国的自由联系国" }
+                        ]
+                    },
+                    "marshall-islands": {
+                        name: "马绍尔群岛",
+                        airports: [
+                            { name: "马朱罗国际机场", code: "MAJ", city: "马朱罗" }
+                        ],
+                        ports: [
+                            { name: "马朱罗港", city: "马朱罗", type: "首都港口" }
+                        ],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "马朱罗环礁", capital: "马朱罗", cities: ["马朱罗"] }
+                        ],
+                        customsPolicies: [
+                            { title: "船旗国", content: "马绍尔群岛是重要的船旗国" },
+                            { title: "自由联系国", content: "马绍尔群岛是美国的自由联系国" }
+                        ]
+                    },
+                    "nauru": {
+                        name: "瑙鲁",
+                        airports: [
+                            { name: "瑙鲁国际机场", code: "INU", city: "亚伦" }
+                        ],
+                        ports: [],
+                        airlines: [
+                            { name: "瑙鲁航空", code: "ON", type: "国家航空公司" }
+                        ],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "亚伦区", capital: "亚伦", cities: ["亚伦"] }
+                        ],
+                        customsPolicies: [
+                            { title: "小岛国", content: "瑙鲁是世界第三小国，无深水港，使用驳船装卸" }
+                        ]
+                    },
+                    "kiribati": {
+                        name: "基里巴斯",
+                        airports: [
+                            { name: "邦里基国际机场", code: "TRW", city: "塔拉瓦" }
+                        ],
+                        ports: [
+                            { name: "贝蒂奥港", city: "贝蒂奥", type: "主要港口" }
+                        ],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "吉尔伯特群岛", capital: "塔拉瓦", cities: ["塔拉瓦"] }
+                        ],
+                        customsPolicies: [
+                            { title: "岛国", content: "基里巴斯横跨赤道，是太平洋岛国" }
+                        ]
+                    },
+                    "niue": {
+                        name: "纽埃",
+                        airports: [
+                            { name: "纽埃国际机场", code: "IUE", city: "阿洛菲" }
+                        ],
+                        ports: [],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "纽埃", capital: "阿洛菲", cities: ["阿洛菲"] }
+                        ],
+                        customsPolicies: [
+                            { title: "新西兰联系国", content: "纽埃是新西兰的联系国，无深水港，使用驳船装卸" }
+                        ]
+                    },
+                    "northern-mariana": {
+                        name: "北马里亚纳群岛",
+                        airports: [
+                            { name: "塞班国际机场", code: "SPN", city: "塞班岛" }
+                        ],
+                        ports: [
+                            { name: "塞班港", city: "塞班岛", type: "塞班岛主要港口" }
+                        ],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "塞班岛", capital: "加拉班", cities: ["加拉班"] }
+                        ],
+                        customsPolicies: [
+                            { title: "美国领地", content: "北马里亚纳群岛是美国非建制属地" }
+                        ]
+                    },
+                    "tokelau": {
+                        name: "托克劳",
+                        airports: [],
+                        ports: [],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "托克劳", capital: "法考福", cities: ["法考福"] }
+                        ],
+                        customsPolicies: [
+                            { title: "新西兰领土", content: "托克劳是新西兰的非自治领土，无机场，无深水港，使用小艇接驳" }
+                        ]
+                    },
+                    "wallis-futuna": {
+                        name: "瓦利斯和富图纳",
+                        airports: [
+                            { name: "希希福机场", code: "WLS", city: "马塔乌图" }
+                        ],
+                        ports: [
+                            { name: "马塔乌图港", city: "马塔乌图", type: "主要港口" }
+                        ],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "瓦利斯岛", capital: "马塔乌图", cities: ["马塔乌图"] }
+                        ],
+                        customsPolicies: [
+                            { title: "法属领地", content: "瓦利斯和富图纳是法国海外领地" }
+                        ]
+                    },
+                    "pitcairn": {
+                        name: "皮特凯恩群岛",
+                        airports: [],
+                        ports: [
+                            { name: "邦蒂湾", city: "亚当斯敦", type: "主要锚地" }
+                        ],
+                        airlines: [],
+                        shippingLines: [],
+                        provinces: [
+                            { name: "皮特凯恩群岛", capital: "亚当斯敦", cities: ["亚当斯敦"] }
+                        ],
+                        customsPolicies: [
+                            { title: "英国领土", content: "皮特凯恩群岛是英国海外领土，人口最少的有人居住地区之一" }
+                        ]
+                    }
                 }
             }
         }
@@ -2032,11 +7524,17 @@ function initNavigation() {
 
     // 国家链接点击（在内容区，不在侧边栏）
     document.addEventListener('click', (e) => {
-        if (e.target.classList.contains('country-link')) {
+        // 先检查是否点击了country-card或其子元素
+        const countryCard = e.target.closest('.country-card');
+        if (countryCard) {
             e.preventDefault();
-            const countryKey = e.target.getAttribute('data-country-key');
-            const continentKey = e.target.getAttribute('data-continent-key');
-            showCountryDetail(continentKey, countryKey);
+            // 从卡片内的country-link获取数据
+            const countryLink = countryCard.querySelector('.country-link');
+            if (countryLink) {
+                const countryKey = countryLink.getAttribute('data-country-key');
+                const continentKey = countryLink.getAttribute('data-continent-key');
+                showCountryDetail(continentKey, countryKey);
+            }
         }
     });
     
@@ -2593,7 +8091,7 @@ const countryCodeMap = {
     "new-zealand": { code: "NZ", nameEn: "New Zealand" },
     "papua-new-guinea": { code: "PG", nameEn: "Papua New Guinea" },
     "fiji": { code: "FJ", nameEn: "Fiji" },
-    "solomon-islands": { code: "SB", nameEn: "Solomon Islands" },
+    "solomon": { code: "SB", nameEn: "Solomon Islands" },
     "vanuatu": { code: "VU", nameEn: "Vanuatu" },
     "new-caledonia": { code: "NC", nameEn: "New Caledonia" },
     "french-polynesia": { code: "PF", nameEn: "French Polynesia" },
@@ -3710,33 +9208,31 @@ function generateCountryTabs(country) {
     const provinceCount = country.provinces?.length || 0;
     const customsPolicyCount = country.customsPolicies?.length || 0;
     
-    // 标签页导航 - 简洁下划线风格（顺序：机场 航司 港口 船司 省份城市 清关政策）
+    // 标签页导航 - 始终显示全部6个标签（顺序：机场 航司 港口 船司 省份城市 清关政策）
     html += '<div class="country-tabs-horizontal">';
-    if (airportCount > 0) html += `<button class="country-tab active" onclick="switchCountryTab(event, 'airports')">机场 <span class="tab-count">${airportCount}</span></button>`;
-    if (airlineCount > 0) html += `<button class="country-tab" onclick="switchCountryTab(event, 'airlines')">航司 <span class="tab-count">${airlineCount}</span></button>`;
-    if (portCount > 0) html += `<button class="country-tab" onclick="switchCountryTab(event, 'ports')">港口 <span class="tab-count">${portCount}</span></button>`;
-    if (shippingLineCount > 0) html += `<button class="country-tab" onclick="switchCountryTab(event, 'shipping')">船司 <span class="tab-count">${shippingLineCount}</span></button>`;
-    if (provinceCount > 0) html += `<button class="country-tab" onclick="switchCountryTab(event, 'provinces')">省份城市 <span class="tab-count">${provinceCount}</span></button>`;
-    if (customsPolicyCount > 0) html += `<button class="country-tab" onclick="switchCountryTab(event, 'customs')">清关政策 <span class="tab-count">${customsPolicyCount}</span></button>`;
+    html += `<button class="country-tab active" onclick="switchCountryTab(event, 'airports')">机场 <span class="tab-count">${airportCount}</span></button>`;
+    html += `<button class="country-tab" onclick="switchCountryTab(event, 'airlines')">航司 <span class="tab-count">${airlineCount}</span></button>`;
+    html += `<button class="country-tab" onclick="switchCountryTab(event, 'ports')">港口 <span class="tab-count">${portCount}</span></button>`;
+    html += `<button class="country-tab" onclick="switchCountryTab(event, 'shipping')">船司 <span class="tab-count">${shippingLineCount}</span></button>`;
+    html += `<button class="country-tab" onclick="switchCountryTab(event, 'provinces')">省份城市 <span class="tab-count">${provinceCount}</span></button>`;
+    html += `<button class="country-tab" onclick="switchCountryTab(event, 'customs')">清关政策 <span class="tab-count">${customsPolicyCount}</span></button>`;
     html += '</div>';
     
     // 标签页内容
     html += '<div class="country-tabs-content">';
     
-    // 机场面板
+    // 机场面板 - 始终显示
+    html += '<div class="tab-panel active" id="tab-airports">';
+    html += `<div class="tab-header">
+        <h3>${country.name} · 已显示 ${airportCount} 个机场</h3>
+        <div class="tab-header-filters">
+            <span class="tab-filter"><span class="dot green"></span>国际机场</span>
+            <span class="tab-filter"><span class="dot orange"></span>国内机场</span>
+        </div>
+    </div>`;
     if (airportCount > 0) {
-        const intlCount = country.airports.international?.length || 0;
-        const domCount = country.airports.domestic?.length || 0;
-        html += '<div class="tab-panel active" id="tab-airports">';
-        html += `<div class="tab-header">
-            <h3>${country.name} · 已显示 ${airportCount} 个机场</h3>
-            <div class="tab-header-filters">
-                <span class="tab-filter"><span class="dot green"></span>国际机场</span>
-                <span class="tab-filter"><span class="dot orange"></span>国内机场</span>
-            </div>
-        </div>`;
         html += '<div class="data-list">';
-        if (country.airports.international) {
+        if (country.airports?.international) {
             country.airports.international.forEach(a => {
                 html += `<div class="data-row">
                     <span class="data-code">${a.code}</span>
@@ -3747,7 +9243,7 @@ function generateCountryTabs(country) {
                 </div>`;
             });
         }
-        if (country.airports.domestic) {
+        if (country.airports?.domestic) {
             country.airports.domestic.forEach(a => {
                 html += `<div class="data-row">
                     <span class="data-code">${a.code}</span>
@@ -3758,15 +9254,18 @@ function generateCountryTabs(country) {
                 </div>`;
             });
         }
-        html += '</div></div>';
+        html += '</div>';
+    } else {
+        html += '<div class="no-data-message">该国家暂无机场数据</div>';
     }
+    html += '</div>';
     
-    // 航司面板
+    // 航司面板 - 始终显示
+    html += '<div class="tab-panel" id="tab-airlines">';
+    html += `<div class="tab-header">
+        <h3>${country.name} · 已显示 ${airlineCount} 家航空公司</h3>
+    </div>`;
     if (airlineCount > 0) {
-        html += '<div class="tab-panel" id="tab-airlines">';
-        html += `<div class="tab-header">
-            <h3>${country.name} · 已显示 ${airlineCount} 家航空公司</h3>
-        </div>`;
         html += '<div class="data-list">';
         country.airlines.forEach(a => {
             html += `<div class="data-row">
@@ -3777,21 +9276,24 @@ function generateCountryTabs(country) {
                 <span class="data-meta">${country.name} CN</span>
             </div>`;
         });
-        html += '</div></div>';
+        html += '</div>';
+    } else {
+        html += '<div class="no-data-message">该国家暂无航空公司数据</div>';
     }
+    html += '</div>';
     
-    // 港口面板
+    // 港口面板 - 始终显示
+    html += '<div class="tab-panel" id="tab-ports">';
+    html += `<div class="tab-header">
+        <h3>${country.name} · 已显示 ${portCount} 个港口</h3>
+        <div class="tab-header-filters">
+            <span class="tab-filter"><span class="dot green"></span>主要港口</span>
+            <span class="tab-filter"><span class="dot orange"></span>其他港口</span>
+        </div>
+    </div>`;
     if (portCount > 0) {
-        html += '<div class="tab-panel" id="tab-ports">';
-        html += `<div class="tab-header">
-            <h3>${country.name} · 已显示 ${portCount} 个港口</h3>
-            <div class="tab-header-filters">
-                <span class="tab-filter"><span class="dot green"></span>主要港口</span>
-                <span class="tab-filter"><span class="dot orange"></span>其他港口</span>
-            </div>
-        </div>`;
         html += '<div class="data-list">';
-        if (country.ports.international) {
+        if (country.ports?.international) {
             country.ports.international.forEach(p => {
                 html += `<div class="data-row">
                     <span class="data-code">${p.code}</span>
@@ -3802,7 +9304,7 @@ function generateCountryTabs(country) {
                 </div>`;
             });
         }
-        if (country.ports.domestic) {
+        if (country.ports?.domestic) {
             country.ports.domestic.forEach(p => {
                 html += `<div class="data-row">
                     <span class="data-code">${p.code}</span>
@@ -3813,15 +9315,18 @@ function generateCountryTabs(country) {
                 </div>`;
             });
         }
-        html += '</div></div>';
+        html += '</div>';
+    } else {
+        html += '<div class="no-data-message">该国家为内陆国家，暂无港口数据</div>';
     }
+    html += '</div>';
     
-    // 船司面板
+    // 船司面板 - 始终显示
+    html += '<div class="tab-panel" id="tab-shipping">';
+    html += `<div class="tab-header">
+        <h3>${country.name} · 已显示 ${shippingLineCount} 家船运公司</h3>
+    </div>`;
     if (shippingLineCount > 0) {
-        html += '<div class="tab-panel" id="tab-shipping">';
-        html += `<div class="tab-header">
-            <h3>${country.name} · 已显示 ${shippingLineCount} 家船运公司</h3>
-        </div>`;
         html += '<div class="data-list">';
         country.shippingLines.forEach(s => {
             html += `<div class="data-row">
@@ -3832,35 +9337,44 @@ function generateCountryTabs(country) {
                 <span class="data-meta">${country.name} CN</span>
             </div>`;
         });
-        html += '</div></div>';
+        html += '</div>';
+    } else {
+        html += '<div class="no-data-message">该国家暂无本土船运公司数据</div>';
     }
+    html += '</div>';
     
-    // 省份城市面板
+    // 省份城市面板 - 始终显示
+    html += '<div class="tab-panel" id="tab-provinces">';
+    const totalCities = country.provinces?.reduce((sum, p) => sum + p.cities.length, 0) || 0;
+    html += `<div class="tab-header">
+        <h3>${country.name} · ${provinceCount} 个省份 · ${totalCities} 个城市</h3>
+    </div>`;
     if (provinceCount > 0) {
-        const totalCities = country.provinces.reduce((sum, p) => sum + p.cities.length, 0);
-        html += '<div class="tab-panel" id="tab-provinces">';
-        html += `<div class="tab-header">
-            <h3>${country.name} · ${provinceCount} 个省份 · ${totalCities} 个城市</h3>
-        </div>`;
         html += '<div class="provinces-grid">';
         country.provinces.forEach(p => {
             html += `<div class="province-card"><h4>${p.name}</h4><div class="city-tags">${p.cities.map(c => `<span class="city-tag">${c}</span>`).join('')}</div></div>`;
         });
-        html += '</div></div>';
+        html += '</div>';
+    } else {
+        html += '<div class="no-data-message">该国家暂无省份城市数据</div>';
     }
+    html += '</div>';
     
-    // 清关政策面板
+    // 清关政策面板 - 始终显示
+    html += '<div class="tab-panel" id="tab-customs">';
+    html += `<div class="tab-header">
+        <h3>${country.name} · ${customsPolicyCount} 项清关政策</h3>
+    </div>`;
     if (customsPolicyCount > 0) {
-        html += '<div class="tab-panel" id="tab-customs">';
-        html += `<div class="tab-header">
-            <h3>${country.name} · ${customsPolicyCount} 项清关政策</h3>
-        </div>`;
         html += '<div class="policy-list">';
         country.customsPolicies.forEach(p => {
             html += `<div class="policy-card"><h4>${p.title}</h4><p>${p.content}</p></div>`;
         });
-        html += '</div></div>';
+        html += '</div>';
+    } else {
+        html += '<div class="no-data-message">该国家暂无清关政策数据</div>';
     }
+    html += '</div>';
     
     html += '</div>';
     return html;
