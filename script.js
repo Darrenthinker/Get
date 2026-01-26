@@ -2987,7 +2987,8 @@ const knowledgeBase = {
                             { name: "新莱昂", cities: ["蒙特雷"] }
                         ],
                         customsPolicies: [
-                            { title: "墨西哥海关", content: "SAT负责海关事务，需要墨西哥RFC税号。" }
+                            { title: "墨西哥海关", content: "SAT负责海关事务，需要墨西哥RFC税号。" },
+                            { title: "2025年新规（生效日期：2025年1月1日）", content: "墨西哥海关要求收件人提供合法身份证明，以便纳税。必须提供收件人邮箱号。\n\n【企业】需提供进口商/收货人税号 RFC (Registro Federal de Contribuyentes)\n【个人】需提供税号 RFC 或 CURP (Clave Única de Registro de Población)\n【外国人】需提供外国税号或个人身份证号 (Foreign Tax ID or Personal ID)" }
                         ],
                         keywords: ["曼萨尼约港", "墨西哥港口"]
                     },
@@ -4001,10 +4002,8 @@ const knowledgeBase = {
                             { name: "巴拉那州", capital: "库里蒂巴", cities: ["库里蒂巴", "巴拉那瓜"] }
                         ],
                         customsPolicies: [
-                            { title: "进口关税", content: "巴西进口关税较高，平均约11.5%，部分商品可达35%" },
-                            { title: "工业产品税(IPI)", content: "根据产品类别征收0-300%不等" },
-                            { title: "增值税(ICMS)", content: "各州税率不同，通常7-18%" },
-                            { title: "进口许可", content: "大部分商品需要进口许可证(LI)" }
+                            { title: "巴西走货要求", content: "【企业】需提供收件方公司名 + 公司税号 CNPJ (格式: XX.XXX.XXX/XXXX-XX)\n【个人】需提供收件人名 + 个人税号 CPF (格式: XXX.XXX.XXX-XX)\n\n【进口关税标准】60% of the CIF + VAT\n\n⚠️ 巴西税金一般与申报价值持平，甚至高于申报价值，请确认巴西客人是否有进口经验，以及是否愿意支付税金。" },
+                            { title: "其他税费", content: "工业产品税(IPI): 根据产品类别征收0-300%不等\n增值税(ICMS): 各州税率不同，通常7-18%\n进口许可: 大部分商品需要进口许可证(LI)" }
                         ]
                     },
                     "argentina": {
