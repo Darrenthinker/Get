@@ -7625,17 +7625,18 @@ function performSearch(query) {
     
     // 分组显示：国家、文章、Disposition Codes、Port Codes
     let html = '';
-    const countryResults = results.filter(r => r.type === 'country');
-    const articles = results.filter(r => r.type === 'article');
-    const dcResults = results.filter(r => r.type === 'disposition');
-    const portResults = results.filter(r => r.type === 'port');
+    // 按相关度排序后分组
+    const countryResults = results.filter(r => r.type === 'country').sort((a, b) => (b.relevance || 0) - (a.relevance || 0));
+    const articles = results.filter(r => r.type === 'article').sort((a, b) => (b.relevance || 0) - (a.relevance || 0));
+    const dcResults = results.filter(r => r.type === 'disposition').sort((a, b) => (b.relevance || 0) - (a.relevance || 0));
+    const portResults = results.filter(r => r.type === 'port').sort((a, b) => (b.relevance || 0) - (a.relevance || 0));
     
     // 国家搜索结果优先显示
     if (countryResults.length > 0) {
         html += '<div class="search-group-title">🌍 国家/地区</div>';
         html += countryResults.slice(0, 8).map(result => `
             <div class="search-dropdown-item" onclick="goToCountry('${result.continentKey}', '${result.countryKey}')">
-                <span class="search-dropdown-icon search-code-badge">${result.code}</span>
+                <span class="search-dropdown-icon search-code-badge">${result.code || '??'}</span>
                 <div class="search-dropdown-text">
                     <div class="search-dropdown-title">${result.name} <span style="color:#86868b;font-size:12px;">${result.nameEn}</span></div>
                     <div class="search-dropdown-path">${result.continentName}</div>
@@ -7720,31 +7721,34 @@ function goToCountry(continentKey, countryKey) {
 
 function searchKnowledge(query) {
     const results = [];
-    query = query.toLowerCase();
+    const queryLower = query.toLowerCase();
+    const queryUpper = query.toUpperCase();
     
     // 搜索文章
     Object.entries(knowledgeBase).forEach(([catKey, category]) => {
         if (category.subcategories) {
             Object.entries(category.subcategories).forEach(([subKey, subcategory]) => {
             subcategory.articles.forEach(article => {
-                    if (matchArticle(article, query)) {
+                    if (matchArticle(article, queryLower)) {
                     results.push({
                         type: 'article',
                         categoryTitle: category.title,
                         subcategoryTitle: subcategory.title,
-                            article: article
+                            article: article,
+                            relevance: getArticleRelevance(article, queryLower)
                     });
                 }
             });
         });
         } else if (category.articles) {
             category.articles.forEach(article => {
-                if (matchArticle(article, query)) {
+                if (matchArticle(article, queryLower)) {
                     results.push({
                         type: 'article',
                         categoryTitle: category.title,
                         subcategoryTitle: null,
-                        article: article
+                        article: article,
+                        relevance: getArticleRelevance(article, queryLower)
                     });
                 }
             });
@@ -7754,17 +7758,28 @@ function searchKnowledge(query) {
     // 搜索 Disposition Codes
     if (typeof dispositionCodes !== 'undefined') {
         dispositionCodes.forEach(dc => {
-            if (dc.code.toLowerCase().includes(query) ||
-                dc.name.toLowerCase().includes(query) ||
-                dc.description.toLowerCase().includes(query) ||
-                (dc.nameCn && dc.nameCn.includes(query)) ||
-                (dc.descCn && dc.descCn.includes(query))) {
+            const codeLower = dc.code.toLowerCase();
+            const nameLower = dc.name.toLowerCase();
+            let relevance = 0;
+            
+            // 计算相关度
+            if (codeLower === queryLower) relevance = 100; // 代码精确匹配
+            else if (codeLower.startsWith(queryLower)) relevance = 80; // 代码前缀匹配
+            else if (codeLower.includes(queryLower)) relevance = 60; // 代码包含
+            else if (nameLower.startsWith(queryLower)) relevance = 50; // 名称前缀匹配
+            else if (nameLower.includes(queryLower)) relevance = 30; // 名称包含
+            else if (dc.description.toLowerCase().includes(queryLower)) relevance = 20;
+            else if (dc.nameCn && dc.nameCn.includes(query)) relevance = 40;
+            else if (dc.descCn && dc.descCn.includes(query)) relevance = 10;
+            
+            if (relevance > 0) {
                 results.push({
                     type: 'disposition',
                     code: dc.code,
                     name: dc.name,
                     nameCn: dc.nameCn,
-                    description: dc.description
+                    description: dc.description,
+                    relevance: relevance
                 });
             }
         });
@@ -7773,40 +7788,72 @@ function searchKnowledge(query) {
     // 搜索 Port Codes
     if (typeof usPortCodes !== 'undefined') {
         usPortCodes.forEach(port => {
-            if (port.code.toLowerCase().includes(query) ||
-                port.name.toLowerCase().includes(query) ||
-                (port.state && port.state.toLowerCase().includes(query)) ||
-                (port.district && port.district.toLowerCase().includes(query))) {
+            const codeLower = port.code.toLowerCase();
+            const nameLower = port.name.toLowerCase();
+            let relevance = 0;
+            
+            if (codeLower === queryLower) relevance = 100;
+            else if (codeLower.startsWith(queryLower)) relevance = 80;
+            else if (codeLower.includes(queryLower)) relevance = 60;
+            else if (nameLower.startsWith(queryLower)) relevance = 50;
+            else if (nameLower.includes(queryLower)) relevance = 30;
+            else if (port.state && port.state.toLowerCase().includes(queryLower)) relevance = 20;
+            else if (port.district && port.district.toLowerCase().includes(queryLower)) relevance = 10;
+            
+            if (relevance > 0) {
                 results.push({
                     type: 'port',
                     code: port.code,
                     name: port.name,
                     state: port.state,
-                    district: port.district
+                    district: port.district,
+                    relevance: relevance
                 });
             }
         });
     }
     
-    // 搜索国家 - 支持中文名、英文名、国家代码
+    // 搜索国家 - 支持中文名、英文名、国家代码，带相关度排序
     if (typeof knowledgeBase !== 'undefined' && knowledgeBase.countries) {
         Object.entries(knowledgeBase.countries.continents).forEach(([continentKey, continent]) => {
             if (continent.countries) {
                 Object.entries(continent.countries).forEach(([countryKey, country]) => {
                     const codeInfo = countryCodeMap[countryKey] || {};
-                    const matchName = country.name.toLowerCase().includes(query);
-                    const matchCode = codeInfo.code && codeInfo.code.toLowerCase().includes(query);
-                    const matchNameEn = codeInfo.nameEn && codeInfo.nameEn.toLowerCase().includes(query);
+                    const code = codeInfo.code || '';
+                    const nameEn = codeInfo.nameEn || '';
+                    let relevance = 0;
                     
-                    if (matchName || matchCode || matchNameEn) {
+                    // 计算相关度分数 - 精确匹配 > 前缀匹配 > 包含匹配
+                    if (code.toUpperCase() === queryUpper) {
+                        relevance = 100; // 国家代码精确匹配（最高优先级）
+                    } else if (country.name === query) {
+                        relevance = 95; // 中文名精确匹配
+                    } else if (nameEn.toLowerCase() === queryLower) {
+                        relevance = 90; // 英文名精确匹配
+                    } else if (code.toUpperCase().startsWith(queryUpper)) {
+                        relevance = 80; // 国家代码前缀匹配
+                    } else if (country.name.startsWith(query)) {
+                        relevance = 75; // 中文名前缀匹配
+                    } else if (nameEn.toLowerCase().startsWith(queryLower)) {
+                        relevance = 70; // 英文名前缀匹配
+                    } else if (code.toUpperCase().includes(queryUpper)) {
+                        relevance = 50; // 国家代码包含
+                    } else if (country.name.includes(query)) {
+                        relevance = 40; // 中文名包含
+                    } else if (nameEn.toLowerCase().includes(queryLower)) {
+                        relevance = 30; // 英文名包含
+                    }
+                    
+                    if (relevance > 0) {
                         results.push({
                             type: 'country',
                             continentKey: continentKey,
                             countryKey: countryKey,
                             name: country.name,
-                            code: codeInfo.code || '',
-                            nameEn: codeInfo.nameEn || '',
-                            continentName: continent.name
+                            code: code,
+                            nameEn: nameEn,
+                            continentName: continent.name,
+                            relevance: relevance
                         });
                     }
                 });
@@ -7814,7 +7861,19 @@ function searchKnowledge(query) {
         });
     }
     
+    // 按相关度排序
+    results.sort((a, b) => (b.relevance || 0) - (a.relevance || 0));
+    
     return results;
+}
+
+// 计算文章相关度
+function getArticleRelevance(article, query) {
+    const titleLower = article.title.toLowerCase();
+    if (titleLower === query) return 100;
+    if (titleLower.startsWith(query)) return 80;
+    if (titleLower.includes(query)) return 50;
+    return 20;
 }
 
 function matchArticle(article, query) {
