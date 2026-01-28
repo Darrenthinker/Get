@@ -7435,6 +7435,7 @@ const knowledgeBase = {
                             <div class="daily-filter-tabs">
                                 <button class="daily-filter-tab active" data-category="all">全部</button>
                                 <button class="daily-filter-tab" data-category="物流跟踪">物流跟踪</button>
+                                <button class="daily-filter-tab" data-category="费用术语">费用术语</button>
                             </div>
                             <div class="daily-count">共 <span id="dailyCountNum">0</span> 条</div>
                             <div class="daily-english-list" id="dailyEnglishList"></div>
@@ -11229,7 +11230,16 @@ window.showArticle = function(title) {
 
 // ===== 日常交流用语数据 =====
 const dailyEnglishData = [
-    { category: "物流跟踪", en: "All events are recorded in local time, therefore some data may be displayed out of sequence.", zh: "所有事件均按当地时间记录，因此部分数据可能显示顺序不一致。" }
+    { category: "物流跟踪", en: "All events are recorded in local time, therefore some data may be displayed out of sequence.", zh: "所有事件均按当地时间记录，因此部分数据可能显示顺序不一致。" },
+    // 费用术语
+    { category: "费用术语", en: "THIRD PARTY PAYMENTS", zh: "第三方付款（代收款项）" },
+    { category: "费用术语", en: "CUSTOMS SURCHARGES", zh: "海关附加费" },
+    { category: "费用术语", en: "CUSTOMS CLEARANCE", zh: "清关费" },
+    { category: "费用术语", en: "OPERATIONS CHARGES", zh: "操作费" },
+    { category: "费用术语", en: "TRANSPORT SERVICE", zh: "运输服务费" },
+    { category: "费用术语", en: "LOCAL TRANSPORT", zh: "本地运输费" },
+    { category: "费用术语", en: "DESTINATION CHARGES", zh: "目的地费用" },
+    { category: "费用术语", en: "WAREHOUSING", zh: "仓储费" }
 ];
 
 // 日常交流页面初始化
