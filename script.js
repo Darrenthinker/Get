@@ -11354,11 +11354,18 @@ const trackingStatusData = [
     { carrier: "UPS", category: "取件/收件", en: "Shipper created a label, UPS has not received the package yet.", zh: "发件人已创建标签，UPS尚未收到包裹。" },
     // UPS - 付款/拒收
     { carrier: "UPS", category: "派送状态", en: "We tried to deliver the package, but were unable to receive payment. A second attempt will be made the next business day.", zh: "我们尝试派送包裹，但无法收到付款。将在下一个工作日进行第二次尝试。" },
+    { carrier: "UPS", category: "派送状态", en: "The driver was not able to receive payment. A final attempt will be made the next business day.", zh: "司机无法收到付款。将在下一个工作日进行最后一次尝试。" },
+    { carrier: "UPS", category: "派送状态", en: "Out For Delivery Today", zh: "今日派送中" },
+    { carrier: "UPS", category: "派送状态", en: "We missed you again. A final attempt will be made the next business day.", zh: "我们再次错过您。将在下一个工作日进行最后一次尝试。" },
     { carrier: "UPS", category: "拒收相关", en: "The receiver does not want the product and refused the delivery.", zh: "收件人不想要该产品并拒绝签收。" },
     { carrier: "UPS", category: "拒收相关", en: "The receiver refused the delivery. UPS will contact the sender for further instructions.", zh: "收件人拒绝签收。UPS将联系发件人获取进一步指示。" },
+    { carrier: "UPS", category: "拒收相关", en: "Delivery change was requested for this package. / The package will be returned to the sender.", zh: "此包裹已申请更改派送。/包裹将退回给发件人。" },
     { carrier: "UPS", category: "运输途中", en: "Your package is in transit. We're updating plans to schedule your delivery. / The package will be forwarded to a UPS facility in the destination city.", zh: "您的包裹正在运输中。我们正在更新派送计划。/包裹将转运至目的地城市的UPS设施。" },
+    { carrier: "UPS", category: "异常状态", en: "Due to weather, your package is delayed by one business day.", zh: "由于天气原因，您的包裹延误一个工作日。" },
+    { carrier: "UPS", category: "清关相关", en: "Your package has cleared customs and is on the way.", zh: "您的包裹已清关，正在派送途中。" },
     { carrier: "UPS", category: "关税/税费", en: "Import charges are due for this package. Select Pay Now (where available) or pay at delivery.", zh: "此包裹需支付进口费用。请选择立即支付（如可用）或派送时支付。" },
     { carrier: "UPS", category: "清关相关", en: "The package is at the clearing agency awaiting final release.", zh: "包裹在清关机构等待最终放行。" },
+    { carrier: "UPS", category: "揽收状态", en: "Hong Kong, Shipper created a label, UPS has not received the package yet.", zh: "香港，发件人已创建标签，UPS尚未收到包裹。" },
     // DHL - 常见状态
     { carrier: "DHL", category: "取件/收件", en: "Shipment picked up.", zh: "货物已取件。" },
     { carrier: "DHL", category: "取件/收件", en: "Shipment information received.", zh: "已收到货物信息。" },
