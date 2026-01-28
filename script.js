@@ -11204,6 +11204,7 @@ const trackingStatusData = [
     { carrier: "DHL", category: "运输途中", en: "Arrived at delivery facility.", zh: "已到达派送设施。" },
     { carrier: "DHL", category: "运输途中", en: "In transit to destination.", zh: "运往目的地途中。" },
     { carrier: "DHL", category: "异常状态", en: "Shipment is returned due to consignee name that shows on waybill has potential compliance risk.", zh: "由于运单上的收件人名称存在潜在合规风险，货物已被退回。（备注：此为DHL黑名单客户）" },
+    { carrier: "DHL", category: "运输途中", en: "A trusted third-party vendor is on the way with your package.", zh: "可信的第三方供应商正在运送您的包裹。" },
     // FedEx - 常见状态
     { carrier: "FedEx", category: "取件/收件", en: "Picked up.", zh: "已取件。" },
     { carrier: "FedEx", category: "取件/收件", en: "Shipment information sent to FedEx.", zh: "货物信息已发送至FedEx。" },
