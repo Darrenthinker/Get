@@ -11381,6 +11381,7 @@ const trackingStatusData = [
     { carrier: "FedEx", category: "清关相关", en: "International shipment release - Import.", zh: "国际货物放行 - 进口。" },
     { carrier: "FedEx", category: "清关相关", en: "In transit - Clearance in progress.", zh: "运输中 - 清关进行中。" },
     { carrier: "FedEx", category: "清关相关", en: "Clearance delay - Import.", zh: "清关延迟 - 进口。" },
+    { carrier: "FedEx", category: "清关相关", en: "Clearance delay - Import Shipment requires importer's registration/identification number for clearance. (Examples include EIN, SSN, VAT, GST, RFC, etc.)", zh: "清关延迟 - 进口货物清关需要进口商的注册/身份识别号。（例如：EIN、SSN、VAT、GST、RFC等）" },
     // FedEx - 异常/工单
     { carrier: "FedEx", category: "异常状态", en: "The barcode label on this package was unreadable. We will replace it and update the delivery date.", zh: "此包裹的条形码标签无法读取，我们将更换并更新派送日期。" },
     { carrier: "FedEx", category: "工单处理", en: "Support ticket in progress.", zh: "支持工单处理中。" },
