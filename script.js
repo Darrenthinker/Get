@@ -7377,6 +7377,53 @@ const knowledgeBase = {
                         readCount: 2345
                     },
                     {
+                        title: "采购砍价心理战术",
+                        content: `<p>分享一个老练采购的砍价方法，学习谈判中的心理博弈技巧。</p>
+                        
+                        <h2>💰 第一次砍价——直接要10个点的折扣</h2>
+                        <div class="content-block">
+                            <p class="quote-en">My boss tells me we need a discount as we have placed so many big orders along with future orders. We kindly request a 10% discount.</p>
+                            <p class="quote-zh">我老板说因为我们下了很多大订单，未来还会继续下单，所以需要折扣。我们希望能获得10%的折扣。</p>
+                        </div>
+                        
+                        <h2>🎯 第二次砍价——目标价+新品订单为诱饵</h2>
+                        <div class="content-block">
+                            <p class="quote-en">Thank you for discussing this with your team. However, I've run this by my boss, and we need the price to be $***/pcs in order for me to get permission to move forward with the new **** as well. I hope we can meet at this price. Please review this with your team and get back to me.</p>
+                            <p class="quote-zh">感谢您与团队讨论此事。但我已向老板汇报，我们需要价格达到$***/件，才能获得批准同时推进新品****的订单。希望我们能达成这个价格。请与您的团队商议后回复我。</p>
+                        </div>
+                        
+                        <h2>⚠️ 第三次砍价——威胁减量</h2>
+                        <div class="content-block">
+                            <p class="quote-en">I appreciate your kind response and effort! Truth to be told, we are considering to downgrade to 500 pcs instead of 1000 pcs.</p>
+                            <p class="quote-zh">感谢您的友好回复和付出！说实话，我们正在考虑将订单从1000件减少到500件。</p>
+                        </div>
+                        
+                        <h2>🧠 心理战术分析</h2>
+                        
+                        <h3>1. 贪婪心理</h3>
+                        <p>10个点的折扣对于B端生意来说不算少，但她敢要价，就是利用你可能为了得到订单的贪念，从而给她让利。站在采购角度：不提就没有折扣；提了虽然折扣率大，但谁能断定一定谈不成呢？能砍下价格就给公司省钱，何乐而不为？</p>
+                        
+                        <h3>2. 补偿心理</h3>
+                        <p>第二次要的价格提高了一点点，并利用新订单为诱饵，用来"补偿"这次利润的损失。B端很多时候确实主打薄利多销，有量各方面成本都能下降。</p>
+                        
+                        <h3>3. 损失厌恶心理</h3>
+                        <p>本来谈的是1K件，现在可能只有500件了。数量减少，整体利润少了很多——这是显而易见的损失。<strong>损失厌恶</strong>是指人们对于失去某个东西所带来的痛苦程度，比获得同等价值的东西所带来的快乐程度更大。</p>
+                        
+                        <h3>4. BOSS背锅策略</h3>
+                        <p>每次砍价都拿BOSS当挡箭牌：</p>
+                        <ul>
+                            <li>讲价的不是我，是我们的boss</li>
+                            <li>我只是个打工的，按boss的吩咐办事</li>
+                            <li>就算要价过分了，你也不能怪我</li>
+                        </ul>
+                        <p>BOSS这个"背锅侠"为谈判中可能出现的冲突起缓和作用。如果真因为谈判而产生摩擦，那是老板的问题，很多事情就有了可回旋的余地。</p>
+                        
+                        <h2>💡 启示</h2>
+                        <p>这些谈判方法，无论做业务还是做采购，都值得学习运用。</p>`,
+                        keywords: ["销售谈判", "砍价", "心理战术", "采购", "折扣", "损失厌恶"],
+                        readCount: 0
+                    },
+                    {
                         title: "日常交流用语",
                         content: `
                         <style>
@@ -9154,6 +9201,12 @@ const categoryOutlineData = {
                     { name: "常用对话句型", article: "电话沟通技巧" },
                     { name: "问题处理表达", article: "电话沟通技巧" },
                     { name: "商务礼仪用语", article: "电话沟通技巧" }
+                ]
+            },
+            {
+                title: "销售谈判",
+                items: [
+                    { name: "采购砍价心理战术", article: "采购砍价心理战术" }
                 ]
             }
         ]
