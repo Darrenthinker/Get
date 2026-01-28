@@ -11354,6 +11354,8 @@ const trackingStatusData = [
     { carrier: "DHL", category: "取件/收件", en: "Shipment information received.", zh: "已收到货物信息。" },
     { carrier: "DHL", category: "清关相关", en: "Clearance processing.", zh: "清关处理中。" },
     { carrier: "DHL", category: "清关相关", en: "Customs clearance status updated.", zh: "清关状态已更新。" },
+    { carrier: "DHL", category: "清关相关", en: "Customs clearance status updated. Note - The Customs clearance process may start while the shipment is in transit to the destination.", zh: "清关状态已更新。备注：清关流程可能在货物运往目的地途中就已开始。" },
+    { carrier: "DHL", category: "清关相关", en: "Further Details - Shipment has been given a release status by Customs. Next Steps - Unless there is an adhoc physical examination or a stop by another regulatory authority the shipment will proceed to DHL delivery facility. Please continue to monitor the progress online.", zh: "详细信息：货物已获得海关放行状态。后续步骤：除非有临时的实物检查或其他监管部门的拦截，否则货物将继续运往DHL配送设施。请继续在线跟踪进度。" },
     { carrier: "DHL", category: "清关相关", en: "Customs clearance completed.", zh: "清关完成。" },
     { carrier: "DHL", category: "清关相关", en: "Held at customs.", zh: "海关扣留中。" },
     { carrier: "DHL", category: "派送状态", en: "With delivery courier.", zh: "快递员配送中。" },
