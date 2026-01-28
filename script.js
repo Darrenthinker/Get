@@ -7378,12 +7378,40 @@ const knowledgeBase = {
                     },
                     {
                         title: "日常交流用语",
-                        content: `<p>货代行业日常工作中常用的英语表达。</p>
-                        <h2>📦 物流跟踪相关</h2>
-                        <div class="content-block">
-                            <ul>
-                                <li><strong>All events are recorded in local time, therefore some data may be displayed out of sequence.</strong><br>所有事件均按当地时间记录，因此部分数据可能显示顺序不一致。</li>
-                            </ul>
+                        content: `
+                        <style>
+                        .daily-english-page { padding: 0; }
+                        .daily-search-box { margin-bottom: 20px; }
+                        .daily-search-box input { width: 100%; padding: 12px 16px; font-size: 15px; border: 1px solid #e5e5e5; border-radius: 10px; outline: none; transition: all 0.2s; background: #fafafa; }
+                        .daily-search-box input:focus { border-color: #007aff; background: #fff; }
+                        .daily-search-tips { font-size: 12px; color: #8e8e93; margin-top: 6px; }
+                        .daily-filter-tabs { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+                        .daily-filter-tab { padding: 6px 14px; border: none; background: #f2f2f7; border-radius: 8px; cursor: pointer; font-size: 13px; color: #1d1d1f; transition: all 0.2s; font-weight: 500; }
+                        .daily-filter-tab:hover { background: #e5e5ea; }
+                        .daily-filter-tab.active { background: #007aff; color: #fff; }
+                        .daily-count { font-size: 13px; color: #8e8e93; margin-bottom: 12px; }
+                        .daily-english-list { display: flex; flex-direction: column; gap: 1px; background: #e5e5e5; border-radius: 12px; overflow: hidden; }
+                        .daily-item { background: #fff; padding: 14px 16px; display: flex; align-items: center; gap: 12px; transition: background 0.15s; }
+                        .daily-item:hover { background: #f5f5f7; }
+                        .daily-category-badge { font-size: 12px; font-weight: 500; color: #8e8e93; flex-shrink: 0; min-width: 60px; }
+                        .daily-text { flex: 1; display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+                        .daily-en { font-size: 14px; color: #1d1d1f; font-weight: 400; }
+                        .daily-divider { color: #c7c7cc; font-size: 14px; }
+                        .daily-zh { font-size: 14px; color: #8e8e93; }
+                        .daily-item mark { background: #ffcc00; padding: 0 2px; border-radius: 2px; }
+                        .no-daily-found { text-align: center; padding: 40px; color: #8e8e93; font-size: 14px; background: #fff; border-radius: 12px; }
+                        </style>
+                        <div class="daily-english-page">
+                            <div class="daily-search-box">
+                                <input type="text" id="dailySearchInput" placeholder="搜索日常交流用语（支持中英文）...">
+                                <div class="daily-search-tips">💡 输入英文或中文进行搜索</div>
+                            </div>
+                            <div class="daily-filter-tabs">
+                                <button class="daily-filter-tab active" data-category="all">全部</button>
+                                <button class="daily-filter-tab" data-category="物流跟踪">物流跟踪</button>
+                            </div>
+                            <div class="daily-count">共 <span id="dailyCountNum">0</span> 条</div>
+                            <div class="daily-english-list" id="dailyEnglishList"></div>
                         </div>`,
                         keywords: ["日常交流", "物流跟踪", "时间记录", "英语表达"],
                         readCount: 0
@@ -7677,7 +7705,7 @@ function initNavigation() {
             if (countryLink) {
                 const countryKey = countryLink.getAttribute('data-country-key');
                 const continentKey = countryLink.getAttribute('data-continent-key');
-                showCountryDetail(continentKey, countryKey);
+            showCountryDetail(continentKey, countryKey);
             }
         }
     });
@@ -8336,7 +8364,7 @@ function showContinentCountries(continentKey) {
                 return `
                     <div class="country-card">
                         <a href="#" class="country-link" ${titleAttr} data-continent-key="${continentKey}" data-country-key="${countryKey}">${country.name}${codeDisplay}</a>
-                    </div>
+        </div>
                 `;
             }).join('');
             
@@ -8346,7 +8374,7 @@ function showContinentCountries(continentKey) {
                     <div class="countries-grid">
                         ${countriesHTML}
                     </div>
-                </div>
+                    </div>
             `;
         }).join('');
     } else {
@@ -8365,8 +8393,8 @@ function showContinentCountries(continentKey) {
         contentHTML = `
             <div class="countries-grid">
                 ${countriesHTML}
-            </div>
-        `;
+        </div>
+    `;
     }
     
     // 填充内容
@@ -9127,9 +9155,15 @@ const categoryOutlineData = {
                     { name: "问题处理表达", article: "电话沟通技巧" },
                     { name: "商务礼仪用语", article: "电话沟通技巧" }
                 ]
-            },
+            }
+        ]
+    },
+    // ===== 日常交流 =====
+    "daily-english": {
+        title: "日常交流",
+        sections: [
             {
-                title: "日常交流",
+                title: "物流跟踪",
                 items: [
                     { name: "日常交流用语", article: "日常交流用语" }
                 ]
@@ -9297,6 +9331,9 @@ function showArticle(title) {
     // 特殊页面初始化
     if (title === '货物运输状态') {
         setTimeout(initTrackingStatusPage, 100);
+    }
+    if (title === '日常交流用语') {
+        setTimeout(initDailyEnglishPage, 100);
     }
 }
 
@@ -11157,6 +11194,79 @@ window.showArticle = function(title) {
         }, 100);
     }
 };
+
+// ===== 日常交流用语数据 =====
+const dailyEnglishData = [
+    { category: "物流跟踪", en: "All events are recorded in local time, therefore some data may be displayed out of sequence.", zh: "所有事件均按当地时间记录，因此部分数据可能显示顺序不一致。" }
+];
+
+// 日常交流页面初始化
+function initDailyEnglishPage() {
+    const searchInput = document.getElementById('dailySearchInput');
+    const filterTabs = document.querySelectorAll('.daily-filter-tab');
+    
+    if (!searchInput) return;
+    
+    searchInput.addEventListener('input', (e) => {
+        const activeTab = document.querySelector('.daily-filter-tab.active');
+        const category = activeTab ? activeTab.dataset.category : 'all';
+        renderDailyEnglishList(e.target.value, category);
+    });
+    
+    filterTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            filterTabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            renderDailyEnglishList(searchInput.value, tab.dataset.category);
+        });
+    });
+    
+    renderDailyEnglishList('', 'all');
+}
+
+// 渲染日常交流列表
+function renderDailyEnglishList(query = '', category = 'all') {
+    const listContainer = document.getElementById('dailyEnglishList');
+    const countNum = document.getElementById('dailyCountNum');
+    if (!listContainer) return;
+    
+    let filtered = dailyEnglishData;
+    
+    if (category !== 'all') {
+        filtered = filtered.filter(item => item.category === category);
+    }
+    
+    if (query) {
+        const q = query.toLowerCase();
+        filtered = filtered.filter(item => 
+            item.en.toLowerCase().includes(q) || item.zh.includes(q)
+        );
+    }
+    
+    if (countNum) countNum.textContent = filtered.length;
+    
+    if (filtered.length === 0) {
+        listContainer.innerHTML = '<div class="no-daily-found">未找到匹配的内容</div>';
+        return;
+    }
+    
+    const highlightText = (text, q) => {
+        if (!q) return text;
+        const regex = new RegExp(`(${q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+        return text.replace(regex, '<mark>$1</mark>');
+    };
+    
+    listContainer.innerHTML = filtered.map(item => `
+        <div class="daily-item">
+            <span class="daily-category-badge">${item.category}</span>
+            <div class="daily-text">
+                <span class="daily-en">${highlightText(item.en, query)}</span>
+                <span class="daily-divider">/</span>
+                <span class="daily-zh">${highlightText(item.zh, query)}</span>
+            </div>
+        </div>
+    `).join('');
+}
 
 // ===== 运输状态查询功能 =====
 const trackingStatusData = [
