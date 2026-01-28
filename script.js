@@ -7375,6 +7375,18 @@ const knowledgeBase = {
                         </ul>`,
                         keywords: ["电话沟通", "技巧", "清晰", "确认"],
                         readCount: 2345
+                    },
+                    {
+                        title: "日常交流用语",
+                        content: `<p>货代行业日常工作中常用的英语表达。</p>
+                        <h2>📦 物流跟踪相关</h2>
+                        <div class="content-block">
+                            <ul>
+                                <li><strong>All events are recorded in local time, therefore some data may be displayed out of sequence.</strong><br>所有事件均按当地时间记录，因此部分数据可能显示顺序不一致。</li>
+                            </ul>
+                        </div>`,
+                        keywords: ["日常交流", "物流跟踪", "时间记录", "英语表达"],
+                        readCount: 0
                     }
                 ]
             }
@@ -9114,6 +9126,12 @@ const categoryOutlineData = {
                     { name: "常用对话句型", article: "电话沟通技巧" },
                     { name: "问题处理表达", article: "电话沟通技巧" },
                     { name: "商务礼仪用语", article: "电话沟通技巧" }
+                ]
+            },
+            {
+                title: "日常交流",
+                items: [
+                    { name: "日常交流用语", article: "日常交流用语" }
                 ]
             }
         ]
