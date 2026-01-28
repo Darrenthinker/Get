@@ -6202,6 +6202,139 @@ const knowledgeBase = {
                         readCount: 5230
                     },
                     {
+                        title: "货物运输状态",
+                        content: `
+                        <style>
+                        .tracking-status-page { padding: 0; }
+                        .status-search-box { margin-bottom: 20px; }
+                        .status-search-box input { width: 100%; padding: 12px 16px; font-size: 15px; border: 1px solid #e5e5e5; border-radius: 10px; outline: none; transition: all 0.2s; background: #fafafa; }
+                        .status-search-box input:focus { border-color: #007aff; background: #fff; }
+                        .search-tips { font-size: 12px; color: #8e8e93; margin-top: 6px; }
+                        .status-filter-tabs { display: flex; gap: 8px; margin-bottom: 16px; }
+                        .filter-tab { padding: 6px 14px; border: none; background: #f2f2f7; border-radius: 8px; cursor: pointer; font-size: 13px; color: #1d1d1f; transition: all 0.2s; font-weight: 500; }
+                        .filter-tab:hover { background: #e5e5ea; }
+                        .filter-tab.active { background: #007aff; color: #fff; }
+                        .status-count { font-size: 13px; color: #8e8e93; margin-bottom: 12px; }
+                        .tracking-status-list { display: flex; flex-direction: column; gap: 1px; background: #e5e5e5; border-radius: 12px; overflow: hidden; }
+                        .status-item { background: #fff; padding: 14px 16px; display: flex; align-items: center; gap: 12px; transition: background 0.15s; }
+                        .status-item:hover { background: #f5f5f7; }
+                        .carrier-badge { font-size: 12px; font-weight: 500; color: #8e8e93; flex-shrink: 0; min-width: 45px; }
+                        .status-text { flex: 1; display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+                        .status-en { font-size: 14px; color: #1d1d1f; font-weight: 400; }
+                        .status-divider { color: #c7c7cc; font-size: 14px; }
+                        .status-zh { font-size: 14px; color: #8e8e93; }
+                        .status-item mark { background: #ffcc00; padding: 0 2px; border-radius: 2px; }
+                        .no-status-found { text-align: center; padding: 40px; color: #8e8e93; font-size: 14px; background: #fff; border-radius: 12px; }
+                        </style>
+                        <div class="tracking-status-page">
+                            <div class="status-search-box">
+                                <input type="text" id="statusSearchInput" placeholder="搜索运输状态（支持中英文）...">
+                                <div class="search-tips">💡 输入英文状态或中文翻译进行搜索，如: delivery、清关、payment</div>
+                            </div>
+                            <div class="status-filter-tabs">
+                                <button class="filter-tab active" data-carrier="all">全部</button>
+                                <button class="filter-tab" data-carrier="UPS">UPS</button>
+                                <button class="filter-tab" data-carrier="DHL">DHL</button>
+                                <button class="filter-tab" data-carrier="FedEx">FedEx</button>
+                            </div>
+                            <div class="status-count">共 <span id="statusCount">0</span> 条状态</div>
+                            <div id="trackingStatusList" class="tracking-status-list"></div>
+                        </div>`,
+                        keywords: ["运输状态", "tracking status", "快递状态", "UPS状态", "DHL状态", "FedEx状态", "清关", "派送", "签收"],
+                        readCount: 0
+                    },
+                    {
+                        title: "国际快递关税问题",
+                        content: `
+                        <div class="customs-duty-page">
+                            <div class="important-notice">
+                                <h3>⚠️ 关于国际快递包裹关税反弹的风险通知</h3>
+                                <div class="notice-content">
+                                    <p>国际三大快递（DHL/UPS/FEDEX）都是<strong>DDU服务</strong>，如果遇到进口清关问题需要收件人处理完成后，快递公司才能派送。</p>
+                                    <p>目的地进口关税默认收件人支付，但普遍采用<strong>"先派后收关税"</strong>模式，该模式对寄件方存在显著风险：<span class="highlight-red">若目的地收件方不支付关税，将自动转由寄件方承担。</span></p>
+                                    <p>为共同规避风险、保护您的利益，<strong>请务必在出货前与收件人充分沟通，明确风险后再安排出口事宜。</strong></p>
+                                </div>
+                            </div>
+
+                            <div class="requirements-section">
+                                <h3>📋 FEDEX及UPS出货要求</h3>
+                                <div class="requirement-list">
+                                    <div class="requirement-item">
+                                        <span class="req-num">1</span>
+                                        <div class="req-content">
+                                            <strong>收货人邮箱要求</strong>
+                                            <p>出货发票必须提供有效的收货人邮箱，如收货人拒绝提供，则填写发件方邮箱，方便处理清关及关税支付事宜。</p>
+                                        </div>
+                                    </div>
+                                    <div class="requirement-item">
+                                        <span class="req-num">2</span>
+                                        <div class="req-content">
+                                            <strong>账号绑定要求</strong>
+                                            <p>出货前提前确认好收货人是否有快递账号，若有，必须在随货发票上清晰填上税金支付账号，且走我司制单渠道单证人员须在制单时将该账号同步维护为"税金支付账号"，我司制单渠道，需要业务单独跟后线客服提需求。</p>
+                                        </div>
+                                    </div>
+                                    <div class="requirement-item">
+                                        <span class="req-num">3</span>
+                                        <div class="req-content">
+                                            <strong>渠道建议</strong>
+                                            <p>建议改走DHL快递（DHL快递关税反弹极少，但<span class="highlight-red">DHL发美国0~3的邮编查验率高，尤其是3开头的邮编不要走DHL</span>），以及其他包税渠道。</p>
+                                        </div>
+                                    </div>
+                                    <div class="requirement-item">
+                                        <span class="req-num">4</span>
+                                        <div class="req-content">
+                                            <strong>关税预付</strong>
+                                            <p>若关税预付，按真实货值<strong>50%</strong>的押金先预收，多退少补。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="key-points-section">
+                                <h3>🔑 重点提醒</h3>
+                                <div class="key-point-box">
+                                    <div class="key-point">
+                                        <h4>关税账单处理时效</h4>
+                                        <p>自<strong>2026年1月1日</strong>起，任何渠道下达的关税反弹账单，成本部门都会在账单下达后<strong>1个自然月内</strong>完成系统录入，正常向发货方收取。</p>
+                                    </div>
+                                    <div class="key-point">
+                                        <h4>关税退还流程</h4>
+                                        <p>若收货人已支付关税，需提供由承运商出具的<strong>官方付讫凭证</strong>，我司核实无误及调账成功后<strong>7个工作日内</strong>退还。</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="confirm-notice">
+                                <p>✅ 请确认知晓以上信息，谢谢！</p>
+                            </div>
+                        </div>
+                        <style>
+                        .customs-duty-page { padding: 0; }
+                        .important-notice { background: linear-gradient(135deg, #fff5f5, #ffe8e8); border: 2px solid #ff4d4f; border-radius: 12px; padding: 20px; margin-bottom: 25px; }
+                        .important-notice h3 { color: #cf1322; margin: 0 0 15px 0; font-size: 18px; }
+                        .notice-content p { margin: 10px 0; line-height: 1.8; color: #333; }
+                        .highlight-red { color: #cf1322; font-weight: 600; background: #fff1f0; padding: 2px 6px; border-radius: 4px; }
+                        .requirements-section { background: #f6ffed; border: 1px solid #b7eb8f; border-radius: 12px; padding: 20px; margin-bottom: 25px; }
+                        .requirements-section h3 { color: #389e0d; margin: 0 0 20px 0; font-size: 17px; }
+                        .requirement-list { display: flex; flex-direction: column; gap: 15px; }
+                        .requirement-item { display: flex; gap: 15px; background: #fff; padding: 15px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+                        .req-num { width: 32px; height: 32px; background: linear-gradient(135deg, #52c41a, #73d13d); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0; }
+                        .req-content { flex: 1; }
+                        .req-content strong { color: #262626; font-size: 15px; display: block; margin-bottom: 8px; }
+                        .req-content p { margin: 0; color: #595959; line-height: 1.7; font-size: 14px; }
+                        .key-points-section { background: #fff7e6; border: 1px solid #ffd591; border-radius: 12px; padding: 20px; margin-bottom: 25px; }
+                        .key-points-section h3 { color: #d46b08; margin: 0 0 15px 0; font-size: 17px; }
+                        .key-point-box { display: flex; flex-direction: column; gap: 15px; }
+                        .key-point { background: #fff; padding: 15px; border-radius: 10px; border-left: 4px solid #fa8c16; }
+                        .key-point h4 { margin: 0 0 10px 0; color: #d46b08; font-size: 15px; }
+                        .key-point p { margin: 0; color: #595959; line-height: 1.7; font-size: 14px; }
+                        .confirm-notice { background: #e6f7ff; border: 1px solid #91d5ff; border-radius: 10px; padding: 15px 20px; text-align: center; }
+                        .confirm-notice p { margin: 0; color: #096dd9; font-size: 16px; font-weight: 500; }
+                        </style>`,
+                        keywords: ["关税", "关税反弹", "DDU", "税金", "清关", "FEDEX", "UPS", "DHL", "进口关税", "收件人支付"],
+                        readCount: 0
+                    },
+                    {
                         title: "快递计费规则",
                         content: `<p>国际快递通常采用首重+续重的计费方式。</p>
                         <h2>计费方式</h2>
@@ -7554,14 +7687,6 @@ function initNavigation() {
             }
         });
     });
-    
-    // 默认展开第一个导航组
-    const firstGroup = document.querySelector('.nav-group-title');
-    if (firstGroup) {
-        firstGroup.classList.add('expanded');
-        const group = firstGroup.getAttribute('data-group');
-        document.querySelector(`.nav-group-items[data-group="${group}"]`).classList.add('expanded');
-    }
 }
 
 // ===== 搜索功能 =====
@@ -8388,7 +8513,9 @@ const categoryOutlineData = {
                     { name: "DHL服务介绍", article: "四大快递公司详解" },
                     { name: "FedEx服务介绍", article: "四大快递公司详解" },
                     { name: "UPS服务介绍", article: "四大快递公司详解" },
-                    { name: "TNT服务介绍", article: "四大快递公司详解" }
+                    { name: "TNT服务介绍", article: "四大快递公司详解" },
+                    { name: "货物运输状态", article: "货物运输状态" },
+                    { name: "国际快递关税问题", article: "国际快递关税问题" }
                 ]
             },
             {
@@ -9148,6 +9275,11 @@ function showArticle(title) {
     
     // 更新侧边栏活跃状态
     updateSidebarActive(title);
+    
+    // 特殊页面初始化
+    if (title === '货物运输状态') {
+        setTimeout(initTrackingStatusPage, 100);
+    }
 }
 
 function findArticle(title) {
@@ -11007,3 +11139,148 @@ window.showArticle = function(title) {
         }, 100);
     }
 };
+
+// ===== 运输状态查询功能 =====
+const trackingStatusData = [
+    // UPS - 关税/税费相关
+    { carrier: "UPS", category: "关税/税费", en: "The receiver has disputed or refused to pay duties or taxes. Awaiting payment.", zh: "收件人对关税/税费有异议或拒绝支付。等待付款。" },
+    { carrier: "UPS", category: "关税/税费", en: "We'll contact the sender or receiver about this delivery.", zh: "我们将就此次递送联系发件人或收件人。" },
+    { carrier: "UPS", category: "关税/税费", en: "A payment is required before the package can be delivered.", zh: "包裹需要付款后才能派送。" },
+    { carrier: "UPS", category: "关税/税费", en: "Customs clearance completed.", zh: "清关完成。" },
+    { carrier: "UPS", category: "关税/税费", en: "Package is being held for payment of duties and taxes.", zh: "包裹因关税待付而被扣留。" },
+    { carrier: "UPS", category: "关税/税费", en: "Clearance in progress.", zh: "清关进行中。" },
+    { carrier: "UPS", category: "关税/税费", en: "Your package is being held in customs.", zh: "您的包裹正在海关扣留。" },
+    // UPS - 派送状态
+    { carrier: "UPS", category: "派送状态", en: "Out for delivery.", zh: "正在派送中。" },
+    { carrier: "UPS", category: "派送状态", en: "Delivered.", zh: "已签收。" },
+    { carrier: "UPS", category: "派送状态", en: "Delivery attempted. Will retry next business day.", zh: "尝试派送失败。将在下一个工作日重试。" },
+    { carrier: "UPS", category: "派送状态", en: "The receiver was not available at the time of delivery.", zh: "派送时收件人不在。" },
+    { carrier: "UPS", category: "派送状态", en: "Left at front door.", zh: "已放置于前门。" },
+    { carrier: "UPS", category: "派送状态", en: "Delivered to a UPS Access Point.", zh: "已送达UPS自提点。" },
+    { carrier: "UPS", category: "派送状态", en: "The package was left with a neighbor.", zh: "包裹已交给邻居。" },
+    // UPS - 运输途中
+    { carrier: "UPS", category: "运输途中", en: "In transit.", zh: "运输途中。" },
+    { carrier: "UPS", category: "运输途中", en: "Departed from facility.", zh: "已离开处理中心。" },
+    { carrier: "UPS", category: "运输途中", en: "Arrived at facility.", zh: "已到达处理中心。" },
+    { carrier: "UPS", category: "运输途中", en: "Package is in transit to the destination.", zh: "包裹正在运往目的地。" },
+    { carrier: "UPS", category: "运输途中", en: "Shipment has departed origin country.", zh: "货物已离开发件国。" },
+    { carrier: "UPS", category: "运输途中", en: "Origin Scan.", zh: "始发地扫描。" },
+    { carrier: "UPS", category: "运输途中", en: "Destination Scan.", zh: "目的地扫描。" },
+    { carrier: "UPS", category: "运输途中", en: "Import Scan.", zh: "进口扫描。" },
+    { carrier: "UPS", category: "运输途中", en: "Export Scan.", zh: "出口扫描。" },
+    // UPS - 异常状态
+    { carrier: "UPS", category: "异常状态", en: "Exception: Address correction needed.", zh: "异常：需要更正地址。" },
+    { carrier: "UPS", category: "异常状态", en: "Package is damaged.", zh: "包裹已损坏。" },
+    { carrier: "UPS", category: "异常状态", en: "Returned to sender.", zh: "已退回发件人。" },
+    { carrier: "UPS", category: "异常状态", en: "Shipment is on hold.", zh: "货物被扣留。" },
+    { carrier: "UPS", category: "异常状态", en: "Shipper requested that this package be returned.", zh: "发件人要求退回此包裹。" },
+    { carrier: "UPS", category: "异常状态", en: "The address is incomplete or incorrect.", zh: "地址不完整或不正确。" },
+    { carrier: "UPS", category: "异常状态", en: "A late flight has caused a delay. We will update the delivery date as soon as possible.", zh: "航班延误导致延迟，我们将尽快更新派送日期。" },
+    // UPS - 清关/政府机构
+    { carrier: "UPS", category: "清关相关", en: "Your package has been released by the government agency.", zh: "您的包裹已被政府机构放行。" },
+    { carrier: "UPS", category: "清关相关", en: "Your package is pending release from a Government Agency. Once they release it, your package will be on its way.", zh: "您的包裹正在等待政府机构放行，放行后将继续运送。" },
+    { carrier: "UPS", category: "清关相关", en: "A Government Agency is conducting a document inspection. We'll notify the receiver or sender if information is needed.", zh: "政府机构正在进行文件检查，如需更多信息将通知收件人或发件人。" },
+    // UPS - 取件/收件
+    { carrier: "UPS", category: "取件/收件", en: "Shipper created a label, UPS has not received the package yet.", zh: "发件人已创建标签，UPS尚未收到包裹。" },
+    // DHL - 常见状态
+    { carrier: "DHL", category: "取件/收件", en: "Shipment picked up.", zh: "货物已取件。" },
+    { carrier: "DHL", category: "取件/收件", en: "Shipment information received.", zh: "已收到货物信息。" },
+    { carrier: "DHL", category: "清关相关", en: "Clearance processing.", zh: "清关处理中。" },
+    { carrier: "DHL", category: "清关相关", en: "Customs clearance status updated.", zh: "清关状态已更新。" },
+    { carrier: "DHL", category: "清关相关", en: "Customs clearance completed.", zh: "清关完成。" },
+    { carrier: "DHL", category: "清关相关", en: "Held at customs.", zh: "海关扣留中。" },
+    { carrier: "DHL", category: "派送状态", en: "With delivery courier.", zh: "快递员配送中。" },
+    { carrier: "DHL", category: "派送状态", en: "Delivered - Signed for by.", zh: "已签收 - 签收人：" },
+    { carrier: "DHL", category: "派送状态", en: "Delivery attempted - no one home.", zh: "尝试派送 - 无人在家。" },
+    { carrier: "DHL", category: "运输途中", en: "Processed at facility.", zh: "在设施处理中。" },
+    { carrier: "DHL", category: "运输途中", en: "Departed facility.", zh: "已离开设施。" },
+    { carrier: "DHL", category: "运输途中", en: "Arrived at delivery facility.", zh: "已到达派送设施。" },
+    { carrier: "DHL", category: "运输途中", en: "In transit to destination.", zh: "运往目的地途中。" },
+    // FedEx - 常见状态
+    { carrier: "FedEx", category: "取件/收件", en: "Picked up.", zh: "已取件。" },
+    { carrier: "FedEx", category: "取件/收件", en: "Shipment information sent to FedEx.", zh: "货物信息已发送至FedEx。" },
+    { carrier: "FedEx", category: "运输途中", en: "In transit.", zh: "运输途中。" },
+    { carrier: "FedEx", category: "运输途中", en: "At destination sort facility.", zh: "在目的地分拣中心。" },
+    { carrier: "FedEx", category: "运输途中", en: "At local FedEx facility.", zh: "在当地FedEx设施。" },
+    { carrier: "FedEx", category: "运输途中", en: "Departed FedEx location.", zh: "已离开FedEx站点。" },
+    { carrier: "FedEx", category: "运输途中", en: "Arrived at FedEx location.", zh: "已到达FedEx站点。" },
+    { carrier: "FedEx", category: "派送状态", en: "On FedEx vehicle for delivery.", zh: "在FedEx派送车辆上。" },
+    { carrier: "FedEx", category: "派送状态", en: "Delivered.", zh: "已送达。" },
+    { carrier: "FedEx", category: "派送状态", en: "Delivery exception.", zh: "派送异常。" },
+    { carrier: "FedEx", category: "清关相关", en: "International shipment release - Import.", zh: "国际货物放行 - 进口。" },
+    { carrier: "FedEx", category: "清关相关", en: "In transit - Clearance in progress.", zh: "运输中 - 清关进行中。" },
+    { carrier: "FedEx", category: "清关相关", en: "Clearance delay - Import.", zh: "清关延迟 - 进口。" }
+];
+
+let tsCurrentCarrierFilter = 'all';
+
+function initTrackingStatusPage() {
+    const searchInput = document.getElementById('statusSearchInput');
+    const filterTabs = document.querySelectorAll('.filter-tab');
+    
+    if (!searchInput) return;
+    
+    // 绑定搜索事件
+    searchInput.addEventListener('input', function() {
+        renderTrackingStatusList(this.value, tsCurrentCarrierFilter);
+    });
+    
+    // 绑定筛选按钮事件
+    filterTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            tsCurrentCarrierFilter = this.getAttribute('data-carrier');
+            filterTabs.forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+            const searchQuery = searchInput.value;
+            renderTrackingStatusList(searchQuery, tsCurrentCarrierFilter);
+        });
+    });
+    
+    // 初始渲染
+    renderTrackingStatusList('', 'all');
+}
+
+function renderTrackingStatusList(query = '', carrier = 'all') {
+    const listContainer = document.getElementById('trackingStatusList');
+    const countSpan = document.getElementById('statusCount');
+    
+    if (!listContainer || !countSpan) return;
+    
+    const lowerQuery = query.toLowerCase().trim();
+    
+    let filteredData = trackingStatusData.filter(item => {
+        const carrierMatch = carrier === 'all' || item.carrier === carrier;
+        const textMatch = !lowerQuery || 
+            item.en.toLowerCase().includes(lowerQuery) || 
+            item.zh.includes(lowerQuery) ||
+            item.category.includes(lowerQuery);
+        return carrierMatch && textMatch;
+    });
+    
+    countSpan.textContent = filteredData.length;
+    
+    if (filteredData.length === 0) {
+        listContainer.innerHTML = '<div class="no-status-found">未找到匹配的运输状态</div>';
+        return;
+    }
+    
+    const html = filteredData.map(item => {
+        let highlightEn = item.en;
+        let highlightZh = item.zh;
+        if (lowerQuery) {
+            const escapedQuery = lowerQuery.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            highlightEn = item.en.replace(new RegExp('(' + escapedQuery + ')', 'gi'), '<mark>$1</mark>');
+            highlightZh = item.zh.replace(new RegExp('(' + lowerQuery + ')', 'g'), '<mark>$1</mark>');
+        }
+        return `<div class="status-item">
+            <span class="carrier-badge">${item.carrier}</span>
+            <div class="status-text">
+                <span class="status-en">${highlightEn}</span>
+                <span class="status-divider">—</span>
+                <span class="status-zh">${highlightZh}</span>
+            </div>
+        </div>`;
+    }).join('');
+    
+    listContainer.innerHTML = html;
+}
