@@ -195,7 +195,8 @@ const knowledgeBase = {
                         ],
                         customsPolicies: [
                             { title: "韩国海关申报", content: "进口货物需提交进口申报单，按HS编码缴纳关税。" },
-                            { title: "FTA优惠", content: "韩国与多国签署FTA，享受优惠关税。" }
+                            { title: "FTA优惠", content: "韩国与多国签署FTA，享受优惠关税。" },
+                            { title: "【重要】税号/PCCC要求", content: "所有进口到韩国的货物，必须在运输单据上提供税号/PCCC编号，否则货物可能被扣留。企业收件人：必须提供TAXID；个人收件人：必须提供PCCC号码（需收件人提前注册）。" }
                         ],
                         keywords: ["釜山港", "仁川机场", "韩国港口"]
                     },
@@ -355,7 +356,8 @@ const knowledgeBase = {
                             { name: "普吉", cities: ["普吉"] }
                         ],
                         customsPolicies: [
-                            { title: "泰国海关", content: "进口需申报，按HS编码缴税。" }
+                            { title: "泰国海关", content: "进口需申报，按HS编码缴税。" },
+                            { title: "【2026新规】取消免税门槛", content: "自2026年1月1日起，泰国取消1500泰铢以下进口商品免税政策。所有进口商品（包括1泰铢物品）均需缴纳关税及增值税（VAT）。注意：泰国海关严查低申报，被查验将面临高额罚款。" }
                         ],
                         keywords: ["林查班港", "曼谷机场", "泰国港口"]
                     },
@@ -1024,7 +1026,8 @@ const knowledgeBase = {
                         ],
                         customsPolicies: [
                             { title: "沙特海关", content: "伊斯兰国家，酒类、猪肉等禁止进口。" },
-                            { title: "SASO认证", content: "部分商品需SASO认证。" }
+                            { title: "SASO认证", content: "部分商品需SASO认证。" },
+                            { title: "【2026新规】国家地址强制要求", content: "自2026年1月1日起，所有进出沙特货物强制要求提供沙特国家地址（National Address）或短地址编码（Saudi Short Address Code）。短地址码必须填写在邮编栏位（填写在其他位置视同未提供），5位邮编填写在地址栏内，二者缺一不可。违规罚款：每单最低5000沙特里亚尔（约13300元人民币）。收件人注册短地址码官网：https://splonline.com.sa/en/national-address-1/" }
                         ],
                         keywords: ["吉达港", "达曼港", "沙特港口"]
                     },
@@ -1856,7 +1859,8 @@ const knowledgeBase = {
                             { name: "科克", cities: ["科克"] }
                         ],
                         customsPolicies: [
-                            { title: "欧盟成员国", content: "作为欧盟成员国，适用欧盟关税政策。" }
+                            { title: "欧盟成员国", content: "作为欧盟成员国，适用欧盟关税政策。" },
+                            { title: "【2026新规】Eircode邮编强制要求", content: "自2026年2月1日起，所有FedEx往返爱尔兰货件必须提供Eircode（爱尔兰7位智能邮政编码）。未提供完整准确邮编将直接退运并罚款。查询邮编：https://finder.eircode.ie/" }
                         ],
                         keywords: ["都柏林港", "爱尔兰港口"]
                     },
