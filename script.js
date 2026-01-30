@@ -11369,6 +11369,8 @@ const trackingStatusData = [
     { carrier: "UPS", category: "清关相关", en: "Your package has cleared customs and is on the way.", zh: "您的包裹已清关，正在派送途中。" },
     { carrier: "UPS", category: "关税/税费", en: "Import charges are due for this package. Select Pay Now (where available) or pay at delivery.", zh: "此包裹需支付进口费用。请选择立即支付（如可用）或派送时支付。" },
     { carrier: "UPS", category: "清关相关", en: "The package is at the clearing agency awaiting final release.", zh: "包裹在清关机构等待最终放行。" },
+    { carrier: "UPS", category: "清关相关", en: "The parcel is in a secure facility pending clearance or resolution.", zh: "包裹在安全设施中等待清关或问题解决。" },
+    { carrier: "UPS", category: "派送状态", en: "The delivery date will be provided as soon as possible.", zh: "派送日期将尽快提供。" },
     { carrier: "UPS", category: "揽收状态", en: "Hong Kong, Shipper created a label, UPS has not received the package yet.", zh: "香港，发件人已创建标签，UPS尚未收到包裹。" },
     // DHL - 常见状态
     { carrier: "DHL", category: "取件/收件", en: "Shipment picked up.", zh: "货物已取件。" },
