@@ -9133,6 +9133,11 @@ const categoryOutlineData = {
             }
         ]
     },
+    "reading": {
+        title: "读书学习",
+        isSpecialPage: true,
+        sections: []
+    },
     // ===== 货代英语 =====
     "vocabulary": {
         title: "专业词汇",
@@ -9233,6 +9238,14 @@ function showCategoryOutline(categoryKey, scrollToSection = null) {
     document.getElementById('articleMeta').style.display = 'none';
     document.querySelector('.article-footer').style.display = 'none';
     document.getElementById('articleNav').innerHTML = '';
+    
+    // 特殊页面处理
+    if (data.isSpecialPage && categoryKey === 'reading') {
+        document.getElementById('articleTitle').style.display = '';
+        document.getElementById('articleTitle').textContent = data.title;
+        initReadingPage();
+        return;
+    }
     
     // 构建目录HTML - 1000h.org 风格
     let html = '<div class="category-outline">';
@@ -11312,6 +11325,282 @@ function renderDailyEnglishList(query = '', category = 'all') {
             </div>
         </div>
     `).join('');
+}
+
+// ===== 读书学习数据 =====
+const readingData = [
+    // 股市资金
+    { category: "股市资金", name: "《富爸爸穷爸爸》", level: "入门篇" },
+    { category: "股市资金", name: "《小狗钱钱》", level: "入门篇" },
+    { category: "股市资金", name: "《财务自由之路》", level: "入门篇" },
+    { category: "股市资金", name: "《邻家的百万富翁》", level: "入门篇" },
+    { category: "股市资金", name: "《巴比伦最富有的人》", level: "入门篇" },
+    { category: "股市资金", name: "《财报就像一本故事书》", level: "初级篇" },
+    { category: "股市资金", name: "《手把手教你读财报》", level: "初级篇" },
+    { category: "股市资金", name: "《投资中最简单的事》", level: "初级篇" },
+    { category: "股市资金", name: "《投资中最重要的事》", level: "进阶篇" },
+    { category: "股市资金", name: "《巴菲特的护城河》", level: "进阶篇" },
+    { category: "股市资金", name: "《学习估值，轻松投资》", level: "进阶篇" },
+    { category: "股市资金", name: "《指数基金投资指南》", level: "进阶篇" },
+    { category: "股市资金", name: "《穷查理宝典》", level: "高级篇" },
+    { category: "股市资金", name: "《怎样选择成长股》", level: "高级篇" },
+    { category: "股市资金", name: "《彼得林奇的成功投资》", level: "高级篇" },
+    { category: "股市资金", name: "《证券分析》", level: "终极篇" },
+    { category: "股市资金", name: "《聪明的投资者》", level: "终极篇" },
+    { category: "股市资金", name: "《估值》", level: "终极篇" },
+    { category: "股市资金", name: "《价值评估》", level: "终极篇" },
+    // 修习文化
+    { category: "修习文化", name: "菜根谭", author: "明朝洪应明" },
+    { category: "修习文化", name: "小窗幽记", author: "陆绍珩" },
+    { category: "修习文化", name: "围炉夜话", author: "清朝王永彬" },
+    { category: "修习文化", name: "商君书", author: "天下第一禁书" },
+    { category: "修习文化", name: "罗织经", author: "" },
+    { category: "修习文化", name: "韩非子", author: "" },
+    { category: "修习文化", name: "焚书", author: "" },
+    { category: "修习文化", name: "明夷待访录", author: "" },
+    { category: "修习文化", name: "商人的咒", author: "灰商曹建伟" },
+    { category: "修习文化", name: "史记·货殖列传", author: "" },
+    { category: "修习文化", name: "天下水陆路程", author: "" },
+    { category: "修习文化", name: "士商类要", author: "" },
+    { category: "修习文化", name: "世事生意初阶", author: "" },
+    { category: "修习文化", name: "商贾便览", author: "" },
+    { category: "修习文化", name: "计然篇", author: "" },
+    { category: "修习文化", name: "商贾指南", author: "" },
+    { category: "修习文化", name: "为商十要", author: "" },
+    { category: "修习文化", name: "贸学须知", author: "" },
+    { category: "修习文化", name: "客商一览醒迷", author: "" },
+    { category: "修习文化", name: "杂货便览", author: "" },
+    { category: "修习文化", name: "清高宗实录", author: "" },
+    { category: "修习文化", name: "客窗闲话", author: "" },
+    { category: "修习文化", name: "清碑类钞", author: "" },
+    { category: "修习文化", name: "天道遥远的救世主", author: "" },
+    // 货代物流
+    { category: "货代物流", name: "福锐达外贸助手", type: "公众号" },
+    { category: "货代物流", name: "运去哪国际物流平台", type: "平台" },
+    { category: "货代物流", name: "物流声音", type: "公众号" },
+    { category: "货代物流", name: "物流巴巴", type: "平台" },
+    { category: "货代物流", name: "物流指闻", type: "公众号" },
+    { category: "货代物流", name: "物流沙龙", type: "公众号" },
+    { category: "货代物流", name: "中技物流", type: "公众号" },
+    { category: "货代物流", name: "深圳物流与供应链管理协会", type: "机构" },
+    { category: "货代物流", name: "锦程物流", type: "平台" },
+    { category: "货代物流", name: "大赢家物流", type: "公众号" },
+    { category: "货代物流", name: "大陆桥物流联盟", type: "公众号" },
+    { category: "货代物流", name: "平野云物流", type: "公众号" },
+    { category: "货代物流", name: "跨境电商物流百晓生", type: "公众号" },
+    { category: "货代物流", name: "通志国际物流", type: "公众号" },
+    { category: "货代物流", name: "创宇跨境电商物流", type: "公众号" },
+    { category: "货代物流", name: "WFS威达货运跨境物流", type: "公众号" },
+    { category: "货代物流", name: "海光物流集团", type: "公众号" },
+    { category: "货代物流", name: "久荣物流", type: "公众号" },
+    { category: "货代物流", name: "信华物流", type: "公众号" },
+    { category: "货代物流", name: "星航物流", type: "公众号" },
+    { category: "货代物流", name: "联宇物流", type: "公众号" },
+    { category: "货代物流", name: "蚂蚁物流网", type: "平台" },
+    { category: "货代物流", name: "千合跨境物流", type: "公众号" },
+    { category: "货代物流", name: "海铁国际物流", type: "公众号" },
+    { category: "货代物流", name: "物流牛人", type: "公众号" },
+    // 网赚副业
+    { category: "网赚副业", name: "毛哥奋斗在深圳", type: "公众号" },
+    { category: "网赚副业", name: "鬼道创业圈", type: "公众号" },
+    { category: "网赚副业", name: "爱国创业", type: "公众号" },
+    { category: "网赚副业", name: "徐志国频道", type: "公众号" },
+    { category: "网赚副业", name: "网络共享汇", type: "公众号" },
+    { category: "网赚副业", name: "智多星", type: "公众号" },
+    { category: "网赚副业", name: "波波来了", type: "公众号" },
+    { category: "网赚副业", name: "张良网创老板会", type: "公众号" },
+    { category: "网赚副业", name: "无路可套", type: "公众号" },
+    { category: "网赚副业", name: "为你写一个故事", type: "公众号" },
+    { category: "网赚副业", name: "懂懂日记", type: "公众号" },
+    { category: "网赚副业", name: "小路超车", type: "公众号" },
+    { category: "网赚副业", name: "我就BB怎么了", type: "公众号" },
+    { category: "网赚副业", name: "张桓投资笔记", type: "公众号" },
+    { category: "网赚副业", name: "暴疯团队俱乐部", type: "公众号" },
+    { category: "网赚副业", name: "万小刀", type: "公众号" },
+    { category: "网赚副业", name: "我会永远在你身后", type: "公众号" },
+    { category: "网赚副业", name: "地球知识局", type: "公众号" },
+    { category: "网赚副业", name: "九个亿泡", type: "公众号" },
+    { category: "网赚副业", name: "抽见", type: "公众号" },
+    { category: "网赚副业", name: "正解局", type: "公众号" },
+    { category: "网赚副业", name: "CAP学习网", type: "网站" },
+    { category: "网赚副业", name: "新媒之家", type: "公众号" },
+    { category: "网赚副业", name: "8字路口", type: "公众号" },
+    { category: "网赚副业", name: "马路青年", type: "公众号" },
+    // 房地产
+    { category: "房地产", name: "水库论坛", type: "公众号" },
+    { category: "房地产", name: "鹏城楼房", type: "公众号" },
+    { category: "房地产", name: "房圳探", type: "公众号" },
+    { category: "房地产", name: "房Boss", type: "公众号" },
+    { category: "房地产", name: "二环十三套", type: "公众号" },
+    { category: "房地产", name: "呆呆咖啡馆", type: "公众号" },
+    { category: "房地产", name: "渔村大牛", type: "公众号" },
+    { category: "房地产", name: "二小姐后花园", type: "公众号" },
+    { category: "房地产", name: "二小姐贵宾团", type: "公众号" },
+    { category: "房地产", name: "莫老爷", type: "公众号" },
+    { category: "房地产", name: "砖本位", type: "公众号" },
+    { category: "房地产", name: "奥派经济学", type: "公众号" },
+    { category: "房地产", name: "樱桃大房子", type: "公众号" },
+    { category: "房地产", name: "真叫卢俊", type: "公众号" },
+    { category: "房地产", name: "mango带你搞副业", type: "公众号" },
+    { category: "房地产", name: "矛盾视界", type: "公众号" },
+    { category: "房地产", name: "毛小白奋斗在深圳", type: "公众号" },
+    { category: "房地产", name: "毛小白plus", type: "公众号" },
+    { category: "房地产", name: "猫爷谈赚", type: "公众号" },
+    { category: "房地产", name: "每天学点自媒体", type: "公众号" },
+    { category: "房地产", name: "苗子分享汇", type: "公众号" },
+    { category: "房地产", name: "苗子思维录", type: "公众号" },
+    { category: "房地产", name: "铭则网络营销", type: "公众号" },
+    { category: "房地产", name: "摸鱼思维", type: "公众号" },
+    { category: "房地产", name: "木木老贼", type: "公众号" },
+    { category: "房地产", name: "逆东黑帽SEO", type: "公众号" },
+    // 知识学习
+    { category: "知识学习", name: "剽悍一只猫", type: "公众号" },
+    { category: "知识学习", name: "包邮区", type: "公众号" },
+    { category: "知识学习", name: "广告狂人", type: "公众号" },
+    { category: "知识学习", name: "杜蕾斯", type: "公众号" },
+    { category: "知识学习", name: "插座学院", type: "公众号" },
+    { category: "知识学习", name: "雾满拦江", type: "公众号" },
+    { category: "知识学习", name: "半佛仙人", type: "公众号" },
+    { category: "知识学习", name: "秦小明", type: "公众号" },
+    { category: "知识学习", name: "大宝会", type: "公众号" },
+    { category: "知识学习", name: "王马丁的狐步舞厅", type: "公众号" },
+    { category: "知识学习", name: "拳王的故事", type: "公众号" },
+    { category: "知识学习", name: "电商海参哥", type: "公众号" },
+    { category: "知识学习", name: "周秦汉是个大SB", type: "公众号" },
+    { category: "知识学习", name: "创意很关键", type: "公众号" },
+    { category: "知识学习", name: "傅盛", type: "公众号" },
+    { category: "知识学习", name: "颜玉瀚", type: "公众号" },
+    { category: "知识学习", name: "孤独大脑", type: "公众号" },
+    { category: "知识学习", name: "三表龙门阵", type: "公众号" },
+    { category: "知识学习", name: "大汉丞相", type: "公众号" },
+    { category: "知识学习", name: "布尔费墨", type: "公众号" },
+    { category: "知识学习", name: "惊云小屋", type: "公众号" },
+    { category: "知识学习", name: "李尚龙", type: "公众号" },
+    { category: "知识学习", name: "萧秋水", type: "公众号" },
+    // 实用工具
+    { category: "实用工具", name: "知云阁", type: "工具" },
+    { category: "实用工具", name: "每日优质搜罗", type: "公众号" },
+    { category: "实用工具", name: "狗子的幸福生活", type: "公众号" },
+    { category: "实用工具", name: "Apper", type: "工具" },
+    { category: "实用工具", name: "Tools指南", type: "公众号" },
+    { category: "实用工具", name: "黑白鹭", type: "公众号" },
+    { category: "实用工具", name: "素材兔", type: "工具" },
+    { category: "实用工具", name: "大灰指北", type: "公众号" },
+    { category: "实用工具", name: "搬砖圈", type: "公众号" },
+    { category: "实用工具", name: "大灰Hurbai", type: "公众号" },
+    { category: "实用工具", name: "可能吧", type: "公众号" },
+    { category: "实用工具", name: "软件安装管家", type: "公众号" },
+    { category: "实用工具", name: "Mac软件管家", type: "公众号" },
+    { category: "实用工具", name: "向天歌", type: "公众号" },
+    { category: "实用工具", name: "吾爱破解论坛", type: "网站" },
+    { category: "实用工具", name: "阿刚同学", type: "公众号" },
+    { category: "实用工具", name: "软件智库", type: "公众号" },
+    { category: "实用工具", name: "Hack", type: "工具" },
+    { category: "实用工具", name: "V视频助手", type: "工具" },
+    { category: "实用工具", name: "批量下载", type: "工具" },
+    { category: "实用工具", name: "维棠", type: "工具" },
+    { category: "实用工具", name: "Icebaby", type: "工具" },
+    { category: "实用工具", name: "视频批量下载器", type: "工具" },
+    { category: "实用工具", name: "讯飞输入法", type: "工具" },
+    { category: "实用工具", name: "搜狗听写", type: "工具" },
+    { category: "实用工具", name: "Remove logonow", type: "工具" },
+    { category: "实用工具", name: "去水印软件", type: "工具" },
+    { category: "实用工具", name: "ev录屏", type: "工具" },
+    { category: "实用工具", name: "kk录屏", type: "工具" },
+    { category: "实用工具", name: "PR", type: "工具" },
+    { category: "实用工具", name: "AE", type: "工具" },
+    { category: "实用工具", name: "快剪辑", type: "工具" },
+    { category: "实用工具", name: "camtasia 9", type: "工具" }
+];
+
+// 读书学习页面初始化
+function initReadingPage() {
+    const container = document.getElementById('articleBody');
+    if (!container) return;
+    
+    const categories = ['全部', '股市资金', '修习文化', '货代物流', '网赚副业', '房地产', '知识学习', '实用工具'];
+    
+    container.innerHTML = `
+        <div class="reading-page">
+            <div class="reading-search-box">
+                <input type="text" id="readingSearchInput" placeholder="搜索资源..." class="reading-search-input">
+            </div>
+            <div class="reading-tabs" id="readingTabs">
+                ${categories.map((cat, index) => `
+                    <button class="reading-tab ${index === 0 ? 'active' : ''}" data-category="${cat}">${cat}</button>
+                `).join('')}
+            </div>
+            <div class="reading-list" id="readingList"></div>
+        </div>
+    `;
+    
+    // 初始渲染
+    renderReadingList(readingData);
+    
+    // 搜索功能
+    document.getElementById('readingSearchInput').addEventListener('input', (e) => {
+        filterReadingList();
+    });
+    
+    // Tab切换
+    document.querySelectorAll('.reading-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+            document.querySelectorAll('.reading-tab').forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            filterReadingList();
+        });
+    });
+}
+
+function filterReadingList() {
+    const searchValue = document.getElementById('readingSearchInput').value.toLowerCase();
+    const activeTab = document.querySelector('.reading-tab.active');
+    const category = activeTab ? activeTab.getAttribute('data-category') : '全部';
+    
+    let filtered = readingData;
+    
+    // 按分类筛选
+    if (category !== '全部') {
+        filtered = filtered.filter(item => item.category === category);
+    }
+    
+    // 按搜索词筛选
+    if (searchValue) {
+        filtered = filtered.filter(item => 
+            item.name.toLowerCase().includes(searchValue) ||
+            (item.author && item.author.toLowerCase().includes(searchValue)) ||
+            (item.level && item.level.toLowerCase().includes(searchValue)) ||
+            (item.type && item.type.toLowerCase().includes(searchValue))
+        );
+    }
+    
+    renderReadingList(filtered);
+}
+
+function renderReadingList(data) {
+    const listContainer = document.getElementById('readingList');
+    if (!listContainer) return;
+    
+    if (data.length === 0) {
+        listContainer.innerHTML = '<div class="reading-empty">暂无匹配的资源</div>';
+        return;
+    }
+    
+    const html = data.map(item => {
+        let subtitle = '';
+        if (item.level) subtitle = item.level;
+        else if (item.author) subtitle = item.author;
+        else if (item.type) subtitle = item.type;
+        
+        return `
+        <div class="reading-item">
+            <span class="reading-category-badge">${item.category}</span>
+            <span class="reading-name">${item.name}</span>
+            ${subtitle ? `<span class="reading-subtitle">${subtitle}</span>` : ''}
+        </div>`;
+    }).join('');
+    
+    listContainer.innerHTML = html;
 }
 
 // ===== 运输状态查询功能 =====
