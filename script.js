@@ -11407,6 +11407,7 @@ const trackingStatusData = [
     { carrier: "FedEx", category: "异常状态", en: "The barcode label on this package was unreadable. We will replace it and update the delivery date.", zh: "此包裹的条形码标签无法读取，我们将更换并更新派送日期。" },
     { carrier: "FedEx", category: "工单处理", en: "Support ticket in progress.", zh: "支持工单处理中。" },
     { carrier: "FedEx", category: "工单处理", en: "A ticket has been created for this shipment. We'll contact the person who created the ticket when it's updated.", zh: "已为此货物创建工单，工单更新时我们会联系创建人。" },
+    { carrier: "FedEx", category: "清关相关", en: "Goods are subject to regulatory review. Recommended action: No action required at this time.", zh: "货物正在接受监管审查。建议操作：目前无需任何操作。" },
     { carrier: "FedEx", category: "运输途中", en: "On the way.", zh: "在途中。" },
     { carrier: "FedEx", category: "运输途中", en: "A trusted third-party vendor is on the way with your package.", zh: "可信的第三方供应商正在运送您的包裹。" },
     { carrier: "FedEx", category: "异常状态", en: "Delay.", zh: "延迟。" },
@@ -11485,3 +11486,4 @@ function renderTrackingStatusList(query = '', carrier = 'all') {
     
     listContainer.innerHTML = html;
 }
+https://skills.sh/
