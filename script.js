@@ -11354,6 +11354,7 @@ const readingData = [
     { category: "投资理财", name: "《聪明的投资者》", level: "终极篇" },
     { category: "投资理财", name: "《估值》", level: "终极篇" },
     { category: "投资理财", name: "《价值评估》", level: "终极篇" },
+    { category: "投资理财", name: "布客新知·财富资料库", level: "资源库", link: "https://github.com/ixinzhi" },
     // 诸子百家
     { category: "诸子百家", name: "菜根谭", author: "明朝洪应明" },
     { category: "诸子百家", name: "小窗幽记", author: "陆绍珩" },
