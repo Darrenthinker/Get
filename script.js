@@ -11458,7 +11458,9 @@ const readingData = [
     { category: "房地产", name: "摸鱼思维", type: "公众号" },
     { category: "房地产", name: "木木老贼", type: "公众号" },
     { category: "房地产", name: "逆东黑帽SEO", type: "公众号" },
-    // 知识学习
+    // 信用卡
+    { category: "信用卡", name: "信用卡", type: "公众号" },
+    // 广告营销
     { category: "广告营销", name: "剽悍一只猫", type: "公众号" },
     { category: "广告营销", name: "包邮区", type: "公众号" },
     { category: "广告营销", name: "广告狂人", type: "公众号" },
@@ -11523,7 +11525,7 @@ function initReadingPage() {
     const container = document.getElementById('articleBody');
     if (!container) return;
     
-    const categories = ['货代博主', '货代公众号', '诸子百家', '投资理财', '房地产', '广告营销', '财商思维', '实用工具'];
+    const categories = ['货代博主', '货代公众号', '诸子百家', '投资理财', '房地产', '信用卡', '广告营销', '财商思维', '实用工具'];
     
     // 计算每个分类的数量
     const categoryCounts = {};
