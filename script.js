@@ -11574,7 +11574,7 @@ const readingData = [
     { category: "财商思维", name: "马路青年", type: "公众号" },
     // 房地产
     { category: "房地产", name: "水库论坛", type: "公众号" },
-    { category: "房地产", name: "鹏城楼房", type: "公众号" },
+    { category: "房地产", name: "鹏城荐房", type: "公众号" },
     { category: "房地产", name: "房圳探", type: "公众号" },
     { category: "房地产", name: "房Boss", type: "公众号" },
     { category: "房地产", name: "二环十三套", type: "公众号" },
@@ -11587,18 +11587,6 @@ const readingData = [
     { category: "房地产", name: "奥派经济学", type: "公众号" },
     { category: "房地产", name: "樱桃大房子", type: "公众号" },
     { category: "房地产", name: "真叫卢俊", type: "公众号" },
-    { category: "房地产", name: "mango带你搞副业", type: "公众号" },
-    { category: "房地产", name: "矛盾视界", type: "公众号" },
-    { category: "房地产", name: "毛小白奋斗在深圳", type: "公众号" },
-    { category: "房地产", name: "毛小白plus", type: "公众号" },
-    { category: "房地产", name: "猫爷谈赚", type: "公众号" },
-    { category: "房地产", name: "每天学点自媒体", type: "公众号" },
-    { category: "房地产", name: "苗子分享汇", type: "公众号" },
-    { category: "房地产", name: "苗子思维录", type: "公众号" },
-    { category: "房地产", name: "铭则网络营销", type: "公众号" },
-    { category: "房地产", name: "摸鱼思维", type: "公众号" },
-    { category: "房地产", name: "木木老贼", type: "公众号" },
-    { category: "房地产", name: "逆东黑帽SEO", type: "公众号" },
     // 信用卡
     { category: "信用卡", name: "信用卡", type: "公众号" },
     // 广告营销
