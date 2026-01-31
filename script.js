@@ -11355,30 +11355,30 @@ const readingData = [
     { category: "股市资金", name: "《估值》", level: "终极篇" },
     { category: "股市资金", name: "《价值评估》", level: "终极篇" },
     // 修习文化
-    { category: "修习文化", name: "菜根谭", author: "明朝洪应明" },
-    { category: "修习文化", name: "小窗幽记", author: "陆绍珩" },
-    { category: "修习文化", name: "围炉夜话", author: "清朝王永彬" },
-    { category: "修习文化", name: "商君书", author: "天下第一禁书" },
-    { category: "修习文化", name: "罗织经", author: "" },
-    { category: "修习文化", name: "韩非子", author: "" },
-    { category: "修习文化", name: "焚书", author: "" },
-    { category: "修习文化", name: "明夷待访录", author: "" },
-    { category: "修习文化", name: "商人的咒", author: "灰商曹建伟" },
-    { category: "修习文化", name: "史记·货殖列传", author: "" },
-    { category: "修习文化", name: "天下水陆路程", author: "" },
-    { category: "修习文化", name: "士商类要", author: "" },
-    { category: "修习文化", name: "世事生意初阶", author: "" },
-    { category: "修习文化", name: "商贾便览", author: "" },
-    { category: "修习文化", name: "计然篇", author: "" },
-    { category: "修习文化", name: "商贾指南", author: "" },
-    { category: "修习文化", name: "为商十要", author: "" },
-    { category: "修习文化", name: "贸学须知", author: "" },
-    { category: "修习文化", name: "客商一览醒迷", author: "" },
-    { category: "修习文化", name: "杂货便览", author: "" },
-    { category: "修习文化", name: "清高宗实录", author: "" },
-    { category: "修习文化", name: "客窗闲话", author: "" },
-    { category: "修习文化", name: "清碑类钞", author: "" },
-    { category: "修习文化", name: "天道遥远的救世主", author: "" },
+    { category: "诸子百家", name: "菜根谭", author: "明朝洪应明" },
+    { category: "诸子百家", name: "小窗幽记", author: "陆绍珩" },
+    { category: "诸子百家", name: "围炉夜话", author: "清朝王永彬" },
+    { category: "诸子百家", name: "商君书", author: "天下第一禁书" },
+    { category: "诸子百家", name: "罗织经", author: "" },
+    { category: "诸子百家", name: "韩非子", author: "" },
+    { category: "诸子百家", name: "焚书", author: "" },
+    { category: "诸子百家", name: "明夷待访录", author: "" },
+    { category: "诸子百家", name: "商人的咒", author: "灰商曹建伟" },
+    { category: "诸子百家", name: "史记·货殖列传", author: "" },
+    { category: "诸子百家", name: "天下水陆路程", author: "" },
+    { category: "诸子百家", name: "士商类要", author: "" },
+    { category: "诸子百家", name: "世事生意初阶", author: "" },
+    { category: "诸子百家", name: "商贾便览", author: "" },
+    { category: "诸子百家", name: "计然篇", author: "" },
+    { category: "诸子百家", name: "商贾指南", author: "" },
+    { category: "诸子百家", name: "为商十要", author: "" },
+    { category: "诸子百家", name: "贸学须知", author: "" },
+    { category: "诸子百家", name: "客商一览醒迷", author: "" },
+    { category: "诸子百家", name: "杂货便览", author: "" },
+    { category: "诸子百家", name: "清高宗实录", author: "" },
+    { category: "诸子百家", name: "客窗闲话", author: "" },
+    { category: "诸子百家", name: "清碑类钞", author: "" },
+    { category: "诸子百家", name: "天道遥远的救世主", author: "" },
     // 货代物流
     { category: "货代公众号", name: "福锐达外贸助手", type: "公众号" },
     { category: "货代公众号", name: "运去哪国际物流平台", type: "平台" },
@@ -11523,7 +11523,7 @@ function initReadingPage() {
     const container = document.getElementById('articleBody');
     if (!container) return;
     
-    const categories = ['货代博主', '货代公众号', '修习文化', '股市资金', '房地产', '网赚副业', '知识学习', '实用工具'];
+    const categories = ['货代博主', '货代公众号', '诸子百家', '股市资金', '房地产', '网赚副业', '知识学习', '实用工具'];
     
     // 计算每个分类的数量
     const categoryCounts = {};
