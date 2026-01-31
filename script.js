@@ -11330,15 +11330,9 @@ function renderDailyEnglishList(query = '', category = 'all') {
 // ===== 读书学习数据 =====
 const readingData = [
     // 货代博主
-    { category: "货代博主", name: "毛哥奋斗在深圳", type: "公众号" },
-    { category: "货代博主", name: "跨境电商物流百晓生", type: "公众号" },
-    { category: "货代博主", name: "物流指闻", type: "公众号" },
-    { category: "货代博主", name: "物流沙龙", type: "公众号" },
-    { category: "货代博主", name: "张良网创老板会", type: "公众号" },
-    { category: "货代博主", name: "电商海参哥", type: "公众号" },
-    { category: "货代博主", name: "物流牛人", type: "公众号" },
-    { category: "货代博主", name: "大灰指北", type: "公众号" },
-    { category: "货代博主", name: "大灰Hurbai", type: "公众号" },
+    { category: "货代博主", name: "货代老王", type: "视频号抖音" },
+    { category: "货代博主", name: "货代老樊", type: "视频号抖音" },
+    { category: "货代博主", name: "陈闯", type: "视频号抖音" },
     // 股市资金
     { category: "股市资金", name: "《富爸爸穷爸爸》", level: "入门篇" },
     { category: "股市资金", name: "《小狗钱钱》", level: "入门篇" },
@@ -11622,7 +11616,6 @@ function renderReadingList(data) {
         
         return `
         <div class="reading-item">
-            <span class="reading-category-badge">${item.category}</span>
             <span class="reading-name">${item.name}</span>
             ${subtitle ? `<span class="reading-subtitle">${subtitle}</span>` : ''}
         </div>`;
