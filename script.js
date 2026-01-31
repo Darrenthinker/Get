@@ -11518,24 +11518,38 @@ function initReadingPage() {
     const container = document.getElementById('articleBody');
     if (!container) return;
     
-    const categories = ['全部', '股市资金', '修习文化', '货代物流', '网赚副业', '房地产', '知识学习', '实用工具'];
+    const categories = ['股市资金', '修习文化', '货代物流', '网赚副业', '房地产', '知识学习', '实用工具'];
+    
+    // 计算每个分类的数量
+    const categoryCounts = {};
+    categories.forEach(cat => {
+        categoryCounts[cat] = readingData.filter(item => item.category === cat).length;
+    });
     
     container.innerHTML = `
         <div class="reading-page">
             <div class="reading-search-box">
-                <input type="text" id="readingSearchInput" placeholder="搜索资源..." class="reading-search-input">
+                <input type="text" id="readingSearchInput" placeholder="搜索资源（支持名称、作者、类型）..." class="reading-search-input">
             </div>
-            <div class="reading-tabs" id="readingTabs">
-                ${categories.map((cat, index) => `
-                    <button class="reading-tab ${index === 0 ? 'active' : ''}" data-category="${cat}">${cat}</button>
-                `).join('')}
+            <div class="reading-tabs-container">
+                <div class="reading-tabs" id="readingTabs">
+                    ${categories.map((cat, index) => `
+                        <button class="reading-tab ${index === 0 ? 'active' : ''}" data-category="${cat}">
+                            <span class="tab-name">${cat}</span>
+                            <span class="tab-count">${categoryCounts[cat]}</span>
+                        </button>
+                    `).join('')}
+                </div>
             </div>
+            <div class="reading-count">共 <span id="readingTotalCount">${categoryCounts[categories[0]]}</span> 个资源</div>
             <div class="reading-list" id="readingList"></div>
         </div>
     `;
     
-    // 初始渲染
-    renderReadingList(readingData);
+    // 初始渲染第一个分类
+    const firstCategory = categories[0];
+    const initialData = readingData.filter(item => item.category === firstCategory);
+    renderReadingList(initialData);
     
     // 搜索功能
     document.getElementById('readingSearchInput').addEventListener('input', (e) => {
@@ -11547,6 +11561,8 @@ function initReadingPage() {
         tab.addEventListener('click', () => {
             document.querySelectorAll('.reading-tab').forEach(t => t.classList.remove('active'));
             tab.classList.add('active');
+            // 清空搜索
+            document.getElementById('readingSearchInput').value = '';
             filterReadingList();
         });
     });
@@ -11555,16 +11571,12 @@ function initReadingPage() {
 function filterReadingList() {
     const searchValue = document.getElementById('readingSearchInput').value.toLowerCase();
     const activeTab = document.querySelector('.reading-tab.active');
-    const category = activeTab ? activeTab.getAttribute('data-category') : '全部';
+    const category = activeTab ? activeTab.getAttribute('data-category') : '股市资金';
     
-    let filtered = readingData;
+    // 先按分类筛选
+    let filtered = readingData.filter(item => item.category === category);
     
-    // 按分类筛选
-    if (category !== '全部') {
-        filtered = filtered.filter(item => item.category === category);
-    }
-    
-    // 按搜索词筛选
+    // 再按搜索词筛选
     if (searchValue) {
         filtered = filtered.filter(item => 
             item.name.toLowerCase().includes(searchValue) ||
@@ -11572,6 +11584,12 @@ function filterReadingList() {
             (item.level && item.level.toLowerCase().includes(searchValue)) ||
             (item.type && item.type.toLowerCase().includes(searchValue))
         );
+    }
+    
+    // 更新数量显示
+    const countEl = document.getElementById('readingTotalCount');
+    if (countEl) {
+        countEl.textContent = filtered.length;
     }
     
     renderReadingList(filtered);
