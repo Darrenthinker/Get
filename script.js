@@ -11332,6 +11332,7 @@ const readingData = [
     // 货代博主
     { category: "货代博主", name: "货代老王", type: "视频号抖音" },
     { category: "货代博主", name: "货代老樊", type: "视频号抖音" },
+    { category: "货代博主", name: "跨境张大脸", type: "视频号抖音" },
     { category: "货代博主", name: "陈闯", type: "视频号抖音" },
     // 股市资金
     { category: "股市资金", name: "《富爸爸穷爸爸》", level: "入门篇" },
