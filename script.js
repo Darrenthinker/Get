@@ -11638,9 +11638,14 @@ function renderReadingList(data) {
         else if (item.author) subtitle = item.author;
         else if (item.type) subtitle = item.type;
         
+        // 如果有链接，则渲染为可点击的链接
+        const nameHtml = item.link 
+            ? `<a href="${item.link}" target="_blank" class="reading-name reading-link">${item.name}</a>`
+            : `<span class="reading-name">${item.name}</span>`;
+        
         return `
         <div class="reading-item">
-            <span class="reading-name">${item.name}</span>
+            ${nameHtml}
             ${subtitle ? `<span class="reading-subtitle">${subtitle}</span>` : ''}
         </div>`;
     }).join('');

@@ -3588,6 +3588,17 @@ button {
     font-weight: 500;
 }
 
+.reading-link {
+    color: var(--c-brand);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.reading-link:hover {
+    text-decoration: underline;
+}
+
 .reading-subtitle {
     font-size: 13px;
     color: var(--c-text-mute);
