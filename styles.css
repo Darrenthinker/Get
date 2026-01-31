@@ -3488,34 +3488,38 @@ button {
 }
 
 .reading-tabs {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
+    display: inline-flex;
+    border: 1px solid var(--c-border);
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--c-bg);
 }
 
 .reading-tab {
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 10px 16px;
-    border: 1px solid var(--c-border);
+    gap: 6px;
+    padding: 12px 20px;
+    border: none;
+    border-right: 1px solid var(--c-border);
     background: var(--c-bg);
-    border-radius: 8px;
     cursor: pointer;
     font-size: 14px;
     color: var(--c-text);
-    transition: all 0.2s;
+    transition: all 0.15s;
     font-weight: 500;
 }
 
+.reading-tab:last-child {
+    border-right: none;
+}
+
 .reading-tab:hover {
-    border-color: var(--c-brand);
-    color: var(--c-brand);
+    background: var(--c-bg-soft);
 }
 
 .reading-tab.active {
     background: var(--c-brand);
-    border-color: var(--c-brand);
     color: #fff;
 }
 
