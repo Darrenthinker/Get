@@ -11329,6 +11329,16 @@ function renderDailyEnglishList(query = '', category = 'all') {
 
 // ===== 读书学习数据 =====
 const readingData = [
+    // 货代博主
+    { category: "货代博主", name: "毛哥奋斗在深圳", type: "公众号" },
+    { category: "货代博主", name: "跨境电商物流百晓生", type: "公众号" },
+    { category: "货代博主", name: "物流指闻", type: "公众号" },
+    { category: "货代博主", name: "物流沙龙", type: "公众号" },
+    { category: "货代博主", name: "张良网创老板会", type: "公众号" },
+    { category: "货代博主", name: "电商海参哥", type: "公众号" },
+    { category: "货代博主", name: "物流牛人", type: "公众号" },
+    { category: "货代博主", name: "大灰指北", type: "公众号" },
+    { category: "货代博主", name: "大灰Hurbai", type: "公众号" },
     // 股市资金
     { category: "股市资金", name: "《富爸爸穷爸爸》", level: "入门篇" },
     { category: "股市资金", name: "《小狗钱钱》", level: "入门篇" },
@@ -11518,7 +11528,7 @@ function initReadingPage() {
     const container = document.getElementById('articleBody');
     if (!container) return;
     
-    const categories = ['股市资金', '修习文化', '货代物流', '网赚副业', '房地产', '知识学习', '实用工具'];
+    const categories = ['货代博主', '货代物流', '修习文化', '股市资金', '房地产', '网赚副业', '知识学习', '实用工具'];
     
     // 计算每个分类的数量
     const categoryCounts = {};

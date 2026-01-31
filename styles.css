@@ -3488,7 +3488,8 @@ button {
 }
 
 .reading-tabs {
-    display: inline-flex;
+    display: flex;
+    width: 100%;
     border: 1px solid var(--c-border);
     border-radius: 8px;
     overflow: hidden;
@@ -3498,8 +3499,10 @@ button {
 .reading-tab {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 6px;
-    padding: 12px 20px;
+    flex: 1;
+    padding: 12px 8px;
     border: none;
     border-right: 1px solid var(--c-border);
     background: var(--c-bg);
