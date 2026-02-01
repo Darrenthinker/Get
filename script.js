@@ -11567,8 +11567,8 @@ const readingData = [
     { category: "货代公众号", name: "货代外贸企业失信预警平台", type: "平台" },
     { category: "货代公众号", name: "罗杰把酒看航运", type: "公众号" },
     { category: "货代公众号", name: "货代kevin", type: "公众号" },
-    // 财商思维
-    { category: "财商情感", name: "毛哥奋斗在深圳", type: "公众号" },
+    { category: "货代公众号", name: "货代说", type: "公众号" },
+    // 财商情感
     { category: "财商情感", name: "鬼道创业圈/儒释道田斌", type: "公众号" },
     { category: "财商情感", name: "爱国创业", type: "公众号" },
     { category: "财商情感", name: "徐志国频道", type: "公众号" },
