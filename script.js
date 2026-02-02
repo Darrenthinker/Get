@@ -12072,6 +12072,8 @@ const trackingStatusData = [
     { carrier: "UPS", category: "清关相关", en: "The parcel is in a secure facility pending clearance or resolution.", zh: "包裹在安全设施中等待清关或问题解决。" },
     { carrier: "UPS", category: "派送状态", en: "The delivery date will be provided as soon as possible.", zh: "派送日期将尽快提供。" },
     { carrier: "UPS", category: "揽收状态", en: "Hong Kong, Shipper created a label, UPS has not received the package yet.", zh: "香港，发件人已创建标签，UPS尚未收到包裹。" },
+    { carrier: "UPS", category: "异常状态", en: "Severe weather conditions have delayed delivery until the next business day.", zh: "恶劣天气条件导致派送延迟至下一个工作日。" },
+    { carrier: "UPS", category: "异常状态", en: "A late UPS trailer arrival has delayed delivery. We're adjusting plans to deliver your package as quickly as possible. / Delivery will be delayed by one business day.", zh: "UPS拖车晚点到达导致派送延迟。我们正在调整计划以尽快派送您的包裹。/ 派送将延迟一个工作日。" },
     // DHL - 常见状态
     { carrier: "DHL", category: "取件/收件", en: "Shipment picked up.", zh: "货物已取件。" },
     { carrier: "DHL", category: "取件/收件", en: "Shipment information received.", zh: "已收到货物信息。" },
